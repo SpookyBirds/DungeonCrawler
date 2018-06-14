@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CameraMovementController : MonoBehaviour
 {
-
     public bool verticalInvertCamera = true;
     [Space]
 
