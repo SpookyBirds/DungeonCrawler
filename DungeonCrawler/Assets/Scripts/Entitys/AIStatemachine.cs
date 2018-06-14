@@ -7,10 +7,17 @@ public class AIStatemachine : InheritanceSimplyfier {
 
     private AIStates currentState;
 
+    [EnumFlags]
+    public Entities hostileEntities;
+
+    protected int[] types;
+    public int[] HostileTypes { get { return types; } }
+
     protected override void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        Debug.Log("AIstatemachine awakend");
+        types = Global.GetSelectedEntries(hostileEntities);
+
+        navMeshAgent = transform.parent.GetComponent<NavMeshAgent>();
     }
 
     protected override void Update()

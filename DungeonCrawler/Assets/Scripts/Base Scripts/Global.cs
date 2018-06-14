@@ -80,7 +80,7 @@ public static class Extentions
     /// </summary>
     public static bool IsAnyTagEqual(this Component component, int[] entitiesEntries)
     {
-        for (int index = 0; index < entitiesEntries.Length; index++)
+        for (int index = 0; index < entitiesEntries.Length; index++) 
         {
             if (component.CompareTag(Global.GetFactionTag(entitiesEntries[index])))
                 return true;

@@ -3,23 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour {
+public class Entity : InheritanceSimplyfier {
 
     public float startingHealth;
 
     private float health;
-    public float Health
+    public virtual float Health
     {
         get { return health; }
         protected set { health = value; }
     }
 
-    private void Awake()
+    protected override void Awake()
     {
         Health = startingHealth;
     }
 
-    private void LateUpdate()
+    protected override void LateUpdate()
     {
         HandleHealthDepletion();
     }
@@ -38,10 +38,9 @@ public class Entity : MonoBehaviour {
     }
 
     /// <summary>
-    /// Deal damage to this entity
+    /// Deal damage to this entity. Returns remaining health
     /// </summary>
     /// <param name="demageDelt">The amount of damage this attack delt this entity. Must be positive</param>
-    /// <returns>returns remaining health</returns>
     public float Damage(float damageDelt)
     {
         if (damageDelt < 0)

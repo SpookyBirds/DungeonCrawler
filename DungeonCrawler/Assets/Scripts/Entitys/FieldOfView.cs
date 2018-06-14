@@ -8,14 +8,11 @@ public class FieldOfView : MonoBehaviour {
 
     public float visionRadius;
 
-    [EnumFlags]
-    public Entities hostileEntities;
-
-    private int[] types;
+    private AI aI;
 
     private void Awake()
     {
-        types = Global.GetSelectedEntries(hostileEntities);
+        aI = GetComponent<AI>();
     }
 
     /// <summary>
@@ -30,7 +27,7 @@ public class FieldOfView : MonoBehaviour {
 
         for (int index = 0; index < colliderInVisionRange.Length; index++)
         {
-            if (colliderInVisionRange[index].IsAnyTagEqual(types))
+            if (colliderInVisionRange[index].IsAnyTagEqual(aI.HostileTypes))
             {
                 opponent = colliderInVisionRange[index].transform;
                 return true;

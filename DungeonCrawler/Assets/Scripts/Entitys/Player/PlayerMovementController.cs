@@ -30,21 +30,37 @@ public class PlayerMovementController : MonoBehaviour {
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            Cursor.lockState = CursorLockMode.None;
+        else if(Input.GetKeyUp(KeyCode.LeftShift))
+            Cursor.lockState = CursorLockMode.Locked;
+
+
         if (ForwardKeyDown)
         {
             SnapPlayerInCameraDirection();
             transform.position += ForwardDirection * forwardSpeed;
         }
         if (LeftKeyDown)
+        {
+            SnapPlayerInCameraDirection();
             transform.position += LeftDirection    * leftSpeed;
+        }
         if (BackKeyDown)
+        {
+            SnapPlayerInCameraDirection();
             transform.position += BackDirection    * backSpeed;
+        }
         if (RightKeyDown)
-            transform.position += RightDirection   * rightSpeed;
+        {
+            SnapPlayerInCameraDirection();
+            transform.position += RightDirection * rightSpeed;
+        }
     }
 
     private void SnapPlayerInCameraDirection()
