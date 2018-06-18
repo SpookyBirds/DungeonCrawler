@@ -12,6 +12,12 @@ public class NewMovement : MonoBehaviour {
     public float backSpeed = 0.1f;
     public float rightSpeed = 0.1f;
 
+    public float speed = 5f;
+
+    //custom robin code
+    private float xVelocity;
+    private float yVeloxitY;
+
     private float curSpeed = 0.0f;
     private float ForwardcurSpeed = 0.0f;
     public float acceleration = 0.1f;
@@ -51,6 +57,10 @@ public class NewMovement : MonoBehaviour {
         curSpeed += acceleration * backSpeed * Time.deltaTime;
         ForwardcurSpeed += acceleration  * forwardSpeed * Time.deltaTime;
 
+        xVelocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        yVeloxitY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+
+        transform.position = new Vector3(xVelocity, 0.5f, yVeloxitY);
 
         if (ForwardcurSpeed > MaxForwardSpeed)
             ForwardcurSpeed = MaxForwardSpeed;
@@ -58,44 +68,44 @@ public class NewMovement : MonoBehaviour {
         if (curSpeed > MaxSpeed)
             curSpeed = MaxSpeed;
 
-        if (ForwardKeyDown)
-        {
-            SnapPlayerInCameraDirection();
-            transform.position += ForwardDirection * ForwardcurSpeed * forwardSpeed;
+    //    if (ForwardKeyDown)
+    //    {
+    //        SnapPlayerInCameraDirection();
+    //        transform.position += ForwardDirection * ForwardcurSpeed * forwardSpeed;
 
            
-        }
-        if (!Input.anyKey)
-        {
-            ForwardcurSpeed -= Deacceleration * forwardSpeed * Time.deltaTime;
-            if (ForwardcurSpeed == 0)
-                ForwardcurSpeed = 0;
+    //    }
+    //    if (!Input.anyKey)
+    //    {
+    //        ForwardcurSpeed -= Deacceleration * forwardSpeed * Time.deltaTime;
+    //        if (ForwardcurSpeed == 0)
+    //            ForwardcurSpeed = 0;
             
-        }
+    //    }
 
 
-        if (LeftKeyDown)
-        {
-            SnapPlayerInCameraDirection();
-            //transform.position += LeftDirection * leftSpeed;
-            transform.position += LeftDirection * curSpeed * leftSpeed;
+    //    if (LeftKeyDown)
+    //    {
+    //        SnapPlayerInCameraDirection();
+    //        //transform.position += LeftDirection * leftSpeed;
+    //        transform.position += LeftDirection * curSpeed * leftSpeed;
         
 
-        }
-        if (BackKeyDown)
-        {
-            SnapPlayerInCameraDirection();
-            //transform.position += BackDirection * backSpeed;
-            transform.position += BackDirection * curSpeed * backSpeed;
+    //    }
+    //    if (BackKeyDown)
+    //    {
+    //        SnapPlayerInCameraDirection();
+    //        //transform.position += BackDirection * backSpeed;
+    //        transform.position += BackDirection * curSpeed * backSpeed;
          
-        }
-        if (RightKeyDown)
-        {
-            SnapPlayerInCameraDirection();
-            //transform.position += RightDirection * rightSpeed;
-            transform.position += RightDirection * curSpeed * rightSpeed;
+    //    }
+    //    if (RightKeyDown)
+    //    {
+    //        SnapPlayerInCameraDirection();
+    //        //transform.position += RightDirection * rightSpeed;
+    //        transform.position += RightDirection * curSpeed * rightSpeed;
            
-        }
+    //    }
     }
 
     private void SnapPlayerInCameraDirection()
