@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charcter : MonoBehaviour {
+public class Character : MonoBehaviour {
 
     private Animator anim;
     public KeyCode leftUseKey = KeyCode.Mouse0;
