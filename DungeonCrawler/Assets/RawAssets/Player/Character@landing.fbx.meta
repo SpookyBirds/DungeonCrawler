@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0d0b587eec08e4a408a3ccbc579e74de
+guid: d986b691a7e2d344889b569fc2644dc9
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -43,7 +43,7 @@ ModelImporter:
     400034: jnt_upperArm_R
     400036: jnt_upperLeg_L
     400038: jnt_upperLeg_R
-    7400000: jump
+    7400000: landing
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -74,10 +74,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: jump
+      name: landing
       takeName: clip_combatIdle
       firstFrame: 4.9
-      lastFrame: 24
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
