@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 
-    public KeyHub GM;
-
     public float forwardSpeed = 0.1f;
     public float leftSpeed    = 0.1f;
     public float backSpeed    = 0.1f;
@@ -25,34 +23,30 @@ public class PlayerMovementController : MonoBehaviour {
 
     private CameraMovementController cameraMovementController;
 
-    public void Start()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
-
     private void Awake()
     {
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(GM.Forward))
+        if (Input.GetKey(CTRLHub.GM.ForwardKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += ForwardDirection * forwardSpeed;
         }
-        if (Input.GetKey(GM.Left))
+        if (Input.GetKey(CTRLHub.GM.LeftKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += LeftDirection    * leftSpeed;
         }
-        if (Input.GetKey(GM.Backward))
+        if (Input.GetKey(CTRLHub.GM.BackwardKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += BackDirection    * backSpeed;
         }
-        if (Input.GetKey(GM.Right))
+        if (Input.GetKey(CTRLHub.GM.RightKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += RightDirection * rightSpeed;
@@ -61,13 +55,13 @@ public class PlayerMovementController : MonoBehaviour {
 
     public void Update()
     {
-        if(Input.GetKey(GM.Jump))
+        if(Input.GetKey(CTRLHub.GM.JumpKeyCode))
         {
-        // Let the player jump if the groundcheck is true
+            // Let the player jump if the groundcheck is true
             if (Groundcheck == true)
             {
-            if (Input.GetKeyDown(KeyCode.Space))
-                rigid.AddForce(0, jumpforce, 0);
+                if (Input.GetKeyDown(KeyCode.Space))
+                    rigid.AddForce(0, jumpforce, 0);
             }
         }   
     }
