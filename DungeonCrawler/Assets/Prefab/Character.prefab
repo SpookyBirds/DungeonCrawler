@@ -309,6 +309,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4447584484397058}
+  - component: {fileID: 208328630937271646}
+  - component: {fileID: 114229780804485914}
   - component: {fileID: 54731149581824158}
   - component: {fileID: 136902971529559058}
   - component: {fileID: 114129309802818620}
@@ -317,7 +319,7 @@ GameObject:
   - component: {fileID: 65180890729759392}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -679,7 +681,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657141031498820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1166,7 +1168,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165700924905842}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1225,8 +1227,23 @@ MonoBehaviour:
   leftSpeed: 0.1
   backSpeed: 0.1
   rightSpeed: 0.1
-  jumpforce: 30
+  jumpforce: 300
   animator: {fileID: 0}
+--- !u!114 &114229780804485914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657141031498820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!114 &114287797449311926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1256,8 +1273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd1f913d8323774e96ed6fc0b1d8925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 10
-  castingTimeInSeconds: 0.5
+  damagePerHit: 25
+  castingTimeInSeconds: 0.25
   attackCollider: {fileID: 65753092323590300}
 --- !u!136 &136902971529559058
 CapsuleCollider:
@@ -1338,3 +1355,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: -0.006733477, z: -0.0023076483}
     m_Extent: {x: 0.040816694, y: 0.054307785, z: 0.01361604}
   m_DirtyAABB: 0
+--- !u!208 &208328630937271646
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657141031498820}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1.975, z: 0.275}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
