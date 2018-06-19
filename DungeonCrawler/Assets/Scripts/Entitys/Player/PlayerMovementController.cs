@@ -31,22 +31,22 @@ public class PlayerMovementController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyHub.GM.ForwardKeyCode))
+        if (Input.GetKey(CTRLHub.GM.ForwardKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += ForwardDirection * forwardSpeed;
         }
-        if (Input.GetKey(KeyHub.GM.LeftKeyCode))
+        if (Input.GetKey(CTRLHub.GM.LeftKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += LeftDirection    * leftSpeed;
         }
-        if (Input.GetKey(KeyHub.GM.BackwardKeyCode))
+        if (Input.GetKey(CTRLHub.GM.BackwardKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += BackDirection    * backSpeed;
         }
-        if (Input.GetKey(KeyHub.GM.RightKeyCode))
+        if (Input.GetKey(CTRLHub.GM.RightKeyCode))
         {
             SnapPlayerInCameraDirection();
             transform.position += RightDirection * rightSpeed;
@@ -55,7 +55,7 @@ public class PlayerMovementController : MonoBehaviour {
 
     public void Update()
     {
-        if(Input.GetKey(KeyHub.GM.JumpKeyCode))
+        if(Input.GetKey(CTRLHub.GM.JumpKeyCode))
         {
             // Let the player jump if the groundcheck is true
             if (Groundcheck == true)

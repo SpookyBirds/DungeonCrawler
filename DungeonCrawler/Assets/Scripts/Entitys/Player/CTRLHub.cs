@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyHub : MonoBehaviour
+public class CTRLHub : MonoBehaviour
 {
-    public static KeyHub GM;
+    public static CTRLHub GM;
 
     public KeyCode AttackKeyCode { get; set; }
     public bool AttackDown { get { return (Input.GetKeyDown(AttackKeyCode)); } }

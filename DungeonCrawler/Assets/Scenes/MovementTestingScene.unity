@@ -936,7 +936,6 @@ GameObject:
   - component: {fileID: 673198387}
   - component: {fileID: 673198397}
   - component: {fileID: 673198396}
-  - component: {fileID: 673198400}
   - component: {fileID: 673198399}
   m_Layer: 0
   m_Name: Player
@@ -989,6 +988,11 @@ MonoBehaviour:
   enemyTypes: 
   playerEnemies: 0
   attackingKey: 323
+  forwardSpeed: 0.1
+  leftSpeed: 0.1
+  backSpeed: 0.1
+  rightSpeed: 0.1
+  jumpforce: 1
 --- !u!114 &673198390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,24 +1139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc34b259381ffc488b0f74736c9c583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GM: {fileID: 673198400}
   forwardSpeed: 0.1
   leftSpeed: 0.1
   backSpeed: 0.1
   rightSpeed: 0.1
   jumpforce: 300
   Groundcheck: 0
---- !u!114 &673198400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673198386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85cccf1e3dae47499cfa8b2f3f1d271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &698575911
 GameObject:
   m_ObjectHideFlags: 0
