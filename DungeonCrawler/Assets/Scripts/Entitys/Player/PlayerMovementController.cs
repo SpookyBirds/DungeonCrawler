@@ -5,22 +5,19 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour {
 
+    public KeyHub GM;
+
     public float forwardSpeed = 0.1f;
     public float leftSpeed    = 0.1f;
     public float backSpeed    = 0.1f;
-    public float rightSpeed   = 0.1f;
+    public float rightSpeed = 0.1f;
+    public float jumpforce = 1f;
 
-    [Space]
-    public KeyCode forwardKeyCode = KeyCode.W;
-    public KeyCode leftKeyCode    = KeyCode.A;
-    public KeyCode backKeyCode    = KeyCode.S;
-    public KeyCode rightKeyCode   = KeyCode.D;
+    public bool Groundcheck;
 
-    public bool ForwardKeyDown { get { return Input.GetKey(forwardKeyCode); } }
-    public bool LeftKeyDown    { get { return Input.GetKey(leftKeyCode   ); } }
-    public bool BackKeyDown    { get { return Input.GetKey(backKeyCode   ); } }
-    public bool RightKeyDown   { get { return Input.GetKey(rightKeyCode  ); } }
+    private Rigidbody rigid;
 
+    
     public Vector3 ForwardDirection { get { return transform.forward;  } }
     public Vector3 LeftDirection    { get { return - transform.right;  } }
     public Vector3 BackDirection    { get { return -transform.forward; } }
@@ -28,33 +25,62 @@ public class PlayerMovementController : MonoBehaviour {
 
     private CameraMovementController cameraMovementController;
 
+    public void Start()
+    {
+        rigid = GetComponent<Rigidbody>();
+    }
+
     private void Awake()
     {
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (ForwardKeyDown)
+        if (Input.GetKey(GM.forward))
         {
             SnapPlayerInCameraDirection();
             transform.position += ForwardDirection * forwardSpeed;
         }
-        if (LeftKeyDown)
+        if (Input.GetKey(GM.left))
         {
             SnapPlayerInCameraDirection();
             transform.position += LeftDirection    * leftSpeed;
         }
-        if (BackKeyDown)
+        if (Input.GetKey(GM.backward))
         {
             SnapPlayerInCameraDirection();
             transform.position += BackDirection    * backSpeed;
         }
-        if (RightKeyDown)
+        if (Input.GetKey(GM.right))
         {
             SnapPlayerInCameraDirection();
             transform.position += RightDirection * rightSpeed;
         }
+    }
+
+    public void Update()
+    {
+        if(Input.GetKey(GM.jump))
+        {
+        // Let the player jump if the groundcheck is true
+            if (Groundcheck == true)
+            {
+            if (Input.GetKeyDown(KeyCode.Space))
+                rigid.AddForce(0, jumpforce, 0);
+            }
+        }   
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Groundcheck = true;
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        Groundcheck = false;
     }
 
     private void SnapPlayerInCameraDirection()

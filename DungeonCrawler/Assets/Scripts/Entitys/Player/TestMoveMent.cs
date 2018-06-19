@@ -10,7 +10,7 @@ public class TestMoveMent : MonoBehaviour {
     private Vector3 movement;
     private Rigidbody Rigid;
 
-    private bool Groundcheck = true;
+    public bool Groundcheck = true;
 
     public CameraMovementController cameraMovementController;
 
@@ -32,10 +32,18 @@ public class TestMoveMent : MonoBehaviour {
         // adds Force relative to the position
         Rigid.AddRelativeForce(movement * Speed);
 
-        // Let the player jump if the groundcheck is true
-        if (Input.GetKeyDown(KeyCode.Space) && Groundcheck == true)
-        Rigid.AddForce(0, Jumpforce, 0);
 	}
+
+    public void Update()
+    {
+        // Let the player jump if the groundcheck is true
+        if (Groundcheck == true)
+        {
+        if(Input.GetKeyDown(KeyCode.Space))
+        Rigid.AddForce(0, Jumpforce, 0);
+        }
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
