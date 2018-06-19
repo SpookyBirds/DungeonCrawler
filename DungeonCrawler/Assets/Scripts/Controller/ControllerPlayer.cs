@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ControllerPlayer : Controller {
 
+    [EnumFlags]
+    public Entities playerEnemies;
+
     public KeyCode attackingKey = KeyCode.Mouse0;
 
     private AttackerPlayer attacker;
@@ -12,9 +15,7 @@ public class ControllerPlayer : Controller {
     {
         attacker = GetComponent<AttackerPlayer>();
 
-        enemyTypes = new int[]{
-            (int)Entities.Enemy_NPC
-        };
+        enemyTypes = Global.GetSelectedEntries(playerEnemies);
 
         base.Awake();
     }

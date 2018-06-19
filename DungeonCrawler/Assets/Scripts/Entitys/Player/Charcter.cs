@@ -9,15 +9,13 @@ public class Charcter : MonoBehaviour {
     public KeyCode rightUseKey = KeyCode.Mouse1;
     public KeyCode runKey = KeyCode.W;
 
-
     void Start () {
         anim = GetComponent<Animator>();
 	}
 	
-	
 	void Update () {
-        anim.SetBool("LeftUse", Input.GetKey(leftUseKey));
+        anim.SetBool("LeftUse",  Input.GetKey(leftUseKey));
         anim.SetBool("RightUse", Input.GetKeyDown(rightUseKey));
-        anim.SetBool("Run", Input.GetKey(runKey));
+        anim.SetBool("Run",      Input.GetKey(runKey));
 	}
 }
