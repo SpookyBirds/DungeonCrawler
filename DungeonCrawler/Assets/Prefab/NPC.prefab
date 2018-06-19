@@ -57,9 +57,9 @@ GameObject:
   - component: {fileID: 4884058899920762}
   - component: {fileID: 136984636980017408}
   - component: {fileID: 114787492036686594}
-  - component: {fileID: 114219035930744416}
   - component: {fileID: 114193760082903664}
   - component: {fileID: 114548234859077742}
+  - component: {fileID: 114384574680571776}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Enemy_NPC
@@ -180,7 +180,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623607133025250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostileEntities: 6
---- !u!114 &114219035930744416
+--- !u!114 &114384574680571776
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -426,14 +426,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297052014845958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b12b444f118eb428b5ea57be98b49f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d06001eb7d43c84790fd4a2c72d0f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 100
+  damagePerHit: 12.5
   castingTimeInSeconds: 1
   attackCollider: {fileID: 65536266206170714}
-  aI: {fileID: 0}
-  alreadyAttacking: 0
 --- !u!114 &114548234859077742
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,6 @@ public class ControllerNPC : Controller {
     protected override void Start()
     {
         aI = GetComponent<AIStatemachine>();
-        enemyTypes = aI.HostileTypes;
+        EnemyTypes = aI.HostileTypes;
     }
 }

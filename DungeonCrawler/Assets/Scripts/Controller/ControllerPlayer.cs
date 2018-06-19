@@ -8,8 +8,6 @@ public class ControllerPlayer : Controller {
     [EnumFlags]
     public Entities playerEnemies;
 
-    public KeyCode attackingKey = KeyCode.Mouse0;
-
     public float forwardSpeed = 0.1f;
     public float leftSpeed = 0.1f;
     public float backSpeed = 0.1f;
@@ -17,10 +15,21 @@ public class ControllerPlayer : Controller {
     public float jumpforce = 1f;
 
     private bool isGrounded;
+    public bool IsGrounded
+    {
+        get { return isGrounded; }
+        set
+        {
+            isGrounded = value;
+            animator.SetBool("GroundContact", IsGrounded);
+        }
+    }
 
     private AttackerPlayer attacker;
     private Rigidbody rigid;
     private CameraMovementController cameraMovementController;
+    [Tooltip("The animator used for this Player. If not supplied, the script will search the transform and it's children")]
+    public Animator animator;
 
     public Vector3 ForwardDirection { get { return transform.forward;  } }
     public Vector3 LeftDirection    { get { return -transform.right;   } }
@@ -32,58 +41,99 @@ public class ControllerPlayer : Controller {
         attacker = GetComponent<AttackerPlayer>();
         rigid = GetComponent<Rigidbody>();
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
+        animator = GetComponent<Animator>();
 
-        enemyTypes = Global.GetSelectedEntries(playerEnemies);
+        if (animator == null)
+            animator = GetComponent<Animator>();
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
+
+        EnemyTypes = Global.GetSelectedEntries(playerEnemies);
 
         base.Awake();
     }
 
     protected override void Update()
     {
-        /// Handle attacking
-        if (Input.GetKeyDown(attackingKey))
-        {
-            attacker.StartAttack();
-        }
+        /// Handle animator statemachine logic
+        animator.SetBool("LeftUse",  CTRLHub.GM.LeftAttackDown);
+        animator.SetBool("RightUse", CTRLHub.GM.RightAttackDown);
+        animator.SetBool("Run",      CTRLHub.GM.Forward);
+        animator.SetBool("Jump",     CTRLHub.GM.JumpDown);
+
 
         /// Handle jumping
-        //if (KeyHub)
-        //{
-        //    // Let the player jump if the groundcheck is true
-        //    if (Groundcheck == true)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.Space))
-        //            rigid.AddForce(0, jumpforce, 0);
-        //    }
-        //}
+        if (CTRLHub.GM.JumpDown)
+        {
+            // Let the player jump if the groundcheck is true
+            if (IsGrounded)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                    rigid.AddForce(0, jumpforce, 0);
+            }
+        }
 
         base.Update();
     }
 
+    private void UseLeft()
+    {
+
+    }
+
+    private void UseRight()
+    {
+        attacker.StartAttack();
+    }
+
     protected override void FixedUpdate()
     {
+
+        if (CTRLHub.GM.Forward)
+        {
+            SnapPlayerInCameraDirection();
+            transform.position += ForwardDirection * forwardSpeed;
+        }
+        if (CTRLHub.GM.Left)
+        {
+            SnapPlayerInCameraDirection();
+            transform.position += LeftDirection * leftSpeed;
+        }
+        if (CTRLHub.GM.Back)
+        {
+            SnapPlayerInCameraDirection();
+            transform.position += BackDirection * backSpeed;
+        }
+        if (CTRLHub.GM.Right)
+        {
+            SnapPlayerInCameraDirection();
+            transform.position += RightDirection * rightSpeed;
+        }
+
         base.FixedUpdate();
+    }
 
-        //if (Input.GetKey(GM.Forward))
-        //{
-        //    SnapPlayerInCameraDirection();
-        //    transform.position += ForwardDirection * forwardSpeed;
-        //}
-        //if (Input.GetKey(GM.Left))
-        //{
-        //    SnapPlayerInCameraDirection();
-        //    transform.position += LeftDirection * leftSpeed;
-        //}
-        //if (Input.GetKey(GM.Backward))
-        //{
-        //    SnapPlayerInCameraDirection();
-        //    transform.position += BackDirection * backSpeed;
-        //}
-        //if (Input.GetKey(GM.Right))
-        //{
-        //    SnapPlayerInCameraDirection();
-        //    transform.position += RightDirection * rightSpeed;
-        //}
+    private void OnTriggerEnter(Collider other)
+    {
+        IsGrounded = true;
+    }
 
+
+    private void OnTriggerExit(Collider other)
+    {
+        IsGrounded = false;
+    }
+
+    private void SnapPlayerInCameraDirection()
+    {
+        cameraMovementController.SaveDirection();
+        transform.LookAt(transform.position + cameraMovementController.GetCameraDirection());
+        cameraMovementController.RestoreDirection();
+    }
+
+    private void OnEnable()
+    {
+        RightUseFire.Fired += UseRight;
+        LeftUseFire.Fired += UseLeft;
     }
 }

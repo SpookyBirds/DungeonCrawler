@@ -11,8 +11,9 @@ public class Global : MonoBehaviour {
 
     private void Awake()
     {
-        tags = UnityEditorInternal.InternalEditorUtility.tags;
+        Debug.Log("wtf?");
 
+        tags = UnityEditorInternal.InternalEditorUtility.tags;
 
         // <Setup the tag dictionary>
         string[] entitiesNames = Enum.GetNames(typeof(Entities));

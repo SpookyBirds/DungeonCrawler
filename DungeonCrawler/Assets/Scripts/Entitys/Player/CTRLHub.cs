@@ -6,13 +6,13 @@ public class CTRLHub : MonoBehaviour
 {
     public static CTRLHub GM;
 
-    public KeyCode AttackKeyCode { get; set; }
-    public bool AttackDown { get { return (Input.GetKeyDown(AttackKeyCode)); } }
-    public bool Attack { get { return (Input.GetKey(AttackKeyCode)); } }
+    public KeyCode LeftAttackKeyCode { get; set; }
+    public bool LeftAttackDown { get { return (Input.GetKeyDown(LeftAttackKeyCode)); } }
+    public bool LeftAttack { get { return (Input.GetKey(LeftAttackKeyCode)); } }
 
-    public KeyCode BlockKeyCode { get; set; }
-    public bool BlockDown { get { return (Input.GetKey(BlockKeyCode)); } }
-    public bool Block { get { return (Input.GetKey(BlockKeyCode)); } }
+    public KeyCode RightAttackKeyCode { get; set; }
+    public bool RightAttackDown { get { return (Input.GetKey(RightAttackKeyCode)); } }
+    public bool RightAttack { get { return (Input.GetKey(RightAttackKeyCode)); } }
 
     public KeyCode ForwardKeyCode { get; set; }
     public bool ForwardDown { get { return (Input.GetKey(ForwardKeyCode)); } }
@@ -47,8 +47,8 @@ public class CTRLHub : MonoBehaviour
             Destroy(gameObject);
         }
 
-        AttackKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire1", "Mouse0"));
-        BlockKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire2", "Mouse1"));
+        LeftAttackKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire1", "Mouse0"));
+        RightAttackKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire2", "Mouse1"));
         JumpKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("jumpKey", "Space"));
         ForwardKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("forwardKey", "W"));
         BackwardKeyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("backwardKey", "S"));

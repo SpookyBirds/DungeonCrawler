@@ -7,5 +7,11 @@ public class Controller : InheritanceSimplyfier {
     /// <summary>
     /// The Entity types 
     /// </summary>
-    public int[] enemyTypes;
+    private int[] enemyTypes;
+    public int[] EnemyTypes
+    {
+        get { return enemyTypes; }
+        protected set { enemyTypes = value; }
+    }
+
 }
