@@ -5,27 +5,53 @@ using UnityEngine;
 public class TestMoveMent : MonoBehaviour {
 
     public float Speed = 1.0f;
-    public Vector3 movement;
+    public float Jumpforce = 1000.0f;
 
+    private Vector3 movement;
     private Rigidbody Rigid;
 
+    private bool Groundcheck = true;
 
-	// Use this for initialization
-	void Start () {
+    public CameraMovementController cameraMovementController;
+
+
+    
+    void Start () {
         Rigid = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	
+	void FixedUpdate () {
+        SnapPlayerInCameraDirection();
 
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
 
-        movement = new Vector3(Horizontal, 0, Vertical);
 
-        Rigid.AddForce(movement * Speed);
+        movement = new Vector3(Horizontal,0 , Vertical);
+        // adds Force relative to the position
+        Rigid.AddRelativeForce(movement * Speed);
 
-
-
+        // Let the player jump if the groundcheck is true
+        if (Input.GetKeyDown(KeyCode.Space) && Groundcheck == true)
+        Rigid.AddForce(0, Jumpforce, 0);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Groundcheck = true;
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        Groundcheck = false;
+    }
+
+    private void SnapPlayerInCameraDirection()
+    {
+        cameraMovementController.SaveDirection();
+        transform.LookAt(transform.position + cameraMovementController.GetCameraDirection());
+        cameraMovementController.RestoreDirection();
+    }
 }

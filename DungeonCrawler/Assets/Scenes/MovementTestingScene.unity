@@ -452,9 +452,9 @@ GameObject:
   - component: {fileID: 673198389}
   - component: {fileID: 673198388}
   - component: {fileID: 673198387}
-  - component: {fileID: 673198396}
   - component: {fileID: 673198397}
   - component: {fileID: 673198398}
+  - component: {fileID: 673198396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -613,30 +613,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 673198386}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &673198396
-MonoBehaviour:
+--- !u!65 &673198396
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 673198386}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15730ab452f75d047831fadec1ffc073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardSpeed: 0.1
-  leftSpeed: 0.1
-  backSpeed: 0.1
-  rightSpeed: 0.1
-  speed: 5
-  acceleration: 20
-  Deacceleration: 0.1
-  MaxSpeed: 0.8
-  MaxForwardSpeed: 1.4
-  forwardKeyCode: 119
-  leftKeyCode: 97
-  backKeyCode: 115
-  rightKeyCode: 100
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.17428637, z: 1}
+  m_Center: {x: 0, y: -0.9443271, z: 0}
 --- !u!54 &673198397
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -651,7 +639,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &673198398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,8 +651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8d16929177a4142a49eb07c82fab8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12.59
-  movement: {x: 0, y: 0, z: 0}
+  Speed: 20
+  Jumpforce: 1000
+  cameraMovementController: {fileID: 1257673312}
 --- !u!1 &925148832
 GameObject:
   m_ObjectHideFlags: 0
