@@ -7,7 +7,12 @@ public class RightUseFire : StateMachineBehaviour {
 
     public static UnityAction Fired;
 
+    private void Awake()
+    {
+        Fired += delegate { };
+    }
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Fired();
+        Fired.Invoke();
 	}
 }

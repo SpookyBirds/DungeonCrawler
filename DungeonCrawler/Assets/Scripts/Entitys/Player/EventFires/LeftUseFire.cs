@@ -7,7 +7,12 @@ public class LeftUseFire : StateMachineBehaviour {
 
     public static UnityAction Fired;
 
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+    private void Awake()
+    {
+        Fired += delegate { };
+    }
+
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Fired();
 	}
 }
