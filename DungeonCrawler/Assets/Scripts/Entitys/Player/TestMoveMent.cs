@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class TestMoveMent : MonoBehaviour {
 
     public float Speed = 1.0f;

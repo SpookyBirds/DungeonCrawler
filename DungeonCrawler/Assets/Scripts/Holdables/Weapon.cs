@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Weapon : Holdable {
 
-    [Tooltip("The Collider used to calculate a hit. If it isn't supplied, the script will search it's gameObject as well as children (in ths order)")]
-    public Collider attackCollider;
+    public float damagePerHit;
+    public float castingTimeInSeconds;
+    [SerializeField] [Tooltip("The Collider used to calculate a hit. If it isn't supplied, the script will search it's gameObject as well as children (in ths order)")]
+    private Collider attackCollider;
+
+    public Vector3 AttackColliderPosition { get { return attackCollider.transform.position; } }
+    public float AttackRange { get { return attackCollider.bounds.extents.z; } }
+    public Controller controller;
 
     /// <summary>
     /// If no attackCollider is supplied, the script will search the it's gameObject as well as children (in ths order) for an attackCollider"
@@ -17,16 +23,44 @@ public class Weapon : Holdable {
         if (attackCollider == null)
             attackCollider.GetComponentInChildren<Collider>();
 
+        controller = GetComponent<Controller>();
+
         base.Awake();
     }
 
     /// <summary>
-    /// Attack!!
+    /// Initialize an attack. Returns whether the attack was successfully started
     /// </summary>
-    public override bool Use()
+    public override bool Use(Controller controller)
     {
+        if (AlreadyUsing == false)
+        {
+            StartCoroutine(Attack(controller));
+            return true;
+        }
 
-
-        return base.Use();
+        return false;
     }
+
+    private IEnumerator Attack(Controller controller)
+    {
+        AlreadyUsing = true;
+
+        yield return new WaitForSeconds(castingTimeInSeconds);
+
+        Collider[] colliderInAttackRange =
+            Physics.OverlapBox(attackCollider.bounds.center, attackCollider.bounds.extents);
+
+        for (int index = 0; index < colliderInAttackRange.Length; index++)
+        {
+            if (colliderInAttackRange[index].IsAnyTagEqual(controller.enemyTypes))
+            {
+                float remainingHealth = colliderInAttackRange[index].GetComponent<Entity>().Damage(damagePerHit);
+            }
+        }
+
+        AlreadyUsing = false;
+    }
+
+
 }
