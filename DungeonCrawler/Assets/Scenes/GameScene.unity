@@ -9387,6 +9387,16 @@ Prefab:
       propertyPath: rotationSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 65868899423182660, guid: ed9018ae9b22e7743b21c80e485077d7,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 6.4451356
+      objectReference: {fileID: 0}
+    - target: {fileID: 65868899423182660, guid: ed9018ae9b22e7743b21c80e485077d7,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 2.7225642
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed9018ae9b22e7743b21c80e485077d7, type: 2}
   m_IsPrefabParent: 0

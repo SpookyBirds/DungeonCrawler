@@ -22,7 +22,7 @@ public abstract class Attacker : InheritanceSimplyfier {
     protected int[] hostileTypes;
 
     /// <summary>
-    /// Initialize an attack. Returns if the attack was successfully started
+    /// Initialize an attack. Returns whether the attack was successfully started
     /// </summary>
     public virtual bool StartAttack()
     {

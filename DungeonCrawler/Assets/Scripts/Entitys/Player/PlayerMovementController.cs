@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour {
     {
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
     }
+
     private void Update()
     {
         if (ForwardKeyDown)
