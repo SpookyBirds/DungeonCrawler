@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 40
   Jumpforce: 400
+  Groundcheck: 1
   cameraMovementController: {fileID: 1443871677}
 --- !u!54 &100739552
 Rigidbody:
@@ -567,7 +568,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1474856716}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 8.241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
