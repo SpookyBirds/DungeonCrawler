@@ -31,22 +31,38 @@ public class PlayerMovementController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+<<<<<<< HEAD
         if (Input.GetKey(KeyHub.GM.Forward))
+=======
+        if (Input.GetKey(GM.ForwardKeyCode))
+>>>>>>> bcc9f45757788f8dac2ab025ad307fba5f3c597f
         {
             SnapPlayerInCameraDirection();
             transform.position += ForwardDirection * forwardSpeed;
         }
+<<<<<<< HEAD
         if (Input.GetKey(KeyHub.GM.Left))
+=======
+        if (Input.GetKey(KeyHub.GM.LeftKeyCode))
+>>>>>>> bcc9f45757788f8dac2ab025ad307fba5f3c597f
         {
             SnapPlayerInCameraDirection();
             transform.position += LeftDirection    * leftSpeed;
         }
+<<<<<<< HEAD
         if (Input.GetKey(KeyHub.GM.Backward))
+=======
+        if (Input.GetKey(GM.BackwardKeyCode))
+>>>>>>> bcc9f45757788f8dac2ab025ad307fba5f3c597f
         {
             SnapPlayerInCameraDirection();
             transform.position += BackDirection    * backSpeed;
         }
+<<<<<<< HEAD
         if (Input.GetKey(KeyHub.GM.Right))
+=======
+        if (Input.GetKey(GM.RightKeyCode))
+>>>>>>> bcc9f45757788f8dac2ab025ad307fba5f3c597f
         {
             SnapPlayerInCameraDirection();
             transform.position += RightDirection * rightSpeed;
@@ -55,7 +71,11 @@ public class PlayerMovementController : MonoBehaviour {
 
     public void Update()
     {
+<<<<<<< HEAD
         if(Input.GetKey(KeyHub.GM.Jump))
+=======
+        if(Input.GetKey(GM.JumpKeyCode))
+>>>>>>> bcc9f45757788f8dac2ab025ad307fba5f3c597f
         {
         // Let the player jump if the groundcheck is true
             if (Groundcheck == true)
