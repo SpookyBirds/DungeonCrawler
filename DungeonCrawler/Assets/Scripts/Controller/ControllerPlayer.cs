@@ -92,22 +92,23 @@ public class ControllerPlayer : Controller {
         if (CTRLHub.GM.Forward)
         {
             SnapPlayerInCameraDirection();
-            transform.position += ForwardDirection * forwardSpeed;
+            rigid.AddForce(ForwardDirection * forwardSpeed);
         }
+
         if (CTRLHub.GM.Left)
         {
             SnapPlayerInCameraDirection();
-            transform.position += LeftDirection * leftSpeed;
+            rigid.AddForce(LeftDirection* leftSpeed);
         }
         if (CTRLHub.GM.Back)
         {
             SnapPlayerInCameraDirection();
-            transform.position += BackDirection * backSpeed;
+            rigid.AddForce(BackDirection* backSpeed);
         }
         if (CTRLHub.GM.Right)
         {
             SnapPlayerInCameraDirection();
-            transform.position += RightDirection * rightSpeed;
+            rigid.AddForce(RightDirection* rightSpeed);
         }
 
         base.FixedUpdate();
