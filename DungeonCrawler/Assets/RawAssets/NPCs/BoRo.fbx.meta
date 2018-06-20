@@ -5,34 +5,34 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Armature
     100002: //RootNode
-    100004: Cube.006
-    100006: jnt_lowerArm.L
-    100008: jnt_lowerArm.R
-    100010: jnt_lowerLeg.L
-    100012: jnt_lowerLeg.R
-    100014: jnt_root
-    100016: jnt_spine
-    100018: jnt_upperArm.L
-    100020: jnt_upperArm.R
-    100022: jnt_upperLeg.L
-    100024: jnt_upperLeg.R
+    100004: jnt_lowerArm.L
+    100006: jnt_lowerArm.R
+    100008: jnt_lowerLeg.L
+    100010: jnt_lowerLeg.R
+    100012: jnt_root
+    100014: jnt_spine
+    100016: jnt_upperArm.L
+    100018: jnt_upperArm.R
+    100020: jnt_upperLeg.L
+    100022: jnt_upperLeg.R
+    100024: mesh_Robot
     400000: Armature
     400002: //RootNode
-    400004: Cube.006
-    400006: jnt_lowerArm.L
-    400008: jnt_lowerArm.R
-    400010: jnt_lowerLeg.L
-    400012: jnt_lowerLeg.R
-    400014: jnt_root
-    400016: jnt_spine
-    400018: jnt_upperArm.L
-    400020: jnt_upperArm.R
-    400022: jnt_upperLeg.L
-    400024: jnt_upperLeg.R
+    400004: jnt_lowerArm.L
+    400006: jnt_lowerArm.R
+    400008: jnt_lowerLeg.L
+    400010: jnt_lowerLeg.R
+    400012: jnt_root
+    400014: jnt_spine
+    400016: jnt_upperArm.L
+    400018: jnt_upperArm.R
+    400020: jnt_upperLeg.L
+    400022: jnt_upperLeg.R
+    400024: mesh_Robot
     2100000: Material
-    4300000: Cube.006
+    4300000: mesh_Robot
     9500000: //RootNode
-    13700000: Cube.006
+    13700000: mesh_Robot
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
