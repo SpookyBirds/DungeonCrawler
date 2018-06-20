@@ -11,27 +11,27 @@ public class CTRLHub : MonoBehaviour
     public bool LeftAttack { get { return (Input.GetKey(LeftAttackKeyCode)); } }
 
     public KeyCode RightAttackKeyCode { get; set; }
-    public bool RightAttackDown { get { return (Input.GetKey(RightAttackKeyCode)); } }
+    public bool RightAttackDown { get { return (Input.GetKeyDown(RightAttackKeyCode)); } }
     public bool RightAttack { get { return (Input.GetKey(RightAttackKeyCode)); } }
 
     public KeyCode ForwardKeyCode { get; set; }
-    public bool ForwardDown { get { return (Input.GetKey(ForwardKeyCode)); } }
+    public bool ForwardDown { get { return (Input.GetKeyDown(ForwardKeyCode)); } }
     public bool Forward { get { return (Input.GetKey(ForwardKeyCode)); } }
 
     public KeyCode LeftKeyCode { get; set; }
-    public bool LeftDown { get { return (Input.GetKey(LeftKeyCode)); } }
+    public bool LeftDown { get { return (Input.GetKeyDown(LeftKeyCode)); } }
     public bool Left { get { return (Input.GetKey(LeftKeyCode)); } }
 
     public KeyCode RightKeyCode { get; set; }
-    public bool RightDown { get { return (Input.GetKey(RightKeyCode)); } }
+    public bool RightDown { get { return (Input.GetKeyDown(RightKeyCode)); } }
     public bool Right { get { return (Input.GetKey(RightKeyCode)); } }
 
     public KeyCode BackwardKeyCode { get; set; }
-    public bool BackDown { get { return (Input.GetKey(BackwardKeyCode)); } }
+    public bool BackDown { get { return (Input.GetKeyDown(BackwardKeyCode)); } }
     public bool Back { get { return (Input.GetKey(BackwardKeyCode)); } }
 
     public KeyCode JumpKeyCode { get; set; }
-    public bool JumpDown { get { return (Input.GetKey(JumpKeyCode)); } }
+    public bool JumpDown { get { return (Input.GetKeyDown(JumpKeyCode)); } }
     public bool Jump { get { return (Input.GetKey(JumpKeyCode)); } }
 
 
