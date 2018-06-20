@@ -14,5 +14,12 @@ public class LeftUseFire : StateMachineBehaviour {
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         Fired();
+        Debug.Log("fired");
 	}
+
+    public override void OnStateIK(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        Debug.Log("StateIK");
+    }
+
 }

@@ -25,19 +25,23 @@ public class ControllerPlayer : Controller {
         }
     }
 
+    [Tooltip("The animator used for this Player. If not supplied, the script will search the transform and it's children")]
+    public Animator animator;
     private AttackerPlayer attacker;
     private Rigidbody rigid;
     private CameraMovementController cameraMovementController;
-    [Tooltip("The animator used for this Player. If not supplied, the script will search the transform and it's children")]
-    public Animator animator;
 
-    public Vector3 ForwardDirection { get { return transform.forward;  } }
+
+    public Vector3 ForwardDirection { get { return  transform.forward; } }
     public Vector3 LeftDirection    { get { return -transform.right;   } }
     public Vector3 BackDirection    { get { return -transform.forward; } }
-    public Vector3 RightDirection   { get { return transform.right;    } }
+    public Vector3 RightDirection   { get { return  transform.right;   } }
 
     protected override void Awake()
     {
+        base.Awake();
+        EnemyTypes = Global.GetSelectedEntries(playerEnemies);
+
         attacker = GetComponent<AttackerPlayer>();
         rigid = GetComponent<Rigidbody>();
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
@@ -48,9 +52,6 @@ public class ControllerPlayer : Controller {
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
-        EnemyTypes = Global.GetSelectedEntries(playerEnemies);
-
-        base.Awake();
     }
 
     protected override void Update()
@@ -76,14 +77,12 @@ public class ControllerPlayer : Controller {
         base.Update();
     }
 
-    private void UseLeft()
+    public override void UseLeft()
     {
-
     }
 
-    private void UseRight()
+    public override void UseRight()
     {
-        attacker.StartAttack();
     }
 
     protected override void FixedUpdate()
