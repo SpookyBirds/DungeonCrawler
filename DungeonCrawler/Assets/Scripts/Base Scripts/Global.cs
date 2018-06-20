@@ -11,7 +11,6 @@ public class Global : MonoBehaviour {
 
     private void Awake()
     {
-        Debug.Log("wtf?");
 
         tags = UnityEditorInternal.InternalEditorUtility.tags;
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraMovementController : MonoBehaviour
 {
+    public bool gamePaused = false;
     public bool verticalInvertCamera = true;
     [Space]
 
@@ -37,6 +38,10 @@ public class CameraMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (gamePaused)
+            return;
+
+
         // Handle cursor behaviour
         if (Input.GetKeyDown(redisplayCursor))
             Cursor.lockState = CursorLockMode.None;
