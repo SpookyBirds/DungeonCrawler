@@ -52,6 +52,13 @@ public class ControllerPlayer : Controller {
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
+
+        ControllerMethodTrigger[] leftFires = animator.GetBehaviours<ControllerMethodTrigger>();
+        for (int index = 0; index < leftFires.Length; index++)
+        {
+            leftFires[index].Controller = this;
+        }
+
     }
 
     protected override void Update()
@@ -77,12 +84,15 @@ public class ControllerPlayer : Controller {
         base.Update();
     }
 
+    [ExposeMethodInEditor]
     public override void UseLeft()
     {
     }
 
+    [ExposeMethodInEditor]
     public override void UseRight()
     {
+        attacker.StartAttack();
     }
 
     protected override void FixedUpdate()
@@ -129,11 +139,5 @@ public class ControllerPlayer : Controller {
         cameraMovementController.SaveDirection();
         transform.LookAt(transform.position + cameraMovementController.GetCameraDirection());
         cameraMovementController.RestoreDirection();
-    }
-
-    private void OnEnable()
-    {
-        RightUseFire.Fired += UseRight;
-        LeftUseFire.Fired += UseLeft;
     }
 }

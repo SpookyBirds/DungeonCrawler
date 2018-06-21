@@ -11,8 +11,21 @@ public class Global : MonoBehaviour {
 
     private void Awake()
     {
-
+#if UNITY_EDITOR
         tags = UnityEditorInternal.InternalEditorUtility.tags;
+#else
+        tags = new string[]{
+            "Untagged",
+            "Respawn",
+            "Finish",
+            "EditorOnly",
+            "MainCamera",
+            "Player",
+            "GameController",
+            "Friendly_NPC",
+            "Enemy_NPC"
+        };
+#endif
 
         // <Setup the tag dictionary>
         string[] entitiesNames = Enum.GetNames(typeof(Entities));
