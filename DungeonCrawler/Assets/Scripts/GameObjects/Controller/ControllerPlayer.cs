@@ -31,7 +31,6 @@ public class ControllerPlayer : Controller {
     private Rigidbody rigid;
     private CameraMovementController cameraMovementController;
 
-
     public Vector3 ForwardDirection { get { return  transform.forward; } }
     public Vector3 LeftDirection    { get { return -transform.right;   } }
     public Vector3 BackDirection    { get { return -transform.forward; } }
@@ -58,46 +57,67 @@ public class ControllerPlayer : Controller {
         {
             leftFires[index].Controller = this;
         }
-
     }
 
-    protected override void Update()
+    public override void Jump()
     {
-        /// Handle animator statemachine logic
-        animator.SetBool("LeftUse",  CTRLHub.GM.LeftAttackDown);
-        animator.SetBool("RightUse", CTRLHub.GM.RightAttackDown);
-        animator.SetBool("Run",      CTRLHub.GM.Forward);
-        animator.SetBool("Jump",     CTRLHub.GM.JumpDown);
-
-
-        /// Handle jumping
-        if (CTRLHub.GM.JumpDown)
-        {
-            // Let the player jump if the groundcheck is true
-            if (IsGrounded)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                    rigid.AddForce(0, jumpforce, 0);
-            }
-        }
-
-        base.Update();
+        rigid.AddForce(0, jumpforce, 0);
     }
 
-    [ExposeMethodInEditor]
     public override void UseLeft()
     {
+        if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
+        {
+            animator.SetBool("UseLeft", false);
+            equipmetHolder.LeftHand.Use(this);
+        }
+        else if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
+        {
+            equipmetHolder.LeftHand.Use(this);
+        }
     }
 
-    [ExposeMethodInEditor]
     public override void UseRight()
     {
-        attacker.StartAttack();
+        if (equipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
+        {
+            animator.SetBool("UseRight", false);
+            equipmetHolder.RightHand.Use(this);
+        }
+        else if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
+        {
+            equipmetHolder.RightHand.Use(this);
+        }
+    }
+
+    public override void UpdateLeft()
+    {
+        if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
+        {
+            if (CTRLHub.GM.LeftAttack == false)
+            {
+                animator.SetBool("UseLeft", false);
+                //animator.SetTrigger("InterruptLeft");
+                (equipmetHolder.LeftHand as Shield).UpdateUse(false);
+            }
+        }
+    }
+
+    public override void UpdateRight()
+    {
+        if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
+        {
+            if (CTRLHub.GM.RightAttack == false)
+            {
+                animator.SetBool("UseRight", false);
+                //animator.SetTrigger("InterruptRight");
+                (equipmetHolder.RightHand as Shield).UpdateUse(false);
+            }
+        }
     }
 
     protected override void FixedUpdate()
     {
-
         if (CTRLHub.GM.Forward)
         {
             SnapPlayerInCameraDirection();
@@ -119,8 +139,6 @@ public class ControllerPlayer : Controller {
             SnapPlayerInCameraDirection();
             rigid.AddForce(RightDirection* rightSpeed);
         }
-
-        base.FixedUpdate();
     }
 
     private void OnTriggerEnter(Collider other)

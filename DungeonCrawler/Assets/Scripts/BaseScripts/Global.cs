@@ -104,11 +104,3 @@ public static class Extentions
 }
 
 
-[System.Flags]
-public enum Entities
-{
-    None,
-    Player,
-    Friendly_NPC,
-    Enemy_NPC
-}

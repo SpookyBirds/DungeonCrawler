@@ -477,12 +477,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d7616115a7f264d8eecb33d58582c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePaused: 0
+  verticalInvertCamera: 1
   rotationSpeed: 8
-  rotateButton: 324
   verticalRotationLowerLimit: 0
   verticalRotationUpperLimit: 60
   zoomSpeed: 0.1
   zoomLimit: 10
+  redisplayCursor: 304
 --- !u!114 &114182591256588272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -509,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  healthDisplay: {fileID: 0}
 --- !u!114 &114499745740501108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,7 +557,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a66282f550d66469f17a5ad5baaaff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackingKey: 323
+  playerEnemies: 0
+  forwardSpeed: 0.1
+  leftSpeed: 0.1
+  backSpeed: 0.1
+  rightSpeed: 0.1
+  jumpforce: 1
+  animator: {fileID: 0}
 --- !u!136 &136919019107191802
 CapsuleCollider:
   m_ObjectHideFlags: 1

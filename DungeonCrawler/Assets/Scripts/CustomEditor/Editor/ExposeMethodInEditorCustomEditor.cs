@@ -4,7 +4,7 @@ using System.Reflection;
 
 [CanEditMultipleObjects] // Don't ruin everyone's day
 [CustomEditor(typeof(MonoBehaviour), true)] // Target all MonoBehaviours and descendants
-public class MonoBehaviourCustomEditor : UnityEditor.Editor
+public class ExposeMethodInEditorCustomEditor : Editor
 {
     public override void OnInspectorGUI()
     {
