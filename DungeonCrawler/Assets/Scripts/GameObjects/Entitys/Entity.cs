@@ -49,3 +49,13 @@ public class Entity : InheritanceSimplyfier {
         return (Health -= damageDelt);
     }
 }
+
+
+[System.Flags]
+public enum Entities
+{
+    None,
+    Player,
+    Friendly_NPC,
+    Enemy_NPC
+}
