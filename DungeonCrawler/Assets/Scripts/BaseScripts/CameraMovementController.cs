@@ -38,15 +38,30 @@ public class CameraMovementController : MonoBehaviour
 
     private void Update()
     {
+        
         if (gamePaused)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             return;
-
+        }
+        else if (!gamePaused)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+       
 
         // Handle cursor behaviour
         if (Input.GetKeyDown(redisplayCursor))
+        {
             Cursor.lockState = CursorLockMode.None;
+        }
         else if (Input.GetKeyUp(redisplayCursor))
+        {
             Cursor.lockState = CursorLockMode.Locked;
+        }
+
 
         if (Cursor.lockState == CursorLockMode.Locked)
         {
