@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : Holdable {
 
+    [Space]
     public float damagePerHit;
 
     public float AttackRange { get { return influenceCollider.bounds.extents.z; } }

@@ -25,9 +25,6 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    [Tooltip("The animator used for this Player. If not supplied, the script will search the transform and it's children")]
-    public Animator animator;
-    private AttackerPlayer attacker;
     private Rigidbody rigid;
     private CameraMovementController cameraMovementController;
 
@@ -41,16 +38,8 @@ public class ControllerPlayer : Controller {
         base.Awake();
         EnemyTypes = Global.GetSelectedEntries(playerEnemies);
 
-        attacker = GetComponent<AttackerPlayer>();
         rigid = GetComponent<Rigidbody>();
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
-        animator = GetComponent<Animator>();
-
-        if (animator == null)
-            animator = GetComponent<Animator>();
-        if (animator == null)
-            animator = GetComponentInChildren<Animator>();
-
 
         ControllerMethodTrigger[] leftFires = animator.GetBehaviours<ControllerMethodTrigger>();
         for (int index = 0; index < leftFires.Length; index++)
