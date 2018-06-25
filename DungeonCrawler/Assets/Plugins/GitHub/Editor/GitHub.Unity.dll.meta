@@ -1,44 +1,13 @@
 fileFormatVersion: 2
 guid: 68c7e4565cde54155bb78d8e935f1dd4
-<<<<<<< HEAD
-timeCreated: 1527097377
-licenseType: Store
-PluginImporter:
-=======
 PluginImporter:
   externalObjects: {}
->>>>>>> 41fd4451dcbef4a41f9b95a505f48eef60109014
   serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
   isOverridable: 0
   platformData:
-<<<<<<< HEAD
-    data:
-      first:
-        Any:
-      second:
-        enabled: 0
-        settings: {}
-    data:
-      first:
-        Editor: Editor
-      second:
-        enabled: 1
-        settings:
-          DefaultValueInitialized: true
-    data:
-      first:
-        Windows Store Apps: WindowsStoreApps
-      second:
-        enabled: 0
-        settings:
-          CPU: AnyCPU
-  userData:
-  assetBundleName:
-  assetBundleVariant:
-=======
   - first:
       Any: 
     second:
@@ -59,4 +28,3 @@ PluginImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> 41fd4451dcbef4a41f9b95a505f48eef60109014
