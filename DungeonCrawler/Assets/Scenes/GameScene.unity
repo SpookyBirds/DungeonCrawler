@@ -690,6 +690,12 @@ Prefab:
       propertyPath: healthDisplay
       value: 
       objectReference: {fileID: 1209775123}
+    - target: {fileID: 114357793464813052, guid: 69e23849b296dda468dc849c6ee401a2,
+        type: 2}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1720846641585188, guid: b221476b4ba74984da10ce19a11c9426,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69e23849b296dda468dc849c6ee401a2, type: 2}
   m_IsPrefabParent: 0
