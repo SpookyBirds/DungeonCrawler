@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(EquipmetHolder))]
 public abstract class Controller : InheritanceSimplyfier {
 
+
+    [SerializeField] [Tooltip("The animator used for this Entity. If not supplied, the script will search the transform and it's children")]
+    protected Animator animator;
+    [SerializeField]
+    protected AnimatorOverrideController animatorOverrideController;
     protected EquipmetHolder equipmetHolder;
 
     /// <summary>
@@ -20,6 +25,15 @@ public abstract class Controller : InheritanceSimplyfier {
     protected override void Awake()
     {
         equipmetHolder = GetComponent<EquipmetHolder>();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
+
+        animator.runtimeAnimatorController = animatorOverrideController;
+        animatorOverrideController["DEFAULT_LeftUse"] = equipmetHolder.LeftHand.animationClip; 
+        animatorOverrideController["DEFAULT_RightUse"] = equipmetHolder.RightHand.animationClip;
     }
 
     /// <summary>
