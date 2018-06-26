@@ -1164,13 +1164,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a66282f550d66469f17a5ad5baaaff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 95654639930023896}
+  animatorOverrideController: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66,
+    type: 2}
   playerEnemies: 8
   forwardSpeed: 20
   leftSpeed: 20
   backSpeed: 20
   rightSpeed: 20
   jumpforce: 300
-  animator: {fileID: 0}
 --- !u!114 &114229780804485914
 MonoBehaviour:
   m_ObjectHideFlags: 1

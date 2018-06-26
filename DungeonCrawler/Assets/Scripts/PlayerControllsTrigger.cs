@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerControllsTrigger : StateMachineBehaviour {
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        animator.SetBool("UseRight", false);
+        animator.SetBool("UseLeft",  false);
+
         if (CTRLHub.GM.RightAttackDown && (animator.GetBool("UseLeft") == false))
             animator.SetBool("UseRight", true);
         if (CTRLHub.GM.LeftAttackDown && (animator.GetBool("UseRight") == false))
