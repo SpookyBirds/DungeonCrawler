@@ -11,6 +11,8 @@ public class ControllerMethodTrigger : StateMachineBehaviour {
     private MethodFire fireEnter;
     private MethodFire fireUpdate;
 
+    private bool attackStarted = false;
+
     private void Awake()
     {
         string fireEnterMethodName = "";

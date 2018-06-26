@@ -43,12 +43,27 @@ public class Shield : Holdable {
     public override bool Use(Controller controller)
     {
         IsBlocking = true;
+        controller.Entity.AddInterruptAction = Block;
         return true;
     }
 
-    public void UpdateUse(bool quit)
+    public void UpdateUse(Controller controller, bool quit)
     {
-        if(quit == false)
+        if(quit)
+        {
+            controller.Entity.RemoveInterruptAction = Block;
             IsBlocking = false;
+        }
+    }
+
+    private bool Block(ref float remainingDamageToDeal)
+    {
+        Debug.Log("block");
+
+        remainingDamageToDeal = AbsorptionValue -= remainingDamageToDeal;
+        if (remainingDamageToDeal < 0)
+            remainingDamageToDeal = 0;
+        return true;
+
     }
 }

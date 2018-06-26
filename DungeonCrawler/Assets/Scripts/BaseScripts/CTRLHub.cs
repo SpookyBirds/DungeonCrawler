@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CTRLHub : MonoBehaviour
 {
-    public static CTRLHub GM;
+    public static CTRLHub inst;
 
     public KeyCode LeftAttackKeyCode { get; set; }
     public bool LeftAttackDown { get { return (Input.GetKeyDown(LeftAttackKeyCode)); } }
@@ -38,11 +38,11 @@ public class CTRLHub : MonoBehaviour
     public void Awake()
     {
         //Singleton pattern
-        if (GM == null)
+        if (inst == null)
         {
-            GM = this;
+            inst = this;
         }
-        else if (GM != this)
+        else if (inst != this)
         {
             Destroy(gameObject);
         }
