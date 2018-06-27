@@ -48,7 +48,7 @@ public abstract class Attacker : InheritanceSimplyfier {
         {
             if (colliderInAttackRange[index].IsAnyTagEqual(hostileTypes))
             {
-                float remainingHealth = colliderInAttackRange[index].GetComponent<Entity>().Damage(damagePerHit);
+                colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
             }
         }
 

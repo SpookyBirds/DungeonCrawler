@@ -29,15 +29,15 @@ public class InputChanger : MonoBehaviour {
         {
 
             if (menuPanel.GetChild(i).name == "ForwardKey")
-                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.GM.ForwardKeyCode.ToString();
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.ForwardKeyCode.ToString();
             else if (menuPanel.GetChild(i).name == "BackwardKey")
-                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.GM.BackwardKeyCode.ToString();
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.BackwardKeyCode.ToString();
             else if (menuPanel.GetChild(i).name == "LeftKey")
-                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.GM.LeftKeyCode.ToString();
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.LeftKeyCode.ToString();
             else if (menuPanel.GetChild(i).name == "RightKey")
-                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.GM.RightKeyCode.ToString();
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.RightKeyCode.ToString();
             else if (menuPanel.GetChild(i).name == "JumpKey")
-                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.GM.JumpKeyCode.ToString();
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.JumpKeyCode.ToString();
         }
     }
 
@@ -45,13 +45,13 @@ public class InputChanger : MonoBehaviour {
     {
         allCodesInUse = new KeyCode[]
         {
-            CTRLHub.GM.LeftAttackKeyCode,
-            CTRLHub.GM.RightAttackKeyCode,
-            CTRLHub.GM.ForwardKeyCode,
-            CTRLHub.GM.LeftKeyCode,
-            CTRLHub.GM.RightKeyCode,
-            CTRLHub.GM.BackwardKeyCode,
-            CTRLHub.GM.JumpKeyCode
+            CTRLHub.inst.LeftAttackKeyCode,
+            CTRLHub.inst.RightAttackKeyCode,
+            CTRLHub.inst.ForwardKeyCode,
+            CTRLHub.inst.LeftKeyCode,
+            CTRLHub.inst.RightKeyCode,
+            CTRLHub.inst.BackwardKeyCode,
+            CTRLHub.inst.JumpKeyCode
         };
     }
 
@@ -116,37 +116,37 @@ public class InputChanger : MonoBehaviour {
             {
                 case "forward":
 
-                    CTRLHub.GM.ForwardKeyCode = newKey; //Set forward to new keycode
-                    buttonText.text = CTRLHub.GM.ForwardKeyCode.ToString(); //Set button text to new key
-                    PlayerPrefs.SetString("forwardKey", CTRLHub.GM.ForwardKeyCode.ToString()); //save new key to PlayerPrefs
+                    CTRLHub.inst.ForwardKeyCode = newKey; //Set forward to new keycode
+                    buttonText.text = CTRLHub.inst.ForwardKeyCode.ToString(); //Set button text to new key
+                    PlayerPrefs.SetString("forwardKey", CTRLHub.inst.ForwardKeyCode.ToString()); //save new key to PlayerPrefs
                     break;
 
                 case "backward":
 
-                    CTRLHub.GM.BackwardKeyCode = newKey; //set backward to new keycode
-                    buttonText.text = CTRLHub.GM.BackwardKeyCode.ToString(); //set button text to new key
-                    PlayerPrefs.SetString("backwardKey", CTRLHub.GM.BackwardKeyCode.ToString()); //save new key to PlayerPrefs
+                    CTRLHub.inst.BackwardKeyCode = newKey; //set backward to new keycode
+                    buttonText.text = CTRLHub.inst.BackwardKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("backwardKey", CTRLHub.inst.BackwardKeyCode.ToString()); //save new key to PlayerPrefs
                     break;
 
                 case "left":
 
-                    CTRLHub.GM.LeftKeyCode = newKey; //set left to new keycode
-                    buttonText.text = CTRLHub.GM.LeftKeyCode.ToString(); //set button text to new key
-                    PlayerPrefs.SetString("leftKey", CTRLHub.GM.LeftKeyCode.ToString()); //save new key to playerprefs
+                    CTRLHub.inst.LeftKeyCode = newKey; //set left to new keycode
+                    buttonText.text = CTRLHub.inst.LeftKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("leftKey", CTRLHub.inst.LeftKeyCode.ToString()); //save new key to playerprefs
                     break;
 
                 case "right":
 
-                    CTRLHub.GM.RightKeyCode = newKey; //set right to new keycode
-                    buttonText.text = CTRLHub.GM.RightKeyCode.ToString(); //set button text to new key
-                    PlayerPrefs.SetString("rightKey", CTRLHub.GM.RightKeyCode.ToString()); //save new key to playerprefs
+                    CTRLHub.inst.RightKeyCode = newKey; //set right to new keycode
+                    buttonText.text = CTRLHub.inst.RightKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("rightKey", CTRLHub.inst.RightKeyCode.ToString()); //save new key to playerprefs
                     break;
 
                 case "jump":
 
-                    CTRLHub.GM.JumpKeyCode = newKey; //set jump to new keycode
-                    buttonText.text = CTRLHub.GM.JumpKeyCode.ToString(); //set button text to new key
-                    PlayerPrefs.SetString("jumpKey", CTRLHub.GM.JumpKeyCode.ToString()); //save new key to playerprefs
+                    CTRLHub.inst.JumpKeyCode = newKey; //set jump to new keycode
+                    buttonText.text = CTRLHub.inst.JumpKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("jumpKey", CTRLHub.inst.JumpKeyCode.ToString()); //save new key to playerprefs
                     break;
             }
 
