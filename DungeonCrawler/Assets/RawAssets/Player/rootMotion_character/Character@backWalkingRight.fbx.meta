@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69e52573f50ed514a9ed492f46c3b793
+guid: f7bcff29137590f4c984928488672bb3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -103,7 +103,7 @@ ModelImporter:
     400094: jnt_upperArm_R
     400096: jnt_upperLeg_L
     400098: jnt_upperLeg_R
-    7400000: sideWalkingRight
+    7400000: backWalkingRight
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -134,7 +134,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: sideWalkingRight
+      name: backWalkingRight
       takeName: clip_combatIdle
       firstFrame: 4.9
       lastFrame: 30
