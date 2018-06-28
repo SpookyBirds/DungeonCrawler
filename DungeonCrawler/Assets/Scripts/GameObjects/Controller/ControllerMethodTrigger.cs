@@ -53,11 +53,4 @@ public class ControllerMethodTrigger : StateMachineBehaviour {
 
         fireUpdate(Controller);
     }
-
-    public enum State
-    {
-        UseLeft,
-        UseRight,
-        Jump
-    }
 }

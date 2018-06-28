@@ -690,6 +690,15 @@ Prefab:
       propertyPath: healthDisplay
       value: 
       objectReference: {fileID: 1209775123}
+    - target: {fileID: 95654639930023896, guid: 69e23849b296dda468dc849c6ee401a2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996381640991050, guid: 69e23849b296dda468dc849c6ee401a2, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69e23849b296dda468dc849c6ee401a2, type: 2}
   m_IsPrefabParent: 0
@@ -959,6 +968,25 @@ Transform:
   m_Father: {fileID: 382918232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1655360295 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1833193006408500, guid: 69e23849b296dda468dc849c6ee401a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1148762792}
+--- !u!114 &1655360298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655360295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50a98369deed3247b51f1aa652a2a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAttackState: Base Layer.UseLeft_state
+  rightAttackState: Base Layer.UseRight_state
+  controller: {fileID: 1867822049}
 --- !u!4 &1776846577 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4518252934918482, guid: bca656cad63a6c8449a338207e90f1d7,
@@ -995,6 +1023,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867822049 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114129309802818620, guid: 69e23849b296dda468dc849c6ee401a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1148762792}
+  m_Script: {fileID: 11500000, guid: 07a66282f550d66469f17a5ad5baaaff, type: 3}
 --- !u!1001 &1951566170
 Prefab:
   m_ObjectHideFlags: 0

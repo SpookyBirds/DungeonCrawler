@@ -46,7 +46,7 @@ public abstract class Controller : InheritanceSimplyfier {
     /// <summary>
     /// Called after the left action is finished
     /// </summary>
-    public virtual void UpdateLeft() { }
+    public virtual void QuitLeft() { }
 
     /// <summary>
     /// Use the holdable in the right hand. Returns whether it was successfull
@@ -56,7 +56,7 @@ public abstract class Controller : InheritanceSimplyfier {
     /// <summary>
     /// Called after the right action is finished
     /// </summary>
-    public virtual void UpdateRight() { }
+    public virtual void QuitRight() { }
 
     /// <summary>
     /// Use this to implement a jump
