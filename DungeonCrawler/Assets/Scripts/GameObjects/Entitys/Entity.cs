@@ -66,7 +66,7 @@ public class Entity : InheritanceSimplyfier {
 
         for (int index = 0; index < interruptActions.Count; index++)
         {
-            Debug.Log("start block");
+            //Debug.Log("start block");
             interruptActions[index](ref remainingDamageToDeal);
             if (remainingDamageToDeal <= 0)
                 return false;
