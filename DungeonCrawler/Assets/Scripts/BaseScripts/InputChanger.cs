@@ -38,7 +38,13 @@ public class InputChanger : MonoBehaviour {
                 menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.RightKeyCode.ToString();
             else if (menuPanel.GetChild(i).name == "JumpKey")
                 menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.JumpKeyCode.ToString();
+            else if (menuPanel.GetChild(i).name == "LeftAttack")
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.LeftAttackKeyCode.ToString();
+            else if (menuPanel.GetChild(i).name == "RightAttack")
+                menuPanel.GetChild(i).GetComponentInChildren<Text>().text = CTRLHub.inst.RightAttackKeyCode.ToString();
         }
+        
+
     }
 
     private void BakeKeyCodeArray()
@@ -68,6 +74,14 @@ public class InputChanger : MonoBehaviour {
         if (keyEvent.isKey && waitingForKey)
         {
             newKey = keyEvent.keyCode; //Assigns newKey to the key user presses
+            
+            waitingForKey = false;
+        }
+
+        if (keyEvent.isMouse && waitingForKey)
+        {
+            newKey = keyEvent.keyCode; //Assigns newKey to the key user presses
+
             waitingForKey = false;
         }
     }
@@ -147,6 +161,18 @@ public class InputChanger : MonoBehaviour {
                     CTRLHub.inst.JumpKeyCode = newKey; //set jump to new keycode
                     buttonText.text = CTRLHub.inst.JumpKeyCode.ToString(); //set button text to new key
                     PlayerPrefs.SetString("jumpKey", CTRLHub.inst.JumpKeyCode.ToString()); //save new key to playerprefs
+                    break;
+
+                case "leftarm":
+                    CTRLHub.inst.LeftAttackKeyCode = newKey; //set Left Attack to new keycode
+                    buttonText.text = CTRLHub.inst.LeftAttackKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("Fire1", CTRLHub.inst.LeftAttackKeyCode.ToString()); //save new key to playerprefs
+                    break;
+
+                case "rightarm":
+                    CTRLHub.inst.RightAttackKeyCode = newKey; //set Right Attack to new keycode
+                    buttonText.text = CTRLHub.inst.RightAttackKeyCode.ToString(); //set button text to new key
+                    PlayerPrefs.SetString("Fire2", CTRLHub.inst.RightAttackKeyCode.ToString()); //save new key to playerprefs
                     break;
             }
 
