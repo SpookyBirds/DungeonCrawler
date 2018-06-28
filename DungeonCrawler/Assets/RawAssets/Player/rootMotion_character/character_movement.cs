@@ -33,7 +33,7 @@ public class character_movement : MonoBehaviour {
         rigid.AddForce(ForwardDirection * speed * verticalInput);
         rigid.AddForce(RightDirection*speed*horizontalInput);
        
-        Debug.Log(ForwardDirection);
+        //Debug.Log(ForwardDirection);
 
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
