@@ -8,6 +8,8 @@ public class character_movement : MonoBehaviour {
     private Rigidbody rigid;
     public float horizontalInput;
     public float verticalInput;
+    public int speed = 5;
+    private CameraMovementController cameraMovementController;
 
     public Vector3 ForwardDirection { get { return transform.forward; } }
     public Vector3 LeftDirection { get { return -transform.right; } }
@@ -17,7 +19,8 @@ public class character_movement : MonoBehaviour {
     void Start () {
         anim = GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody>();
-	}
+        cameraMovementController = GetComponentInChildren<CameraMovementController>();
+    }
 	
 	
 	void Update () {
@@ -25,13 +28,25 @@ public class character_movement : MonoBehaviour {
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
 
-        anim.SetBool("running", verticalInput != 0 || horizontalInput != 0);
+        anim.SetBool("running", !(verticalInput == 0 && horizontalInput == 0));
 
-        rigid.AddForce(ForwardDirection * verticalInput);
-        rigid.AddForce(LeftDirection * horizontalInput);
+        rigid.AddForce(ForwardDirection * speed * verticalInput);
+        rigid.AddForce(RightDirection*speed*horizontalInput);
+       
+        Debug.Log(ForwardDirection);
 
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
-
+        if(!(verticalInput == 0 && horizontalInput == 0))
+        {
+            SnapPlayerInCameraDirection();
+        }
 	}
+
+    private void SnapPlayerInCameraDirection()
+    {
+        cameraMovementController.SaveDirection();
+        transform.LookAt(transform.position + cameraMovementController.GetCameraDirection());
+        cameraMovementController.RestoreDirection();
+    }
 }

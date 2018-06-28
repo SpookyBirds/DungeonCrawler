@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: 16fef91fc7f4e104c87725a7183da937
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bellow
+    100002: Big Crate
+    100004: Boiler
+    100006: Claw Arm
+    100008: Container
+    100010: Crucible
+    100012: //RootNode
+    100014: Furnace
+    100016: Ground Place
+    100018: Liquid Tank
+    100020: Little Crate
+    100022: Long Crate
+    100024: Machine
+    100026: Mashine
+    100028: Mounting Arm
+    100030: Shelf
+    100032: Transport Tower
+    400000: Bellow
+    400002: Big Crate
+    400004: Boiler
+    400006: Claw Arm
+    400008: Container
+    400010: Crucible
+    400012: //RootNode
+    400014: Furnace
+    400016: Ground Place
+    400018: Liquid Tank
+    400020: Little Crate
+    400022: Long Crate
+    400024: Machine
+    400026: Mashine
+    400028: Mounting Arm
+    400030: Shelf
+    400032: Transport Tower
+    2100000: No Name
+    2100002: Material.001
+    2300000: Bellow
+    2300002: Big Crate
+    2300004: Boiler
+    2300006: Claw Arm
+    2300008: Container
+    2300010: Crucible
+    2300012: Furnace
+    2300014: Ground Place
+    2300016: Liquid Tank
+    2300018: Little Crate
+    2300020: Long Crate
+    2300022: Machine
+    2300024: Mashine
+    2300026: Mounting Arm
+    2300028: Shelf
+    2300030: Transport Tower
+    3300000: Bellow
+    3300002: Big Crate
+    3300004: Boiler
+    3300006: Claw Arm
+    3300008: Container
+    3300010: Crucible
+    3300012: Furnace
+    3300014: Ground Place
+    3300016: Liquid Tank
+    3300018: Little Crate
+    3300020: Long Crate
+    3300022: Machine
+    3300024: Mashine
+    3300026: Mounting Arm
+    3300028: Shelf
+    3300030: Transport Tower
+    4300000: Little Crate
+    4300002: Big Crate
+    4300004: Long Crate
+    4300006: Mashine
+    4300008: Transport Tower
+    4300010: Furnace
+    4300012: Boiler
+    4300014: Liquid Tank
+    4300016: Claw Arm
+    4300018: Mounting Arm
+    4300020: Shelf
+    4300022: Bellow
+    4300024: Crucible
+    4300026: Container
+    4300028: Ground Place
+    4300030: Machine
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
