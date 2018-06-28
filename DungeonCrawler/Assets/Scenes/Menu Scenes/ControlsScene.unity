@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 1149430161}
   - component: {fileID: 1149430160}
   m_Layer: 5
-  m_Name: Right Mouse
+  m_Name: RightAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1489,7 +1489,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: jump
+          m_StringArgument: rightarm
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1901,7 +1901,7 @@ GameObject:
   - component: {fileID: 1436004590}
   - component: {fileID: 1436004589}
   m_Layer: 5
-  m_Name: Left Mouse
+  m_Name: LeftAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: jump
+          m_StringArgument: leftarm
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
