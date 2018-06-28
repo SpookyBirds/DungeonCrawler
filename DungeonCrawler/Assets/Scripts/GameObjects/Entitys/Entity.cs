@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity : InheritanceSimplyfier {
 
@@ -11,10 +12,17 @@ public class Entity : InheritanceSimplyfier {
     public float startingHealth;
 
     private float health;
+
+    public Image Healthbar;
+
     public virtual float Health
     {
         get { return health; }
-        protected set { health = value; }
+        protected set
+        {
+            health = value;
+            DMGHealthbar();
+        }
     }
 
     protected override void Awake()
@@ -62,6 +70,8 @@ public class Entity : InheritanceSimplyfier {
         if (damageToDeal < 0)
             return false;
 
+
+
         float remainingDamageToDeal = damageToDeal;
 
         for (int index = 0; index < interruptActions.Count; index++)
@@ -84,6 +94,11 @@ public class Entity : InheritanceSimplyfier {
     public InterruptAction RemoveInterruptAction
     {
         set { interruptActions.Remove(value); }
+    }
+
+    public void DMGHealthbar()
+    {
+        Healthbar.fillAmount = health / startingHealth;
     }
 }
  
