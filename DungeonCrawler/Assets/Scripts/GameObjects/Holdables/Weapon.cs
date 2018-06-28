@@ -29,8 +29,7 @@ public class Weapon : Holdable {
         {
             if (colliderInAttackRange[index].IsAnyTagEqual(controller.EnemyTypes))
             {
-                float remainingHealth = colliderInAttackRange[index].GetComponent<Entity>().Damage(damagePerHit);
-                Debug.Log(remainingHealth);
+                colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
                 didHit = true;
             }
         }

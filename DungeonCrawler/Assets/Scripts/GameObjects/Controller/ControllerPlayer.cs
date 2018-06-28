@@ -58,6 +58,7 @@ public class ControllerPlayer : Controller {
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseLeft", false);
+            //Debug.Log("UseLeft " + animator.GetBool("UseLeft"));
             equipmetHolder.LeftHand.Use(this);
         }
         else if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
@@ -71,6 +72,7 @@ public class ControllerPlayer : Controller {
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseRight", false);
+            Debug.Log("UseRight in playercontroller " + animator.GetBool("UseRight"));
             equipmetHolder.RightHand.Use(this);
         }
         else if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
@@ -83,12 +85,14 @@ public class ControllerPlayer : Controller {
     {
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
-            if (CTRLHub.GM.LeftAttack == false)
+            if (CTRLHub.inst.LeftAttack == false)
             {
                 animator.SetBool("UseLeft", false);
-                //animator.SetTrigger("InterruptLeft");
-                (equipmetHolder.LeftHand as Shield).UpdateUse(false);
+                animator.SetTrigger("InterruptLeft");
+                (equipmetHolder.LeftHand as Shield).UpdateUse(this, true);
             }
+            else
+                (equipmetHolder.LeftHand as Shield).UpdateUse(this, false);
         }
     }
 
@@ -96,34 +100,36 @@ public class ControllerPlayer : Controller {
     {
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
-            if (CTRLHub.GM.RightAttack == false)
-            {
+            if (CTRLHub.inst.RightAttack == false)
+            {                                                                                                                               
                 animator.SetBool("UseRight", false);
-                //animator.SetTrigger("InterruptRight");
-                (equipmetHolder.RightHand as Shield).UpdateUse(false);
+                animator.SetTrigger("InterruptRight");
+                (equipmetHolder.RightHand as Shield).UpdateUse(this, true);
             }
+            else
+                (equipmetHolder.LeftHand as Shield).UpdateUse(this, false);
         }
     }
 
     protected override void FixedUpdate()
     {
-        if (CTRLHub.GM.Forward)
+        if (CTRLHub.inst.Forward)
         {
             SnapPlayerInCameraDirection();
             rigid.AddForce(ForwardDirection * forwardSpeed);
         }
 
-        if (CTRLHub.GM.Left)
+        if (CTRLHub.inst.Left)
         {
             SnapPlayerInCameraDirection();
             rigid.AddForce(LeftDirection* leftSpeed);
         }
-        if (CTRLHub.GM.Back)
+        if (CTRLHub.inst.Back)
         {
             SnapPlayerInCameraDirection();
             rigid.AddForce(BackDirection* backSpeed);
         }
-        if (CTRLHub.GM.Right)
+        if (CTRLHub.inst.Right)
         {
             SnapPlayerInCameraDirection();
             rigid.AddForce(RightDirection* rightSpeed);

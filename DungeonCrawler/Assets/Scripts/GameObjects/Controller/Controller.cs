@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Entity))]
 [RequireComponent(typeof(EquipmetHolder))]
 public abstract class Controller : InheritanceSimplyfier {
 
@@ -11,6 +12,7 @@ public abstract class Controller : InheritanceSimplyfier {
     [SerializeField]
     protected AnimatorOverrideController animatorOverrideController;
     protected EquipmetHolder equipmetHolder;
+    public Entity Entity { get; protected set; }
 
     /// <summary>
     /// The Entity types 
@@ -24,15 +26,15 @@ public abstract class Controller : InheritanceSimplyfier {
 
     protected override void Awake()
     {
+        Entity = GetComponentInChildren<Entity>();
+
         equipmetHolder = GetComponent<EquipmetHolder>();
 
-        if (animator == null)
-            animator = GetComponent<Animator>();
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
         animator.runtimeAnimatorController = animatorOverrideController;
-        animatorOverrideController["DEFAULT_LeftUse"] = equipmetHolder.LeftHand.animationClip; 
+        animatorOverrideController["DEFAULT_LeftUse"]  = equipmetHolder.LeftHand.animationClip; 
         animatorOverrideController["DEFAULT_RightUse"] = equipmetHolder.RightHand.animationClip;
     }
 
