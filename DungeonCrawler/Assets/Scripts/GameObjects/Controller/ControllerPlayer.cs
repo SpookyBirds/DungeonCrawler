@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ControllerPlayer : Controller {
 
-    [EnumFlags]
-    public Entities playerEnemies;
-
     public float forwardSpeed = 0.1f;
     public float leftSpeed = 0.1f;
     public float backSpeed = 0.1f;
@@ -25,22 +22,13 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    private Rigidbody rigid;
     private CameraMovementController cameraMovementController;
-
-    public Vector3 ForwardDirection { get { return  transform.forward; } }
-    public Vector3 LeftDirection    { get { return -transform.right;   } }
-    public Vector3 BackDirection    { get { return -transform.forward; } }
-    public Vector3 RightDirection   { get { return  transform.right;   } }
 
     protected override void Awake()
     {
         base.Awake();
-        EnemyTypes = Global.GetSelectedEntries(playerEnemies);
 
-        rigid = GetComponent<Rigidbody>();
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
-
     }
 
     public override void Jump()
@@ -76,8 +64,6 @@ public class ControllerPlayer : Controller {
 
     public override void QuitLeft()
     {
-
-        //Debug.Log("quitleft");
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.LeftAttack == false)
@@ -92,7 +78,6 @@ public class ControllerPlayer : Controller {
 
     public override void QuitRight()
     {
-        //Debug.Log("quitright");
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.RightAttack == false)
