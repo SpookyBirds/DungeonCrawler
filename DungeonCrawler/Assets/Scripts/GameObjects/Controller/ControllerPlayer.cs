@@ -50,8 +50,6 @@ public class ControllerPlayer : Controller {
 
     public override void UseLeft()
     {
-        Debug.Log("useleft");
-
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseLeft", false);
@@ -65,8 +63,6 @@ public class ControllerPlayer : Controller {
 
     public override void UseRight()
     {
-        Debug.Log("useright");
-
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseRight", false);
@@ -81,7 +77,7 @@ public class ControllerPlayer : Controller {
     public override void QuitLeft()
     {
 
-        Debug.Log("quitleft");
+        //Debug.Log("quitleft");
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.LeftAttack == false)
@@ -96,7 +92,7 @@ public class ControllerPlayer : Controller {
 
     public override void QuitRight()
     {
-        Debug.Log("quitright");
+        //Debug.Log("quitright");
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.RightAttack == false)

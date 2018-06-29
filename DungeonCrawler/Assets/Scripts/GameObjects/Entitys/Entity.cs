@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 
 public class Entity : InheritanceSimplyfier {
 
@@ -13,21 +9,15 @@ public class Entity : InheritanceSimplyfier {
 
     private float health;
 
-    public Image Healthbar;
-
     public virtual float Health
     {
         get { return health; }
-        protected set
-        {
-            health = value;
-            DMGHealthbar();
-        }
+        protected set { health = value; }
     }
 
     protected override void Awake()
     {
-        Health = startingHealth;
+        health = startingHealth;
         interruptActions = new List<InterruptAction>();
     }
 
@@ -46,7 +36,7 @@ public class Entity : InheritanceSimplyfier {
 
     protected virtual void KillEntity()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.gameObject);
     }
 
     /// <summary>
@@ -96,10 +86,6 @@ public class Entity : InheritanceSimplyfier {
         set { interruptActions.Remove(value); }
     }
 
-    public void DMGHealthbar()
-    {
-        Healthbar.fillAmount = health / startingHealth;
-    }
 }
  
 [System.Flags]
