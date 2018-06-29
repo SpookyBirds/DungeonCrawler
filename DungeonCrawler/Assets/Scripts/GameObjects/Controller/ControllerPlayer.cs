@@ -41,11 +41,6 @@ public class ControllerPlayer : Controller {
         rigid = GetComponent<Rigidbody>();
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
 
-        ControllerMethodTrigger[] leftFires = animator.GetBehaviours<ControllerMethodTrigger>();
-        for (int index = 0; index < leftFires.Length; index++)
-        {
-            leftFires[index].Controller = this;
-        }
     }
 
     public override void Jump()
@@ -58,7 +53,6 @@ public class ControllerPlayer : Controller {
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseLeft", false);
-            //Debug.Log("UseLeft " + animator.GetBool("UseLeft"));
             equipmetHolder.LeftHand.Use(this);
         }
         else if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
@@ -72,7 +66,6 @@ public class ControllerPlayer : Controller {
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
             animator.SetBool("UseRight", false);
-            Debug.Log("UseRight in playercontroller " + animator.GetBool("UseRight"));
             equipmetHolder.RightHand.Use(this);
         }
         else if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
@@ -81,14 +74,15 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public override void UpdateLeft()
+    public override void QuitLeft()
     {
+
+        //Debug.Log("quitleft");
         if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.LeftAttack == false)
             {
                 animator.SetBool("UseLeft", false);
-                animator.SetTrigger("InterruptLeft");
                 (equipmetHolder.LeftHand as Shield).UpdateUse(this, true);
             }
             else
@@ -96,14 +90,14 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public override void UpdateRight()
+    public override void QuitRight()
     {
+        //Debug.Log("quitright");
         if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.RightAttack == false)
             {                                                                                                                               
                 animator.SetBool("UseRight", false);
-                animator.SetTrigger("InterruptRight");
                 (equipmetHolder.RightHand as Shield).UpdateUse(this, true);
             }
             else

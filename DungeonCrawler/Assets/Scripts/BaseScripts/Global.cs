@@ -103,4 +103,11 @@ public static class Extentions
     }
 }
 
+public enum State
+{
+    UseLeft,
+    UseRight,
+    Jump
+}
+
 

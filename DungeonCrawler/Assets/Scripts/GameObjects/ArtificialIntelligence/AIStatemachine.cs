@@ -17,7 +17,7 @@ public class AIStatemachine : InheritanceSimplyfier {
     {
         types = Global.GetSelectedEntries(hostileEntities);
 
-        navMeshAgent = transform.parent.GetComponent<NavMeshAgent>();
+        navMeshAgent = transform.GetComponent<NavMeshAgent>();
     }
 
     protected override void Update()

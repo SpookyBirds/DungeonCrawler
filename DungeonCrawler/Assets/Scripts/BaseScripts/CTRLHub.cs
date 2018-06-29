@@ -34,9 +34,12 @@ public class CTRLHub : MonoBehaviour
     public bool JumpDown { get { return (Input.GetKeyDown(JumpKeyCode)); } }
     public bool Jump { get { return (Input.GetKey(JumpKeyCode)); } }
 
+    
 
     public void Awake()
     {
+        
+
         //Singleton pattern
         if (inst == null)
         {

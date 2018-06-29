@@ -25,11 +25,13 @@ public class Weapon : Holdable {
         Collider[] colliderInAttackRange =
             Physics.OverlapBox(influenceCollider.bounds.center, influenceCollider.bounds.extents);
 
+        Debug.Log("Start attack "+ colliderInAttackRange.Length);
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
             if (colliderInAttackRange[index].IsAnyTagEqual(controller.EnemyTypes))
             {
                 colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
+                Debug.Log("hit");
                 didHit = true;
             }
         }

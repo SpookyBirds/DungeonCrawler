@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class Entity : InheritanceSimplyfier {
 
@@ -11,6 +8,7 @@ public class Entity : InheritanceSimplyfier {
     public float startingHealth;
 
     private float health;
+
     public virtual float Health
     {
         get { return health; }
@@ -19,7 +17,7 @@ public class Entity : InheritanceSimplyfier {
 
     protected override void Awake()
     {
-        Health = startingHealth;
+        health = startingHealth;
         interruptActions = new List<InterruptAction>();
     }
 
@@ -38,7 +36,7 @@ public class Entity : InheritanceSimplyfier {
 
     protected virtual void KillEntity()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(transform.gameObject);
     }
 
     /// <summary>
@@ -62,11 +60,13 @@ public class Entity : InheritanceSimplyfier {
         if (damageToDeal < 0)
             return false;
 
+
+
         float remainingDamageToDeal = damageToDeal;
 
         for (int index = 0; index < interruptActions.Count; index++)
         {
-            Debug.Log("start block");
+            //Debug.Log("start block");
             interruptActions[index](ref remainingDamageToDeal);
             if (remainingDamageToDeal <= 0)
                 return false;
@@ -85,6 +85,7 @@ public class Entity : InheritanceSimplyfier {
     {
         set { interruptActions.Remove(value); }
     }
+
 }
  
 [System.Flags]
