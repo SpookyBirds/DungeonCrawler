@@ -33,11 +33,6 @@ public class character_movement : MonoBehaviour {
         rigid.AddForce(ForwardDirection * speed * verticalInput);
         rigid.AddForce(RightDirection * speed * horizontalInput);
        
-<<<<<<< HEAD:DungeonCrawler/Assets/RawAssets/Player/exportiment/character_movement.cs
-=======
-        //Debug.Log(ForwardDirection);
->>>>>>> c2375e6f4a16152e841bce4915b7788028c96da0:DungeonCrawler/Assets/RawAssets/Player/rootMotion_character/character_movement.cs
-
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
         if(!(verticalInput == 0 && horizontalInput == 0))
