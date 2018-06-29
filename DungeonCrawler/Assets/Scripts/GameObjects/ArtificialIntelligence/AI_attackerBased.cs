@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : AIStatemachine {
+[RequireComponent(typeof(FieldOfView))]
+public class AI_attackerBased : AIStatemachine {
 
     private FieldOfView fieldOfView;
 

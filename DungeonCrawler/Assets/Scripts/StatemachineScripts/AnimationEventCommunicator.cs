@@ -41,14 +41,8 @@ public class AnimationEventCommunicator : MonoBehaviour {
 
     public void UseAttack()
     {
-        //Debug.Log("trigger");
-        //Debug.Log("fullPathHash: " + animator.GetCurrentAnimatorStateInfo(0).fullPathHash);
-        //Debug.Log("shortNameHash: " + animator.GetCurrentAnimatorStateInfo(0).shortNameHash);
-        //Debug.Log("idle id: "+ Animator.StringToHash("Base Layer.Idle"));
-
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(leftAttackState))
         {
-            //Debug.Log("useAttack left");
             leftAttackHasStarted.Value = true;
             controller.UseLeft();
         }

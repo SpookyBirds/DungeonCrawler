@@ -8,11 +8,11 @@ public class FieldOfView : MonoBehaviour {
 
     public float visionRadius;
 
-    private AI aI;
+    private AI_attackerBased aI;
 
     private void Awake()
     {
-        aI = GetComponent<AI>();
+        aI = GetComponent<AI_attackerBased>();
     }
 
     /// <summary>
