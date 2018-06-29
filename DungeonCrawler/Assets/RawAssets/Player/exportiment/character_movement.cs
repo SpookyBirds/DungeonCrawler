@@ -31,9 +31,8 @@ public class character_movement : MonoBehaviour {
         anim.SetBool("running", !(verticalInput == 0 && horizontalInput == 0));
 
         rigid.AddForce(ForwardDirection * speed * verticalInput);
-        rigid.AddForce(RightDirection*speed*horizontalInput);
+        rigid.AddForce(RightDirection * speed * horizontalInput);
        
-        Debug.Log(ForwardDirection);
 
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
