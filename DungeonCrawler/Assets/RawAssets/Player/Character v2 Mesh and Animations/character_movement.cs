@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class character_movement : MonoBehaviour {
+public class Character_Movement : MonoBehaviour {
 
     private Animator anim;
     private Rigidbody rigid;
@@ -27,6 +27,8 @@ public class character_movement : MonoBehaviour {
 
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
+
+        anim.SetBool("testbool", Input.GetKeyDown(KeyCode.Space));
 
         anim.SetBool("running", !(verticalInput == 0 && horizontalInput == 0));
 
