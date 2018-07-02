@@ -28,6 +28,8 @@ public class Character_Movement : MonoBehaviour {
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
 
+        anim.SetBool("testbool", Input.GetKeyDown(KeyCode.Space));
+
         anim.SetBool("running", !(verticalInput == 0 && horizontalInput == 0));
 
         rigid.AddForce(ForwardDirection * speed * verticalInput);
