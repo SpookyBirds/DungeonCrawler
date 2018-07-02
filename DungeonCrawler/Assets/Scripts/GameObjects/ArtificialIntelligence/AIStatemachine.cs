@@ -5,7 +5,7 @@ public class AIStatemachine : InheritanceSimplyfier {
 
     protected NavMeshAgent navMeshAgent;
 
-    private AIStates currentState;
+    protected AIStates CurrentState { get; private set; }
 
     [EnumFlags]
     public Entities hostileEntities;
@@ -22,7 +22,7 @@ public class AIStatemachine : InheritanceSimplyfier {
 
     protected override void Update()
     {
-        switch (currentState)
+        switch (CurrentState)
         {
             case AIStates.Idle:
                 DoIdle(); break;
@@ -32,12 +32,12 @@ public class AIStatemachine : InheritanceSimplyfier {
     }
 
     /// <summary>
-    /// Changes the current state to the spezified one and triggers the corresponding initialize function
+    /// Changes the current state to the spezified one and trigger the corresponding initialize function
     /// </summary>
     /// <param name="newState"></param>
     protected void ChangeState(AIStates newState)
     {
-        currentState = newState;
+        CurrentState = newState;
 
         switch (newState)
         {

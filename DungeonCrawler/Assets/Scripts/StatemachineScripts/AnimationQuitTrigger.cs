@@ -46,21 +46,6 @@ public class AnimationQuitTrigger : StateMachineBehaviour {
     {
         if (!hasStarted.Value)
             return;
-
-        //if (state == State.UseLeft)
-        //{
-        //    if (CTRLHub.inst.LeftAttack)
-        //        return;
-        //}
-        //else if (state == State.UseRight)
-        //{
-        //    if (CTRLHub.inst.RightAttack)
-        //        return;
-        //}
-        //else
-        //    return;
-
-
         fire(Controller);
     }
 }

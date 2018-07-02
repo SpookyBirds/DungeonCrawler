@@ -8,14 +8,32 @@ using UnityEngine;
 public abstract class Controller : InheritanceSimplyfier {
 
     [EnumFlags] [SerializeField] [Tooltip("All enemy types in hostility with this one")]
-    protected Entities hostileEntities;
-    [SerializeField] [Tooltip("The animator used for this Entity. If not supplied, the script will search the transform and it's children")]
-    protected Animator animator;
-    [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
-    protected AnimatorOverrideController animatorOverrideController;
+    private Entities hostileEntities;
+    public Entities HostileEntities
+    {
+        get { return hostileEntities; }
+        protected set { hostileEntities = value; }
+    }
 
-    protected EquipmetHolder equipmetHolder;
-    protected Rigidbody rigid;
+    [SerializeField] [Tooltip("The animator used for this Entity. If not supplied, the script will search the transform and it's children")]
+    private Animator animator;
+    public Animator Animator
+    {
+        get { return animator; }
+        protected set { animator = value; }
+    }
+
+    [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
+    private AnimatorOverrideController animatorOverrideController;
+    public AnimatorOverrideController AnimatorOverrideController
+    {
+        get { return animatorOverrideController; }
+        protected set { animatorOverrideController = value; }
+    }
+
+    public EquipmetHolder EquipmetHolder { get; protected set; }
+
+    public Rigidbody Rigid { get; protected set; }
 
     /// <summary>
     /// The entity controlled by this controller
@@ -38,21 +56,22 @@ public abstract class Controller : InheritanceSimplyfier {
     public Vector3 BackDirection { get { return -transform.forward; } }
     public Vector3 RightDirection { get { return transform.right; } }
 
+
     protected override void Awake()
     {
         EnemyTypes = Global.GetSelectedEntries(hostileEntities);
         Entity = GetComponentInChildren<Entity>();
-        rigid  = GetComponent<Rigidbody>();
-        equipmetHolder = GetComponent<EquipmetHolder>();
-        if (animator == null)
-            animator = GetComponentInChildren<Animator>();
+        Rigid  = GetComponent<Rigidbody>();
+        EquipmetHolder = GetComponent<EquipmetHolder>();
+        if (Animator == null)
+            Animator = GetComponentInChildren<Animator>();
     }
 
     protected override void Start()
     {
-        animator.runtimeAnimatorController = animatorOverrideController;
-        animatorOverrideController["DEFAULT_LeftUse"] = equipmetHolder.LeftHand.animationClip;
-        animatorOverrideController["DEFAULT_RightUse"] = equipmetHolder.RightHand.animationClip;
+        Animator.runtimeAnimatorController = AnimatorOverrideController;
+        AnimatorOverrideController["DEFAULT_LeftUse"]  = EquipmetHolder.LeftHand.animationClip;
+        AnimatorOverrideController["DEFAULT_RightUse"] = EquipmetHolder.RightHand.animationClip;
     }
 
     /// <summary>

@@ -227,8 +227,6 @@ GameObject:
   - component: {fileID: 114171710022335826}
   - component: {fileID: 114893352540715592}
   - component: {fileID: 65836619519271700}
-  - component: {fileID: 114042640799938224}
-  - component: {fileID: 114782757873321936}
   - component: {fileID: 114372855788872084}
   m_Layer: 0
   m_Name: Enemy
@@ -1043,7 +1041,7 @@ Animator:
   m_GameObject: {fileID: 1144758441853686}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6b23060b16eebc4b9c2f09a5eb36d3e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5ef843c3ee4b294428ce5b18235317a4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d77e382ac5190e40ae157ad12efff7e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1052,18 +1050,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114042640799938224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243020392820480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fd6c2713cc97440a6d58954b8ca6c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hostileEntities: 6
 --- !u!114 &114129812866015618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1116,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1222,20 +1208,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
---- !u!114 &114782757873321936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243020392820480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d06001eb7d43c84790fd4a2c72d0f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerHit: 7
-  castingTimeInSeconds: 1.1
-  attackCollider: {fileID: 65364825897155000}
 --- !u!114 &114859768288961212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,9 +1219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50a98369deed3247b51f1aa652a2a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftAttackState: Base Layer.UseLeft_state
-  rightAttackState: Base Layer.UseRight_state
-  controller: {fileID: 0}
+  leftAttackState: Base Layer.Aggro_baseState.UseLeft_state
+  rightAttackState: Base Layer.Aggro_baseState.UseRight_state
+  controller: {fileID: 114984671910198444}
 --- !u!114 &114893352540715592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1380,10 +1352,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.00001
+  m_Speed: 1
   m_Acceleration: 1
   avoidancePriority: 50
-  m_AngularSpeed: 0.0001
+  m_AngularSpeed: 1
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
