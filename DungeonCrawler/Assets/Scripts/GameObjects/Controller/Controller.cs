@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Entity))]
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(EquipmetHolder))]
 public abstract class Controller : InheritanceSimplyfier {
 
     [EnumFlags] [SerializeField] [Tooltip("All enemy types in hostility with this one")]

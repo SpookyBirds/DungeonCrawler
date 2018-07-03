@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(EquipmetHolder))]
 public class ControllerPlayer : Controller {
 
     [SerializeField] private float forwardSpeed = 0.1f;
