@@ -8,7 +8,7 @@ ModelImporter:
     2100000: Material
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: mesh_sword
   externalObjects: {}
   materials:
     importMaterials: 1

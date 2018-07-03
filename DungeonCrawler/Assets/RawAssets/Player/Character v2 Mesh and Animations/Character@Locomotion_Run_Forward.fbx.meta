@@ -151,7 +151,7 @@ ModelImporter:
       name: Locomotion_Run_Forward
       takeName: clip_combatIdle
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
