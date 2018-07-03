@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FieldOfView))]
+[RequireComponent(typeof(FieldOfView_attackerBased))]
 public class AI_attackerBased : AIStatemachine {
 
-    private FieldOfView fieldOfView;
+    private FieldOfView_attackerBased fieldOfView;
 
     private Attacker attacker;
     private Entity opponent;
@@ -18,7 +18,7 @@ public class AI_attackerBased : AIStatemachine {
     {
         base.Awake();
 
-        fieldOfView = GetComponent<FieldOfView>();
+        fieldOfView = GetComponent<FieldOfView_attackerBased>();
         attacker    = GetComponent<Attacker   >();
     }
 

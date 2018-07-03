@@ -6,9 +6,9 @@ using UnityEngine;
 public class NPCAnimationCommunicator : StateMachineBehaviour {
 
     private delegate void Fire();
-    private Fire fireEnter;
-    private Fire fireUpdate;
-    private Fire fireExit;
+    private Fire fireEnter  = PlaceHolder;
+    private Fire fireUpdate = PlaceHolder;
+    private Fire fireExit   = PlaceHolder;
 
     [SerializeField]
     private States state;
@@ -28,26 +28,23 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
     {
         switch (state)
         {
+            case States.Idle_baseState:
+                fireUpdate = AI.Idle_baseState_Update;
+                fireEnter  = AI.Idle_baseState_Enter;
+                break;
+            case States.Aggro_baseState:
+                fireEnter = AI.Idle_baseState_Enter;
+                break;
             case States.Combat_Idle:
-                fireEnter  = delegate { };
                 fireUpdate = AI.CombatIdle_Update;
-                fireExit   = delegate { };
                 break;
             case States.Attack:
-                fireEnter  = delegate { };
                 fireUpdate = AI.Attack_Update;
-                fireExit   = delegate { };
                 break;
             case States.Run:
                 fireEnter  = AI.Run_Start;
                 fireUpdate = AI.Run_Update;
                 fireExit   = AI.Run_End;
-                break;
-
-            default:
-                fireEnter  = delegate { };
-                fireUpdate = delegate { };
-                fireExit   = delegate { };
                 break;
         }
     }
@@ -66,6 +63,8 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
     {
         fireUpdate();
     }
+
+    public static void PlaceHolder() { }
 
     private enum States
     {

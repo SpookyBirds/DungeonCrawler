@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4485923011714432}
   - component: {fileID: 95022873317341502}
-  - component: {fileID: 114859768288961212}
+  - component: {fileID: 114032830970795528}
   m_Layer: 0
   m_Name: Armature
   m_TagString: Untagged
@@ -225,9 +225,8 @@ GameObject:
   - component: {fileID: 136212667247819370}
   - component: {fileID: 114984671910198444}
   - component: {fileID: 114171710022335826}
-  - component: {fileID: 114893352540715592}
-  - component: {fileID: 65836619519271700}
-  - component: {fileID: 114372855788872084}
+  - component: {fileID: 114903274177468154}
+  - component: {fileID: 114890455179281804}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy_NPC
@@ -1006,7 +1005,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!65 &65364825897155000
 BoxCollider:
@@ -1018,20 +1017,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 0.49, z: 1.36}
+  m_Size: {x: 1.43, y: 0.67, z: 1.36}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65836619519271700
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243020392820480}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.87290704, y: 0.2024535, z: 0.4353515}
-  m_Center: {x: -0.029000044, y: 0.088830054, z: -0.10125053}
 --- !u!95 &95022873317341502
 Animator:
   serializedVersion: 3
@@ -1050,6 +1037,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114032830970795528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144758441853686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116f05d5df6e18d44b99a86bc55104be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114129812866015618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1160,18 +1158,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114372855788872084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1243020392820480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64a3bec312c4e343b5c0c661253d3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visionRadius: 50
 --- !u!114 &114419831581353196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1208,21 +1194,7 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
---- !u!114 &114859768288961212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144758441853686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50a98369deed3247b51f1aa652a2a9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAttackState: Base Layer.Aggro_baseState.UseLeft_state
-  rightAttackState: Base Layer.Aggro_baseState.UseRight_state
-  controller: {fileID: 114984671910198444}
---- !u!114 &114893352540715592
+--- !u!114 &114890455179281804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1230,14 +1202,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243020392820480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca01581672dfd864caade989532849c7, type: 3}
+  m_Script: {fileID: 11500000, guid: a0374ecacd4dbc6408ab061ddfafcaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 1440922566843812, guid: 89d72a172782f874cbf46103e8cd5002, type: 2}
-  rightHand: {fileID: 1720846641585188, guid: b221476b4ba74984da10ce19a11c9426, type: 2}
-  toolSnapingPoint: {fileID: 4529772317504204}
-  leftHandSnapingPoint: {fileID: 4880790026856440}
-  rightHandSnapingPoint: {fileID: 4406309624602152}
+  visionRadius: 15
+--- !u!114 &114903274177468154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243020392820480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83032d36c7163694eb4b9ed94479e09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 11
+  attackCollider: {fileID: 65364825897155000}
 --- !u!114 &114967595496923416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1262,8 +1243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileEntities: 6
   animator: {fileID: 95022873317341502}
-  animatorOverrideController: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66,
-    type: 2}
 --- !u!136 &136212667247819370
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1352,10 +1331,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 1
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 
-public class FieldOfView : MonoBehaviour
-{
+[Obsolete("Attacker based stuff is outdated. Use the other field of view instead")]
+public class FieldOfView_attackerBased : MonoBehaviour {
 
     public float visionRadius;
 
-    private NPC_AI aI;
+    private AI_attackerBased aI;
 
     private void Awake()
     {
-        aI = GetComponent<NPC_AI>();
+        aI = GetComponent<AI_attackerBased>();
     }
 
     /// <summary>
@@ -19,12 +23,12 @@ public class FieldOfView : MonoBehaviour
     /// <returns>Whether or not an enemy was found in the vision radius</returns>
     public bool FindEnemy(out Entity opponent)
     {
-        Collider[] colliderInVisionRange =
+        Collider[] colliderInVisionRange = 
             Physics.OverlapSphere(transform.position, visionRadius);
 
         for (int index = 0; index < colliderInVisionRange.Length; index++)
         {
-            if (colliderInVisionRange[index].IsAnyTagEqual(aI.Controller.EnemyTypes))
+            if (colliderInVisionRange[index].IsAnyTagEqual(aI.HostileTypes))
             {
                 opponent = colliderInVisionRange[index].GetComponent<Entity>();
                 return true;
