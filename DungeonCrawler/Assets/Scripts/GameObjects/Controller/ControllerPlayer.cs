@@ -18,7 +18,7 @@ public class ControllerPlayer : Controller {
         set
         {
             isGrounded = value;
-            animator.SetBool("GroundContact", IsGrounded);
+            Animator.SetBool("GroundContact", IsGrounded);
         }
     }
 
@@ -33,60 +33,60 @@ public class ControllerPlayer : Controller {
 
     public override void Jump()
     {
-        rigid.AddForce(0, jumpforce, 0);
+        Rigid.AddForce(0, jumpforce, 0);
     }
 
     public override void UseLeft()
     {
-        if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
+        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
-            animator.SetBool("UseLeft", false);
-            equipmetHolder.LeftHand.Use(this);
+            Animator.SetBool("UseLeft", false);
+            EquipmetHolder.LeftHand.Use(this);
         }
-        else if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
+        else if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
-            equipmetHolder.LeftHand.Use(this);
+            EquipmetHolder.LeftHand.Use(this);
         }
     }
 
     public override void UseRight()
     {
-        if (equipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
+        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
-            animator.SetBool("UseRight", false);
-            equipmetHolder.RightHand.Use(this);
+            Animator.SetBool("UseRight", false);
+            EquipmetHolder.RightHand.Use(this);
         }
-        else if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
+        else if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
-            equipmetHolder.RightHand.Use(this);
+            EquipmetHolder.RightHand.Use(this);
         }
     }
 
     public override void QuitLeft()
     {
-        if (equipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
+        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.LeftAttack == false)
             {
-                animator.SetBool("UseLeft", false);
-                (equipmetHolder.LeftHand as Shield).UpdateUse(this, true);
+                Animator.SetBool("UseLeft", false);
+                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, true);
             }
             else
-                (equipmetHolder.LeftHand as Shield).UpdateUse(this, false);
+                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
         }
     }
 
     public override void QuitRight()
     {
-        if (equipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
+        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
             if (CTRLHub.inst.RightAttack == false)
-            {                                                                                                                               
-                animator.SetBool("UseRight", false);
-                (equipmetHolder.RightHand as Shield).UpdateUse(this, true);
+            {
+                Animator.SetBool("UseRight", false);
+                (EquipmetHolder.RightHand as Shield).UpdateUse(this, true);
             }
             else
-                (equipmetHolder.LeftHand as Shield).UpdateUse(this, false);
+                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
         }
     }
 
@@ -95,23 +95,23 @@ public class ControllerPlayer : Controller {
         if (CTRLHub.inst.Forward)
         {
             SnapPlayerInCameraDirection();
-            rigid.AddForce(ForwardDirection * forwardSpeed);
+            Rigid.AddForce(ForwardDirection * forwardSpeed);
         }
 
         if (CTRLHub.inst.Left)
         {
             SnapPlayerInCameraDirection();
-            rigid.AddForce(LeftDirection* leftSpeed);
+            Rigid.AddForce(LeftDirection* leftSpeed);
         }
         if (CTRLHub.inst.Back)
         {
             SnapPlayerInCameraDirection();
-            rigid.AddForce(BackDirection* backSpeed);
+            Rigid.AddForce(BackDirection* backSpeed);
         }
         if (CTRLHub.inst.Right)
         {
             SnapPlayerInCameraDirection();
-            rigid.AddForce(RightDirection* rightSpeed);
+            Rigid.AddForce(RightDirection* rightSpeed);
         }
     }
 

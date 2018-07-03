@@ -20,7 +20,7 @@ public class FieldOfView : MonoBehaviour {
     /// </summary>
     /// <param name="opponent">The transform of the opponent that was first found</param>
     /// <returns>Whether or not an enemy was found in the vision radius</returns>
-    public bool FindEnemy(out Transform opponent)
+    public bool FindEnemy(out Entity opponent)
     {
         Collider[] colliderInVisionRange = 
             Physics.OverlapSphere(transform.position, visionRadius);
@@ -29,7 +29,7 @@ public class FieldOfView : MonoBehaviour {
         {
             if (colliderInVisionRange[index].IsAnyTagEqual(aI.HostileTypes))
             {
-                opponent = colliderInVisionRange[index].transform;
+                opponent = colliderInVisionRange[index].GetComponent<Entity>();
                 return true;
             }
         }
@@ -44,7 +44,7 @@ public class FieldOfView : MonoBehaviour {
     /// <returns>Whether or not an enemy was found in the vision radius</returns>
     public bool FindEnemy()
     {
-        Transform transform;
+        Entity transform;
         return FindEnemy(out transform);
     }
 }

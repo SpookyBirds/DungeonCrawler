@@ -25,7 +25,7 @@ public class Weapon : Holdable {
         Collider[] colliderInAttackRange =
             Physics.OverlapBox(influenceCollider.bounds.center, influenceCollider.bounds.extents);
 
-        Debug.Log("Start attack "+ colliderInAttackRange.Length);
+        //Debug.Log("Start attack "+ colliderInAttackRange.Length);
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
             if (colliderInAttackRange[index].IsAnyTagEqual(controller.EnemyTypes))

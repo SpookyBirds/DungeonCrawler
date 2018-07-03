@@ -1,50 +1,54 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(Controller))]
 [RequireComponent(typeof(FieldOfView))]
-public class AI_attackerBased : AIStatemachine {
+[RequireComponent(typeof(NavMeshAgent))]
+public class AI : InheritanceSimplyfier
+{
+    private NavMeshAgent NavMeshAgent { get; set; }
+    private Controller   Controller   { get; set; }
+    private FieldOfView  FieldOfView  { get; set; }
 
-    private FieldOfView fieldOfView;
-
-    private Attacker attacker;
-    private Entity opponent;
-
-    private float elapsedTimeSinceLastNavUpdate;
+    private float elapsedTimeSinceLastNavUpdate = 0f;
     private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
 
-    protected new void Awake()
-    {
-        base.Awake();
 
-        fieldOfView = GetComponent<FieldOfView>();
-        attacker    = GetComponent<Attacker   >();
+    private Entity opponent;
+
+    protected override void Awake()
+    {
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        Controller   = GetComponent<Controller>();
+        FieldOfView  = GetComponent<FieldOfView>();
     }
 
-    protected override void DoIdle()
+    public void Idle_baseState_Update()
     {
-        Transform opponent;
-        if (fieldOfView.FindEnemy(out opponent))
-        {
-            this.opponent = opponent.GetComponent<Entity>();
-            ChangeState(AIStates.Aggro);
-        }
+        if (FieldOfView.FindEnemy(out opponent))
+            Controller.Animator.SetTrigger("SwitchBaseState");
     }
 
-    protected override void DoAggro()
+    public void Aggro_baseState_Update()
+    {
+
+    }
+
+    public void CombatIdle_Update()
     {
         ///Handle state
         if (opponent.Health <= 0)
         {
-            ChangeState(AIStates.Idle);
+            Controller.Animator.SetTrigger("SwitchBaseState");
             return;
         }
 
 
         /// Handle movement
         elapsedTimeSinceLastNavUpdate += Time.deltaTime;
-        if(elapsedTimeSinceLastNavUpdate > timeIntervallToUpdateNavDestinationInSeconds)
+        if (elapsedTimeSinceLastNavUpdate > timeIntervallToUpdateNavDestinationInSeconds)
         {
             elapsedTimeSinceLastNavUpdate -= timeIntervallToUpdateNavDestinationInSeconds;
 
@@ -56,7 +60,7 @@ public class AI_attackerBased : AIStatemachine {
             return;
 
         // Easy check if attack is allowed
-        if(Vector3.Distance(opponent.transform.position, attacker.AttackColliderPosition) < attacker.AttackRange)
+        if (Vector3.Distance(opponent.transform.position, attacker.AttackColliderPosition) < attacker.AttackRange)
         {
             attacker.StartAttack();
         }
@@ -76,4 +80,12 @@ public class AI_attackerBased : AIStatemachine {
             }
         }
     }
+
+    public void UseRight_Update()
+    {
+
+    }
+
+
+
 }
