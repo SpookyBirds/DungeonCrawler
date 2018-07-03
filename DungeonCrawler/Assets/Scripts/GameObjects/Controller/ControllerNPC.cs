@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ControllerNPC : Controller {
 
-    private AIStatemachine aI;
+    private NPC_AI aI;
 
     protected override void Start()
     {
-        aI = GetComponent<AIStatemachine>();
+        aI = GetComponent<NPC_AI>();
     }
 }

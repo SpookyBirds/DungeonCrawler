@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Controller))]
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(NavMeshAgent))]
-public class AI : InheritanceSimplyfier
+public class NPC_AI : InheritanceSimplyfier
 {
-    private NavMeshAgent NavMeshAgent { get; set; }
-    private Controller   Controller   { get; set; }
+    [SerializeField] [Tooltip("Weapon prefab containing the weapon info used by this NPC")]
+    private Holdable     weapon;
+
+    private Controller Controller   { get; set; }
     private FieldOfView  FieldOfView  { get; set; }
+    private NavMeshAgent NavMeshAgent { get; set; }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
     private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
@@ -27,7 +28,7 @@ public class AI : InheritanceSimplyfier
 
     public void Idle_baseState_Update()
     {
-        if (FieldOfView.FindEnemy(out opponent))
+        if (FieldOfView.FindEnemy(out opponent))    //search for enemies
             Controller.Animator.SetTrigger("SwitchBaseState");
     }
 
@@ -36,56 +37,41 @@ public class AI : InheritanceSimplyfier
 
     }
 
+
     public void CombatIdle_Update()
     {
-        ///Handle state
-        if (opponent.Health <= 0)
-        {
+        if (opponent.Health <= 0)   //check if the enemy is already dead
             Controller.Animator.SetTrigger("SwitchBaseState");
-            return;
-        }
+    }
+
+    public void Attack_Update()
+    {
+    }
+
+    public void Attack()
+    {
+        weapon.Use(Controller);
+    }
 
 
-        /// Handle movement
+    public void Run_Start()
+    {
+        NavMeshAgent.isStopped = false;
+    }
+
+    public void Run_Update()
+    {
         elapsedTimeSinceLastNavUpdate += Time.deltaTime;
         if (elapsedTimeSinceLastNavUpdate > timeIntervallToUpdateNavDestinationInSeconds)
         {
             elapsedTimeSinceLastNavUpdate -= timeIntervallToUpdateNavDestinationInSeconds;
 
-            navMeshAgent.SetDestination(opponent.transform.position);
-        }
-
-        /// Handle attacking
-        if (attacker.AlreadyAttacking)
-            return;
-
-        // Easy check if attack is allowed
-        if (Vector3.Distance(opponent.transform.position, attacker.AttackColliderPosition) < attacker.AttackRange)
-        {
-            attacker.StartAttack();
-        }
-        else
-        {
-            // Advanced check for bigger as well as further away targets
-            RaycastHit hit;
-            if (opponent.GetComponent<Collider>().Raycast(
-                new Ray(transform.position, (opponent.transform.position - transform.position)),
-                out hit,
-                attacker.AttackRange))
-            {
-                if (hit.distance <= attacker.AttackRange)
-                {
-                    attacker.StartAttack();
-                }
-            }
+            NavMeshAgent.SetDestination(opponent.transform.position);
         }
     }
 
-    public void UseRight_Update()
+    public void Run_End()
     {
-
+        NavMeshAgent.isStopped = true;
     }
-
-
-
 }

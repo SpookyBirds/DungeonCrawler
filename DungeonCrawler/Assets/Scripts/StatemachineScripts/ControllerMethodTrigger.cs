@@ -2,12 +2,12 @@
 using System.Reflection;
 using UnityEngine;
 
-public class ControllerMethodTrigger : StateMachineBehaviour {
+public class PlayerControllerMethodTrigger : StateMachineBehaviour {
 
     public State state;
 
-    private delegate void MethodFire(Controller controller);
-    public Controller Controller { get; set; }
+    private delegate void MethodFire(ControllerPlayer controller);
+    public ControllerPlayer Controller { get; set; }
     private MethodFire fireEnter;
     private MethodFire fireUpdate;
 
@@ -33,10 +33,10 @@ public class ControllerMethodTrigger : StateMachineBehaviour {
             fireEnterMethodName = "Jump";
         }
 
-        MethodInfo enterMethodInfo = typeof(Controller).GetMethod(fireEnterMethodName, BindingFlags.Public | BindingFlags.Instance);
+        MethodInfo enterMethodInfo = typeof(ControllerPlayer).GetMethod(fireEnterMethodName, BindingFlags.Public | BindingFlags.Instance);
         fireEnter = (MethodFire)Delegate.CreateDelegate(typeof(MethodFire), null, enterMethodInfo);
 
-        MethodInfo updateMethodInfo = typeof(Controller).GetMethod(fireUpdateMethodName, BindingFlags.Public | BindingFlags.Instance);
+        MethodInfo updateMethodInfo = typeof(ControllerPlayer).GetMethod(fireUpdateMethodName, BindingFlags.Public | BindingFlags.Instance);
         if(updateMethodInfo != null)
             fireUpdate = (MethodFire)Delegate.CreateDelegate(typeof(MethodFire), null, updateMethodInfo);
     }

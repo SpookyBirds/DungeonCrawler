@@ -23,17 +23,6 @@ public abstract class Controller : InheritanceSimplyfier {
         protected set { animator = value; }
     }
 
-    [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
-    private AnimatorOverrideController animatorOverrideController;
-    public AnimatorOverrideController AnimatorOverrideController
-    {
-        get { return animatorOverrideController; }
-        protected set { animatorOverrideController = value; }
-    }
-
-    public EquipmetHolder EquipmetHolder { get; protected set; }
-
-    public Rigidbody Rigid { get; protected set; }
 
     /// <summary>
     /// The entity controlled by this controller
@@ -51,52 +40,19 @@ public abstract class Controller : InheritanceSimplyfier {
     }
 
     /// Entity facing directions
-    public Vector3 ForwardDirection { get { return transform.forward; } }
-    public Vector3 LeftDirection { get { return -transform.right; } }
-    public Vector3 BackDirection { get { return -transform.forward; } }
-    public Vector3 RightDirection { get { return transform.right; } }
+    public Vector3 ForwardDirection { get { return  transform.forward; } }
+    public Vector3 LeftDirection    { get { return -transform.right;   } }
+    public Vector3 BackDirection    { get { return -transform.forward; } }
+    public Vector3 RightDirection   { get { return  transform.right;   } }
 
 
     protected override void Awake()
     {
         EnemyTypes = Global.GetSelectedEntries(hostileEntities);
         Entity = GetComponentInChildren<Entity>();
-        Rigid  = GetComponent<Rigidbody>();
-        EquipmetHolder = GetComponent<EquipmetHolder>();
         if (Animator == null)
             Animator = GetComponentInChildren<Animator>();
     }
 
-    protected override void Start()
-    {
-        Animator.runtimeAnimatorController = AnimatorOverrideController;
-        AnimatorOverrideController["DEFAULT_LeftUse"]  = EquipmetHolder.LeftHand.animationClip;
-        AnimatorOverrideController["DEFAULT_RightUse"] = EquipmetHolder.RightHand.animationClip;
-    }
-
-    /// <summary>
-    /// Use the holdable in the left hand. Returns whether it was successfull
-    /// </summary>
-    public virtual void UseLeft() { }
-
-    /// <summary>
-    /// Called after the left action is finished
-    /// </summary>
-    public virtual void QuitLeft() { }
-
-    /// <summary>
-    /// Use the holdable in the right hand. Returns whether it was successfull
-    /// </summary>
-    public virtual void UseRight() { }
-
-    /// <summary>
-    /// Called after the right action is finished
-    /// </summary>
-    public virtual void QuitRight() { }
-
-    /// <summary>
-    /// Use this to implement a jump
-    /// </summary>
-    public virtual void Jump() { }
 
 }

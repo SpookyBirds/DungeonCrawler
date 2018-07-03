@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEventCommunicator : MonoBehaviour {
+public class PlayerAnimationEventCommunicator : MonoBehaviour {
 
     public string leftAttackState  = "Base Layer.UseLeft_state";
     private int leftAttackID;
     public string rightAttackState = "Base Layer.UseRight_state";
     private int rightAttackID;
 
-    public Controller controller;
+    public ControllerPlayer controller;
     private Animator animator;
 
     private ValueWrapper<bool> leftAttackHasStarted  = new ValueWrapper<bool>(false);
@@ -23,12 +23,12 @@ public class AnimationEventCommunicator : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         if (controller == null)
-            controller = transform.parent.GetComponent<Controller>();
+            controller = transform.parent.GetComponent<ControllerPlayer>();
     }
 
     private void Start()
     {
-        AnimationQuitTrigger[] quitTrigger = animator.GetBehaviours<AnimationQuitTrigger>();
+        PlayerAnimationQuitTrigger[] quitTrigger = animator.GetBehaviours<PlayerAnimationQuitTrigger>();
         for (int index = 0; index < quitTrigger.Length; index++)
         {
             quitTrigger[index].Controller = controller;

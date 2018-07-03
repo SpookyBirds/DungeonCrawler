@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class AnimationQuitTrigger : StateMachineBehaviour {
+public class PlayerAnimationQuitTrigger : StateMachineBehaviour {
 
     public State state;
 
-    private delegate void MethodFire(Controller controller);
-    public Controller Controller { get; set; }
+    private delegate void MethodFire(ControllerPlayer controller);
+    public ControllerPlayer Controller { get; set; }
     private MethodFire fire;
 
     private bool attackStarted = false;
@@ -33,7 +33,7 @@ public class AnimationQuitTrigger : StateMachineBehaviour {
             fireEnterMethodName = "Jump";
         }
 
-        MethodInfo enterMethodInfo = typeof(Controller).GetMethod(fireEnterMethodName, BindingFlags.Public | BindingFlags.Instance);
+        MethodInfo enterMethodInfo = typeof(ControllerPlayer).GetMethod(fireEnterMethodName, BindingFlags.Public | BindingFlags.Instance);
         fire = (MethodFire)Delegate.CreateDelegate(typeof(MethodFire), null, enterMethodInfo);
     }
 

@@ -5,11 +5,32 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ControllerPlayer : Controller {
 
-    public float forwardSpeed = 0.1f;
-    public float leftSpeed = 0.1f;
-    public float backSpeed = 0.1f;
-    public float rightSpeed = 0.1f;
-    public float jumpforce = 1f;
+    [SerializeField] private float forwardSpeed = 0.1f;
+    [SerializeField] private float leftSpeed = 0.1f;
+    [SerializeField] private float backSpeed = 0.1f;
+    [SerializeField] private float rightSpeed = 0.1f;
+    [SerializeField] private float jumpforce = 1f;
+
+    [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
+    private AnimatorOverrideController animatorOverrideController;
+    public AnimatorOverrideController AnimatorOverrideController
+    {
+        get { return animatorOverrideController; }
+        protected set { animatorOverrideController = value; }
+    }
+
+    /// <summary>
+    /// The two Hands of the player. This holds the equiped tools and weapons
+    /// </summary>
+    public EquipmetHolder EquipmetHolder { get; protected set; }
+
+    /// <summary>
+    /// The rigidbody this player uses.
+    /// </summary>
+    public Rigidbody Rigid { get; protected set; }
+
+
+    private CameraMovementController cameraMovementController;
 
     private bool isGrounded;
     public bool IsGrounded
@@ -22,21 +43,30 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    private CameraMovementController cameraMovementController;
-
     protected override void Awake()
     {
         base.Awake();
 
         cameraMovementController = GetComponentInChildren<CameraMovementController>();
+
+        Rigid = GetComponent<Rigidbody>();
+        EquipmetHolder = GetComponent<EquipmetHolder>();
     }
 
-    public override void Jump()
+    protected override void Start()
+    {
+        Animator.runtimeAnimatorController = AnimatorOverrideController;
+        AnimatorOverrideController["DEFAULT_LeftUse"] = EquipmetHolder.LeftHand.animationClip;
+        AnimatorOverrideController["DEFAULT_RightUse"] = EquipmetHolder.RightHand.animationClip;
+    }
+
+
+    public void Jump()
     {
         Rigid.AddForce(0, jumpforce, 0);
     }
 
-    public override void UseLeft()
+    public void UseLeft()
     {
         if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
@@ -49,7 +79,7 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public override void UseRight()
+    public void UseRight()
     {
         if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
@@ -62,7 +92,7 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public override void QuitLeft()
+    public void QuitLeft()
     {
         if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
@@ -76,7 +106,7 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public override void QuitRight()
+    public void QuitRight()
     {
         if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {

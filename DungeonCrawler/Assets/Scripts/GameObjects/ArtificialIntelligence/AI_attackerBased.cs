@@ -24,10 +24,8 @@ public class AI_attackerBased : AIStatemachine {
 
     protected override void DoIdle()
     {
-        Transform opponent;
         if (fieldOfView.FindEnemy(out opponent))
         {
-            this.opponent = opponent.GetComponent<Entity>();
             ChangeState(AIStates.Aggro);
         }
     }
