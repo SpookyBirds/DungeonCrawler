@@ -6,32 +6,66 @@ using UnityEngine;
 public class NPCAnimationCommunicator : StateMachineBehaviour {
 
     private delegate void Fire();
-    private Fire fire;
+    private Fire fireEnter;
+    private Fire fireUpdate;
+    private Fire fireExit;
 
-    [SerializeField] private States state;
-    public NPC_AI AI { get; set; }
+    [SerializeField]
+    private States state;
 
-    private void Awake()
+    private NPC_AI ai;
+    public NPC_AI AI
+    {
+        get { return ai; }
+        set
+        {
+            ai = value;
+            Initialize();
+        }
+    }
+
+    private void Initialize()
     {
         switch (state)
         {
-            case States.None:
-                break;
             case States.Combat_Idle:
-                fire = AI.CombatIdle_Update;
+                fireEnter  = delegate { };
+                fireUpdate = AI.CombatIdle_Update;
+                fireExit   = delegate { };
                 break;
             case States.Attack:
+                fireEnter  = delegate { };
+                fireUpdate = AI.Attack_Update;
+                fireExit   = delegate { };
                 break;
             case States.Run:
+                fireEnter  = AI.Run_Start;
+                fireUpdate = AI.Run_Update;
+                fireExit   = AI.Run_End;
                 break;
-            case States.Jump:
-                break;
-            case States.Landing:
+
+            default:
+                fireEnter  = delegate { };
+                fireUpdate = delegate { };
+                fireExit   = delegate { };
                 break;
         }
     }
 
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        fireEnter();
+    }
 
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        fireExit();
+    }
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        fireUpdate();
+    }
 
     private enum States
     {
