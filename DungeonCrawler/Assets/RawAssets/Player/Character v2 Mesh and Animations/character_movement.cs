@@ -9,6 +9,7 @@ public class Character_Movement : MonoBehaviour {
     public float horizontalInput;
     public float verticalInput;
     public int speed = 5;
+    public int jumpforce = 10;
     private CameraMovementController cameraMovementController;
 
     public Vector3 ForwardDirection { get { return transform.forward; } }
@@ -28,12 +29,19 @@ public class Character_Movement : MonoBehaviour {
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
 
-        anim.SetBool("testbool", Input.GetKeyDown(KeyCode.Space));
+        anim.SetBool("gitgut", Input.GetKeyDown(KeyCode.LeftShift));
+        anim.SetBool("jump", Input.GetKeyDown(KeyCode.Space));
 
         anim.SetBool("running", !(verticalInput == 0 && horizontalInput == 0));
 
         rigid.AddForce(ForwardDirection * speed * verticalInput);
         rigid.AddForce(RightDirection * speed * horizontalInput);
+
+        if(anim.GetBool("jump")==true)
+        {
+            rigid.AddForce(0, jumpforce*100, 0);
+        }
+        
 
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
