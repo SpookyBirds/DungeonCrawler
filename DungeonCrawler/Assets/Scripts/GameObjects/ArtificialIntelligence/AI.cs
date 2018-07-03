@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Controller))]
@@ -9,7 +10,7 @@ public class NPC_AI : InheritanceSimplyfier
     [SerializeField] [Tooltip("Weapon prefab containing the weapon info used by this NPC")]
     private Holdable     weapon;
 
-    private Controller Controller   { get; set; }
+    private Controller   Controller   { get; set; }
     private FieldOfView  FieldOfView  { get; set; }
     private NavMeshAgent NavMeshAgent { get; set; }
 
@@ -24,6 +25,9 @@ public class NPC_AI : InheritanceSimplyfier
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Controller   = GetComponent<Controller>();
         FieldOfView  = GetComponent<FieldOfView>();
+
+        foreach (NPCAnimationCommunicator communicator in Controller.Animator.GetBehaviours<NPCAnimationCommunicator>())
+            communicator.AI = this;        
     }
 
     public void Idle_baseState_Update()
