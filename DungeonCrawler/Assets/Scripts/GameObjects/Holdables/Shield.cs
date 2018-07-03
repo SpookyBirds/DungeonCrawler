@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shield : Holdable {
 
+    [Space]
+    public Image absorptionBar;
     [Space]
     public float absorptionGenerationPerFrame;
     [SerializeField]
@@ -13,7 +16,11 @@ public class Shield : Holdable {
     public float AbsorptionValue
     {
         get { return absorptonValue; }
-        protected set { absorptonValue = Mathf.Clamp(value, 0, maxAbsorptionValue); }
+        protected set
+        {
+            absorptonValue = Mathf.Clamp(value, 0, maxAbsorptionValue);
+            absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;
+        }
     }
 
     private bool isBlocking;
@@ -30,6 +37,8 @@ public class Shield : Holdable {
     protected override void Awake()
     {
         base.Awake();
+        absorptionBar = GameObject.Find("AbsorptionBar").GetComponent<Image>(); //TODO: clean up this shit here
+        AbsorptionValue = maxAbsorptionValue;
         HoldableMode = HoldableMode.Hold;
         isBlocking = false;
     }
@@ -56,14 +65,24 @@ public class Shield : Holdable {
         }
     }
 
+    /// <summary>
+    /// Blocking incoming damage by consuming the AbsorptionValue of the shield.
+    /// </summary>
+    /// <param name="remainingDamageToDeal">The so far unabsorped damage of the attack. The absopted value will get subtracted</param>
+    /// <returns>Whether the block was able to fully block the remaining damage</returns>
     private bool Block(ref float remainingDamageToDeal)
     {
         Debug.Log("block");
 
-        remainingDamageToDeal = AbsorptionValue -= remainingDamageToDeal;
-        if (remainingDamageToDeal < 0)
-            remainingDamageToDeal = 0;
-        return true;
+        float remainingValue = AbsorptionValue -= remainingDamageToDeal;
 
+        if (remainingValue >= 0)
+        {
+            remainingDamageToDeal = 0;
+            return true;
+        }
+
+        remainingDamageToDeal = -remainingValue;
+        return false;
     }
 }

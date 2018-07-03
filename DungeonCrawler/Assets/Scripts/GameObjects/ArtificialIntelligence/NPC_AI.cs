@@ -80,6 +80,12 @@ public class NPC_AI : InheritanceSimplyfier
         {
             elapsedTimeSinceLastNavUpdate -= timeIntervallToUpdateNavDestinationInSeconds;
 
+            if(opponent == null)
+            {
+                Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+                return;
+            }
+
             NavMeshAgent.SetDestination(opponent.transform.position);
         }
 
@@ -93,6 +99,12 @@ public class NPC_AI : InheritanceSimplyfier
 
     private void RunOrAttack()
     {
+        if (opponent == null)
+        {
+            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            return;
+        }
+
         bool opponentIsInAttackRange =
             Vector3.Distance(transform.position, opponent.transform.position) < AttackRange;
 

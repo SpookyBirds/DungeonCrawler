@@ -1111,6 +1111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   healthDisplay: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &114129309802818620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1124,13 +1125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileEntities: 8
   animator: {fileID: 95654639930023896}
-  animatorOverrideController: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66,
-    type: 2}
   forwardSpeed: 20
   leftSpeed: 20
   backSpeed: 20
   rightSpeed: 20
   jumpforce: 300
+  animatorOverrideController: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66,
+    type: 2}
 --- !u!114 &114229780804485914
 MonoBehaviour:
   m_ObjectHideFlags: 1

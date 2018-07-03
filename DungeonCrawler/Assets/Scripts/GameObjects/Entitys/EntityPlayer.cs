@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 public class EntityPlayer : Entity {
 
     public Text healthDisplay;
+    public Image healthbar;
 
     public override float Health
     {
@@ -14,8 +16,14 @@ public class EntityPlayer : Entity {
         protected set
         {
             base.Health = value;
-            healthDisplay.text = "Health: " + Health;
+            UpdateHealthDisplay();
         }
+    }
+
+    private void UpdateHealthDisplay()
+    {
+        healthbar.fillAmount = Health / startingHealth;
+        healthDisplay.text = "Health: " + Health;
     }
 
     protected override void KillEntity()
