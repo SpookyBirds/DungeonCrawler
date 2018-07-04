@@ -170,5 +170,8 @@ MonoBehaviour:
   model: {fileID: 4761832807512490}
   transformationRotation: {x: 0, y: 0, z: 0}
   transformationPosition: {x: 0, y: 0, z: 0}
-  animationClip: {fileID: 7400000, guid: 2037f17aef2c91d41aea55d0e2c633d2, type: 3}
+  animationClipShortAttack: {fileID: 7400000, guid: 2037f17aef2c91d41aea55d0e2c633d2,
+    type: 3}
+  animationClipLongAttack: {fileID: 7400000, guid: 2037f17aef2c91d41aea55d0e2c633d2,
+    type: 3}
   damagePerHit: 10

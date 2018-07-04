@@ -12,7 +12,8 @@ public abstract class Holdable : InheritanceSimplyfier {
     [Space]
     public Vector3 transformationRotation;
     public Vector3 transformationPosition;
-    public AnimationClip animationClip;
+    public AnimationClip animationClipShortAttack;
+    public AnimationClip animationClipLongAttack;
 
     public Vector3 AttackColliderPosition { get { return influenceCollider.transform.position; } }
 
@@ -28,9 +29,20 @@ public abstract class Holdable : InheritanceSimplyfier {
     }
 
     /// <summary>
-    /// Activates the use action. Returns whether the action is successfull
+    /// Activates the short use action. Returns whether the action is successfull
     /// </summary>
-    public abstract bool Use(Controller controller);
+    public abstract bool UseShort(Controller controller);
+
+    /// <summary>
+    /// Activates the long use action. Returns whether the action is successfull
+    /// </summary>
+    public abstract bool UseLong(Controller controller);
+
+    /// <summary>
+    /// Called one per frame while the holdable is used.
+    /// </summary>
+    /// <param name="quit">True if the use is ended</param>
+    public virtual void UpdateUse(Controller controller, bool quit) { }
 }
 
 public enum HoldableMode

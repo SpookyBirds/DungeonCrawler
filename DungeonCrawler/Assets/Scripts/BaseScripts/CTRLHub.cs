@@ -49,15 +49,12 @@ public class CTRLHub : MonoBehaviour
     public bool LeftFireNormal { get ; private set;}
     public bool LeftFireLong   { get ; private set;}
     public bool LeftFireHold   { get ; private set;}
-
     public bool RightFireNormal { get; private set; }
     public bool RightFireLong   { get; private set; }
     public bool RightFireHold   { get; private set; }
 
-    private bool startedLeftFire;
-    private float leftFireTimer;
-    private bool startedRightFire;
     private float rightFireTimer;
+    private float leftFireTimer;
 
     public void Awake()
     {
@@ -71,6 +68,13 @@ public class CTRLHub : MonoBehaviour
             Destroy(gameObject);
         }
 
+        LeftFireNormal  = false;
+        LeftFireLong    = false;
+        LeftFireHold    = false;
+        RightFireNormal = false;
+        RightFireLong   = false;
+        RightFireHold   = false;
+
         LeftAttackKeyCode  = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire1",       "Mouse0"));
         RightAttackKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fire2",       "Mouse1"));
         JumpKeyCode        = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("jumpKey",     "Space" ));
@@ -83,49 +87,67 @@ public class CTRLHub : MonoBehaviour
     private void Update()
     {
         LeftFireNormal = false;
-        LeftFireLong   = false;
+        LeftFireLong = false;
 
         if (LeftAttackDown)
         {
-            leftFireTimer = Time.time;
+            leftFireTimer = 0;
             LeftFireHold = false;
+        }
+
+        if (LeftAttack)
+            leftFireTimer += Time.deltaTime;
+
+        if ((leftFireTimer) <= timeUntilLongFire)
+        {
+            if (LeftAttackUp)
+                LeftFireNormal = true;
+        }
+        else
+        {
+            if (LeftAttackUp)
+                LeftFireLong = true;
+
+            LeftFireHold = true;
         }
 
         if (LeftAttackUp)
         {
-            if ((Time.time - leftFireTimer) <= timeUntilLongFire)
-            {
-                LeftFireNormal = true;
-            }
-            else
-            {
-                LeftFireLong = true;
-                LeftFireHold = true;
-            }
+            LeftFireHold = false;
+            leftFireTimer = 0;
         }
 
 
 
         RightFireNormal = false;
-        RightFireLong   = false;
+        RightFireLong = false;
 
         if (RightAttackDown)
         {
-            rightFireTimer = Time.time;
+            rightFireTimer = 0;
             RightFireHold = false;
+        }
+
+        if (RightAttack)
+            rightFireTimer += Time.deltaTime;
+
+        if (rightFireTimer <= timeUntilLongFire)
+        {
+            if (RightAttackUp)
+                RightFireNormal = true;
+        }
+        else
+        {
+            if (RightAttackUp)
+                RightFireLong = true;
+
+            RightFireHold = true;
         }
 
         if (RightAttackUp)
         {
-            if ((Time.time - rightFireTimer) <= timeUntilLongFire)
-            {
-                RightFireNormal = true;
-            }
-            else
-            {
-                RightFireLong = true;
-                RightFireHold = true;
-            }
+            RightFireHold = false;
+            rightFireTimer = 0;
         }
     }
 }

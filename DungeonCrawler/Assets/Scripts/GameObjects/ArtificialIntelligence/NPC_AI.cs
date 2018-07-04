@@ -55,7 +55,7 @@ public class NPC_AI : InheritanceSimplyfier
     public void CombatIdle_Update()
     {
         /// Check if the enemy is already dead
-        if (opponent.Health <= 0)
+        if (opponent == null || opponent.Health <= 0)
         {
             Debug.Log("Enemy is dead. Start relaxing again");
             Controller.Animator.SetTrigger("IdleBaseStateSwitch");

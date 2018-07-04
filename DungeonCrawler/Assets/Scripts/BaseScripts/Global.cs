@@ -81,7 +81,7 @@ public class Global : MonoBehaviour {
         if(numberedTags.ContainsKey(entitiesEntry))
             return numberedTags[entitiesEntry];
 
-        Debug.Log("Attention! Couldn't find tag for this faction, you propably forgot to assign the right faction.");
+        Debug.LogWarning("Attention! Couldn't find tag for this faction, you propably forgot to assign the right faction.");
         return null;
     }
 }
@@ -108,6 +108,12 @@ public enum State
     UseLeft,
     UseRight,
     Jump
+}
+
+public enum UseType
+{
+    shortAttack,
+    longAttack
 }
 
 

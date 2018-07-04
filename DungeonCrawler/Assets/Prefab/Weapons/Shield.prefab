@@ -170,6 +170,9 @@ MonoBehaviour:
   model: {fileID: 4619607443736030}
   transformationRotation: {x: 0, y: 90, z: 0}
   transformationPosition: {x: 0.004, y: 0, z: 0}
-  animationClip: {fileID: 7400000, guid: deb81349c587ce143947b5ed1479dab7, type: 3}
+  animationClipShortAttack: {fileID: 7400000, guid: deb81349c587ce143947b5ed1479dab7,
+    type: 3}
+  animationClipLongAttack: {fileID: 7400000, guid: deb81349c587ce143947b5ed1479dab7,
+    type: 3}
   absorptionGenerationPerFrame: 0.05
   maxAbsorptionValue: 100
