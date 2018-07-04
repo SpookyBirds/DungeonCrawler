@@ -117,7 +117,7 @@ public class ControllerPlayer : Controller {
                 (EquipmetHolder.RightHand as Shield).UpdateUse(this, true);
             }
             else
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
+                (EquipmetHolder.RightHand as Shield).UpdateUse(this, false);
         }
     }
 
