@@ -57,26 +57,93 @@ public class ControllerPlayer : Controller {
     protected override void Start()
     {
         Animator.runtimeAnimatorController = AnimatorOverrideController;
-        AnimatorOverrideController["DEFAULT_LeftUse"] = EquipmetHolder.LeftHand.animationClip;
-        AnimatorOverrideController["DEFAULT_RightUse"] = EquipmetHolder.RightHand.animationClip;
+        AnimatorOverrideController["DEFAULT_LeftUse_short"]  = EquipmetHolder.LeftHand.animationClipShortAttack;
+        AnimatorOverrideController["DEFAULT_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
+        AnimatorOverrideController["DEFAULT_LeftUse_long"]   = EquipmetHolder.LeftHand.animationClipLongAttack;
+        AnimatorOverrideController["DEFAULT_RightUse_long"]  = EquipmetHolder.RightHand.animationClipLongAttack;
     }
-
 
     public void Jump()
     {
         Rigid.AddForce(0, jumpforce, 0);
     }
 
+    public void UseLeft(UseType useType)
+    {
+        Debug.Log("useleft " + useType);
+
+        if (useType == UseType.shortAttack)
+        {
+            Animator.SetBool("UseLeft_short", false);
+            EquipmetHolder.LeftHand.UseShort(this);
+        }
+        else if (useType == UseType.longAttack)
+        {
+            EquipmetHolder.LeftHand.UseLong(this);
+        }
+    }
+
+    public void UseRight(UseType useType)
+    {
+        Debug.Log("uiseright "+ useType);
+        if (useType == UseType.shortAttack)
+        {
+            Animator.SetBool("UseRight_short", false);
+            EquipmetHolder.RightHand.UseShort(this);
+        }
+        else if(useType == UseType.longAttack)
+        {
+            EquipmetHolder.RightHand.UseLong(this);
+        }
+    }
+
+    public void QuitLeft(UseType useType)
+    {
+        if(useType == UseType.shortAttack)
+        {
+        }
+        else if (useType == UseType.longAttack)
+        {
+            if(CTRLHub.inst.LeftAttack == false)
+            {
+                Animator.SetBool("UseLeft_long", false);
+                EquipmetHolder.LeftHand.UpdateUse(this, true);
+            }
+            else
+                EquipmetHolder.LeftHand.UpdateUse(this, false);
+        }
+    }
+
+    public void QuitRight(UseType useType)
+    {
+
+        if(useType == UseType.shortAttack)
+        {
+
+        }
+        else if(useType == UseType.longAttack)
+        {
+            if (CTRLHub.inst.RightFireHold == false)
+            {
+                Animator.SetBool("UseRight_long", false);
+                EquipmetHolder.RightHand.UpdateUse(this, true);
+            }
+            else
+                EquipmetHolder.RightHand.UpdateUse(this, false);
+        }
+    }
+
+    /* Old attack methods
     public void UseLeft()
     {
         if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
         {
             Animator.SetBool("UseLeft", false);
-            EquipmetHolder.LeftHand.Use(this);
+            EquipmetHolder.LeftHand.UseShort(this);
         }
         else if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
         {
-            EquipmetHolder.LeftHand.Use(this);
+            EquipmetHolder.LeftHand.UseShort(this);
         }
     }
 
@@ -85,11 +152,11 @@ public class ControllerPlayer : Controller {
         if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
         {
             Animator.SetBool("UseRight", false);
-            EquipmetHolder.RightHand.Use(this);
+            EquipmetHolder.RightHand.UseShort(this);
         }
         else if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
         {
-            EquipmetHolder.RightHand.Use(this);
+            EquipmetHolder.RightHand.UseShort(this);
         }
     }
 
@@ -117,9 +184,10 @@ public class ControllerPlayer : Controller {
                 (EquipmetHolder.RightHand as Shield).UpdateUse(this, true);
             }
             else
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
+                (EquipmetHolder.RightHand as Shield).UpdateUse(this, false);
         }
     }
+    */
 
     protected override void FixedUpdate()
     {

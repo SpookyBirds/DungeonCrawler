@@ -7,12 +7,11 @@ using UnityEngine;
 public class PlayerAnimationQuitTrigger : StateMachineBehaviour {
 
     public State state;
+    public UseType useType;
 
-    private delegate void MethodFire(ControllerPlayer controller);
+    private delegate void MethodFire(ControllerPlayer controller, UseType useType);
     public ControllerPlayer Controller { get; set; }
     private MethodFire fire;
-
-    private bool attackStarted = false;
 
     public ValueWrapper<bool> hasStarted;
 
@@ -46,6 +45,8 @@ public class PlayerAnimationQuitTrigger : StateMachineBehaviour {
     {
         if (!hasStarted.Value)
             return;
-        fire(Controller);
+
+        Debug.Log("FIRE! quit "+ useType);
+        fire(Controller, useType);
     }
 }

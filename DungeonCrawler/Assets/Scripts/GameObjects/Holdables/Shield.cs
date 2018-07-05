@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class Shield : Holdable {
 
     [Space]
-    public Image absorptionBar;
-    [Space]
     public float absorptionGenerationPerFrame;
     [SerializeField]
     private float maxAbsorptionValue;
@@ -34,6 +32,8 @@ public class Shield : Holdable {
         }
     }
 
+    private Image absorptionBar;
+
     protected override void Awake()
     {
         base.Awake();
@@ -49,17 +49,19 @@ public class Shield : Holdable {
             AbsorptionValue += absorptionGenerationPerFrame;
     }
 
-    public override bool Use(Controller controller)
+    public override bool UseLong(Controller controller)
     {
+        Debug.Log("started block");
         IsBlocking = true;
         controller.Entity.AddInterruptAction = Block;
         return true;
     }
 
-    public void UpdateUse(Controller controller, bool quit)
+    public override void UpdateUse(Controller controller, bool quit)
     {
-        if(quit)
+        if (quit)
         {
+            Debug.Log("ended block");
             controller.Entity.RemoveInterruptAction = Block;
             IsBlocking = false;
         }
@@ -83,6 +85,11 @@ public class Shield : Holdable {
         }
 
         remainingDamageToDeal = -remainingValue;
+        return false;
+    }
+
+    public override bool UseShort(Controller controller)
+    {
         return false;
     }
 }

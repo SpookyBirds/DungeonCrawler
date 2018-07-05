@@ -18,7 +18,17 @@ public class Weapon : Holdable {
     /// <summary>
     /// Initialize an attack. Returns whether the use is successfull
     /// </summary>
-    public override bool Use(Controller controller)
+    public override bool UseShort(Controller controller)
+    {
+        return Attack(controller);
+    }
+
+    public override bool UseLong(Controller controller)
+    {
+        return Attack(controller);
+    }
+
+    private bool Attack(Controller controller)
     {
         bool didHit = false;
 

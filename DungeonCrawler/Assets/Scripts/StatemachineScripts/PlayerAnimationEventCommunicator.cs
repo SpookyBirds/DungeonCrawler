@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerAnimationEventCommunicator : MonoBehaviour {
 
-    public string leftAttackState  = "Base Layer.UseLeft_state";
-    private int leftAttackID;
-    public string rightAttackState = "Base Layer.UseRight_state";
-    private int rightAttackID;
+    public string leftShortAttackState = "Base Layer.UseLeft_short_state";
+    private int leftShortAttackID;
+    public string rightShortAttackState = "Base Layer.UseRight_short_state";
+    private int rightShortAttackID;
+    public string leftLongAttackState = "Base Layer.UseLeft_long_state";
+    private int leftLongAttackID;
+    public string rightLongAttackState = "Base Layer.UseRight_long_state";
+    private int rightLongAttackID;
 
     public ControllerPlayer controller;
     private Animator animator;
@@ -17,8 +21,10 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
 
     private void Awake()
     {
-        leftAttackID  = Animator.StringToHash(leftAttackState);
-        rightAttackID = Animator.StringToHash(rightAttackState);
+        leftShortAttackID  = Animator.StringToHash(leftShortAttackState);
+        rightShortAttackID = Animator.StringToHash(rightShortAttackState);
+        leftLongAttackID   = Animator.StringToHash(leftLongAttackState);
+        rightLongAttackID  = Animator.StringToHash(rightLongAttackState);
 
         animator = GetComponent<Animator>();
 
@@ -39,32 +45,54 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// The method called by the attack animation event
+    /// </summary>
     public void UseAttack()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(leftAttackState))
+        //Debug.Log("attack, but how?  ");
+        if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == leftShortAttackID || 
+            animator.GetCurrentAnimatorStateInfo(0).IsName(leftShortAttackState))
         {
+            //Debug.Log("left short");
             leftAttackHasStarted.Value = true;
-            controller.UseLeft();
+            controller.UseLeft(UseType.shortAttack);
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName(rightAttackState))
+        else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == leftLongAttackID ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName(leftLongAttackState))
         {
+            //Debug.Log("left long");
+            leftAttackHasStarted.Value = true;
+            controller.UseLeft(UseType.longAttack);
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == rightShortAttackID ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName(rightShortAttackState))
+        {
+            //Debug.Log("right short");
             rightAttackHasStarted.Value = true;
-            controller.UseRight();
+            controller.UseRight(UseType.shortAttack);
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == rightLongAttackID ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName(rightLongAttackState))
+        {
+            //Debug.Log("right long");
+            rightAttackHasStarted.Value = true;
+            controller.UseRight(UseType.longAttack);
         }
     }
-
-    public void QuitAttack()
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == leftAttackID)
-        {
-            leftAttackHasStarted.Value = false;
-            controller.QuitLeft();
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == rightAttackID)
-        {
-            rightAttackHasStarted.Value = false;
-            controller.QuitRight();
-        }
-    }
+    
+    //public void QuitAttack()
+    //{
+    //    if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == leftAttackID)
+    //    {
+    //        leftAttackHasStarted.Value = false;
+    //        controller.QuitLeft();
+    //    }
+    //    else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == rightAttackID)
+    //    {
+    //        rightAttackHasStarted.Value = false;
+    //        controller.QuitRight();
+    //    }
+    //}
 
 }
