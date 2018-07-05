@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5cb0254bb13004c4eaf042d718b3a43a
+guid: 376751fc73019a646ab01a972e07db72
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -117,7 +117,7 @@ ModelImporter:
     400108: jnt_upperLeg_L
     400110: jnt_upperLeg_R
     400112: master
-    7400000: Idle
+    7400000: Locomotion_Run_Backward_Left
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -139,7 +139,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -148,10 +148,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Locomotion_Run_Backward_Left
       takeName: clip_combatIdle
       firstFrame: 0
-      lastFrame: 50
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

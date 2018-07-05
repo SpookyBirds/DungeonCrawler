@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 5cb0254bb13004c4eaf042d718b3a43a
+guid: c7c09f7f481f56145afbb7f2d7201d33
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
+    100000: Character
     100002: holdable_L
     100004: holdable_R
     100006: IK_arm_L
@@ -60,7 +60,9 @@ ModelImporter:
     100108: jnt_upperLeg_L
     100110: jnt_upperLeg_R
     100112: master
-    400000: //RootNode
+    100114: mesh_pants
+    100116: //RootNode
+    400000: Character
     400002: holdable_L
     400004: holdable_R
     400006: IK_arm_L
@@ -117,11 +119,15 @@ ModelImporter:
     400108: jnt_upperLeg_L
     400110: jnt_upperLeg_R
     400112: master
-    7400000: Idle
+    400114: mesh_pants
+    400116: //RootNode
+    2100000: Material
+    4300000: mesh_pants
     9500000: //RootNode
+    13700000: mesh_pants
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -139,42 +145,14 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Idle
-      takeName: clip_combatIdle
-      firstFrame: 0
-      lastFrame: 50
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
