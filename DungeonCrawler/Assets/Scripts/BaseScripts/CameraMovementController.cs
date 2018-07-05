@@ -2,29 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraMovementController : MonoBehaviour
 {
-    public bool gamePaused = false;
-    public bool verticalInvertCamera = true;
+    [SerializeField] private bool verticalInvertCamera = true;
     [Space]
-
-    public float rotationSpeed = 1f;
+    [SerializeField] private float rotationSpeed = 1f;
     [Space]
-    public float verticalRotationLowerLimit;
-    public float verticalRotationUpperLimit;
+    [SerializeField] private float verticalRotationLowerLimit;
+    [SerializeField] private float verticalRotationUpperLimit;
     [Space]
-    public float zoomSpeed;
-    public float zoomLimit;
+    [SerializeField] private float zoomSpeed;
+    [SerializeField] private float zoomLimit;
 
     [Space]
-    public KeyCode redisplayCursor = KeyCode.LeftShift;
+    [SerializeField] private float aimingCameraTopOffset = 0.5f;
+    [SerializeField] private float aimingCameraZoomOffset = 3f;
+    [SerializeField] private Image crossHair;
 
     private Vector3 forwardPoint;
+    private Vector3 initialCameraPosition;
+
     private Transform pitchRotation;
     private Transform mainCamera;
     private Transform rotationCenterPoint;
-    private Vector3 initialCameraPosition;
+
+    public bool GamePaused { get; set; }
 
     private void Awake()
     {
@@ -34,33 +38,35 @@ public class CameraMovementController : MonoBehaviour
         initialCameraPosition = mainCamera.localPosition;
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        crossHair.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         
-        if (gamePaused)
+        if (GamePaused)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             return;
         }
-        else if (!gamePaused)
+        else if (!GamePaused)
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
        
 
-        // Handle cursor behaviour
-        if (Input.GetKeyDown(redisplayCursor))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (Input.GetKeyUp(redisplayCursor))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        //// Handle cursor behaviour
+        //if (Input.GetKeyDown(redisplayCursor))
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
+        //else if (Input.GetKeyUp(redisplayCursor))
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
 
 
         if (Cursor.lockState == CursorLockMode.Locked)
@@ -69,7 +75,10 @@ public class CameraMovementController : MonoBehaviour
             transform.Rotate(transform.up, CalculateRotationStep("Mouse X"), Space.World);
 
             // Handle vertical camera rotation
-            pitchRotation.Rotate(pitchRotation.right, CalculateRotationStep("Mouse Y") * (verticalInvertCamera ? -1 : 1), Space.World);
+            pitchRotation.Rotate(
+                pitchRotation.right, 
+                CalculateRotationStep("Mouse Y") * (verticalInvertCamera ? -1 : 1), 
+                Space.World);
             pitchRotation.rotation = Quaternion.Euler(
                 CheckClampBounds(
                     pitchRotation.rotation.eulerAngles.x,
@@ -135,5 +144,21 @@ public class CameraMovementController : MonoBehaviour
         transform.rotation = currentRotation;
 
         return cameraDirection;
+    }
+
+    public void ToggleCameraAimingPosition(bool doAim)
+    {
+        if (doAim)
+        {
+            mainCamera.localPosition += new Vector3(0, 0, aimingCameraZoomOffset);
+            rotationCenterPoint.localPosition += new Vector3(0, aimingCameraTopOffset, 0);
+            crossHair.gameObject.SetActive(true);
+        }
+        else
+        {
+            rotationCenterPoint.localPosition -= new Vector3(0, aimingCameraTopOffset, 0);
+            mainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
+            crossHair.gameObject.SetActive(false);
+        }
     }
 }

@@ -119,7 +119,6 @@ public class ControllerPlayer : Controller {
 
         if(useType == UseType.shortAttack)
         {
-
         }
         else if(useType == UseType.longAttack)
         {

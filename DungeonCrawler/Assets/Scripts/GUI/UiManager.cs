@@ -11,12 +11,12 @@ public class UiManager : MonoBehaviour {
         set
         {
             gamePaused = value;
-            cameraMovementController.gamePaused = GamePaused;
+            cameraMovementController.GamePaused = GamePaused;
         }
     }
 
-    public GameObject PauseScreen;
-    public GameObject CameraStop;
+    public GameObject pauseScreen;
+    public GameObject cameraStop;
 
     public CameraMovementController cameraMovementController;
 
@@ -28,14 +28,14 @@ public class UiManager : MonoBehaviour {
             if (GamePaused == false)
             {
                 GamePaused = true;
-                PauseScreen.SetActive(true);
+                pauseScreen.SetActive(true);
 
                 
             }
             else if(GamePaused == true)
             {
                 GamePaused = false;
-                PauseScreen.SetActive(false);
+                pauseScreen.SetActive(false);
 
             }
         }
