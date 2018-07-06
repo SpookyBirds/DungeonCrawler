@@ -12,10 +12,10 @@ public class Character_Movement : MonoBehaviour {
     public int jumpforce = 10;
     private CameraMovementController cameraMovementController;
 
-    public Vector3 ForwardDirection { get { return transform.forward; } }
-    public Vector3 LeftDirection { get { return -transform.right; } }
-    public Vector3 BackDirection { get { return -transform.forward; } }
-    public Vector3 RightDirection { get { return transform.right; } }
+    public Vector3 ForwardDirection { get { return transform.forward;  } }
+    public Vector3 LeftDirection    { get { return -transform.right;   } }
+    public Vector3 BackDirection    { get { return -transform.forward; } }
+    public Vector3 RightDirection   { get { return transform.right;    } }
 
     void Start () {
         anim = GetComponentInChildren<Animator>();
@@ -45,7 +45,7 @@ public class Character_Movement : MonoBehaviour {
 
         anim.SetFloat("verticalVelocity", verticalInput);
         anim.SetFloat("horizontalVelocity", horizontalInput);
-        if(!(verticalInput == 0 && horizontalInput == 0))
+        if(anim.GetBool("running"))
         {
             SnapPlayerInCameraDirection();
         }

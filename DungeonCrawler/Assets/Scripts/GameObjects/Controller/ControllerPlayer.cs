@@ -86,6 +86,7 @@ public class ControllerPlayer : Controller {
     public void UseRight(UseType useType)
     {
         Debug.Log("uiseright "+ useType);
+
         if (useType == UseType.shortAttack)
         {
             Animator.SetBool("UseRight_short", false);
@@ -190,26 +191,29 @@ public class ControllerPlayer : Controller {
 
     protected override void FixedUpdate()
     {
-        if (CTRLHub.inst.Forward)
+        float verticalAxis   = CTRLHub.inst.VerticalAxis;
+        float horizontalAxis = CTRLHub.inst.HorizontalAxis;
+
+        if (verticalAxis > 0)
         {
             SnapPlayerInCameraDirection();
-            Rigid.AddForce(ForwardDirection * forwardSpeed);
+            Rigid.AddForce(ForwardDirection * forwardSpeed * verticalAxis);
+        }
+        else if (verticalAxis < 0)
+        {
+            SnapPlayerInCameraDirection();
+            Rigid.AddForce(BackDirection * backSpeed * -verticalAxis);
         }
 
-        if (CTRLHub.inst.Left)
+        if (horizontalAxis > 0)
         {
             SnapPlayerInCameraDirection();
-            Rigid.AddForce(LeftDirection* leftSpeed);
+            Rigid.AddForce(RightDirection * leftSpeed * horizontalAxis);
         }
-        if (CTRLHub.inst.Back)
+        else if (horizontalAxis < 0)
         {
             SnapPlayerInCameraDirection();
-            Rigid.AddForce(BackDirection* backSpeed);
-        }
-        if (CTRLHub.inst.Right)
-        {
-            SnapPlayerInCameraDirection();
-            Rigid.AddForce(RightDirection* rightSpeed);
+            Rigid.AddForce(LeftDirection * rightSpeed * -horizontalAxis);
         }
     }
 

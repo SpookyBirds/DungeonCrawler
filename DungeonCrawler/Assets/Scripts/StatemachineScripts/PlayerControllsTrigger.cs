@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,15 @@ public class PlayerControllsTrigger : StateMachineBehaviour {
         else if (CTRLHub.inst.RightFireHold)
             animator.SetBool("UseRight_long", true);
 
-        animator.SetBool("Run", CTRLHub.inst.Forward);
-        animator.SetBool("Jump", CTRLHub.inst.JumpDown);
+        animator.SetBool("Attack", AnyAttackBool(animator));
+    }
+
+    private bool AnyAttackBool(Animator animator)
+    {
+        return
+            animator.GetBool("UseLeft_short" ) ||
+            animator.GetBool("UseLeft_long"  ) ||
+            animator.GetBool("UseRight_short") ||
+            animator.GetBool("UseRight_long" );
     }
 }

@@ -9,104 +9,104 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1720846641585188}
+  m_RootGameObject: {fileID: 1440922566843812}
   m_IsPrefabParent: 1
---- !u!1 &1391641776582642
+--- !u!1 &1428448424859938
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4761832807512490}
-  - component: {fileID: 33672296602747320}
-  - component: {fileID: 23063562061302090}
+  - component: {fileID: 4619607443736030}
+  - component: {fileID: 33989572988333052}
+  - component: {fileID: 23174314131092488}
   m_Layer: 0
-  m_Name: mdl_sword
+  m_Name: mdl_shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1453239969444648
+--- !u!1 &1440922566843812
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4895605679750574}
-  - component: {fileID: 65287539765380968}
+  - component: {fileID: 4551640678139892}
+  - component: {fileID: 114335716788978080}
   m_Layer: 0
-  m_Name: AttackCollider
+  m_Name: Shield_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1720846641585188
+--- !u!1 &1940085667287972
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4535515111246910}
-  - component: {fileID: 114450006661653460}
+  - component: {fileID: 4055508074946264}
+  - component: {fileID: 65519559486364556}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: BlockCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4535515111246910
+--- !u!4 &4055508074946264
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1720846641585188}
+  m_GameObject: {fileID: 1940085667287972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.287}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4761832807512490}
-  - {fileID: 4895605679750574}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 4551640678139892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4761832807512490
+--- !u!4 &4551640678139892
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1391641776582642}
+  m_GameObject: {fileID: 1440922566843812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4535515111246910}
+  m_Children:
+  - {fileID: 4055508074946264}
+  - {fileID: 4619607443736030}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4895605679750574
+--- !u!4 &4619607443736030
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453239969444648}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.502}
-  m_LocalScale: {x: 1, y: 0.4868, z: 1.15079}
+  m_GameObject: {fileID: 1428448424859938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
-  m_Father: {fileID: 4535515111246910}
+  m_Father: {fileID: 4551640678139892}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23063562061302090
+--- !u!23 &23174314131092488
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1391641776582642}
+  m_GameObject: {fileID: 1428448424859938}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -116,7 +116,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 37a0cc55da696d044802494f6129f7a2, type: 3}
+  - {fileID: 2100000, guid: 482b41c21388d0b49b82428ae13b0dac, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,42 +136,43 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33672296602747320
+--- !u!33 &33989572988333052
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1391641776582642}
-  m_Mesh: {fileID: 4300000, guid: 37a0cc55da696d044802494f6129f7a2, type: 3}
---- !u!65 &65287539765380968
+  m_GameObject: {fileID: 1428448424859938}
+  m_Mesh: {fileID: 4300000, guid: 482b41c21388d0b49b82428ae13b0dac, type: 3}
+--- !u!65 &65519559486364556
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453239969444648}
+  m_GameObject: {fileID: 1940085667287972}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.67, y: 1.52, z: 0.34}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114450006661653460
+--- !u!114 &114335716788978080
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1720846641585188}
+  m_GameObject: {fileID: 1440922566843812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003d1be121041ba4486c518645826048, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d74eced44b747042b1cff2e6f0173f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  influenceCollider: {fileID: 65287539765380968}
-  model: {fileID: 4761832807512490}
-  transformationRotation: {x: 0, y: 0, z: 0}
-  transformationPosition: {x: 0, y: 0, z: 0}
-  animationClipShortAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
+  influenceCollider: {fileID: 65519559486364556}
+  model: {fileID: 4619607443736030}
+  transformationRotation: {x: 0, y: 90, z: 0}
+  transformationPosition: {x: 0.004, y: 0, z: 0}
+  animationClipShortAttack: {fileID: 7400000, guid: deb81349c587ce143947b5ed1479dab7,
     type: 3}
-  animationClipLongAttack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407,
+  animationClipLongAttack: {fileID: 7400000, guid: deb81349c587ce143947b5ed1479dab7,
     type: 3}
-  damagePerHit: 30
+  absorptionGenerationPerFrame: 0.05
+  maxAbsorptionValue: 100

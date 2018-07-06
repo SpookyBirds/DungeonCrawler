@@ -37,7 +37,6 @@ public class NPC_AI : InheritanceSimplyfier
     {
         if (FieldOfView.FindEnemy(out opponent))    //search for enemies
         {
-            Debug.Log("Found enemy, going aggro!");
             Controller.Animator.SetTrigger("AggroBaseStateSwitch");
         }
     }

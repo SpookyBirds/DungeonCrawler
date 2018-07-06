@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EquipmetHolder : MonoBehaviour {
 
-    [SerializeField]
-    private GameObject leftHand;
+    [SerializeField] [Tooltip("The holdable equiped in the left hand")]
+    private GameObject leftEquipedHoldable;
     public Holdable LeftHand { get; set; }
-    [SerializeField]
-    private GameObject rightHand;
+    [SerializeField] [Tooltip("The holdable equiped in the right hand")]
+    private GameObject rightEquipedHoldable;
     public Holdable RightHand { get; set; }
     [Space]
     public Transform toolSnapingPoint;
@@ -17,8 +17,8 @@ public class EquipmetHolder : MonoBehaviour {
 
     private void Awake()
     {
-        LeftHand  = Instantiate(leftHand,  (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
-        RightHand = Instantiate(rightHand, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
+        LeftHand  = Instantiate(leftEquipedHoldable,  (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
+        RightHand = Instantiate(rightEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
 
         LeftHand.model.parent = leftHandSnapingPoint;
         RightHand.model.parent = rightHandSnapingPoint;

@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4535515111246910}
   - component: {fileID: 114450006661653460}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: Sword_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,8 +170,8 @@ MonoBehaviour:
   model: {fileID: 4761832807512490}
   transformationRotation: {x: 0, y: 0, z: 0}
   transformationPosition: {x: 0, y: 0, z: 0}
-  animationClipShortAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
+  animationClipShortAttack: {fileID: 7400000, guid: 2037f17aef2c91d41aea55d0e2c633d2,
     type: 3}
-  animationClipLongAttack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407,
+  animationClipLongAttack: {fileID: 7400000, guid: 2037f17aef2c91d41aea55d0e2c633d2,
     type: 3}
   damagePerHit: 30

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4881697590298574}
   - component: {fileID: 114823620465413820}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Gun_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,9 +128,9 @@ MonoBehaviour:
   model: {fileID: 4346948822257532}
   transformationRotation: {x: 0, y: 0, z: 0}
   transformationPosition: {x: 0, y: 0, z: 0}
-  animationClipShortAttack: {fileID: 7400000, guid: c03833dbc7060624fac608e9220f1c50,
+  animationClipShortAttack: {fileID: 7400000, guid: 24b2a4719de1e8c4ca8623ecd93e2410,
     type: 3}
-  animationClipLongAttack: {fileID: 7400000, guid: 9df9a2f3ebfacbb4da036182a4d01b2a,
+  animationClipLongAttack: {fileID: 7400000, guid: 24b2a4719de1e8c4ca8623ecd93e2410,
     type: 3}
   maxReach: 100
   damagePerHit: 10
