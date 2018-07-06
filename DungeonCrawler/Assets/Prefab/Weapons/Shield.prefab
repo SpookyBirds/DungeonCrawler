@@ -406,8 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   influenceCollider: {fileID: 65519559486364556}
   model: {fileID: 4853913118589676}
-  transformationRotation: {x: 0, y: 90, z: 0}
-  transformationPosition: {x: 0.004, y: 0, z: 0}
+  transformationRotation: {x: 0, y: 0, z: 0}
+  transformationPosition: {x: 0, y: 0, z: 0}
   animationClipShortAttack: {fileID: 7400000, guid: 68bef69d6cb7d734c99f11f82db78889,
     type: 3}
   animationClipLongAttack: {fileID: 7400000, guid: 68bef69d6cb7d734c99f11f82db78889,
