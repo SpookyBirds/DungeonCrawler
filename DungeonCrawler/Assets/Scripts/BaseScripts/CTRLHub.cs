@@ -40,6 +40,9 @@ public class CTRLHub : MonoBehaviour
     public KeyCode RollKeyCode { get; set; }
     public bool Roll { get { return Input.GetKeyDown(KeyCode.LeftControl); } }
 
+    public KeyCode InteractionKeyCode { get; set; }
+    public bool InteractionDown {  get { return (Input.GetKeyDown(InteractionKeyCode)); } }
+    public bool InteractionUp { get { return (Input.GetKeyDown(InteractionKeyCode)); } }
 
     public KeyCode LeftAttackKeyCode { get; set; }
     public bool LeftAttackDown { get { return (Input.GetKeyDown(LeftAttackKeyCode)); } }
@@ -87,6 +90,7 @@ public class CTRLHub : MonoBehaviour
         LeftKeyCode        = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("leftKey",     "A"     ));
         BackwardKeyCode    = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("backwardKey", "S"     ));
         RightKeyCode       = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("rightKey",    "D"     ));
+        InteractionKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Interaction", "F"));
     }
 
     private void Update()
