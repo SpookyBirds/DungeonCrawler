@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bbfc8f28851bea4ea25c8774bc76e02, type: 3}
-  m_Name: New Item
+  m_Name: Cube of Light
   m_EditorClassIdentifier: 
-  name: new Item
+  name: Cube of Light
   icon: {fileID: 0}
   isDefaultItem: 0
