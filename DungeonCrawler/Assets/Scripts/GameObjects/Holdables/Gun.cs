@@ -65,6 +65,8 @@ public class Gun : Holdable
         // Get all collider in shoot distance
         RaycastHit[] hits = Physics.RaycastAll(pointerSupplier.character.position + WeaponToCharacterOffset(), pointerSupplier.character.forward, maxReach);
 
+        Debug.Log("hits " + hits.Length);
+
         // Return if no one was found
         if (hits.Length <= 0)
             return false;
@@ -102,6 +104,7 @@ public class Gun : Holdable
         if((entityToDamage = hits[indexOfNearestOpponent].collider.GetComponent<Entity>()) != null)
         {
             entityToDamage.TryToDamage(damagePerHit);
+            Debug.Log("HIT");
             return true;
         }
 
@@ -110,6 +113,13 @@ public class Gun : Holdable
 
     private Vector3 WeaponToCharacterOffset()
     {
+        return new Vector3(0, 1.4f, 0);
         return new Vector3(0, transform.position.y - pointerSupplier.character.position.y, 0);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(pointerSupplier.character.position + WeaponToCharacterOffset(), pointerSupplier.character.forward);
     }
 }
