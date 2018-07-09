@@ -124,3 +124,13 @@ public enum UseType
 }
 
 
+public enum Equipmentslots
+{
+    Head,
+    Body,
+    Legs,
+    Weapon,
+    Shield
+}
+
+

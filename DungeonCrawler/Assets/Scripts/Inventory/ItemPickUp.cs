@@ -19,7 +19,7 @@ public class ItemPickUp : Interactable {
         // Checks if the object is in range. if it is the player can pick it up.
         if (Input.GetKeyDown(KeyCode.F) && inRange)
         {
-            Debug.Log("Picking up Item " + Item.name);
+            Debug.Log("Picking up Item " + Item.itemName);
             bool wasPickedUp = Inventory.Instance.AddItem(Item);
 
             // When the object is picked up it get´s destroyed.
