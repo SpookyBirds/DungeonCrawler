@@ -41,13 +41,11 @@ ModelImporter:
     100070: jnt_root
     100072: jnt_spine_1
     100074: jnt_spine_2
-    100076: jnt_toes_L
-    100078: jnt_toes_R
-    100080: jnt_upperArm_L
-    100082: jnt_upperArm_R
-    100084: master
-    100086: //RootNode
-    100088: mesh_melee_robot
+    100076: jnt_upperArm_L
+    100078: jnt_upperArm_R
+    100080: master
+    100082: //RootNode
+    100084: mesh_melee_robot
     400000: Armature
     400002: jnt_chest
     400004: jnt_finger_1_1_L
@@ -86,13 +84,11 @@ ModelImporter:
     400070: jnt_root
     400072: jnt_spine_1
     400074: jnt_spine_2
-    400076: jnt_toes_L
-    400078: jnt_toes_R
-    400080: jnt_upperArm_L
-    400082: jnt_upperArm_R
-    400084: master
-    400086: //RootNode
-    400088: mesh_melee_robot
+    400076: jnt_upperArm_L
+    400078: jnt_upperArm_R
+    400080: master
+    400082: //RootNode
+    400084: mesh_melee_robot
     2100000: white
     2100002: Blue
     4300000: mesh_melee_robot
