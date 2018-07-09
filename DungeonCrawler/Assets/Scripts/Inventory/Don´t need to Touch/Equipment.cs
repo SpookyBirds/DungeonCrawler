@@ -8,9 +8,11 @@ public class Equipment : Items {
     public float DMG = 0f;
     public float Protection = 0f;
 
-    public virtual void Use()
+    public override void Use()
     {
+        base.Use();
         Debug.Log("Using " + name);
+        EquipmentManager.instance.Equip(this);
     }
 
 

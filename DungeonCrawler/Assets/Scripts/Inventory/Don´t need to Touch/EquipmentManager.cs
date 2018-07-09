@@ -22,6 +22,8 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Equip(Equipment newItem)
     {
+        int slotIndex = (int)newItem.equipmentSlots;
 
+        currentEquipment[slotIndex] = newItem;
     }
 }
