@@ -10,6 +10,7 @@ public class InventorySlot : MonoBehaviour {
 
     public void AddItem(Items newItem)
     {
+        // Adds the item to the inventory
         item = newItem;
 
         icon.sprite = item.icon;
@@ -19,6 +20,7 @@ public class InventorySlot : MonoBehaviour {
 
     public void ClearSlot()
     {
+        // clears the item from the inventory
         item = null;
 
         icon.sprite = null;
@@ -28,11 +30,13 @@ public class InventorySlot : MonoBehaviour {
 
     public void onRemoveButton()
     {
+        //Removes item from the list
         Inventory.Instance.RemoveItem(item);
     }
 
     public void UseItem ()
     {
+        //checks if there is a item in the itemslot. if there is you can use it.
         if(item != null)
         {
             item.Use();

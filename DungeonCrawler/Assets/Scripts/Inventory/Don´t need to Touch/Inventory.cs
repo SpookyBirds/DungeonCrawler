@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour {
 
     private void Awake()
     {
+        //checks if there is more than one inventory.
         if(Instance != null)
         {
             Debug.LogWarning("More than one Inventory found!");
@@ -18,6 +19,7 @@ public class Inventory : MonoBehaviour {
     }
     #endregion
 
+    //Delegate for updating inventory
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
     
@@ -26,6 +28,7 @@ public class Inventory : MonoBehaviour {
 
     public bool AddItem(Items item)
     {
+        //When the item is not a default item the player can pick it up if he has enough inventory space
         if (!item.isDefaultItem)
         {
             if(items.Count >= inventorySpace)
@@ -35,6 +38,7 @@ public class Inventory : MonoBehaviour {
             }
              items.Add(item);
 
+            //subscription to a delagate that updates the inventory
             if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
         }
@@ -43,6 +47,7 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveItem(Items item)
     {
+        //Removes the item from the list
         items.Remove(item);
 
         if (onItemChangedCallBack != null)
