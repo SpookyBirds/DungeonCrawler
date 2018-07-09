@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Equipment",menuName ="Inventory/Equipment")]
-public class Equipment : ScriptableObject {
+public class Equipment : Items {
 
-    new public string name = "New Equipment";
-    public Sprite icon = null;
-    public bool isDefaultItem = false;
+    public Equipmentslots equipmentSlots;
+   
     public float DMG = 0f;
     public float Protection = 0f;
 
-    public virtual void Use()
+    public override void Use()
     {
+        base.Use();
         Debug.Log("Using " + name);
+        EquipmentManager.instance.Equip(this);
     }
 
 

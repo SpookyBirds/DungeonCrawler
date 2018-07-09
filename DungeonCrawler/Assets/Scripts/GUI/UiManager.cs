@@ -23,7 +23,7 @@ public class UiManager : MonoBehaviour {
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (GamePaused == false)
             {
@@ -41,15 +41,15 @@ public class UiManager : MonoBehaviour {
         }
          
 
-        if (GamePaused == true)
-        {
-            Time.timeScale = 0;
-        }
+        //if (GamePaused == true)
+        //{
+        //    Time.timeScale = 0;
+        //}
 
-        if (GamePaused == false)
-        {
-            Time.timeScale = 1;
-        }
+        //if (GamePaused == false)
+        //{
+        //    Time.timeScale = 1;
+        //}
 
     }
 }
