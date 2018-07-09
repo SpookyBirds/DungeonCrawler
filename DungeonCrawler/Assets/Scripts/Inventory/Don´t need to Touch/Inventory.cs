@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     #region Singleton
     public static Inventory Instance;
@@ -10,7 +11,7 @@ public class Inventory : MonoBehaviour {
     private void Awake()
     {
         //checks if there is more than one inventory.
-        if(Instance != null)
+        if (Instance != null)
         {
             Debug.LogWarning("More than one Inventory found!");
             return;
@@ -22,7 +23,7 @@ public class Inventory : MonoBehaviour {
     //Delegate for updating inventory
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
-    
+
     public int inventorySpace = 10;
     public List<Items> items = new List<Items>();
 
@@ -31,16 +32,16 @@ public class Inventory : MonoBehaviour {
         //When the item is not a default item the player can pick it up if he has enough inventory space
         if (!item.isDefaultItem)
         {
-            if(items.Count >= inventorySpace)
+            if (items.Count >= inventorySpace)
             {
                 Debug.Log("Not enough room in Inventory!");
                 return false;
             }
-             items.Add(item);
+            items.Add(item);
 
             //subscription to a delagate that updates the inventory
             if (onItemChangedCallBack != null)
-            onItemChangedCallBack.Invoke();
+                onItemChangedCallBack.Invoke();
         }
         return true;
     }
