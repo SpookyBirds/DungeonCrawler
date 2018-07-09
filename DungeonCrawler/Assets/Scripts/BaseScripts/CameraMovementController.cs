@@ -24,18 +24,18 @@ public class CameraMovementController : MonoBehaviour
     private Vector3 forwardPoint;
     private Vector3 initialCameraPosition;
 
-    private Transform pitchRotation;
-    private Transform mainCamera;
-    private Transform rotationCenterPoint;
+    public Transform PitchRotation { get; private set; }
+    public Transform MainCamera { get; private set; } 
+    public Transform RotationCenterPoint { get; private set; }
 
     public bool GamePaused { get; set; }
 
     private void Awake()
     {
-        pitchRotation = transform.GetChild(0);
-        mainCamera = pitchRotation.GetChild(0);
-        rotationCenterPoint = transform.parent;
-        initialCameraPosition = mainCamera.localPosition;
+        PitchRotation = transform.GetChild(0);
+        MainCamera = PitchRotation.GetChild(0);
+        RotationCenterPoint = transform.parent;
+        initialCameraPosition = MainCamera.localPosition;
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -75,16 +75,16 @@ public class CameraMovementController : MonoBehaviour
             transform.Rotate(transform.up, CalculateRotationStep("Mouse X"), Space.World);
 
             // Handle vertical camera rotation
-            pitchRotation.Rotate(
-                pitchRotation.right, 
+            PitchRotation.Rotate(
+                PitchRotation.right, 
                 CalculateRotationStep("Mouse Y") * (verticalInvertCamera ? -1 : 1), 
                 Space.World);
-            pitchRotation.rotation = Quaternion.Euler(
+            PitchRotation.rotation = Quaternion.Euler(
                 CheckClampBounds(
-                    pitchRotation.rotation.eulerAngles.x,
+                    PitchRotation.rotation.eulerAngles.x,
                     verticalRotationLowerLimit,
                     verticalRotationUpperLimit),
-                pitchRotation.rotation.eulerAngles.y,
+                PitchRotation.rotation.eulerAngles.y,
                 0);
         }
     }
@@ -134,9 +134,10 @@ public class CameraMovementController : MonoBehaviour
     }
 
     /// <summary>
-    /// Get the direction the player should walk to
+    /// Get the direction the player should walk to. You need to save before and restore after you used it. 
+    /// Use the functions Save() and Restore() for that
     /// </summary>
-    public Vector3 GetCameraDirection()
+    public Vector3 GetStraightCameraDirection()
     {
         Quaternion currentRotation = transform.rotation;
         transform.Rotate(-currentRotation.eulerAngles.x, 0, 0);
@@ -146,18 +147,27 @@ public class CameraMovementController : MonoBehaviour
         return cameraDirection;
     }
 
+    //private Vector3 SnapPlayerInCameraDirection()
+    //{
+    //    SaveDirection();
+    //    Vector3 lookDirection = transform.position + GetCameraDirection();
+    //    RestoreDirection();
+
+    //    return lookDirection;
+    //}
+
     public void ToggleCameraAimingPosition(bool doAim)
     {
         if (doAim)
         {
-            mainCamera.localPosition += new Vector3(0, 0, aimingCameraZoomOffset);
-            rotationCenterPoint.localPosition += new Vector3(0, aimingCameraTopOffset, 0);
+            MainCamera.localPosition += new Vector3(0, 0, aimingCameraZoomOffset);
+            RotationCenterPoint.localPosition += new Vector3(0, aimingCameraTopOffset, 0);
             crossHair.gameObject.SetActive(true);
         }
         else
         {
-            rotationCenterPoint.localPosition -= new Vector3(0, aimingCameraTopOffset, 0);
-            mainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
+            RotationCenterPoint.localPosition -= new Vector3(0, aimingCameraTopOffset, 0);
+            MainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
             crossHair.gameObject.SetActive(false);
         }
     }
