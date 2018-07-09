@@ -6,9 +6,9 @@ public class InventorySlot : MonoBehaviour {
     public Image icon;
     public Button removeButton;
     
-    Items item;
+    Item item;
 
-    public void AddItem(Items newItem)
+    public void AddItem(Item newItem)
     {
         // Adds the item to the inventory
         item = newItem;

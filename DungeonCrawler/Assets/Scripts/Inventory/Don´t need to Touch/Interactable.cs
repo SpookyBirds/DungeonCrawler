@@ -7,7 +7,8 @@ public class Interactable : MonoBehaviour {
     public bool inRange = false;
 
     public Transform InteractionTransform;
-    public Transform player;
+
+    GameObject player;
     public float distance;
 
     public bool Interacted = false;
@@ -21,7 +22,7 @@ public class Interactable : MonoBehaviour {
     public virtual void Update()
     {
         // checks Distance between player and Interactable object!
-        distance = Vector3.Distance(player.position, InteractionTransform.position);
+        distance = Vector3.Distance(Global.inst.Player.transform.position, InteractionTransform.position);
 
             if( distance <= radius)
             {
@@ -30,10 +31,10 @@ public class Interactable : MonoBehaviour {
             }
 
             if(distance >= radius)
-        {
+            {
             // if player is not in rage of an object goes into function
             OutRange();
-        }
+            }
     }
 
     public void OnRange()

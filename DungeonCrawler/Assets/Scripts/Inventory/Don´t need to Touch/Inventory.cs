@@ -25,9 +25,9 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallBack;
 
     public int inventorySpace = 10;
-    public List<Items> items = new List<Items>();
+    public List<Item> items = new List<Item>();
 
-    public bool AddItem(Items item)
+    public bool AddItem(Item item)
     {
         //When the item is not a default item the player can pick it up if he has enough inventory space
         if (!item.isDefaultItem)
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void RemoveItem(Items item)
+    public void RemoveItem(Item item)
     {
         //Removes the item from the list
         GameObject.Instantiate(item,transform.position,Quaternion.identity, Global.inst.level);

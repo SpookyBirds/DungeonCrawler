@@ -2,7 +2,7 @@
 
 public class ItemPickUp : Interactable {
 
-    public Items Item;
+    public Item Item;
 
 
     public override void Interact()

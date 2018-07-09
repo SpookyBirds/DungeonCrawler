@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d15d4c2ce2ca409eff22597a60a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!114 &114937815278940516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,3 +65,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85cccf1e3dae47499cfa8b2f3f1d271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeUntilLongFire: 0.35

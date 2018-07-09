@@ -9,6 +9,7 @@ public class Global : MonoBehaviour {
     public static Global inst;
 
     public Transform level;
+    public GameObject Player;
 
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
