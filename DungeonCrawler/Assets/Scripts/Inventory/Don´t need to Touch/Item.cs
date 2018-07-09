@@ -2,6 +2,7 @@
 
 
 [CreateAssetMenu(fileName = "New Item",menuName ="Inventory/Items")]
+
 public class Item : ScriptableObject {
     // Define item-name, icon and if it´s default
     new public string name = "new Item";
