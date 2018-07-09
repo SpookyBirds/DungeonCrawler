@@ -23,7 +23,7 @@ public class UiManager : MonoBehaviour {
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (GamePaused == false)
             {
