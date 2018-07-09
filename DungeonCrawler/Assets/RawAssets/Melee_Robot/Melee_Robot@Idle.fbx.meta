@@ -40,12 +40,10 @@ ModelImporter:
     100068: jnt_root
     100070: jnt_spine_1
     100072: jnt_spine_2
-    100074: jnt_toes_L
-    100076: jnt_toes_R
-    100078: jnt_upperArm_L
-    100080: jnt_upperArm_R
-    100082: master
-    100084: //RootNode
+    100074: jnt_upperArm_L
+    100076: jnt_upperArm_R
+    100078: master
+    100080: //RootNode
     400000: jnt_chest
     400002: jnt_finger_1_1_L
     400004: jnt_finger_1_1_R
@@ -83,13 +81,11 @@ ModelImporter:
     400068: jnt_root
     400070: jnt_spine_1
     400072: jnt_spine_2
-    400074: jnt_toes_L
-    400076: jnt_toes_R
-    400078: jnt_upperArm_L
-    400080: jnt_upperArm_R
-    400082: master
-    400084: //RootNode
-    7400000: Idle
+    400074: jnt_upperArm_L
+    400076: jnt_upperArm_R
+    400078: master
+    400080: //RootNode
+    7400000: Scene
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -118,35 +114,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Idle
-      takeName: Scene
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
