@@ -12,7 +12,8 @@ public class NPC_AI : InheritanceSimplyfier
 
     [SerializeField]
     private BoxCollider attackCollider;
-    public float AttackRange { get { return attackCollider.bounds.extents.z; } }
+    private float AttackRange    { get { return attackCollider.bounds.extents.z;   } }
+    private Vector3 AttackCenter { get { return attackCollider.transform.position; } }
 
     public  Controller   Controller   { get; private set; }
     private FieldOfView  FieldOfView  { get; set; }
@@ -105,7 +106,7 @@ public class NPC_AI : InheritanceSimplyfier
         }
 
         bool opponentIsInAttackRange =
-            Vector3.Distance(transform.position, opponent.transform.position) < AttackRange;
+            Vector3.Distance(AttackCenter, opponent.transform.position) < AttackRange;
 
         Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
