@@ -49,6 +49,7 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(Items item)
     {
         //Removes the item from the list
+        GameObject.Instantiate(item,transform.position,Quaternion.identity, Global.inst.level);
         items.Remove(item);
 
         if (onItemChangedCallBack != null)

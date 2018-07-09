@@ -8,12 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6a3e8417f552b43b92b1eeb1e3edfb, type: 3}
-  m_Name: Titten
+  m_Script: {fileID: 11500000, guid: 3bbfc8f28851bea4ea25c8774bc76e02, type: 3}
+  m_Name: New Item
   m_EditorClassIdentifier: 
-  name: Titten
-  icon: {fileID: 21300000, guid: 28d2c2677149d45e290e8fa042b1b80f, type: 3}
+  name: new Item
+  icon: {fileID: 0}
   isDefaultItem: 0
-  equipmentSlots: 1
-  DMG: 0
-  Protection: 0

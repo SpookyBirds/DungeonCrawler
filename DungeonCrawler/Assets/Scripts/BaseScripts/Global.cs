@@ -6,11 +6,17 @@ using UnityEngine;
 
 public class Global : MonoBehaviour {
 
+    public static Global inst;
+
+    public Transform level;
+
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
 
     private void Awake()
     {
+        inst = this;
+
 #if UNITY_EDITOR
         tags = UnityEditorInternal.InternalEditorUtility.tags;
 #else
