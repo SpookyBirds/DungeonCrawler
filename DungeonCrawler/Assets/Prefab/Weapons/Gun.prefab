@@ -132,5 +132,5 @@ MonoBehaviour:
     type: 3}
   animationClipLongAttack: {fileID: 7400000, guid: 9df9a2f3ebfacbb4da036182a4d01b2a,
     type: 3}
-  maxReach: 100
+  maxReach: 10
   damagePerHit: 10

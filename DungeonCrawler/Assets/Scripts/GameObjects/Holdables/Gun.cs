@@ -45,14 +45,18 @@ public class Gun : Holdable
             if (IsAiming)
             {
                 IsAiming = false;
-                Shoot(controller); // TODO: Make Shoot() use aiming to aim
+                Shoot(
+                    controller, 
+                    pointerSupplier.cameraMovementController.RotationCenterPoint.position,  
+                    Camera.main.ScreenPointToRay(Input.mousePosition).direction
+                );
             }
         }
     }
 
     public override bool UseShort(Controller controller)
     {
-        return Shoot(controller);
+        return Shoot(controller, transform.position, pointerSupplier.character.forward);
     }
 
     private void StartAim(bool doAim)
@@ -60,10 +64,14 @@ public class Gun : Holdable
         pointerSupplier.cameraMovementController.ToggleCameraAimingPosition(doAim);
     }
 
-    private bool Shoot(Controller controller)
+    private bool Shoot(Controller controller, Vector3 position, Vector3 direction)
     {
         // Get all collider in shoot distance
-        RaycastHit[] hits = Physics.RaycastAll(pointerSupplier.character.position + WeaponToCharacterOffset(), pointerSupplier.character.forward, maxReach);
+        RaycastHit[] hits = Physics.RaycastAll(
+            position, direction, maxReach);
+
+        //RaycastHit[] hits = Physics.RaycastAll(
+        //    transform.position, pointerSupplier.character.forward, maxReach);
 
         // Return if no one was found
         if (hits.Length <= 0)
@@ -80,7 +88,8 @@ public class Gun : Holdable
                 distancesToHit[index] = int.MaxValue;
                 continue;
             }
-            distancesToHit[index] = Vector3.Distance(hits[index].transform.position, pointerSupplier.character.position);
+            distancesToHit[index] = 
+                Vector3.Distance(hits[index].transform.position, pointerSupplier.character.position);
         }
 
         // The variable to save at which index the nearest opponent from the hits array lies
@@ -108,15 +117,12 @@ public class Gun : Holdable
         return false;
     }
 
-    private Vector3 WeaponToCharacterOffset()
-    {
-        return new Vector3(0, 1.4f, 0); // TODO: calculate offset better
-        return new Vector3(0, transform.position.y - pointerSupplier.character.position.y, 0);
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(pointerSupplier.character.position + WeaponToCharacterOffset(), pointerSupplier.character.forward);
+        Gizmos.DrawRay(transform.position, pointerSupplier.character.forward * maxReach);
+        Gizmos.DrawRay(
+            pointerSupplier.cameraMovementController.RotationCenterPoint.position,
+            Camera.main.ScreenPointToRay(Input.mousePosition).direction * maxReach);
     }
 }

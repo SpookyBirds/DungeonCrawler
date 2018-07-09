@@ -54,7 +54,7 @@ public class Character_Movement : MonoBehaviour {
     private void SnapPlayerInCameraDirection()
     {
         cameraMovementController.SaveDirection();
-        transform.LookAt(transform.position + cameraMovementController.GetCameraDirection());
+        transform.LookAt(transform.position + cameraMovementController.GetStraightCameraDirection());
         cameraMovementController.RestoreDirection();
     }
 }
