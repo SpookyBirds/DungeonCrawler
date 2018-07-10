@@ -391,7 +391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1679225172155400
 GameObject:
   m_ObjectHideFlags: 1
@@ -898,9 +898,9 @@ Transform:
   m_Children:
   - {fileID: 4769980357628464}
   - {fileID: 4072217580096284}
-  - {fileID: 4878210597641548}
-  - {fileID: 4815658515727220}
   - {fileID: 224482075617775324}
+  - {fileID: 4815658515727220}
+  - {fileID: 4878210597641548}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1153,7 +1153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4447584484397058}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4884073457222100
 Transform:
@@ -1305,7 +1305,7 @@ Animator:
   m_GameObject: {fileID: 1833193006408500}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6b23060b16eebc4b9c2f09a5eb36d3e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5ef843c3ee4b294428ce5b18235317a4, type: 2}
+  m_Controller: {fileID: 9100000, guid: cfb179469c5a2f24d9e3946b62959a7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1531,9 +1531,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEquipedHoldable: {fileID: 0}
   rightEquipedHoldable: {fileID: 0}
+  helmetArmor: {fileID: 0}
+  bodyArmor: {fileID: 0}
+  legArmor: {fileID: 0}
   toolSnapingPoint: {fileID: 4878210597641548}
   leftHandSnapingPoint: {fileID: 4930475521159478}
   rightHandSnapingPoint: {fileID: 4089666435363148}
+  helmetSnapingPoint: {fileID: 0}
+  bodyArmorSnapingPoint: {fileID: 0}
+  legArmorSnapingPoint: {fileID: 0}
 --- !u!114 &114415296079443940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1563,6 +1569,7 @@ MonoBehaviour:
   rightShortAttackState: Base Layer.UseRight_short_state
   leftLongAttackState: Base Layer.UseLeft_long_state
   rightLongAttackState: Base Layer.UseRight_long_state
+  layer: 0
   controller: {fileID: 114129309802818620}
 --- !u!114 &114499794720497734
 MonoBehaviour:
@@ -1950,7 +1957,7 @@ RectTransform:
   - {fileID: 224958663986808008}
   - {fileID: 224983327128070868}
   m_Father: {fileID: 4447584484397058}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

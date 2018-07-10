@@ -129,8 +129,8 @@ public enum Equipmentslots
     Head,
     Body,
     Legs,
-    Weapon,
-    Shield
+    LeftHand,
+    RightHand
 }
 
 
