@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Controller))]
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(ControllerNPC))]
 public class NPC_AI : InheritanceSimplyfier
 {
     [SerializeField]
