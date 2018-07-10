@@ -10,16 +10,13 @@ public class EquipmetHolder : MonoBehaviour {
     [SerializeField] [Tooltip("The holdable equiped in the right hand")]
     private GameObject rightEquipedHoldable;
     public Holdable RightHand { get; set; }
-    [SerializeField]
-    [Tooltip("The helmet equiped on the character")]
+    [SerializeField] [Tooltip("The helmet equiped on the character")]
     private GameObject helmetArmor;
     public Holdable Helmet { get; set; }
-    [SerializeField]
-    [Tooltip("The bodyarmor equiped on the character")]
+    [SerializeField] [Tooltip("The bodyarmor equiped on the character")]
     private GameObject bodyArmor;
     public Holdable Body { get; set; }
-    [SerializeField]
-    [Tooltip("The legarmor equiped on the character")]
+    [SerializeField] [Tooltip("The legarmor equiped on the character")]
     private GameObject legArmor;
     public Holdable Legs { get; set; }
     [Space]
@@ -53,7 +50,6 @@ public class EquipmetHolder : MonoBehaviour {
         RightHand.model.parent = rightHandSnapingPoint;
         RightHand.model.localPosition = RightHand.transformationPosition;
         RightHand.model.localRotation = Quaternion.Euler(RightHand.transformationRotation);
-
 
 
         if (helmetArmor == null)

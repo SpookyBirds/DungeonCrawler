@@ -57,7 +57,7 @@ public class Gun : Holdable
 
     public override bool UseShort(Controller controller)
     {
-        return Shoot(controller, transform.position, pointerSupplier.character.forward);
+        return Shoot(controller, model.position, pointerSupplier.character.forward);
     }
 
     private void StartAim(bool doAim)
