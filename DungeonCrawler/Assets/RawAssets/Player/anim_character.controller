@@ -92,6 +92,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: IsRolling
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -315,6 +321,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterName: AbleToAttack
+--- !u!114 &114593634040366554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: IsRolling
 --- !u!114 &114596895292526400
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1712,6 +1730,7 @@ AnimatorState:
   - {fileID: 1101361304418281858}
   m_StateMachineBehaviours:
   - {fileID: 114590143042679424}
+  - {fileID: 114593634040366554}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1887,12 +1906,12 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107371255469949686}
-    second:
-    - {fileID: 1109769781894576626}
   - first: {fileID: 1107039547488817300}
     second:
     - {fileID: 1109416736080467842}
+  - first: {fileID: 1107371255469949686}
+    second:
+    - {fileID: 1109769781894576626}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 84, y: 12, z: 0}
   m_EntryPosition: {x: 84, y: 120, z: 0}

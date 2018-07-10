@@ -2236,7 +2236,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853209145145318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4730347172918046}
@@ -2834,7 +2834,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897784793233946}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13.48, y: 1.98, z: -1.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4056654331543688}
@@ -3857,7 +3857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
     type: 2}
-  rightEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
+  rightEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
     type: 2}
   helmetArmor: {fileID: 0}
   bodyArmor: {fileID: 0}
@@ -5931,11 +5931,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileEntities: 8
   animator: {fileID: 95000358309102872}
-  forwardSpeed: 20
-  leftSpeed: 20
-  backSpeed: 20
-  rightSpeed: 20
-  jumpforce: 300
+  maxForwardSpeed: 20
+  maxLeftSpeed: 20
+  maxBackSpeed: 20
+  maxRightSpeed: 20
+  maxJumpforce: 20
+  maxRollSpeed: 700
   animatorOverrideController: {fileID: 22100000, guid: afd309c6aece63448a62729905ef7a10,
     type: 2}
 --- !u!114 &114904338651415548

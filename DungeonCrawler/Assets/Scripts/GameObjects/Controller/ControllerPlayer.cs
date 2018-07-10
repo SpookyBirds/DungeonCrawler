@@ -6,12 +6,19 @@ using UnityEngine;
 [RequireComponent(typeof(EquipmetHolder))]
 public class ControllerPlayer : Controller {
 
-    [SerializeField] private float forwardSpeed = 0.1f;
-    [SerializeField] private float leftSpeed = 0.1f;
-    [SerializeField] private float backSpeed = 0.1f;
-    [SerializeField] private float rightSpeed = 0.1f;
-    [SerializeField] private float jumpforce = 1f;
-    [SerializeField] private float rollSpeed = 30f;
+    [SerializeField] private float maxForwardSpeed = 30;
+    [SerializeField] private float maxLeftSpeed    = 30;
+    [SerializeField] private float maxBackSpeed    = 30;
+    [SerializeField] private float maxRightSpeed   = 30;
+    [SerializeField] private float maxJumpforce    = 30;
+    [SerializeField] private float maxRollSpeed    = 600f;
+
+    private float forwardSpeed;
+    private float leftSpeed   ;
+    private float backSpeed   ;
+    private float rightSpeed  ;
+    private float jumpforce   ;
+    private float rollSpeed   ;
 
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
@@ -45,6 +52,9 @@ public class ControllerPlayer : Controller {
         }
     }
 
+    private bool isRolling = false;
+    private bool lastFrameIsRolling = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -53,6 +63,13 @@ public class ControllerPlayer : Controller {
 
         Rigid = GetComponent<Rigidbody>();
         EquipmetHolder = GetComponent<EquipmetHolder>();
+
+        forwardSpeed = maxForwardSpeed;
+        leftSpeed    = maxLeftSpeed;
+        backSpeed    = maxBackSpeed;
+        rightSpeed   = maxRightSpeed;
+        jumpforce    = maxJumpforce;
+        rollSpeed    = maxRollSpeed;
     }
 
     protected override void Start()
@@ -158,26 +175,34 @@ public class ControllerPlayer : Controller {
     protected override void Update()
     {
         base.Update();
-        if(Animator.GetBool("Roll") == true)
+
+        isRolling = Animator.GetBool("IsRolling");
+
+        if(lastFrameIsRolling != isRolling)
         {
-            forwardSpeed = rollSpeed;
-            backSpeed = rollSpeed;
-            leftSpeed = rollSpeed;
-            rightSpeed = rollSpeed;
-            HandleMovement(true);
+            if (isRolling)
+            {
+                forwardSpeed = rollSpeed;
+                backSpeed = rollSpeed;
+                leftSpeed = rollSpeed;
+                rightSpeed = rollSpeed;
+                HandleMovement(true);
+            }
+            else
+            {
+                forwardSpeed = maxForwardSpeed;
+                backSpeed    = maxBackSpeed;
+                leftSpeed    = maxLeftSpeed;
+                rightSpeed   = maxRightSpeed;
+            }
         }
-        else
-        {
-            forwardSpeed = 20f;
-            backSpeed = 20f;
-            leftSpeed = 20f;
-            rightSpeed = 20f;
-        }
+
+        lastFrameIsRolling = isRolling;
     }
 
     protected override void FixedUpdate()
     {
-        HandleMovement(Animator.GetInteger("AbleToAttack") == 0);
+        HandleMovement(isRolling == false);
     }
 
     private void HandleMovement(bool doOrDont)
