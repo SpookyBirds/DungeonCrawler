@@ -11,6 +11,7 @@ public class ControllerPlayer : Controller {
     [SerializeField] private float backSpeed = 0.1f;
     [SerializeField] private float rightSpeed = 0.1f;
     [SerializeField] private float jumpforce = 1f;
+    [SerializeField] private float rollSpeed = 30f;
 
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
@@ -78,6 +79,8 @@ public class ControllerPlayer : Controller {
         }
         AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }
+
+  
 
     public void Jump()
     {
@@ -151,11 +154,38 @@ public class ControllerPlayer : Controller {
                 EquipmetHolder.RightHand.UpdateUse(this, false);
         }
     }
-    
+
+    protected override void Update()
+    {
+        base.Update();
+        if(Animator.GetBool("Roll") == true)
+        {
+            forwardSpeed = rollSpeed;
+            backSpeed = rollSpeed;
+            leftSpeed = rollSpeed;
+            rightSpeed = rollSpeed;
+            HandleMovement(true);
+        }
+        else
+        {
+            forwardSpeed = 20f;
+            backSpeed = 20f;
+            leftSpeed = 20f;
+            rightSpeed = 20f;
+        }
+    }
 
     protected override void FixedUpdate()
     {
-        float verticalAxis   = CTRLHub.inst.VerticalAxis;
+        HandleMovement(Animator.GetInteger("AbleToAttack") == 0);
+    }
+
+    private void HandleMovement(bool doOrDont)
+    {
+        if (doOrDont == false)
+            return;
+
+        float verticalAxis = CTRLHub.inst.VerticalAxis;
         float horizontalAxis = CTRLHub.inst.HorizontalAxis;
 
         if (verticalAxis > 0)
