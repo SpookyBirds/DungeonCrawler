@@ -54,6 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 0}
   Player: {fileID: 0}
+  EmptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
+    type: 2}
 --- !u!114 &114937815278940516
 MonoBehaviour:
   m_ObjectHideFlags: 1
