@@ -11,12 +11,6 @@ public class ChainableWeapon : Holdable {
 
     public float AttackRange { get { return influenceCollider.bounds.extents.z; } }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        HoldableMode = HoldableMode.SingleClick;
-    }
-
     /// <summary>
     /// Initialize an attack. Returns whether the use is successfull
     /// </summary>

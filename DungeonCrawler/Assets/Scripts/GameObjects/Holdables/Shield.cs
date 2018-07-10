@@ -39,7 +39,6 @@ public class Shield : Holdable {
         base.Awake();
         absorptionBar = GameObject.Find("AbsorptionBar").GetComponent<Image>(); //TODO: clean up this shit here
         AbsorptionValue = maxAbsorptionValue;
-        HoldableMode = HoldableMode.Hold;
         isBlocking = false;
     }
 

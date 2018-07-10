@@ -3,7 +3,7 @@
 [CreateAssetMenu(fileName ="New Equipment",menuName ="Inventory/Equipment")]
 public class Equipment : Item {
 
-    public Equipmentslots equipmentSlots;
+    public EquipmentType equipmentType;
    
     public override void Use()
     {
