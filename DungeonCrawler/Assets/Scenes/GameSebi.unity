@@ -2615,62 +2615,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1921083047132324, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114278588158803576, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rightEquipedHoldable
-      value: 
-      objectReference: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
-        type: 2}
-    - target: {fileID: 224644189099863142, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224860608802763466, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: leftShortFirstChainAttackState
-      value: Upper Body.Left_short_chain.Chain_1_Left_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: leftShortSecondChainAttackState
-      value: Upper Body.Left_short_chain.Chain_2_Left_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: leftShortThirdChainAttackState
-      value: Upper Body.Left_short_chain.Chain_3_Left_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rightShortFirstChainAttackState
-      value: Upper Body.Right_short_chain.Chain_1_Right_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rightShortSecondChainAttackState
-      value: Upper Body.Right_short_chain.Chain_2_Right_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114912356483611194, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rightShortThirdChainAttackState
-      value: Upper Body.Right_short_chain.Chain_3_Right_Short
-      objectReference: {fileID: 0}
-    - target: {fileID: 114278588158803576, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: leftEquipedHoldable
-      value: 
-      objectReference: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
   m_IsPrefabParent: 0
