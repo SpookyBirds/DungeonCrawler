@@ -181,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4471162605002270}
   - component: {fileID: 114357090187528986}
+  - component: {fileID: 114997376066396094}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -3680,9 +3681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01581672dfd864caade989532849c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEquipedHoldable: {fileID: 1440922566843812, guid: 92ffe0d64deb87046bcc630c726ddf83,
+  leftEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
     type: 2}
-  rightEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
+  rightEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
     type: 2}
   toolSnapingPoint: {fileID: 4098325682245036}
   leftHandSnapingPoint: {fileID: 4112191197277868}
@@ -6055,6 +6056,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114997376066396094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188090466342468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c709fe728b4356c4097b9edf157b1e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114999882058213216
 MonoBehaviour:
   m_ObjectHideFlags: 1
