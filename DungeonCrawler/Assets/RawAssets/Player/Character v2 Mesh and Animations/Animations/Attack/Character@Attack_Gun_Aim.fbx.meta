@@ -135,8 +135,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: Event UseAttack has a time (0.217453) outside the clip's
-      valid range (0.000000..0.004167). It will never be fired
+    animationImportWarnings: Event UseAttack has a time (0.282063) outside the clip's
+      valid range (0.000000..0.208333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -178,7 +178,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

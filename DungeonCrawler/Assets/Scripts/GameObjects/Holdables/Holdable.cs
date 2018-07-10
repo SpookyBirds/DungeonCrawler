@@ -12,8 +12,8 @@ public abstract class Holdable : InheritanceSimplyfier {
     [Space]
     public Vector3 transformationRotation;
     public Vector3 transformationPosition;
-    public AnimationClip animationClipShortAttack;
     public AnimationClip animationClipLongAttack;
+    public AnimationClip animationClipShortAttack;
 
     public Vector3 AttackColliderPosition { get { return influenceCollider.transform.position; } }
 

@@ -17,7 +17,7 @@ public class Shield : Holdable {
         protected set
         {
             absorptonValue = Mathf.Clamp(value, 0, maxAbsorptionValue);
-            absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;
+            //absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;  // TODO: reimplement this, that broke randomly
         }
     }
 

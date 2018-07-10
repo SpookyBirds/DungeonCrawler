@@ -57,10 +57,26 @@ public class ControllerPlayer : Controller {
     protected override void Start()
     {
         Animator.runtimeAnimatorController = AnimatorOverrideController;
-        AnimatorOverrideController["DEFAULT_LeftUse_short"]  = EquipmetHolder.LeftHand.animationClipShortAttack;
-        AnimatorOverrideController["DEFAULT_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
-        AnimatorOverrideController["DEFAULT_LeftUse_long"]   = EquipmetHolder.LeftHand.animationClipLongAttack;
-        AnimatorOverrideController["DEFAULT_RightUse_long"]  = EquipmetHolder.RightHand.animationClipLongAttack;
+
+        bool isLeftChainable = EquipmetHolder.LeftHand is ChainableWeapon;
+        Animator.SetBool("IsLeftChainable", isLeftChainable);
+        AnimatorOverrideController["DEFAULT_Chain_1_LeftUse_short" ] = EquipmetHolder.LeftHand.animationClipShortAttack;
+        if (isLeftChainable)
+        {
+            AnimatorOverrideController["DEFAULT_Chain_2_LeftUse_short"] = EquipmetHolder.LeftHand.animationClipShortAttack;
+            AnimatorOverrideController["DEFAULT_Chain_3_LeftUse_short"] = EquipmetHolder.LeftHand.animationClipShortAttack;
+        }
+        AnimatorOverrideController["DEFAULT_LeftUse_long"  ] = EquipmetHolder.LeftHand.animationClipLongAttack;
+
+        bool isRightChainable = EquipmetHolder.RightHand is ChainableWeapon;
+        Animator.SetBool("IsRightChainable", isRightChainable);
+        AnimatorOverrideController["DEFAULT_Chain_1_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
+        if (isRightChainable)
+        {
+            AnimatorOverrideController["DEFAULT_Chain_2_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_2_Attack;
+            AnimatorOverrideController["DEFAULT_Chain_3_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_3_Attack;
+        }
+        AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }
 
     public void Jump()
@@ -68,13 +84,13 @@ public class ControllerPlayer : Controller {
         Rigid.AddForce(0, jumpforce, 0);
     }
 
-    public void UseLeft(UseType useType)
+    public void UseLeft(UseType useType, int currentChainLink)
     {
-        Debug.Log("useleft " + useType);
+        Debug.Log("useleft " + useType + "  " + currentChainLink);
 
         if (useType == UseType.shortAttack)
         {
-            Animator.SetBool("UseLeft_short", false);
+            //Animator.SetBool("UseLeft_short", false);
             EquipmetHolder.LeftHand.UseShort(this);
         }
         else if (useType == UseType.longAttack)
@@ -83,13 +99,13 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void UseRight(UseType useType)
+    public void UseRight(UseType useType, int currentChainLink)
     {
-        Debug.Log("uiseright "+ useType);
+        Debug.Log("uiseright "+ useType + "  " + currentChainLink);
 
         if (useType == UseType.shortAttack)
         {
-            Animator.SetBool("UseRight_short", false);
+            //Animator.SetBool("UseRight_short", false);
             EquipmetHolder.RightHand.UseShort(this);
         }
         else if(useType == UseType.longAttack)
@@ -98,9 +114,11 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void QuitLeft(UseType useType)
+    public void QuitLeft(UseType useType, int currentChainLink)
     {
-        if(useType == UseType.shortAttack)
+        Debug.Log("useType left " + currentChainLink);
+
+        if (useType == UseType.shortAttack)
         {
         }
         else if (useType == UseType.longAttack)
@@ -115,8 +133,9 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void QuitRight(UseType useType)
+    public void QuitRight(UseType useType, int currentChainLink)
     {
+        Debug.Log("useType right " + currentChainLink);
 
         if(useType == UseType.shortAttack)
         {
@@ -132,62 +151,7 @@ public class ControllerPlayer : Controller {
                 EquipmetHolder.RightHand.UpdateUse(this, false);
         }
     }
-
-    /* Old attack methods
-    public void UseLeft()
-    {
-        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
-        {
-            Animator.SetBool("UseLeft", false);
-            EquipmetHolder.LeftHand.UseShort(this);
-        }
-        else if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
-        {
-            EquipmetHolder.LeftHand.UseShort(this);
-        }
-    }
-
-    public void UseRight()
-    {
-        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
-        {
-            Animator.SetBool("UseRight", false);
-            EquipmetHolder.RightHand.UseShort(this);
-        }
-        else if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
-        {
-            EquipmetHolder.RightHand.UseShort(this);
-        }
-    }
-
-    public void QuitLeft()
-    {
-        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
-        {
-            if (CTRLHub.inst.LeftAttack == false)
-            {
-                Animator.SetBool("UseLeft", false);
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, true);
-            }
-            else
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
-        }
-    }
-
-    public void QuitRight()
-    {
-        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
-        {
-            if (CTRLHub.inst.RightAttack == false)
-            {
-                Animator.SetBool("UseRight", false);
-                (EquipmetHolder.RightHand as Shield).UpdateUse(this, true);
-            }
-            else
-                (EquipmetHolder.RightHand as Shield).UpdateUse(this, false);
-        }
-    }
-    */
+    
 
     protected override void FixedUpdate()
     {

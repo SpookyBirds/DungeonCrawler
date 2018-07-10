@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Holdable {
+public class ChainableWeapon : Holdable {
 
+    public AnimationClip chain_2_Attack;
+    public AnimationClip chain_3_Attack;
     [Space]
     public float damagePerHit;
 
@@ -41,7 +43,6 @@ public class Weapon : Holdable {
             if (colliderInAttackRange[index].IsAnyTagEqual(controller.EnemyTypes))
             {
                 colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
-                Debug.Log("hit");
                 didHit = true;
             }
         }

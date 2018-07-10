@@ -8,8 +8,9 @@ public class PlayerAnimationQuitTrigger : StateMachineBehaviour {
 
     public State state;
     public UseType useType;
+    public int currentChainLink = 1;
 
-    private delegate void MethodFire(ControllerPlayer controller, UseType useType);
+    private delegate void MethodFire(ControllerPlayer controller, UseType useType, int currentChainLink);
     public ControllerPlayer Controller { get; set; }
     private MethodFire fire;
 
@@ -46,7 +47,6 @@ public class PlayerAnimationQuitTrigger : StateMachineBehaviour {
         if (!hasStarted.Value)
             return;
 
-        Debug.Log("FIRE! quit "+ useType);
-        fire(Controller, useType);
+        fire(Controller, useType, currentChainLink);
     }
 }

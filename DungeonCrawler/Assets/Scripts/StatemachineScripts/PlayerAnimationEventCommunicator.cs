@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class PlayerAnimationEventCommunicator : MonoBehaviour {
 
-    public string leftShortAttackState;
-    private int leftShortAttackID;     
-    public string rightShortAttackState;
-    private int rightShortAttackID;    
-    public string leftLongAttackState ;
-    private int leftLongAttackID;
-    public string rightLongAttackState ;
-    private int rightLongAttackID;
+    public string leftLongAttackState;
+    private int   leftLongAttackID;
+    public string leftShortFirstChainAttackState;
+    private int   leftShortFirstChainAttackID;
+    public string leftShortSecondChainAttackState;
+    private int   leftShortSecondChainAttackID;
+    public string leftShortThirdChainAttackState;
+    private int   leftShortThirdChainAttackID;
+
+    public string rightLongAttackState;
+    private int   rightLongAttackID;
+    public string rightShortFirstChainAttackState;
+    private int   rightShortFirstChainAttackID;
+    public string rightShortSecondChainAttackState;
+    private int   rightShortSecondChainAttackID;
+    public string rightShortThirdChainAttackState;
+    private int   rightShortThirdChainAttackID;
+
+
 
     public int layer;
 
@@ -24,10 +35,15 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
 
     private void Awake()
     {
-        leftShortAttackID  = Animator.StringToHash(leftShortAttackState);
-        rightShortAttackID = Animator.StringToHash(rightShortAttackState);
-        leftLongAttackID   = Animator.StringToHash(leftLongAttackState);
-        rightLongAttackID  = Animator.StringToHash(rightLongAttackState);
+        leftLongAttackID             = Animator.StringToHash(leftLongAttackState            );
+        leftShortFirstChainAttackID  = Animator.StringToHash(leftShortFirstChainAttackState );
+        leftShortSecondChainAttackID = Animator.StringToHash(leftShortSecondChainAttackState);
+        leftShortThirdChainAttackID  = Animator.StringToHash(leftShortThirdChainAttackState );
+
+        rightLongAttackID             = Animator.StringToHash(rightLongAttackState            );
+        rightShortFirstChainAttackID  = Animator.StringToHash(rightShortFirstChainAttackState );
+        rightShortSecondChainAttackID = Animator.StringToHash(rightShortSecondChainAttackState);
+        rightShortThirdChainAttackID  = Animator.StringToHash(rightShortThirdChainAttackState );
 
         animator = GetComponent<Animator>();
 
@@ -51,55 +67,109 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
     /// <summary>
     /// The method called by the attack animation event
     /// </summary>
-    public void UseAttack()
+    public void UseAttack(int currentChainLink)
     {
-        Debug.Log("attack, but how?  "+ animator.GetCurrentAnimatorStateInfo(0).fullPathHash + "  leftShortAttackState");
-        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == leftShortAttackID || 
-            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftShortAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).IsName(leftShortAttackState))
+        Debug.Log("useAttack " + currentChainLink + "  "+ rightShortSecondChainAttackID + "  "+ animator.GetCurrentAnimatorStateInfo(layer).fullPathHash + "  " + animator.GetCurrentAnimatorStateInfo(layer).shortNameHash);
+        switch (GetCurrentState())                                                              
         {
-            Debug.Log("left short");
-            leftAttackHasStarted.Value = true;
-            controller.UseLeft(UseType.shortAttack);
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == leftLongAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftLongAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).IsName(leftLongAttackState))
-        {
-            Debug.Log("left long");
-            leftAttackHasStarted.Value = true;
-            controller.UseLeft(UseType.longAttack);
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == rightShortAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightShortAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).IsName(rightShortAttackState))
-        {
-            Debug.Log("right short");
-            rightAttackHasStarted.Value = true;
-            controller.UseRight(UseType.shortAttack);
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash == rightLongAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightLongAttackID ||
-            animator.GetCurrentAnimatorStateInfo(layer).IsName(rightLongAttackState))
-        {
-            Debug.Log("right long");
-            rightAttackHasStarted.Value = true;
-            controller.UseRight(UseType.longAttack);
+            case AttackState.Left_long:
+                Debug.Log("left long");
+                leftAttackHasStarted.Value = true;
+                controller.UseLeft(UseType.longAttack, currentChainLink);
+                break;
+
+            case AttackState.Left_chain_1:
+            case AttackState.Left_chain_2:
+            case AttackState.Left_chain_3:
+                Debug.Log("left chain " + currentChainLink);
+                leftAttackHasStarted.Value = true;
+                controller.UseLeft(UseType.shortAttack, currentChainLink);
+                break;
+
+
+            case AttackState.Right_long:
+                Debug.Log("right long");
+                rightAttackHasStarted.Value = true;
+                controller.UseRight(UseType.longAttack, currentChainLink);
+                break;
+
+            case AttackState.Right_chain_1:
+            case AttackState.Right_chain_2:
+            case AttackState.Right_chain_3:
+                Debug.Log("right chain " + currentChainLink);
+                rightAttackHasStarted.Value = true;
+                controller.UseRight(UseType.shortAttack, currentChainLink);
+                break;
         }
     }
+
+    private AttackState GetCurrentState()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == leftLongAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftLongAttackID   )
+        {
+            return AttackState.Left_long;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == leftShortFirstChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftShortFirstChainAttackID   )
+        {
+            return AttackState.Left_chain_1;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == leftShortSecondChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftShortSecondChainAttackID   )
+        {
+            return AttackState.Left_chain_2;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == leftShortThirdChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == leftShortThirdChainAttackID   )
+        {
+            return AttackState.Left_chain_3;
+        }
+
+        else 
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == rightLongAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightLongAttackID   )
+        {
+            return AttackState.Right_long;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == rightShortFirstChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightShortFirstChainAttackID   )
+        {
+            return AttackState.Right_chain_1;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == rightShortSecondChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightShortSecondChainAttackID   )
+        {
+            return AttackState.Right_chain_2;
+        }
+        else
+        if (animator.GetCurrentAnimatorStateInfo(layer).fullPathHash  == rightShortThirdChainAttackID ||
+            animator.GetCurrentAnimatorStateInfo(layer).shortNameHash == rightShortThirdChainAttackID   )
+        {
+            return AttackState.Right_chain_3;
+        }
+
+        return AttackState.None;
+    }
     
-    //public void QuitAttack()
-    //{
-    //    if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == leftAttackID)
-    //    {
-    //        leftAttackHasStarted.Value = false;
-    //        controller.QuitLeft();
-    //    }
-    //    else if (animator.GetCurrentAnimatorStateInfo(0).fullPathHash == rightAttackID)
-    //    {
-    //        rightAttackHasStarted.Value = false;
-    //        controller.QuitRight();
-    //    }
-    //}
+    private enum AttackState
+    {
+        None,
+
+        Left_long,
+        Left_chain_1,
+        Left_chain_2,
+        Left_chain_3,
+
+        Right_long,
+        Right_chain_1,
+        Right_chain_2,
+        Right_chain_3,
+    }
 
 }
