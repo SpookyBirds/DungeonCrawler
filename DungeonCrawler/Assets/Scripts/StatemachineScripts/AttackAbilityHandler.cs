@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MecanimBoolSetter : StateMachineBehaviour {
+public class AttackAbilityHandler : StateMachineBehaviour {
 
-    [SerializeField] private string parameterNameOfBool;
+    [SerializeField]
+    private string parameterName;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.SetBool(parameterNameOfBool, true);
+        animator.SetInteger(parameterName, animator.GetInteger(parameterName) + 1);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.SetBool(parameterNameOfBool, false);
+        animator.SetInteger(parameterName, animator.GetInteger(parameterName) - 1);
     }
 }
