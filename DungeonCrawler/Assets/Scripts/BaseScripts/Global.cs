@@ -10,6 +10,7 @@ public class Global : MonoBehaviour {
 
     public Transform level;
     public GameObject Player;
+    public GameObject EmptyHandFist;
 
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
