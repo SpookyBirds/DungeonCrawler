@@ -121,6 +121,7 @@ public class Gun : Holdable
 
      void ShotingParticles()
     {
+        //Starts spawning the particles when the player shoots
         shotParticle.Play();
     }
     //private void OnDrawGizmos()
