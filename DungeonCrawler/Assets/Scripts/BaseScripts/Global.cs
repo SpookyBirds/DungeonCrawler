@@ -125,7 +125,7 @@ public enum UseType
 }
 
 
-public enum Equipmentslots
+public enum EquipmentType
 {
     Head,
     Body,
