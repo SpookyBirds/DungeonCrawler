@@ -8,9 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bbfc8f28851bea4ea25c8774bc76e02, type: 3}
-  m_Name: Test Item
+  m_Script: {fileID: 11500000, guid: 8a6a3e8417f552b43b92b1eeb1e3edfb, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  name: Test Item
+  itemName: Sword
   icon: {fileID: 0}
   isDefaultItem: 0
+  itemPrefab: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b, type: 2}
+  equipmentSlots: 3

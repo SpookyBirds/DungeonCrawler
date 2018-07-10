@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4535515111246910}
   - component: {fileID: 114450006661653460}
+  - component: {fileID: 114236405140908448}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1720846641585188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.4785552, y: -0.0852766, z: 2.67457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4761832807512490}
@@ -155,6 +156,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114236405140908448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720846641585188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da75073d52403646b4030c9f1e80ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  inRange: 0
+  InteractionTransform: {fileID: 4535515111246910}
+  distance: 0
+  Interacted: 0
+  Item: {fileID: 11400000, guid: 9fc65580845b4da4a9df58fe6815782e, type: 2}
 --- !u!114 &114450006661653460
 MonoBehaviour:
   m_ObjectHideFlags: 1

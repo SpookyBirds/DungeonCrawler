@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour {
 
     public Transform InteractionTransform;
 
-    GameObject player;
+    
     public float distance;
 
     public bool Interacted = false;
