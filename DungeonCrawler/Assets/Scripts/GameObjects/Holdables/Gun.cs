@@ -119,17 +119,19 @@ public class Gun : Holdable
         return false;
     }
 
-     void ShotingParticles()
+    void ShotingParticles()
     {
         //Starts spawning the particles when the player shoots
         shotParticle.Play();
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.cyan;
-    //    //Gizmos.DrawRay(transform.position, pointerSupplier.character.forward * maxReach);
-    //    Gizmos.DrawRay(
-    //        pointerSupplier.cameraMovementController.RotationCenterPoint.position,
-    //        Camera.main.ScreenPointToRay(Input.mousePosition).direction * maxReach);
-    //}
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(transform.position, pointerSupplier.character.forward * maxReach);
+        Gizmos.DrawRay(
+            pointerSupplier.cameraMovementController.RotationCenterPoint.position,
+            Camera.main.ScreenPointToRay(Input.mousePosition).direction * maxReach);
+    }
 }
