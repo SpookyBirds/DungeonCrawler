@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   isDefaultItem: 0
   itemPrefab: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b, type: 2}
-  equipmentSlots: 0
+  equipmentSlots: 3
