@@ -14,7 +14,7 @@ public class EquipmentManager : MonoBehaviour {
     private Equipment[] currentEquipment;
 
     public void Start()
-    {
+    { 
         int slotNumbers = System.Enum.GetNames(typeof(Equipmentslots)).Length;
         currentEquipment = new Equipment[slotNumbers];
     }

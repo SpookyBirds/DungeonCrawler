@@ -12,7 +12,8 @@ public class Gun : Holdable
     private float damagePerHit = 10;
 
     private PointerSupplier pointerSupplier;
-
+    public ParticleSystem shotParticle;
+    
     // Secures that only one shot is fired
     private bool isAiming = false;
     private bool IsAiming
@@ -66,6 +67,7 @@ public class Gun : Holdable
 
     private bool Shoot(Controller controller, Vector3 position, Vector3 direction)
     {
+        ShotingParticles();
         // Get all collider in shoot distance
         RaycastHit[] hits = Physics.RaycastAll(
             position, direction, maxReach);
@@ -113,16 +115,20 @@ public class Gun : Holdable
             entityToDamage.TryToDamage(damagePerHit);
             return true;
         }
-
+        
         return false;
     }
 
-    private void OnDrawGizmos()
+     void ShotingParticles()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(transform.position, pointerSupplier.character.forward * maxReach);
-        Gizmos.DrawRay(
-            pointerSupplier.cameraMovementController.RotationCenterPoint.position,
-            Camera.main.ScreenPointToRay(Input.mousePosition).direction * maxReach);
+        shotParticle.Play();
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.cyan;
+    //    //Gizmos.DrawRay(transform.position, pointerSupplier.character.forward * maxReach);
+    //    Gizmos.DrawRay(
+    //        pointerSupplier.cameraMovementController.RotationCenterPoint.position,
+    //        Camera.main.ScreenPointToRay(Input.mousePosition).direction * maxReach);
+    //}
 }
