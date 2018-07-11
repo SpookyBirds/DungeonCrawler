@@ -482,10 +482,10 @@ GameObject:
   - component: {fileID: 136506784094519042}
   - component: {fileID: 114881951190300752}
   - component: {fileID: 195919243799748220}
-  - component: {fileID: 114317749395245816}
-  - component: {fileID: 114240907852148698}
-  - component: {fileID: 114694604863069950}
   - component: {fileID: 114706678424430384}
+  - component: {fileID: 114307397458467648}
+  - component: {fileID: 114694604863069950}
+  - component: {fileID: 114317749395245816}
   m_Layer: 0
   m_Name: Melee_Robot
   m_TagString: Enemy_NPC
@@ -1002,7 +1002,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699566941890646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -1405,7 +1405,7 @@ Animator:
   m_GameObject: {fileID: 1659940083564766}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5bc834150e093ab43ab2f36f5759f42a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1d77e382ac5190e40ae157ad12efff7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3721ba2a7210a2c48932d98483d4711a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1441,19 +1441,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114240907852148698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1699566941890646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83032d36c7163694eb4b9ed94479e09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerHit: 15
-  attackCollider: {fileID: 65625807571724450}
 --- !u!114 &114256590746716676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1508,6 +1495,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114307397458467648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699566941890646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffb88b409e0e1340b381b37c8fe8503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 15
+  attackCollider: {fileID: 65625807571724450}
 --- !u!114 &114317749395245816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0374ecacd4dbc6408ab061ddfafcaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 250
+  visionRadius: 20
 --- !u!114 &114400518246452514
 MonoBehaviour:
   m_ObjectHideFlags: 1
