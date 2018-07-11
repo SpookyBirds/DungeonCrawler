@@ -1446,7 +1446,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224785175198748390}
-  - component: {fileID: 114726709261391866}
+  - component: {fileID: 114620361866053364}
   m_Layer: 0
   m_Name: EquipmentSlot
   m_TagString: Untagged
@@ -4565,6 +4565,8 @@ MonoBehaviour:
   helmetSnapingPoint: {fileID: 4891758124630118}
   bodyArmorSnapingPoint: {fileID: 4915063936109950}
   legArmorSnapingPoint: {fileID: 4790304361777260}
+  leftHandSlot: {fileID: 0}
+  rightHandSlot: {fileID: 0}
 --- !u!114 &114286214771781172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5998,6 +6000,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114620361866053364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613114083308638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741c1bc5839597c4fabe600a5384a2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeButton: {fileID: 114120396564217420}
 --- !u!114 &114623883570891862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6445,7 +6459,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114726709261391866}
+      - m_Target: {fileID: 0}
         m_MethodName: UseItem
         m_Mode: 1
         m_Arguments:
@@ -6552,19 +6566,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 114770781187922642}
   removeButton: {fileID: 114149719262825662}
---- !u!114 &114726709261391866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1613114083308638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2644dc5ba49d444bbb8e5afcce930e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 114024780183644394}
-  removeButton: {fileID: 114120396564217420}
 --- !u!114 &114727891688417596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7721,7 +7722,7 @@ MonoBehaviour:
   - {fileID: 114801446308049192}
   - {fileID: 114348834444518438}
   - {fileID: 114486264811263610}
-  removeButton: {fileID: 114120396564217420}
+  itemsParents: {fileID: 224496691706340886}
 --- !u!114 &114998144332951980
 MonoBehaviour:
   m_ObjectHideFlags: 1

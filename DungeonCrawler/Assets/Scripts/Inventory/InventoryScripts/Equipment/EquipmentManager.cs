@@ -9,7 +9,12 @@ public class EquipmentManager : MonoBehaviour {
     [SerializeField] private Image[] images = new Image[System.Enum.GetNames(typeof(EquipmentType)).Length];
 
     private Equipment[] currentEquipment;
-    public Button removeButton;
+    //public Button removeButton1;
+    public Transform itemsParents;
+    
+
+    EquipmentSlots[] slots;
+    EquipmentSlots equipment;
 
     private void Awake()
     {
@@ -20,7 +25,7 @@ public class EquipmentManager : MonoBehaviour {
     { 
         int slotNumbers = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[slotNumbers];
-
+        slots = itemsParents.GetComponentsInChildren<EquipmentSlots>();
     }
 
     public void Equip(Equipment newItem)
@@ -39,8 +44,7 @@ public class EquipmentManager : MonoBehaviour {
         currentEquipment[slotIndex] = newItem;
         images[slotIndex].enabled = true;
         images[slotIndex].sprite = newItem.icon;
-        removeButton.interactable = true;
-
+        RemoveSwitcher(slotIndex);
     }
 
     /// <summary>
@@ -58,9 +62,24 @@ public class EquipmentManager : MonoBehaviour {
                 return;
         }
 
+       
+
         currentEquipment[slotIndex] = null;
         images[slotIndex].enabled = false;
         images[slotIndex].sprite = null;
-        removeButton.interactable = false;
+        RemoveSwitcher(slotIndex);
+    }
+
+    public void RemoveSwitcher(int slotIndex)
+    {
+       
+            if (currentEquipment[slotIndex] != null)
+            {
+                slots[slotIndex].activateRemove();
+            }
+            else
+            {
+                slots[slotIndex].deactivateRemove();
+            }
     }
 }

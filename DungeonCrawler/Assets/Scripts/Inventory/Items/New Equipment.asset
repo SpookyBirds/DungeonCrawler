@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 8733da3ebbc7cad4abfebae06a6e9551, type: 3}
   isDefaultItem: 0
   itemPrefab: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7, type: 2}
-  equipmentType: 0
+  equipmentType: 4
