@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    #region Singleton
+    
     public static Inventory Instance;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         }
         Instance = this;
     }
-    #endregion
+  
 
     //Delegate for updating inventory
     public delegate void OnItemChanged();
@@ -27,11 +27,15 @@ public class Inventory : MonoBehaviour
     public int inventorySpace = 10;
     public List<Item> items = new List<Item>();
 
+    /// <summary>
+    /// Add an item to the inventory. Returns false if the item coundn't be added
+    /// </summary>
+    /// <param name="item">Iem to add</param>
     public bool AddItem(Item item)
     {
         //When the item is not a default item the player can pick it up if he has enough inventory space
-        if (!item.isDefaultItem)
-        {
+        
+        
             if (items.Count >= inventorySpace)
             {
                 Debug.Log("Not enough room in Inventory!");
@@ -42,17 +46,29 @@ public class Inventory : MonoBehaviour
             //subscription to a delagate that updates the inventory
             if (onItemChangedCallBack != null)
                 onItemChangedCallBack.Invoke();
-        }
+        
         return true;
     }
 
-    public void RemoveItem(Item item)
+    /// <summary>
+    /// Deletes the item from the inventory
+    /// </summary>
+    public void DeleteItem(Item item)
     {
         //Removes the item from the list
-        Instantiate(item.itemPrefab,transform.position,Quaternion.identity, Global.inst.level);
         items.Remove(item);
 
         if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
+    }
+
+    /// <summary>
+    /// Drops the item to the ground (instantiating) and calls DeleteItem()
+    /// </summary>
+    public void DropItem(Item item)
+    {
+        //Removes the item from the list
+        Instantiate(item.itemPrefab, transform.position, Quaternion.identity, Global.inst.level);
+        DeleteItem(item);
     }
 }

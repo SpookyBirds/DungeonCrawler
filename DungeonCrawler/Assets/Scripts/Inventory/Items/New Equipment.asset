@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a6a3e8417f552b43b92b1eeb1e3edfb, type: 3}
-  m_Name: Sword
+  m_Name: New Equipment
   m_EditorClassIdentifier: 
-  itemName: Sword
-  icon: {fileID: 21300000, guid: 28d2c2677149d45e290e8fa042b1b80f, type: 3}
+  itemName: TestSword
+  icon: {fileID: 21300000, guid: 8733da3ebbc7cad4abfebae06a6e9551, type: 3}
   isDefaultItem: 0
-  itemPrefab: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b, type: 2}
+  itemPrefab: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7, type: 2}
   equipmentType: 0

@@ -16,6 +16,7 @@ public class UiManager : MonoBehaviour {
     }
 
     public GameObject pauseScreen;
+    public GameObject characterScreen;
     public GameObject cameraStop;
 
     public CameraMovementController cameraMovementController;
@@ -29,6 +30,7 @@ public class UiManager : MonoBehaviour {
             {
                 GamePaused = true;
                 pauseScreen.SetActive(true);
+                characterScreen.SetActive(true);
 
                 
             }
@@ -36,6 +38,7 @@ public class UiManager : MonoBehaviour {
             {
                 GamePaused = false;
                 pauseScreen.SetActive(false);
+                characterScreen.SetActive(false);
 
             }
         }
