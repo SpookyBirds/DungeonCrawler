@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Controller))]
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(ControllerNPC))]
 public class NPC_AI : InheritanceSimplyfier
 {
     [SerializeField]
@@ -108,7 +108,7 @@ public class NPC_AI : InheritanceSimplyfier
         bool opponentIsInAttackRange =
             Vector3.Distance(new Vector3(AttackCenter.x, transform.position.y, AttackCenter.z), opponent.transform.position) < AttackRange;
 
-        Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
+        Controller.Animator.SetBool("Run",   !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
     }
 

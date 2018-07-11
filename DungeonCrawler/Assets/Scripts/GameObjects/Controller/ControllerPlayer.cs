@@ -6,11 +6,19 @@ using UnityEngine;
 [RequireComponent(typeof(EquipmetHolder))]
 public class ControllerPlayer : Controller {
 
-    [SerializeField] private float forwardSpeed = 0.1f;
-    [SerializeField] private float leftSpeed = 0.1f;
-    [SerializeField] private float backSpeed = 0.1f;
-    [SerializeField] private float rightSpeed = 0.1f;
-    [SerializeField] private float jumpforce = 1f;
+    [SerializeField] private float maxForwardSpeed = 30;
+    [SerializeField] private float maxLeftSpeed    = 30;
+    [SerializeField] private float maxBackSpeed    = 30;
+    [SerializeField] private float maxRightSpeed   = 30;
+    [SerializeField] private float maxJumpforce    = 30;
+    [SerializeField] private float maxRollSpeed    = 600f;
+
+    private float forwardSpeed;
+    private float leftSpeed   ;
+    private float backSpeed   ;
+    private float rightSpeed  ;
+    private float jumpforce   ;
+    private float rollSpeed   ;
 
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
@@ -44,6 +52,9 @@ public class ControllerPlayer : Controller {
         }
     }
 
+    private bool isRolling = false;
+    private bool lastFrameIsRolling = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -52,29 +63,54 @@ public class ControllerPlayer : Controller {
 
         Rigid = GetComponent<Rigidbody>();
         EquipmetHolder = GetComponent<EquipmetHolder>();
+
+        forwardSpeed = maxForwardSpeed;
+        leftSpeed    = maxLeftSpeed;
+        backSpeed    = maxBackSpeed;
+        rightSpeed   = maxRightSpeed;
+        jumpforce    = maxJumpforce;
+        rollSpeed    = maxRollSpeed;
     }
 
     protected override void Start()
     {
         Animator.runtimeAnimatorController = AnimatorOverrideController;
-        AnimatorOverrideController["DEFAULT_LeftUse_short"]  = EquipmetHolder.LeftHand.animationClipShortAttack;
-        AnimatorOverrideController["DEFAULT_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
-        AnimatorOverrideController["DEFAULT_LeftUse_long"]   = EquipmetHolder.LeftHand.animationClipLongAttack;
-        AnimatorOverrideController["DEFAULT_RightUse_long"]  = EquipmetHolder.RightHand.animationClipLongAttack;
+
+        bool isLeftChainable = EquipmetHolder.LeftHand is ChainableWeapon;
+        Animator.SetBool("IsLeftChainable", isLeftChainable);
+        AnimatorOverrideController["DEFAULT_Chain_1_LeftUse_short" ] = EquipmetHolder.LeftHand.animationClipShortAttack;
+        if (isLeftChainable)
+        {
+            AnimatorOverrideController["DEFAULT_Chain_2_LeftUse_short"] = EquipmetHolder.LeftHand.animationClipShortAttack;
+            AnimatorOverrideController["DEFAULT_Chain_3_LeftUse_short"] = EquipmetHolder.LeftHand.animationClipShortAttack;
+        }
+        AnimatorOverrideController["DEFAULT_LeftUse_long"  ] = EquipmetHolder.LeftHand.animationClipLongAttack;
+
+        bool isRightChainable = EquipmetHolder.RightHand is ChainableWeapon;
+        Animator.SetBool("IsRightChainable", isRightChainable);
+        AnimatorOverrideController["DEFAULT_Chain_1_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
+        if (isRightChainable)
+        {
+            AnimatorOverrideController["DEFAULT_Chain_2_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_2_Attack;
+            AnimatorOverrideController["DEFAULT_Chain_3_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_3_Attack;
+        }
+        AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }
+
+  
 
     public void Jump()
     {
         Rigid.AddForce(0, jumpforce, 0);
     }
 
-    public void UseLeft(UseType useType)
+    public void UseLeft(UseType useType, int currentChainLink)
     {
-        Debug.Log("useleft " + useType);
+        Debug.Log("useleft " + useType + "  " + currentChainLink);
 
         if (useType == UseType.shortAttack)
         {
-            Animator.SetBool("UseLeft_short", false);
+            //Animator.SetBool("UseLeft_short", false);
             EquipmetHolder.LeftHand.UseShort(this);
         }
         else if (useType == UseType.longAttack)
@@ -83,13 +119,13 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void UseRight(UseType useType)
+    public void UseRight(UseType useType, int currentChainLink)
     {
-        Debug.Log("uiseright "+ useType);
+        Debug.Log("uiseright "+ useType + "  " + currentChainLink);
 
         if (useType == UseType.shortAttack)
         {
-            Animator.SetBool("UseRight_short", false);
+            //Animator.SetBool("UseRight_short", false);
             EquipmetHolder.RightHand.UseShort(this);
         }
         else if(useType == UseType.longAttack)
@@ -98,9 +134,11 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void QuitLeft(UseType useType)
+    public void QuitLeft(UseType useType, int currentChainLink)
     {
-        if(useType == UseType.shortAttack)
+        Debug.Log("useType left " + currentChainLink);
+
+        if (useType == UseType.shortAttack)
         {
         }
         else if (useType == UseType.longAttack)
@@ -115,8 +153,9 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    public void QuitRight(UseType useType)
+    public void QuitRight(UseType useType, int currentChainLink)
     {
+        Debug.Log("useType right " + currentChainLink);
 
         if(useType == UseType.shortAttack)
         {
@@ -133,65 +172,45 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    /* Old attack methods
-    public void UseLeft()
+    protected override void Update()
     {
-        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.SingleClick)
-        {
-            Animator.SetBool("UseLeft", false);
-            EquipmetHolder.LeftHand.UseShort(this);
-        }
-        else if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
-        {
-            EquipmetHolder.LeftHand.UseShort(this);
-        }
-    }
+        base.Update();
 
-    public void UseRight()
-    {
-        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.SingleClick)
-        {
-            Animator.SetBool("UseRight", false);
-            EquipmetHolder.RightHand.UseShort(this);
-        }
-        else if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
-        {
-            EquipmetHolder.RightHand.UseShort(this);
-        }
-    }
+        isRolling = Animator.GetBool("IsRolling");
 
-    public void QuitLeft()
-    {
-        if (EquipmetHolder.LeftHand.HoldableMode == HoldableMode.Hold)
+        if(lastFrameIsRolling != isRolling)
         {
-            if (CTRLHub.inst.LeftAttack == false)
+            if (isRolling)
             {
-                Animator.SetBool("UseLeft", false);
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, true);
+                forwardSpeed = rollSpeed;
+                backSpeed = rollSpeed;
+                leftSpeed = rollSpeed;
+                rightSpeed = rollSpeed;
+                HandleMovement(true);
             }
             else
-                (EquipmetHolder.LeftHand as Shield).UpdateUse(this, false);
-        }
-    }
-
-    public void QuitRight()
-    {
-        if (EquipmetHolder.RightHand.HoldableMode == HoldableMode.Hold)
-        {
-            if (CTRLHub.inst.RightAttack == false)
             {
-                Animator.SetBool("UseRight", false);
-                (EquipmetHolder.RightHand as Shield).UpdateUse(this, true);
+                forwardSpeed = maxForwardSpeed;
+                backSpeed    = maxBackSpeed;
+                leftSpeed    = maxLeftSpeed;
+                rightSpeed   = maxRightSpeed;
             }
-            else
-                (EquipmetHolder.RightHand as Shield).UpdateUse(this, false);
         }
+
+        lastFrameIsRolling = isRolling;
     }
-    */
 
     protected override void FixedUpdate()
     {
-        float verticalAxis   = CTRLHub.inst.VerticalAxis;
+        HandleMovement(isRolling == false);
+    }
+
+    private void HandleMovement(bool doOrDont)
+    {
+        if (doOrDont == false)
+            return;
+
+        float verticalAxis = CTRLHub.inst.VerticalAxis;
         float horizontalAxis = CTRLHub.inst.HorizontalAxis;
 
         if (verticalAxis > 0)

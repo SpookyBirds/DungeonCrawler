@@ -17,7 +17,7 @@ public class Shield : Holdable {
         protected set
         {
             absorptonValue = Mathf.Clamp(value, 0, maxAbsorptionValue);
-            absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;
+            //absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;  // TODO: reimplement this, that broke randomly
         }
     }
 
@@ -39,7 +39,6 @@ public class Shield : Holdable {
         base.Awake();
         absorptionBar = GameObject.Find("AbsorptionBar").GetComponent<Image>(); //TODO: clean up this shit here
         AbsorptionValue = maxAbsorptionValue;
-        HoldableMode = HoldableMode.Hold;
         isBlocking = false;
     }
 

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class MecanimBoolSetter : StateMachineBehaviour {
 
-    [SerializeField]
-    private string parameterName;
+    [SerializeField] private string parameterNameOfBool;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.SetInteger(parameterName, animator.GetInteger(parameterName) + 1);
+        animator.SetBool(parameterNameOfBool, true);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.SetInteger(parameterName, animator.GetInteger(parameterName) - 1);
+        animator.SetBool(parameterNameOfBool, false);
     }
 }

@@ -4,16 +4,14 @@ using UnityEngine;
 
 public abstract class Holdable : InheritanceSimplyfier {
 
-    public HoldableMode HoldableMode { get; set; }
-
     [Tooltip("The Collider used to calculate a hit. If it isn't supplied, the script will search it's gameObject as well as children (in ths order)")]
     public BoxCollider influenceCollider;
     public Transform model;
     [Space]
     public Vector3 transformationRotation;
     public Vector3 transformationPosition;
-    public AnimationClip animationClipShortAttack;
     public AnimationClip animationClipLongAttack;
+    public AnimationClip animationClipShortAttack;
 
     public Vector3 AttackColliderPosition { get { return influenceCollider.transform.position; } }
 
@@ -43,10 +41,4 @@ public abstract class Holdable : InheritanceSimplyfier {
     /// </summary>
     /// <param name="quit">True if the use is ended</param>
     public virtual void UpdateUse(Controller controller, bool quit) { }
-}
-
-public enum HoldableMode
-{
-    SingleClick,
-    Hold,
 }

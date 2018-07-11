@@ -2236,7 +2236,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853209145145318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4730347172918046}
@@ -2834,7 +2834,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897784793233946}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13.48, y: 1.98, z: -1.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4056654331543688}
@@ -3281,7 +3281,7 @@ Animator:
   m_GameObject: {fileID: 1897784793233946}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 918967cc5fe31a540a0ce8506db5935e, type: 3}
-  m_Controller: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66, type: 2}
+  m_Controller: {fileID: 9100000, guid: cfb179469c5a2f24d9e3946b62959a7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01581672dfd864caade989532849c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
+  leftEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
     type: 2}
   rightEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
     type: 2}
@@ -5931,12 +5931,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileEntities: 8
   animator: {fileID: 95000358309102872}
-  forwardSpeed: 20
-  leftSpeed: 20
-  backSpeed: 20
-  rightSpeed: 20
-  jumpforce: 300
-  animatorOverrideController: {fileID: 22100000, guid: 81c726656f0ea7949a74cee629045b66,
+  maxForwardSpeed: 20
+  maxLeftSpeed: 20
+  maxBackSpeed: 20
+  maxRightSpeed: 20
+  maxJumpforce: 20
+  maxRollSpeed: 700
+  animatorOverrideController: {fileID: 22100000, guid: afd309c6aece63448a62729905ef7a10,
     type: 2}
 --- !u!114 &114904338651415548
 MonoBehaviour:
@@ -6018,10 +6019,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50a98369deed3247b51f1aa652a2a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftShortAttackState: Upper Body.UseLeft_short_state
-  rightShortAttackState: Upper Body.UseRight_short_state
   leftLongAttackState: Upper Body.UseLeft_long_state
+  leftShortFirstChainAttackState: Upper Body.Left_short_chain.Chain_1_Left_Short
+  leftShortSecondChainAttackState: Upper Body.Left_short_chain.Chain_2_Left_Short
+  leftShortThirdChainAttackState: Upper Body.Left_short_chain.Chain_3_Left_Short
   rightLongAttackState: Upper Body.UseRight_long_state
+  rightShortFirstChainAttackState: Upper Body.Right_short_chain.Chain_1_Right_Short
+  rightShortSecondChainAttackState: Upper Body.Right_short_chain.Chain_2_Right_Short
+  rightShortThirdChainAttackState: Upper Body.Right_short_chain.Chain_3_Right_Short
   layer: 1
   controller: {fileID: 114858044274239516}
 --- !u!114 &114916834362515200

@@ -15,13 +15,13 @@ public class EquipmentManager : MonoBehaviour {
 
     public void Start()
     { 
-        int slotNumbers = System.Enum.GetNames(typeof(Equipmentslots)).Length;
+        int slotNumbers = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[slotNumbers];
     }
 
     public void Equip(Equipment newItem)
     {
-        int slotIndex = (int)newItem.equipmentSlots;
+        int slotIndex = (int)newItem.equipmentType;
         currentEquipment[slotIndex] = newItem;
     }
 }

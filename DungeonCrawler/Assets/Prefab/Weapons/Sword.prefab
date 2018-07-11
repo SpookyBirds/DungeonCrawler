@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1720846641585188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4785552, y: -0.0852766, z: 2.67457}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4761832807512490}
@@ -188,8 +188,10 @@ MonoBehaviour:
   model: {fileID: 4761832807512490}
   transformationRotation: {x: 0, y: 0, z: 0}
   transformationPosition: {x: 0, y: 0, z: 0}
+  animationClipLongAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
+    type: 3}
   animationClipShortAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
     type: 3}
-  animationClipLongAttack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407,
-    type: 3}
+  chain_2_Attack: {fileID: 7400000, guid: 32595de6b15e8c545a91c312aefa4de2, type: 3}
+  chain_3_Attack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407, type: 3}
   damagePerHit: 30

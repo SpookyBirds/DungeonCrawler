@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class NPCAnimationCommunicator : StateMachineBehaviour {
 
-    private delegate void Fire();
-    private Fire fireEnter  = PlaceHolder;
-    private Fire fireUpdate = PlaceHolder;
-    private Fire fireExit   = PlaceHolder;
+    protected delegate void Fire();
+    protected Fire fireEnter  = PlaceHolder;
+    protected Fire fireUpdate = PlaceHolder;
+    protected Fire fireExit   = PlaceHolder;
 
     [SerializeField]
-    private States state;
+    protected States state;
 
     private NPC_AI ai;
     public NPC_AI AI
@@ -24,7 +24,7 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
         }
     }
 
-    private void Initialize()
+    protected virtual void Initialize()
     {
         switch (state)
         {
@@ -66,7 +66,7 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
 
     public static void PlaceHolder() { }
 
-    private enum States
+    protected enum States
     {
         None,
 
@@ -74,7 +74,12 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
 
         Aggro_baseState,
         Combat_Idle,
+        Spot_Player,
         Attack,
+        Run_Attack,
+        AttackChain_1,
+        AttackChain_2,
+        AttackChain_3,
         Run,
         Jump,
         Landing,
