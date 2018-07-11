@@ -3494,6 +3494,11 @@ Prefab:
       propertyPath: visionRadius
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 95640815502265694, guid: 64b7146eb5f5cb84691a0c2730d6e960,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3721ba2a7210a2c48932d98483d4711a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64b7146eb5f5cb84691a0c2730d6e960, type: 2}
   m_IsPrefabParent: 0
