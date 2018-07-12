@@ -27,13 +27,16 @@ public class EquipmetHolder : MonoBehaviour {
     public Transform bodyArmorSnapingPoint;
     public Transform legArmorSnapingPoint;
 
+    public Item leftHandSlot;
+    public Item rightHandSlot;
+
     private void Awake()
     {
         if (leftEquipedHoldable == null)
         {
             leftEquipedHoldable = Global.inst.EmptyHandFist;
         }
-        
+       
         LeftHand = Instantiate(leftEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
         LeftHand.model.parent = leftHandSnapingPoint;
         LeftHand.model.localPosition = LeftHand.transformationPosition;
@@ -45,7 +48,7 @@ public class EquipmetHolder : MonoBehaviour {
             rightEquipedHoldable = Global.inst.EmptyHandFist;
 
         }
-        
+
         RightHand = Instantiate(rightEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
         RightHand.model.parent = rightHandSnapingPoint;
         RightHand.model.localPosition = RightHand.transformationPosition;

@@ -12,32 +12,38 @@ public class NPC_AI : InheritanceSimplyfier
 
     [SerializeField]
     private BoxCollider attackCollider;
-    private float AttackRange    { get { return attackCollider.bounds.extents.z;   } }
-    private Vector3 AttackCenter { get { return attackCollider.transform.position; } }
+    protected float AttackRange { get { return attackCollider.bounds.extents.z; } }
+    protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
 
-    public  Controller   Controller   { get; private set; }
-    private FieldOfView  FieldOfView  { get; set; }
-    private NavMeshAgent NavMeshAgent { get; set; }
+    public Controller Controller { get; private set; }
+    private FieldOfView FieldOfView { get; set; }
+    protected NavMeshAgent NavMeshAgent { get; private set; }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
     private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
 
-    private Entity opponent;
+    protected Entity opponent;
 
     protected override void Awake()
     {
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        Controller   = GetComponent<Controller>();
-        FieldOfView  = GetComponent<FieldOfView>();
+        Controller = GetComponent<Controller>();
+        FieldOfView = GetComponent<FieldOfView>();
 
+        InitializeCommunicator();
+    }
+
+    protected virtual void InitializeCommunicator()
+    {
         foreach (NPCAnimationCommunicator communicator in Controller.Animator.GetBehaviours<NPCAnimationCommunicator>())
-            communicator.AI = this;      
+            communicator.AI = this;
     }
 
     public void Idle_baseState_Update()
     {
         if (FieldOfView.FindEnemy(out opponent))    //search for enemies
         {
+            transform.LookAt(opponent.transform);
             Controller.Animator.SetTrigger("AggroBaseStateSwitch");
         }
     }
@@ -71,6 +77,7 @@ public class NPC_AI : InheritanceSimplyfier
     {
         NavMeshAgent.isStopped = false;
         elapsedTimeSinceLastNavUpdate = timeIntervallToUpdateNavDestinationInSeconds;
+        Debug.Log("wtf");
     }
 
     public void Run_Update()
@@ -80,7 +87,7 @@ public class NPC_AI : InheritanceSimplyfier
         {
             elapsedTimeSinceLastNavUpdate -= timeIntervallToUpdateNavDestinationInSeconds;
 
-            if(opponent == null)
+            if (opponent == null)
             {
                 Controller.Animator.SetTrigger("IdleBaseStateSwitch");
                 return;
@@ -97,7 +104,12 @@ public class NPC_AI : InheritanceSimplyfier
         NavMeshAgent.isStopped = true;
     }
 
-    private void RunOrAttack()
+    public void Attack_Update()
+    {
+        RunOrAttack();
+    }
+
+    protected virtual void RunOrAttack()
     {
         if (opponent == null)
         {
@@ -108,15 +120,9 @@ public class NPC_AI : InheritanceSimplyfier
         bool opponentIsInAttackRange =
             Vector3.Distance(new Vector3(AttackCenter.x, transform.position.y, AttackCenter.z), opponent.transform.position) < AttackRange;
 
-        Controller.Animator.SetBool("Run",   !opponentIsInAttackRange);
+        Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
-    }
-
-
-    public void Attack_Update()
-    {
-        RunOrAttack();
-    }
+    } 
 
     public void Attack()
     {

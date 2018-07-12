@@ -9,6 +9,7 @@ public class InventoryUi : MonoBehaviour {
     public Transform itemsParents;
 
     InventorySlot[] slots;
+    
 
 
 	// Use this for initialization

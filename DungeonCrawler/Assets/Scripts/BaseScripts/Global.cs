@@ -106,7 +106,7 @@ public static class Extentions
             if (component.CompareTag(Global.GetFactionTag(entitiesEntries[index])))
                 return true;
         }
-
+        
         return false;
     }
 }
