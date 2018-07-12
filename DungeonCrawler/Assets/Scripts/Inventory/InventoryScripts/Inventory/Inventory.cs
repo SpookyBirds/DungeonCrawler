@@ -70,5 +70,6 @@ public class Inventory : MonoBehaviour
         //Removes the item from the list
         Instantiate(item.itemPrefab, transform.position, Quaternion.identity, Global.inst.level);
         DeleteItem(item);
+        Debug.Log("where is my sword");
     }
 }

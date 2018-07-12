@@ -5240,6 +5240,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114278588158803576, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: itemsParents
+      value: 
+      objectReference: {fileID: 1360841982}
+    - target: {fileID: 114997376066396094, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114511754809714368, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
     - {fileID: 114210161186178088, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
@@ -8344,6 +8354,11 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!224 &1360841982 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224496691706340886, guid: 3260dd2b810181a4bb4dec5924042b67,
+    type: 2}
+  m_PrefabInternal: {fileID: 973961563}
 --- !u!1 &1363181332
 GameObject:
   m_ObjectHideFlags: 0
