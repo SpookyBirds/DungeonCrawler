@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4105234866179438}
   - component: {fileID: 33984012109694010}
   - component: {fileID: 23614524727763308}
+  - component: {fileID: 65373218035568660}
+  - component: {fileID: 65072973271759270}
+  - component: {fileID: 65742249288264070}
   m_Layer: 0
   m_Name: Web corner railing
   m_TagString: Untagged
@@ -84,3 +87,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282710388072304}
   m_Mesh: {fileID: 4300000, guid: cef98b6be5004744da20af7e3e4eac9a, type: 3}
+--- !u!65 &65072973271759270
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282710388072304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000013, y: 0.001200999, z: 0.13734652}
+  m_Center: {x: 0, y: -0.009399518, z: 0.06867327}
+--- !u!65 &65373218035568660
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282710388072304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000013, y: 0.020000005, z: 0.019101117}
+  m_Center: {x: 0, y: -9.536747e-10, z: 0.009550587}
+--- !u!65 &65742249288264070
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282710388072304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0011446463, y: 0.020000005, z: 0.1373465}
+  m_Center: {x: -0.009427705, y: -9.536748e-10, z: 0.06867326}

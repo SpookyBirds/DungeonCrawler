@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4834818455615518}
   - component: {fileID: 33608338639150952}
   - component: {fileID: 23274634089736678}
+  - component: {fileID: 65188434562088652}
   m_Layer: 0
   m_Name: Web Round
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1911589449576860}
   m_Mesh: {fileID: 4300000, guid: 1d58c0c848286fb4cb850d72db8be601, type: 3}
+--- !u!65 &65188434562088652
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911589449576860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03032992, y: 0.030322954, z: 0.10096181}
+  m_Center: {x: -0.000021420885, y: -0.0000179396, z: 0.047623765}

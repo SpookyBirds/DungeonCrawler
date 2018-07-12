@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4097606891098088}
+  - component: {fileID: 65509909374302894}
   m_Layer: 0
   m_Name: Door Frame
   m_TagString: Untagged
@@ -185,3 +186,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882351274426264}
   m_Mesh: {fileID: 4300002, guid: 08c272e86171abd4cbe1c8cbc503e46c, type: 3}
+--- !u!65 &65509909374302894
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261419662805110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

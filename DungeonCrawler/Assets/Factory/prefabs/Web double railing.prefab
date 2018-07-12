@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4755399394196638}
   - component: {fileID: 33135427654379472}
   - component: {fileID: 23770657649631860}
+  - component: {fileID: 65367355912159996}
+  - component: {fileID: 65375740302965422}
+  - component: {fileID: 65139486836992402}
   m_Layer: 0
   m_Name: Web double railing
   m_TagString: Untagged
@@ -84,3 +87,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970184666963566}
   m_Mesh: {fileID: 4300000, guid: 8f8e84056b0e9924cae9f570b47677f7, type: 3}
+--- !u!65 &65139486836992402
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970184666963566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0011671912, y: 0.020000013, z: 0.13734654}
+  m_Center: {x: -0.009416425, y: -9.536596e-10, z: 0.05867317}
+--- !u!65 &65367355912159996
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970184666963566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000013, y: 0.020000013, z: 0.020134311}
+  m_Center: {x: 0, y: -9.536747e-10, z: 0.00006700098}
+--- !u!65 &65375740302965422
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970184666963566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0011471983, y: 0.020000013, z: 0.13734654}
+  m_Center: {x: 0.009426418, y: -9.536596e-10, z: 0.05867317}

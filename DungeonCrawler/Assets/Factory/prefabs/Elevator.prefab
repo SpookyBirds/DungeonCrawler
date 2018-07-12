@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4204669480569072}
   - component: {fileID: 33362939410083352}
   - component: {fileID: 23361616338794298}
+  - component: {fileID: 65832428953577584}
+  - component: {fileID: 65712463709388420}
+  - component: {fileID: 65507733090363916}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -84,3 +87,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213175664087032}
   m_Mesh: {fileID: 4300000, guid: 36a35d4e8fdd1ca43a52afcaaceaa52c, type: 3}
+--- !u!65 &65507733090363916
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213175664087032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.001146856, y: 0.0060616625, z: 0.1373466}
+  m_Center: {x: -0.009283891, y: 0.0069692866, z: 0.0686733}
+--- !u!65 &65712463709388420
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213175664087032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0011601473, y: 0.0060298964, z: 0.1373466}
+  m_Center: {x: -0.009287876, y: -0.006985102, z: 0.06867328}
+--- !u!65 &65832428953577584
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213175664087032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023449006, y: 0.020000009, z: 0.02033034}
+  m_Center: {x: -0.0017244987, y: -9.321953e-10, z: 0.010165215}

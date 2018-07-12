@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4855370910579760}
   - component: {fileID: 33692912905875640}
   - component: {fileID: 23268873495292812}
+  - component: {fileID: 65554783978152276}
+  - component: {fileID: 114462639600523158}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Untagged
@@ -34,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167785505216346}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.75, z: -6}
-  m_LocalScale: {x: 100, y: 74.99996, z: 75}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: -6, y: 1, z: 0}
+  m_LocalScale: {x: 100, y: 74.99995, z: 74.999985}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!23 &23268873495292812
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +85,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167785505216346}
   m_Mesh: {fileID: 4300000, guid: 2112a1e9c68d7ae4ab113deba559317b, type: 3}
+--- !u!65 &65554783978152276
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167785505216346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020000007, y: 0.020000005, z: 0.020453451}
+  m_Center: {x: 4.656613e-10, y: 4.5890425e-10, z: 0.00022672673}
+--- !u!114 &114462639600523158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167785505216346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

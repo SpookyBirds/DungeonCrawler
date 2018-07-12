@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4081964664368036}
   - component: {fileID: 33984655356691932}
   - component: {fileID: 23491252511070314}
+  - component: {fileID: 64547993731446052}
   m_Layer: 0
   m_Name: Liquid Bath
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771639189515340}
+  m_Mesh: {fileID: 4300000, guid: ff2d541aed87f15489f757edd76e164d, type: 3}
+--- !u!64 &64547993731446052
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771639189515340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ff2d541aed87f15489f757edd76e164d, type: 3}
