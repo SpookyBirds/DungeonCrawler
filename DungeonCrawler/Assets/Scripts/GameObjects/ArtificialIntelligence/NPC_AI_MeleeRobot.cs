@@ -85,7 +85,6 @@ public class NPC_AI_MeleeRobot : NPC_AI {
             Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.Attack);
             NavMeshAgent.isStopped = true;
         }
-        else if()
     }
     
     public void Run_Attack_Exit()
