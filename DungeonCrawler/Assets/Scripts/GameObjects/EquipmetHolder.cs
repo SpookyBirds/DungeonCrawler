@@ -32,34 +32,20 @@ public class EquipmetHolder : MonoBehaviour {
 
     private void Awake()
     {
-        if (leftEquipedHoldable == null)
-        {
-            leftEquipedHoldable = Global.inst.EmptyHandFist;
-        }
-       
-        LeftHand = Instantiate(leftEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
-        LeftHand.model.parent = leftHandSnapingPoint;
-        LeftHand.model.localPosition = LeftHand.transformationPosition;
-        LeftHand.model.localRotation = Quaternion.Euler(LeftHand.transformationRotation);
-
-
-        if(rightEquipedHoldable == null)
-        {
-            rightEquipedHoldable = Global.inst.EmptyHandFist;
-
-        }
-
-        RightHand = Instantiate(rightEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
-        RightHand.model.parent = rightHandSnapingPoint;
-        RightHand.model.localPosition = RightHand.transformationPosition;
-        RightHand.model.localRotation = Quaternion.Euler(RightHand.transformationRotation);
-
-
+        InitializHelmet();
+        InitializBody();
+        InitializLegs();
+        InitializRightHand();
+        InitializLeftHand();
+    }
+    
+    public void InitializHelmet()
+    {
         if (helmetArmor == null)
         {
             helmetSnapingPoint = null;
         }
-        else if(helmetArmor != null)
+        else if (helmetArmor != null)
         {
             Helmet = Instantiate(helmetArmor, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
             Helmet.model.parent = helmetSnapingPoint;
@@ -67,7 +53,10 @@ public class EquipmetHolder : MonoBehaviour {
             Helmet.model.localRotation = Quaternion.Euler(Helmet.transformationRotation);
 
         }
+    }
 
+    public void InitializBody()
+    {
         if (bodyArmor == null)
         {
             bodyArmorSnapingPoint = null;
@@ -80,12 +69,15 @@ public class EquipmetHolder : MonoBehaviour {
             Body.model.localRotation = Quaternion.Euler(Body.transformationRotation);
 
         }
+    }
 
+    public void InitializLegs()
+    {
         if (legArmor == null)
         {
             legArmorSnapingPoint = null;
         }
-        if(legArmor != null)
+        if (legArmor != null)
         {
             Legs = Instantiate(legArmor, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
             Legs.model.parent = legArmorSnapingPoint;
@@ -93,8 +85,32 @@ public class EquipmetHolder : MonoBehaviour {
             Legs.model.localRotation = Quaternion.Euler(Legs.transformationRotation);
 
         }
+    }
 
+    public void InitializLeftHand()
+    {
+        if (leftEquipedHoldable == null)
+        {
+            leftEquipedHoldable = Global.inst.EmptyHandFist;
+        }
 
+        LeftHand = Instantiate(leftEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
+        LeftHand.model.parent = leftHandSnapingPoint;
+        LeftHand.model.localPosition = LeftHand.transformationPosition;
+        LeftHand.model.localRotation = Quaternion.Euler(LeftHand.transformationRotation);
+    }
 
+    public void InitializRightHand()
+    {
+        if (rightEquipedHoldable == null)
+        {
+            rightEquipedHoldable = Global.inst.EmptyHandFist;
+
+        }
+
+        RightHand = Instantiate(rightEquipedHoldable, (toolSnapingPoint ?? transform)).GetComponent<Holdable>();
+        RightHand.model.parent = rightHandSnapingPoint;
+        RightHand.model.localPosition = RightHand.transformationPosition;
+        RightHand.model.localRotation = Quaternion.Euler(RightHand.transformationRotation);
     }
 }
