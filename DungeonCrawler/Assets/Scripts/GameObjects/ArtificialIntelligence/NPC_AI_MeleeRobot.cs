@@ -55,7 +55,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
 
         elapsedTimeSinceStunEnter = 0;
 
-        chargePosition = opponent.transform.position;
+        chargePosition = opponent.transform.position + ((opponent.transform.position - transform.position).normalized * 2);
 
         NavMeshAgent.SetDestination(chargePosition);
         NavMeshAgent.isStopped = false;
@@ -80,11 +80,12 @@ public class NPC_AI_MeleeRobot : NPC_AI {
                 Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.None);
         }
         else if (Vector3.Distance(new Vector3(
-            AttackCenter.x, transform.position.y, AttackCenter.z), chargePosition) <= AttackRange)
+            AttackCenter.x, transform.position.y, AttackCenter.z), chargePosition) <= 3)
         {
             Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.Attack);
             NavMeshAgent.isStopped = true;
         }
+        else if()
     }
     
     public void Run_Attack_Exit()
