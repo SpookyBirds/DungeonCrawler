@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: a348eb4d9a6222b49b6a1336eeebf4d4
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: jnt_chest
+    100002: jnt_finger_1_1_L
+    100004: jnt_finger_1_1_R
+    100006: jnt_finger_1_2_L
+    100008: jnt_finger_1_2_R
+    100010: jnt_finger_1_3_L
+    100012: jnt_finger_1_3_R
+    100014: jnt_finger_2_1_L
+    100016: jnt_finger_2_1_R
+    100018: jnt_finger_2_2_L
+    100020: jnt_finger_2_2_R
+    100022: jnt_finger_2_3_L
+    100024: jnt_finger_2_3_R
+    100026: jnt_finger_3_1_L
+    100028: jnt_finger_3_1_R
+    100030: jnt_finger_3_2_L
+    100032: jnt_finger_3_2_R
+    100034: jnt_finger_3_3_L
+    100036: jnt_finger_3_3_R
+    100038: jnt_finger_4_1_L
+    100040: jnt_finger_4_1_R
+    100042: jnt_finger_4_2_L
+    100044: jnt_finger_4_2_R
+    100046: jnt_finger_4_3_L
+    100048: jnt_finger_4_3_R
+    100050: jnt_finger_5_1_L
+    100052: jnt_finger_5_1_R
+    100054: jnt_finger_5_2_L
+    100056: jnt_finger_5_2_R
+    100058: jnt_finger_5_3_L
+    100060: jnt_finger_5_3_R
+    100062: jnt_head
+    100064: jnt_hip_L
+    100066: jnt_hip_R
+    100068: jnt_lowerArm_L
+    100070: jnt_lowerArm_R
+    100072: jnt_lowerLeg_L
+    100074: jnt_lowerLeg_R
+    100076: jnt_neck
+    100078: jnt_root
+    100080: jnt_shoulder_L
+    100082: jnt_shoulder_R
+    100084: jnt_spine_1
+    100086: jnt_spine_2
+    100088: jnt_upperArm_L
+    100090: jnt_upperArm_R
+    100092: jnt_upperLeg_L
+    100094: jnt_upperLeg_R
+    100096: master
+    100098: //RootNode
+    400000: jnt_chest
+    400002: jnt_finger_1_1_L
+    400004: jnt_finger_1_1_R
+    400006: jnt_finger_1_2_L
+    400008: jnt_finger_1_2_R
+    400010: jnt_finger_1_3_L
+    400012: jnt_finger_1_3_R
+    400014: jnt_finger_2_1_L
+    400016: jnt_finger_2_1_R
+    400018: jnt_finger_2_2_L
+    400020: jnt_finger_2_2_R
+    400022: jnt_finger_2_3_L
+    400024: jnt_finger_2_3_R
+    400026: jnt_finger_3_1_L
+    400028: jnt_finger_3_1_R
+    400030: jnt_finger_3_2_L
+    400032: jnt_finger_3_2_R
+    400034: jnt_finger_3_3_L
+    400036: jnt_finger_3_3_R
+    400038: jnt_finger_4_1_L
+    400040: jnt_finger_4_1_R
+    400042: jnt_finger_4_2_L
+    400044: jnt_finger_4_2_R
+    400046: jnt_finger_4_3_L
+    400048: jnt_finger_4_3_R
+    400050: jnt_finger_5_1_L
+    400052: jnt_finger_5_1_R
+    400054: jnt_finger_5_2_L
+    400056: jnt_finger_5_2_R
+    400058: jnt_finger_5_3_L
+    400060: jnt_finger_5_3_R
+    400062: jnt_head
+    400064: jnt_hip_L
+    400066: jnt_hip_R
+    400068: jnt_lowerArm_L
+    400070: jnt_lowerArm_R
+    400072: jnt_lowerLeg_L
+    400074: jnt_lowerLeg_R
+    400076: jnt_neck
+    400078: jnt_root
+    400080: jnt_shoulder_L
+    400082: jnt_shoulder_R
+    400084: jnt_spine_1
+    400086: jnt_spine_2
+    400088: jnt_upperArm_L
+    400090: jnt_upperArm_R
+    400092: jnt_upperLeg_L
+    400094: jnt_upperLeg_R
+    400096: master
+    400098: //RootNode
+    7400000: Tank_Robot_Walk
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Tank_Robot_Walk
+      takeName: Scene
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
