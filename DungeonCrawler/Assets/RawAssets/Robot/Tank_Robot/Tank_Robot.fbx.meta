@@ -3,16 +3,118 @@ guid: 0e7b72dc1a58c9f488459d58d18b5c1e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Armature
+    100002: jnt_chest
+    100004: jnt_finger_1_1_L
+    100006: jnt_finger_1_1_R
+    100008: jnt_finger_1_2_L
+    100010: jnt_finger_1_2_R
+    100012: jnt_finger_1_3_L
+    100014: jnt_finger_1_3_R
+    100016: jnt_finger_2_1_L
+    100018: jnt_finger_2_1_R
+    100020: jnt_finger_2_2_L
+    100022: jnt_finger_2_2_R
+    100024: jnt_finger_2_3_L
+    100026: jnt_finger_2_3_R
+    100028: jnt_finger_3_1_L
+    100030: jnt_finger_3_1_R
+    100032: jnt_finger_3_2_L
+    100034: jnt_finger_3_2_R
+    100036: jnt_finger_3_3_L
+    100038: jnt_finger_3_3_R
+    100040: jnt_finger_4_1_L
+    100042: jnt_finger_4_1_R
+    100044: jnt_finger_4_2_L
+    100046: jnt_finger_4_2_R
+    100048: jnt_finger_4_3_L
+    100050: jnt_finger_4_3_R
+    100052: jnt_finger_5_1_L
+    100054: jnt_finger_5_1_R
+    100056: jnt_finger_5_2_L
+    100058: jnt_finger_5_2_R
+    100060: jnt_finger_5_3_L
+    100062: jnt_finger_5_3_R
+    100064: jnt_head
+    100066: jnt_hip_L
+    100068: jnt_hip_R
+    100070: jnt_lowerArm_L
+    100072: jnt_lowerArm_R
+    100074: jnt_lowerLeg_L
+    100076: jnt_lowerLeg_R
+    100078: jnt_neck
+    100080: jnt_root
+    100082: jnt_shoulder_L
+    100084: jnt_shoulder_R
+    100086: jnt_spine_1
+    100088: jnt_spine_2
+    100090: jnt_upperArm_L
+    100092: jnt_upperArm_R
+    100094: jnt_upperLeg_L
+    100096: jnt_upperLeg_R
+    100098: master
+    100100: mesh_tank_robot
+    100102: //RootNode
+    400000: Armature
+    400002: jnt_chest
+    400004: jnt_finger_1_1_L
+    400006: jnt_finger_1_1_R
+    400008: jnt_finger_1_2_L
+    400010: jnt_finger_1_2_R
+    400012: jnt_finger_1_3_L
+    400014: jnt_finger_1_3_R
+    400016: jnt_finger_2_1_L
+    400018: jnt_finger_2_1_R
+    400020: jnt_finger_2_2_L
+    400022: jnt_finger_2_2_R
+    400024: jnt_finger_2_3_L
+    400026: jnt_finger_2_3_R
+    400028: jnt_finger_3_1_L
+    400030: jnt_finger_3_1_R
+    400032: jnt_finger_3_2_L
+    400034: jnt_finger_3_2_R
+    400036: jnt_finger_3_3_L
+    400038: jnt_finger_3_3_R
+    400040: jnt_finger_4_1_L
+    400042: jnt_finger_4_1_R
+    400044: jnt_finger_4_2_L
+    400046: jnt_finger_4_2_R
+    400048: jnt_finger_4_3_L
+    400050: jnt_finger_4_3_R
+    400052: jnt_finger_5_1_L
+    400054: jnt_finger_5_1_R
+    400056: jnt_finger_5_2_L
+    400058: jnt_finger_5_2_R
+    400060: jnt_finger_5_3_L
+    400062: jnt_finger_5_3_R
+    400064: jnt_head
+    400066: jnt_hip_L
+    400068: jnt_hip_R
+    400070: jnt_lowerArm_L
+    400072: jnt_lowerArm_R
+    400074: jnt_lowerLeg_L
+    400076: jnt_lowerLeg_R
+    400078: jnt_neck
+    400080: jnt_root
+    400082: jnt_shoulder_L
+    400084: jnt_shoulder_R
+    400086: jnt_spine_1
+    400088: jnt_spine_2
+    400090: jnt_upperArm_L
+    400092: jnt_upperArm_R
+    400094: jnt_upperLeg_L
+    400096: jnt_upperLeg_R
+    400098: master
+    400100: mesh_tank_robot
+    400102: //RootNode
     2100000: White
     2100002: Blue
-    2300000: //RootNode
-    3300000: //RootNode
     4300000: mesh_tank_robot
+    9500000: //RootNode
+    13700000: mesh_tank_robot
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -85,7 +187,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
