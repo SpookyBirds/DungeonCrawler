@@ -14,5 +14,5 @@ MonoBehaviour:
   itemName: Fist
   icon: {fileID: 0}
   isDefaultItem: 1
-  itemPrefab: {fileID: 1742801422151474, guid: 9c1b4088bcc31d04294064bc3aed5685, type: 2}
-  equipmentSlots: 3
+  itemPrefab: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8, type: 2}
+  equipmentType: 0
