@@ -8,13 +8,15 @@ using UnityEngine.AI;
 public class NPC_AI : InheritanceSimplyfier
 {
     [SerializeField]
-    private float damagePerHit;
+    protected float damagePerHit;
 
     [SerializeField]
     private BoxCollider attackCollider;
-    protected float AttackRange { get { return attackCollider.bounds.extents.z; } }
-    protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
+    [SerializeField] [Space]
+    private float destinationOvershootDistance = 2.5f;
 
+    protected virtual float AttackRange { get { return attackCollider.bounds.extents.z; } }
+    protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
     public Controller Controller { get; private set; }
     private FieldOfView FieldOfView { get; set; }
     protected NavMeshAgent NavMeshAgent { get; private set; }
@@ -41,7 +43,7 @@ public class NPC_AI : InheritanceSimplyfier
 
     public void Idle_baseState_Update()
     {
-        if (FieldOfView.FindEnemy(out opponent))    //search for enemies
+        if (FieldOfView.FindEnemy(Controller.EnemyTypes, out opponent))    //search for enemies
         {
             transform.LookAt(opponent.transform);
             Controller.Animator.SetTrigger("AggroBaseStateSwitch");
@@ -72,12 +74,10 @@ public class NPC_AI : InheritanceSimplyfier
     }
 
 
-
     public void Run_Start()
     {
         NavMeshAgent.isStopped = false;
         elapsedTimeSinceLastNavUpdate = timeIntervallToUpdateNavDestinationInSeconds;
-        Debug.Log("wtf");
     }
 
     public void Run_Update()
@@ -93,7 +93,7 @@ public class NPC_AI : InheritanceSimplyfier
                 return;
             }
 
-            NavMeshAgent.SetDestination(opponent.transform.position);
+            NavMeshAgent.SetDestination(opponent.transform.position + ((opponent.transform.position - transform.position).normalized * destinationOvershootDistance));
         }
 
         RunOrAttack();
@@ -117,14 +117,18 @@ public class NPC_AI : InheritanceSimplyfier
             return;
         }
 
-        bool opponentIsInAttackRange =
-            Vector3.Distance(new Vector3(AttackCenter.x, transform.position.y, AttackCenter.z), opponent.transform.position) < AttackRange;
+        bool opponentIsInAttackRange = CalculateAttackStart();
 
         Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
     } 
 
-    public void Attack()
+    protected virtual bool CalculateAttackStart()
+    {
+        return Vector3.Distance(AttackCenter, opponent.transform.position) < AttackRange;
+    }
+
+    public virtual void Attack()
     {
         Collider[] colliderInAttackRange =
             Physics.OverlapBox(attackCollider.bounds.center, attackCollider.bounds.extents);
@@ -136,11 +140,5 @@ public class NPC_AI : InheritanceSimplyfier
                 colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(new Vector3(AttackCenter.x, 0, AttackCenter.z), AttackRange);
     }
 }

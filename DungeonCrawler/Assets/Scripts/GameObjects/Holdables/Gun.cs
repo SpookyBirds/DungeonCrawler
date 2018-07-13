@@ -72,9 +72,6 @@ public class Gun : Holdable
         RaycastHit[] hits = Physics.RaycastAll(
             position, direction, maxReach);
 
-        //RaycastHit[] hits = Physics.RaycastAll(
-        //    transform.position, pointerSupplier.character.forward, maxReach);
-
         // Return if no one was found
         if (hits.Length <= 0)
             return false;
