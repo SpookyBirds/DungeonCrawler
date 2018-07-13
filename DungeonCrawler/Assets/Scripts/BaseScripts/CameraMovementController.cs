@@ -79,6 +79,7 @@ public class CameraMovementController : MonoBehaviour
                 PitchRotation.right, 
                 CalculateRotationStep("Mouse Y") * (verticalInvertCamera ? -1 : 1), 
                 Space.World);
+
             PitchRotation.rotation = Quaternion.Euler(
                 CheckClampBounds(
                     PitchRotation.rotation.eulerAngles.x,
