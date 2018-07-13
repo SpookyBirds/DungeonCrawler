@@ -186,6 +186,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1404925245597968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4199638824989010}
+  - component: {fileID: 65914241363636074}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1440230720323218
 GameObject:
   m_ObjectHideFlags: 1
@@ -488,8 +504,22 @@ Transform:
   - {fileID: 4218977213105314}
   - {fileID: 4446884327261930}
   - {fileID: 224907787844731636}
+  - {fileID: 4199638824989010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4199638824989010
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404925245597968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.619, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4197949520141876}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4218977213105314
 Transform:
@@ -717,6 +747,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &65914241363636074
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1404925245597968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95840493559970300
 Animator:
   serializedVersion: 3
@@ -726,7 +768,7 @@ Animator:
   m_GameObject: {fileID: 1695940148968328}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 52e333b647567e442beb6c74685e7f70, type: 3}
-  m_Controller: {fileID: 9100000, guid: 35b3b0cd0c202d94b82fb1aefcde2329, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5d9c368eab9d3104e8f9a1f132bc1c04, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -940,8 +982,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerHit: 10
-  attackCollider: {fileID: 0}
+  attackCollider: {fileID: 65914241363636074}
   destinationOvershootDistance: 2.5
+  overshotAttackRange: 2
+  attackRange: 20
 --- !u!136 &136557764770230668
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -970,8 +1014,8 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 71a70e3d830814f469b42a1e3283cda8, type: 2}
+  - {fileID: 2100000, guid: 0632404e8fc25dd4bb3ddc443858b94b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
