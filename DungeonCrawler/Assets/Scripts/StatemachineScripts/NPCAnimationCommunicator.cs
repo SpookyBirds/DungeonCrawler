@@ -68,20 +68,22 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
 
     protected enum States
     {
-        None,
+        None = 0,
 
-        Idle_baseState,
+        Idle_baseState = 1,
 
-        Aggro_baseState,
-        Combat_Idle,
-        Spot_Player,
-        Attack,
-        Run_Attack,
-        AttackChain_1,
-        AttackChain_2,
-        AttackChain_3,
-        Run,
-        Jump,
-        Landing,
+        Aggro_baseState = 2,
+        Combat_Idle = 3,
+        Spot_Player = 4,
+        Aim = 13,
+        Shoot = 14,
+        Attack = 5,
+        Run_Attack = 6,
+        AttackChain_1 = 7,
+        AttackChain_2 = 8,
+        AttackChain_3 = 9,
+        Run = 10,
+        Jump = 11,
+        Landing = 12,
     }
 }

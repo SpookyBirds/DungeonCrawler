@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class NPC_AI_MeleeRobot : NPC_AI {
 
-    [Space]
+    [SerializeField] private float destinationChargeOvershootDistance = 4f;
+    [SerializeField] private float proximityChargeHitDistance = 4f;
     [SerializeField] private float stunTimeAfterChargeAttack = 4;
     [SerializeField] private float minDistanceToRunAttack = 10;
     [SerializeField] [Tooltip("How much faster is the Robot supposed to be whilst the run attack")]
@@ -55,7 +56,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
 
         elapsedTimeSinceStunEnter = 0;
 
-        chargePosition = opponent.transform.position + ((opponent.transform.position - transform.position).normalized * 2);
+        chargePosition = opponent.transform.position + ((opponent.transform.position - transform.position).normalized * destinationChargeOvershootDistance);
 
         NavMeshAgent.SetDestination(chargePosition);
         NavMeshAgent.isStopped = false;
@@ -79,8 +80,8 @@ public class NPC_AI_MeleeRobot : NPC_AI {
             else
                 Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.None);
         }
-        else if (Vector3.Distance(new Vector3(
-            AttackCenter.x, transform.position.y, AttackCenter.z), chargePosition) <= 3)
+        else if (Vector3.Distance(AttackCenter, chargePosition) <= proximityChargeHitDistance  ||
+                 Vector3.Distance(AttackCenter, opponent.transform.position) <= proximityChargeHitDistance)
         {
             Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.Attack);
             NavMeshAgent.isStopped = true;
