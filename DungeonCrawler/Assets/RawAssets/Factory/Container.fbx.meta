@@ -1,31 +1,14 @@
 fileFormatVersion: 2
-guid: 18f434d4f96831f4887758e4ff471c20
+guid: 5d3bee0211b2d7e458cf15874a09bedc
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: bot
-    100002: left
-    100004: //RootNode
-    100006: right
-    400000: bot
-    400002: left
-    400004: //RootNode
-    400006: right
+    100000: //RootNode
+    400000: //RootNode
     2100000: No Name
-    2300000: bot
-    2300002: left
-    2300004: //RootNode
-    2300006: right
-    3300000: bot
-    3300002: left
-    3300004: //RootNode
-    3300006: right
-    4300000: base
-    4300002: left
-    4300004: bot
-    4300006: right
-    7400000: Scene
-    9500000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -101,7 +84,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
