@@ -109,6 +109,14 @@ public static class Extentions
         
         return false;
     }
+
+    public static Vector3 MultipliedBy(this Vector3 originalFactor, Vector3 secondFactor)
+    {
+        return new Vector3(
+            originalFactor.x * secondFactor.x, 
+            originalFactor.y * secondFactor.y, 
+            originalFactor.z * secondFactor.z);
+    }
 }
 
 public enum State

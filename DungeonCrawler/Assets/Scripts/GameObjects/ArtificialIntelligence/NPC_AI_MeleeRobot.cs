@@ -33,7 +33,6 @@ public class NPC_AI_MeleeRobot : NPC_AI {
         float distanceToOpponent = Vector3.Distance(new Vector3(AttackCenter.x, transform.position.y, AttackCenter.z), opponent.transform.position);
         bool opponentIsInAttackRange = distanceToOpponent < AttackRange;
 
-
         if (distanceToOpponent >= minDistanceToRunAttack)
         {
             Controller.Animator.SetInteger("RunAttackState", (int)RunAttackStates.Charge);
@@ -60,7 +59,6 @@ public class NPC_AI_MeleeRobot : NPC_AI {
 
         NavMeshAgent.SetDestination(chargePosition);
         NavMeshAgent.isStopped = false;
-        Debug.Log("ALLOW MOVEMENT");
         NavMeshAgent.speed += speedIncreaseToRunAttack;
         NavMeshAgent.acceleration += 5;
     }
@@ -90,8 +88,6 @@ public class NPC_AI_MeleeRobot : NPC_AI {
     
     public void Run_Attack_Exit()
     {
-        Debug.Log("run attack exit");
-
         NavMeshAgent.speed -= speedIncreaseToRunAttack;
         NavMeshAgent.acceleration -= 5;
         elapsedTimeSinceStunEnter = 0;

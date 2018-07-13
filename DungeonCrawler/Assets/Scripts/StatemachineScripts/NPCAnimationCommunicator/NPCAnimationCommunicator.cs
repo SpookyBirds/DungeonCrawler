@@ -82,6 +82,7 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
         AttackChain_1 = 7,
         AttackChain_2 = 8,
         AttackChain_3 = 9,
+        JumpAttack = 15,
         Run = 10,
         Jump = 11,
         Landing = 12,

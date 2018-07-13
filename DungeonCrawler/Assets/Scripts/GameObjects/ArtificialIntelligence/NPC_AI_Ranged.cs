@@ -63,11 +63,4 @@ public class NPC_AI_Ranged : NPC_AI {
             return;
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(AttackCenter, opponent.transform.position - AttackCenter);
-    }
-
 }

@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 114869321029700582}
   m_Layer: 0
   m_Name: Ranged_Robot
-  m_TagString: Untagged
+  m_TagString: Enemy_NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
