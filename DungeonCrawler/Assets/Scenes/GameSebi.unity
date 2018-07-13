@@ -4199,7 +4199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &454408095
 Transform:
   m_ObjectHideFlags: 0
@@ -12892,7 +12892,7 @@ Prefab:
         type: 2}
       propertyPath: rightEquipedHoldable
       value: 
-      objectReference: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
+      objectReference: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
         type: 2}
     - target: {fileID: 114817087188729466, guid: 3260dd2b810181a4bb4dec5924042b67,
         type: 2}
