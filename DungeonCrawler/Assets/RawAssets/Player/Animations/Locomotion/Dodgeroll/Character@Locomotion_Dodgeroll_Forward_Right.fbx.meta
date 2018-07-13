@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f8d93d6fbb6a214cb239e2e9faebe1a
+guid: ecc38a42a4494ac42a3d059e5468b205
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -117,7 +117,7 @@ ModelImporter:
     400108: jnt_upperLeg_L
     400110: jnt_upperLeg_R
     400112: master
-    7400000: Locomotion_Dodgeroll
+    7400000: clip_combatIdle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -146,35 +146,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Locomotion_Dodgeroll
-      takeName: clip_combatIdle
-      firstFrame: 5
-      lastFrame: 24
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
