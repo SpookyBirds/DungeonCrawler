@@ -17,7 +17,7 @@ public class Shield : Holdable {
         protected set
         {
             absorptonValue = Mathf.Clamp(value, 0, maxAbsorptionValue);
-            //absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;  // TODO: reimplement this, that broke randomly
+            absorptionBar.fillAmount = absorptonValue / maxAbsorptionValue;  // TODO: reimplement this, that broke randomly
         }
     }
 
@@ -29,9 +29,12 @@ public class Shield : Holdable {
         {
             isBlocking = value;
             influenceCollider.gameObject.SetActive(value);
+            animator.SetBool("Extend", value);
+            Debug.Log((animator == null) + "  " + animator.GetBool("Extend"));
         }
     }
 
+    private Animator animator;
     private Image absorptionBar;
 
     protected override void Awake()
@@ -39,6 +42,7 @@ public class Shield : Holdable {
         base.Awake();
         absorptionBar = GameObject.Find("AbsorptionBar").GetComponent<Image>(); //TODO: clean up this shit here
         AbsorptionValue = maxAbsorptionValue;
+        animator = GetComponentInChildren<Animator>();
         isBlocking = false;
     }
 

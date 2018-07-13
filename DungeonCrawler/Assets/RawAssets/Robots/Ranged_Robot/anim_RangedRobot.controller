@@ -359,7 +359,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Aim
-  m_Speed: 1
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101528110376396590}
@@ -567,9 +567,9 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107739565270633786}
-    second: []
   - first: {fileID: 1107959860994105180}
+    second: []
+  - first: {fileID: 1107739565270633786}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -72, y: -168, z: 0}

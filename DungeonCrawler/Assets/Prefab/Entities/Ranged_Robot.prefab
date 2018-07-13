@@ -609,7 +609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293675542301628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.53, y: 0, z: -5.11}
+  m_LocalPosition: {x: 7.71, y: 0, z: 6.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4397381528297672}
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30892e2b092f50f4daeeb6a69c98ee86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 50
   healthbar: {fileID: 114012678925782492}
 --- !u!114 &114218014945410384
 MonoBehaviour:
@@ -917,11 +917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542b29edb034ae24a8ca99753700b1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerHit: 8
+  damagePerHit: 5
   attackCollider: {fileID: 65877229217367714}
   destinationOvershootDistance: 2.5
   overshotAttackRange: 2
-  attackRange: 20
+  attackRange: 15
 --- !u!114 &114753347664611818
 MonoBehaviour:
   m_ObjectHideFlags: 1

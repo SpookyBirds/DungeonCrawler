@@ -55,7 +55,7 @@ public class CTRLHub : MonoBehaviour
     public bool RightAttack     { get { return (Input.GetKey(RightAttackKeyCode));     } }
 
     public bool LeftFireNormal  { get ; private set; }
-    public bool LeftFireLong    { get ; private set; }
+    public bool LeftFireLong    { get; private set; }
     public bool LeftFireHold    { get ; private set; }
     public bool RightFireNormal { get; private set;  }
     public bool RightFireLong   { get; private set;  }
