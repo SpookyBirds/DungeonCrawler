@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: a0ac1db17a9cdf947b9f8c810d2e4ac4
+guid: d299431dd1605694a8d68c6b6cf1d50f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: metal
+    2100002: blue
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder
