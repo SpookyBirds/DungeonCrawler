@@ -2820,14 +2820,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618713671617650}
-  m_LocalRotation: {x: 0.49697417, y: -0.0000036060806, z: 0.0000020633058, w: 0.86776537}
+  m_LocalRotation: {x: 0.43735117, y: 0, z: 0, w: 0.89929086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4292750845877442}
   m_Father: {fileID: 4564676353414360}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 31.53, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 51.87, y: 0, z: 0}
 --- !u!4 &4308738148407894
 Transform:
   m_ObjectHideFlags: 1
@@ -3243,8 +3243,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897784793233946}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.99, y: 1.98, z: 8.09}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.64, y: 0, z: 24.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4056654331543688}
@@ -4554,7 +4554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01581672dfd864caade989532849c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
+  leftEquipedHoldable: {fileID: 1440922566843812, guid: 92ffe0d64deb87046bcc630c726ddf83,
     type: 2}
   rightEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
     type: 2}
@@ -7129,7 +7129,7 @@ MonoBehaviour:
   maxBackSpeed: 20
   maxRightSpeed: 20
   maxJumpforce: 20
-  maxRollSpeed: 700
+  maxRollSpeed: 900
   animatorOverrideController: {fileID: 22100000, guid: afd309c6aece63448a62729905ef7a10,
     type: 2}
 --- !u!114 &114859759838704186
