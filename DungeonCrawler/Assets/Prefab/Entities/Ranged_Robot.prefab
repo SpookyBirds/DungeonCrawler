@@ -609,7 +609,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293675542301628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.71, y: 0, z: 6.23}
+  m_LocalPosition: {x: -10.36, y: 0, z: 11.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4397381528297672}
@@ -767,7 +767,7 @@ Animator:
   m_GameObject: {fileID: 1130790855651224}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 52e333b647567e442beb6c74685e7f70, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5d9c368eab9d3104e8f9a1f132bc1c04, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4badad9fa9b516d4496cef59cee81579, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -922,6 +922,7 @@ MonoBehaviour:
   destinationOvershootDistance: 2.5
   overshotAttackRange: 2
   attackRange: 15
+  aimRotationPoint: {fileID: 4153882032756090}
 --- !u!114 &114753347664611818
 MonoBehaviour:
   m_ObjectHideFlags: 1

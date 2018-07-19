@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,11 +9,35 @@ public class NPC_AI_Ranged : NPC_AI {
     [SerializeField] private float overshotAttackRange = 2;
     [SerializeField] private float attackRange = 20;
     protected override float AttackRange { get { return attackRange; } }
+    [SerializeField] [Space]
+    private Transform aimRotationPoint;
 
     protected override bool CalculateAttackStart()
     {
         return Vector3.Distance(AttackCenter, opponent.transform.position) < (AttackRange - overshotAttackRange);
     }
+
+    public void Charge_Enter()
+    {
+        // TODO: implement particles
+    }
+
+    public void Charge_Update()
+    {
+    }
+
+    public void Aim_Enter()
+    {
+    }
+
+    public void Aim_Update()
+    {
+    }
+
+    public void Aim_Exit()
+    {
+    }
+    
 
     public override void Attack()
     {
