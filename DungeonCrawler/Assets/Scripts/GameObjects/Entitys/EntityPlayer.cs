@@ -20,6 +20,12 @@ public class EntityPlayer : Entity {
         }
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        UpdateHealthDisplay();
+    }
+
     private void UpdateHealthDisplay()
     {
         healthbar.fillAmount = Health / startingHealth;

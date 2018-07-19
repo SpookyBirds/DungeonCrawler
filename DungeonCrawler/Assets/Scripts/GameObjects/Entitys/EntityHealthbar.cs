@@ -15,6 +15,13 @@ public class EntityHealthbar : Entity {
         }
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        UpdateHealthbar();
+    }
+
+
     public void UpdateHealthbar()
     {
         healthbar.fillAmount = Health / startingHealth;

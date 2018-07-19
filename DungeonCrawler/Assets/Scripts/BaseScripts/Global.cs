@@ -117,6 +117,16 @@ public static class Extentions
             originalFactor.y * secondFactor.y, 
             originalFactor.z * secondFactor.z);
     }
+
+    public static Quaternion AddRotation(this Quaternion origialQuat, Quaternion secondQuat)
+    {
+        return Quaternion.Euler(origialQuat.eulerAngles + secondQuat.eulerAngles);
+    }
+
+    public static Quaternion OnlyY(this Quaternion originalQuat)
+    {
+        return Quaternion.Euler(0, originalQuat.eulerAngles.y, 0);
+    }
 }
 
 public enum State

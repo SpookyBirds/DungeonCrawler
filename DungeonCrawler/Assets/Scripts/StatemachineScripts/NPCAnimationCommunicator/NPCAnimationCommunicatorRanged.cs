@@ -29,13 +29,20 @@ public class NPCAnimationCommunicatorRanged : NPCAnimationCommunicator
                 break;
 
             case States.Combat_Idle:
+                fireEnter  = AI.CombatIdle_Enter;
                 fireUpdate = AI.CombatIdle_Update;
                 break;
 
+            case States.Attack:
+                fireUpdate = AI.Attack_Update;
+                break;
+
+            case States.Step:
+                fireEnter = AI.Step_Enter;
+                break;
+
             case States.Aim:
-                fireEnter  = AI.Aim_Enter;
                 fireUpdate = AI.Aim_Update;
-                fireExit   = AI.Aim_Exit;
                 break;
 
             case States.Charge:

@@ -9,8 +9,29 @@ public class NPC_AI_Ranged : NPC_AI {
     [SerializeField] private float overshotAttackRange = 2;
     [SerializeField] private float attackRange = 20;
     protected override float AttackRange { get { return attackRange; } }
+    [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] [Space]
     private Transform aimRotationPoint;
+
+    [Space]
+    private bool showDebugRay = true;
+
+    private bool isAttacking = false;
+    private Vector3 lockedPosition;
+    private Quaternion initialAimRotationPointRotation;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        lockedPosition = transform.position;
+        initialAimRotationPointRotation = transform.rotation;
+    }
+
+    protected override void InitializeCommunicator()
+    {
+        foreach (NPCAnimationCommunicatorRanged communicator in Controller.Animator.GetBehaviours<NPCAnimationCommunicatorRanged>())
+            communicator.AI = this;
+    }
 
     protected override bool CalculateAttackStart()
     {
@@ -26,26 +47,52 @@ public class NPC_AI_Ranged : NPC_AI {
     {
     }
 
-    public void Aim_Enter()
-    {
-    }
-
     public void Aim_Update()
     {
+        TurnInOpponentDirection();
+        TurnInOpponentDirection();
     }
 
-    public void Aim_Exit()
+    private void TurnInOpponentDirection()
     {
+        Quaternion goalRotation =
+            Quaternion.LookRotation(opponent.transform.position - aimRotationPoint.position, Vector3.up);
+
+        aimRotationPoint.rotation =
+            Quaternion.Lerp(aimRotationPoint.rotation.OnlyY(), goalRotation.OnlyY(), rotationSpeed * Time.deltaTime);
     }
-    
+
+    public void Step_Enter()
+    {
+        isAttacking = true;
+        lockedPosition = transform.position;
+    }
+
+    public void CombatIdle_Enter()
+    {
+        isAttacking = false;
+    }
+
+    protected override void Update()
+    {
+        if (isAttacking)
+        {
+            transform.position = lockedPosition;
+        }
+        else
+        {
+            Vector3 currRot = aimRotationPoint.rotation.eulerAngles;
+
+            aimRotationPoint.rotation =
+                Quaternion.Lerp(aimRotationPoint.rotation.OnlyY(), transform.rotation, rotationSpeed * Time.deltaTime);
+        }
+    }
 
     public override void Attack()
     {
         // Get all collider in shoot distance
         RaycastHit[] hits = Physics.RaycastAll(
-            AttackCenter, opponent.transform.position - AttackCenter, AttackRange);
-
-        Debug.Log(hits.Length + " hits");
+            aimRotationPoint.position, aimRotationPoint.forward, AttackRange);
 
         // Return if no one was found
         if (hits.Length <= 0)
@@ -63,7 +110,7 @@ public class NPC_AI_Ranged : NPC_AI {
                 continue;
             }
             distancesToHit[index] =
-                Vector3.Distance(hits[index].transform.position, AttackCenter);
+                Vector3.Distance(hits[index].transform.position, aimRotationPoint.position);
         }
 
         // The variable to save at which index the nearest opponent from the hits array lies
@@ -87,5 +134,23 @@ public class NPC_AI_Ranged : NPC_AI {
             entityToDamage.TryToDamage(damagePerHit);
             return;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!showDebugRay)
+            return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(aimRotationPoint.position, aimRotationPoint.forward * AttackRange);
+    }
+
+    private enum ShootAttackStates
+    {
+        None,
+        Step,
+        Aim,
+        Charge,
+        Shoot,
     }
 }

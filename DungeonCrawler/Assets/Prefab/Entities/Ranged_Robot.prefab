@@ -515,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583429925631730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.36, y: 0, z: 11.91}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4043487857019010}
@@ -613,13 +613,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828513959500346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.38, y: 1.619, z: -3.09}
+  m_LocalRotation: {x: 0.010273111, y: -0, z: -0, w: 0.99994725}
+  m_LocalPosition: {x: 0.3255, y: 1.163, z: 0.421}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4261867611991542}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.177, y: 0, z: 0}
 --- !u!4 &4550176266736362
 Transform:
   m_ObjectHideFlags: 1
@@ -803,6 +803,7 @@ MonoBehaviour:
   destinationOvershootDistance: 2.5
   overshotAttackRange: 2
   attackRange: 15
+  rotationSpeed: 1.5
   aimRotationPoint: {fileID: 4812267621158728}
 --- !u!114 &114165311206837858
 MonoBehaviour:
