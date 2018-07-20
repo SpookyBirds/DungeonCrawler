@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65373218035568660}
   - component: {fileID: 65072973271759270}
   - component: {fileID: 65742249288264070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Web corner railing
   m_TagString: Untagged
   m_Icon: {fileID: 0}

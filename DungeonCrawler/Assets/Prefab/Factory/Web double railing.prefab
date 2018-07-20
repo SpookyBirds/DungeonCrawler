@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65367355912159996}
   - component: {fileID: 65375740302965422}
   - component: {fileID: 65139486836992402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Web double railing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970184666963566}
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 249.99988, y: 249.99988, z: 12.5}
   m_Children: []
   m_Father: {fileID: 0}
