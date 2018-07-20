@@ -2242,7 +2242,6 @@ GameObject:
   - component: {fileID: 4730347172918046}
   - component: {fileID: 54064324205184514}
   - component: {fileID: 65442385949282854}
-  - component: {fileID: 65431766938269388}
   - component: {fileID: 95000358309102872}
   - component: {fileID: 114910525912915824}
   - component: {fileID: 114601513885197300}
@@ -3651,18 +3650,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!65 &65431766938269388
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1897784793233946}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.87290704, y: 0.2024535, z: 0.4353515}
-  m_Center: {x: -0.029000044, y: 0.088830054, z: -0.10125053}
 --- !u!65 &65442385949282854
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -6953,7 +6940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5e1ba472d18fd4e8d84a25a59e65e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 1000
   healthDisplay: {fileID: 114956803437162680}
   healthbar: {fileID: 114364504461965886}
 --- !u!114 &114833862648252176
@@ -7130,6 +7117,7 @@ MonoBehaviour:
   maxRightSpeed: 20
   maxJumpforce: 20
   maxRollSpeed: 900
+  groundingDistance: 0.001
   animatorOverrideController: {fileID: 22100000, guid: afd309c6aece63448a62729905ef7a10,
     type: 2}
 --- !u!114 &114859759838704186

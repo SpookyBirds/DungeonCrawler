@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ public class ControllerPlayer : Controller {
     [SerializeField] private float maxRightSpeed   = 30;
     [SerializeField] private float maxJumpforce    = 30;
     [SerializeField] private float maxRollSpeed    = 600f;
+    [Space]
+    [SerializeField] private LayerMask groundingMask;
+    [SerializeField] private float groundingDistance = 0.01f;
+    [SerializeField] private float directionCheckingDistance = 0.1f;
+    [SerializeField] private float maxSteppingHeight = 0.5f;
 
     private float forwardSpeed;
     private float leftSpeed   ;
@@ -39,6 +45,8 @@ public class ControllerPlayer : Controller {
     public Rigidbody Rigid { get; protected set; }
 
 
+    private Vector3 normalizedGravity;
+
     private CameraMovementController cameraMovementController;
 
     private bool isGrounded;
@@ -55,6 +63,10 @@ public class ControllerPlayer : Controller {
     private bool isRolling = false;
     private bool lastFrameIsRolling = false;
 
+    private Vector3 groundingHitPoint;
+    private Vector3 movementDirection;
+    private Vector3 previousPosition;
+
     protected override void Awake()
     {
         base.Awake();
@@ -70,6 +82,8 @@ public class ControllerPlayer : Controller {
         rightSpeed   = maxRightSpeed;
         jumpforce    = maxJumpforce;
         rollSpeed    = maxRollSpeed;
+
+        normalizedGravity = Physics.gravity.normalized;
     }
 
     protected override void Start()
@@ -97,8 +111,6 @@ public class ControllerPlayer : Controller {
         AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }
 
-  
-
     public void Jump()
     {
         Rigid.AddForce(0, jumpforce, 0);
@@ -106,8 +118,6 @@ public class ControllerPlayer : Controller {
 
     public void UseLeft(UseType useType, int currentChainLink)
     {
-        Debug.Log("useleft " + useType + "  " + currentChainLink);
-
         if (useType == UseType.shortAttack)
         {
             //Animator.SetBool("UseLeft_short", false);
@@ -121,8 +131,6 @@ public class ControllerPlayer : Controller {
 
     public void UseRight(UseType useType, int currentChainLink)
     {
-        Debug.Log("uiseright "+ useType + "  " + currentChainLink);
-
         if (useType == UseType.shortAttack)
         {
             //Animator.SetBool("UseRight_short", false);
@@ -136,8 +144,6 @@ public class ControllerPlayer : Controller {
 
     public void QuitLeft(UseType useType, int currentChainLink)
     {
-        Debug.Log("useType left " + currentChainLink);
-
         if (useType == UseType.shortAttack)
         {
         }
@@ -155,8 +161,6 @@ public class ControllerPlayer : Controller {
 
     public void QuitRight(UseType useType, int currentChainLink)
     {
-        Debug.Log("useType right " + currentChainLink);
-
         if(useType == UseType.shortAttack)
         {
         }
@@ -174,11 +178,87 @@ public class ControllerPlayer : Controller {
 
     protected override void Update()
     {
-        base.Update();
+        HandleGroundCheck();
+        HandleMovementDirection();
+        HandleJump();
+        HandleRolling();
+    }
 
+    private Vector3 hit2point;
+
+    private void HandleMovementDirection()
+    {
+        // In the air, all moving is prohibited
+        if(IsGrounded == false)
+        {
+            movementDirection = Vector3.zero;
+            previousPosition = transform.position;
+            return;
+        }
+
+        Vector3 yLessMovementDirection = (transform.position - previousPosition).normalized;
+
+        Vector3 directionCheckingOffset = 
+            new Vector3(yLessMovementDirection.x, 0, yLessMovementDirection.z) * directionCheckingDistance + 
+            new Vector3(0, maxSteppingHeight, 0);
+
+        RaycastHit hit;
+        if (Physics.Raycast(
+            transform.position + directionCheckingOffset, 
+            normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
+        {
+
+            RaycastHit hit2;
+            Physics.Raycast(
+                transform.position - (normalizedGravity * (groundingDistance / 2)),
+                normalizedGravity,
+                out hit2,
+                groundingDistance * 1.5f,
+                groundingMask);
+
+            hit2point = hit2.point;
+
+            movementDirection = (hit.point - hit2.point).normalized;
+            previousPosition = transform.position;
+            return;
+        }
+
+        movementDirection = yLessMovementDirection;
+        previousPosition = transform.position;
+    }
+
+    private void HandleJump()
+    {
+        if (IsGrounded && CTRLHub.inst.JumpDown)
+        {
+            Rigid.AddForce(-normalizedGravity * jumpforce);
+            Debug.Log("jumped!");
+        }
+    }
+
+    private void HandleGroundCheck()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(
+            transform.position - (normalizedGravity * (groundingDistance / 2)), 
+            normalizedGravity, 
+            out hit, 
+            groundingDistance * 1.5f, 
+            groundingMask))
+        {
+            IsGrounded = Vector3.Distance(hit.point, transform.position) <= groundingDistance;
+            groundingHitPoint = hit.point;
+            return;
+        }
+
+        IsGrounded = false;
+    }
+
+    private void HandleRolling()
+    {
         isRolling = Animator.GetBool("IsRolling");
 
-        if(lastFrameIsRolling != isRolling)
+        if (lastFrameIsRolling != isRolling)
         {
             if (isRolling)
             {
@@ -191,9 +271,9 @@ public class ControllerPlayer : Controller {
             else
             {
                 forwardSpeed = maxForwardSpeed;
-                backSpeed    = maxBackSpeed;
-                leftSpeed    = maxLeftSpeed;
-                rightSpeed   = maxRightSpeed;
+                backSpeed = maxBackSpeed;
+                leftSpeed = maxLeftSpeed;
+                rightSpeed = maxRightSpeed;
             }
         }
 
@@ -236,21 +316,19 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        IsGrounded = true;
-    }
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        IsGrounded = false;
-    }
-
     private void SnapPlayerInCameraDirection()
     {
         cameraMovementController.SaveDirection();
         transform.LookAt(transform.position + cameraMovementController.GetStraightCameraDirection());
         cameraMovementController.RestoreDirection();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(hit2point, movementDirection);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, normalizedGravity * groundingDistance);
     }
 }
