@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 66632bef6b68585428342d6f51f307a4
+guid: 063a609571821f54ba19f715b12e8c4c
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: metal
-    2100002: blue
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: mesh_tube
+    4300000: Cylinder
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
