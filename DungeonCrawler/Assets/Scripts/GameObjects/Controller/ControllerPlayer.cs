@@ -34,6 +34,7 @@ public class ControllerPlayer : Controller {
         protected set { animatorOverrideController = value; }
     }
 
+
     /// <summary>
     /// The two Hands of the player. This holds the equiped tools and weapons
     /// </summary>
@@ -44,10 +45,6 @@ public class ControllerPlayer : Controller {
     /// </summary>
     public Rigidbody Rigid { get; protected set; }
 
-
-    private Vector3 normalizedGravity;
-
-    private CameraMovementController cameraMovementController;
 
     private bool isGrounded;
     public bool IsGrounded
@@ -60,12 +57,19 @@ public class ControllerPlayer : Controller {
         }
     }
 
+    [SerializeField] private BoxCollider groundingCollider;
+
+    private Vector3 normalizedGravity;
+
+    private CameraMovementController cameraMovementController;
+
     private bool isRolling = false;
     private bool lastFrameIsRolling = false;
 
-    private Vector3 groundingHitPoint;
+    private Vector3 plannedMovement;
     private Vector3 movementDirection;
     private Vector3 previousPosition;
+    private RaycastHit groundCheckHit;
 
     protected override void Awake()
     {
@@ -178,13 +182,42 @@ public class ControllerPlayer : Controller {
 
     protected override void Update()
     {
+        HandlePlannedMovementDirection();
         HandleGroundCheck();
         HandleMovementDirection();
         HandleJump();
         HandleRolling();
     }
 
-    private Vector3 hit2point;
+    private void HandlePlannedMovementDirection()
+    {
+        float horizontalAxis = CTRLHub.inst.HorizontalAxis;
+        float verticalAxis = CTRLHub.inst.VerticalAxis;
+
+        plannedMovement = new Vector3(horizontalAxis, 0, verticalAxis).normalized;
+    }
+
+    private void HandleGroundCheck()
+    {
+        if(false == Physics.Raycast(
+            transform.position - (normalizedGravity * (groundingDistance / 2)),
+            normalizedGravity,
+            out groundCheckHit,
+            groundingDistance * 1.5f,
+            groundingMask))
+        {
+            groundCheckHit.point = transform.position;
+        }
+
+        Collider[] playerStandingColliders =  Physics.OverlapBox(
+            groundingCollider.transform.position,
+            groundingCollider.size / 2, 
+            transform.rotation, 
+            groundingMask, 
+            QueryTriggerInteraction.Ignore);
+
+        IsGrounded = playerStandingColliders.Length != 0;
+    }
 
     private void HandleMovementDirection()
     {
@@ -196,10 +229,10 @@ public class ControllerPlayer : Controller {
             return;
         }
 
-        Vector3 yLessMovementDirection = (transform.position - previousPosition).normalized;
+        Vector3 plannedMovementDirection = plannedMovement.normalized;
 
         Vector3 directionCheckingOffset = 
-            new Vector3(yLessMovementDirection.x, 0, yLessMovementDirection.z) * directionCheckingDistance + 
+            new Vector3(plannedMovementDirection.x, 0, plannedMovementDirection.z) * directionCheckingDistance + 
             new Vector3(0, maxSteppingHeight, 0);
 
         RaycastHit hit;
@@ -207,23 +240,12 @@ public class ControllerPlayer : Controller {
             transform.position + directionCheckingOffset, 
             normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
         {
-
-            RaycastHit hit2;
-            Physics.Raycast(
-                transform.position - (normalizedGravity * (groundingDistance / 2)),
-                normalizedGravity,
-                out hit2,
-                groundingDistance * 1.5f,
-                groundingMask);
-
-            hit2point = hit2.point;
-
-            movementDirection = (hit.point - hit2.point).normalized;
+            movementDirection = (hit.point - groundCheckHit.point).normalized;
             previousPosition = transform.position;
             return;
         }
 
-        movementDirection = yLessMovementDirection;
+        movementDirection = plannedMovementDirection;
         previousPosition = transform.position;
     }
 
@@ -234,24 +256,6 @@ public class ControllerPlayer : Controller {
             Rigid.AddForce(-normalizedGravity * jumpforce);
             Debug.Log("jumped!");
         }
-    }
-
-    private void HandleGroundCheck()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(
-            transform.position - (normalizedGravity * (groundingDistance / 2)), 
-            normalizedGravity, 
-            out hit, 
-            groundingDistance * 1.5f, 
-            groundingMask))
-        {
-            IsGrounded = Vector3.Distance(hit.point, transform.position) <= groundingDistance;
-            groundingHitPoint = hit.point;
-            return;
-        }
-
-        IsGrounded = false;
     }
 
     private void HandleRolling()
@@ -289,7 +293,15 @@ public class ControllerPlayer : Controller {
     {
         if (doOrDont == false)
             return;
+        
+        if(plannedMovement.magnitude != 0)
+        {
+            SnapPlayerInCameraDirection();
+            Rigid.AddForce((transform.rotation * movementDirection)  * forwardSpeed * plannedMovement.magnitude);
+        }
 
+        /* old ansatz
+         
         float verticalAxis = CTRLHub.inst.VerticalAxis;
         float horizontalAxis = CTRLHub.inst.HorizontalAxis;
 
@@ -314,6 +326,7 @@ public class ControllerPlayer : Controller {
             SnapPlayerInCameraDirection();
             Rigid.AddForce(LeftDirection * rightSpeed * -horizontalAxis);
         }
+        */
     }
 
     private void SnapPlayerInCameraDirection()
@@ -326,7 +339,7 @@ public class ControllerPlayer : Controller {
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(hit2point, movementDirection);
+        Gizmos.DrawRay(groundCheckHit.point, movementDirection);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, normalizedGravity * groundingDistance);

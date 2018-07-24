@@ -10411,7 +10411,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 9bbdf9df27245234a96985b85a1835fb, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 09b10b037a602d645bc2cfd841a2b761, type: 2}
 --- !u!114 &1138288660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12458,41 +12458,6 @@ Prefab:
     - target: {fileID: 4730347172918046, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: groundingMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 224238524963078888, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224644189099863142, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224860608802763466, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: maxJumpforce
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: groundingDistance
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: directionCheckingDistance
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
