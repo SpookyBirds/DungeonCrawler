@@ -7154,7 +7154,7 @@ MonoBehaviour:
   hostileEntities: 8
   animator: {fileID: 95000358309102872}
   maxForwardSpeed: 20
-  maxBackSpeed: 20
+  maxBackSpeed: 16.5
   maxJumpforce: 10
   jumpForwardStrength: 20
   maxRollStrength: 20
