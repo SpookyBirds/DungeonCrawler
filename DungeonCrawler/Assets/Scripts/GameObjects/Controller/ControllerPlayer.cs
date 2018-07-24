@@ -7,30 +7,56 @@ using UnityEngine;
 [RequireComponent(typeof(EquipmetHolder))]
 public class ControllerPlayer : Controller {
 
-    [SerializeField] private float maxForwardSpeed = 20f;
-    [SerializeField] private float maxBackSpeed    = 20f;
-    [SerializeField] private float maxJumpforce    = 10f;
-    [SerializeField] private float jumpForwardStrength = 5f;
-    [SerializeField] private float maxRollStrength = 20f;
-    [Space]
-    [SerializeField] private LayerMask groundingMask;
-    [SerializeField] private float groundingDistance = 0.15f;
-    [SerializeField] private float directionCheckingDistance = 0.25f;
-    [SerializeField] private float maxSteppingHeight = 0.5f;
+    [SerializeField] [Tooltip("Maximum forward speed. Also used for forward-sideways walking (as well as plane sideways walking)")]
+    private float maxForwardSpeed = 20f;
 
-    private float forwardSpeed;
-    private float backSpeed;
-    private float jumpforce;
-    private float rollStrength;
+    [SerializeField] [Tooltip("Maximum backwards speed. Also used for backward-sideways walking")]
+    private float maxBackSpeed    = 16f;
+
+    [SerializeField] [Tooltip("Force multiplier applied at the start of a roll")]
+    private float rollingStrength = 20f;
+
+    [SerializeField] [Tooltip("Maximum height a player can step over. " +
+        "Also the maximum use for slopes (with 'directionCheckingDistance' as delta X and this as delta Y)")]
+    private float maxSteppingHeight = 0.5f;
+
+    [SerializeField] [Tooltip("The force representing the upwards portion of a jump")]
+    private float maxJumpforce    = 10f;
+
+    [SerializeField] [Tooltip("The amount the character moves in the jump direction while jumping")]
+    private float jumpForwardStrength = 20f;
+
+    [SerializeField] [Tooltip("All layers the player gets grounded on")]
+    private LayerMask groundingMask;
+
+    [SerializeField] [Tooltip("The distance below the character at which grounding is still detected")]
+    private float groundingDistance = 0.15f;
+
+    [SerializeField] [Tooltip("Distance from the character where the slope detecting second rayHit is cast from")]
+    private float directionCheckingDistance = 0.25f;
+
+    [SerializeField] [Tooltip("The parameter to smooth the falling. " +
+        "Overtime the forward falling speed is lerped against 0 using this value as the speed. " +
+        "The higher this value the faster the speed drops")]
+    private float dropMovementForceWeakening = 0.5f;
+
+    [SerializeField] [Tooltip("The collider used to check if the player touches the ground " +
+        "(the collider is not actually used, only its values. " +
+        "Make sure the center stays at the center of the transform, " +
+        "and its dimentions are only manipulated via its size, not the transforms scale)")]
+    private BoxCollider groundingCollider;
 
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
+
+    /// <summary>
+    /// The OverrideController used to dynamically assign the attack animations
+    /// </summary>
     public AnimatorOverrideController AnimatorOverrideController
     {
         get { return animatorOverrideController; }
         protected set { animatorOverrideController = value; }
     }
-
 
     /// <summary>
     /// The two Hands of the player. This holds the equiped tools and weapons
@@ -54,24 +80,53 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    [SerializeField] private BoxCollider groundingCollider;
-
+    /// <summary>
+    /// The direction of the gravity, normalized
+    /// </summary>
     private Vector3 normalizedGravity;
 
+    /// <summary>
+    /// The controller responsible for moving the controller
+    /// </summary>
     private CameraMovementController cameraMovementController;
 
+    /// <summary>
+    /// Cache of the vertical input axis. Gets updated every frame (see 'Update()')
+    /// </summary>
     private float verticalAxis;
+    /// <summary>
+    /// Cache of the horizontal input axis. Gets updated every frame (see 'Update()')
+    /// </summary>
     private float horizontalAxis;
 
+    /// <summary>
+    /// Gets updated every frame (see 'HandleRolling()')
+    /// </summary>
     private bool isRolling = false;
+    /// <summary>
+    /// The value of 'isRolling' from the last frame (see 'HandleRolling()')
+    /// </summary>
     private bool lastFrameIsRolling = false;
 
+    /// <summary>
+    /// The direction the player should move acording to the player input. (Updated every frame, see 'HandleInputProcessing()')
+    /// </summary>
     private Vector3 inputedMovementDirectionRotated;
+    /// <summary>
+    /// The direction the player is supposed to get a force to. Already rotated according to the player rotation.
+    /// Takes into account falling, rolling, etc. (see 'HandleMovementDirection()')
+    /// </summary>
     private Vector3 movementDirection;
-    private Vector3 previousPosition;
+    /// <summary>
+    /// The point the groundCheckingRay hit the ground. (Set to transform.position if none was found) (see 'HandleGroundCheck()')
+    /// </summary>
     private RaycastHit groundCheckHit;
+    /// <summary>
+    /// The direction the player is getting pushed in while falling. (See 'HandleJump()' and 'dropMovementForceWeakening')
+    /// </summary>
+    private Vector3 airebornMovementDirection;
 
-    private Vector3 actualMovementDirection;
+
 
     protected override void Awake()
     {
@@ -81,16 +136,11 @@ public class ControllerPlayer : Controller {
 
         Rigid = GetComponent<Rigidbody>();
         EquipmetHolder = GetComponent<EquipmetHolder>();
-
-        forwardSpeed = maxForwardSpeed;
-        backSpeed    = maxBackSpeed;
-        jumpforce    = maxJumpforce;
-        rollStrength = maxRollStrength;
-
+        
         normalizedGravity = Physics.gravity.normalized;
     }
 
-    protected override void Start()
+    protected override void Start()  //TODO: Replace hardcoded string values
     {
         Animator.runtimeAnimatorController = AnimatorOverrideController;
 
@@ -114,6 +164,8 @@ public class ControllerPlayer : Controller {
         }
         AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }
+
+    // Handle attacking logic
 
     public void UseLeft(UseType useType, int currentChainLink)
     {
@@ -175,7 +227,7 @@ public class ControllerPlayer : Controller {
         }
     }
 
-
+    // Handle movement logic
     
     protected override void Update()
     {
@@ -186,6 +238,9 @@ public class ControllerPlayer : Controller {
         HandleRolling();
     }
 
+    /// <summary>
+    /// Handling the caching of the input axis and the calculating of the planned movement
+    /// </summary>
     private void HandleInputProcessing()
     {
         // Cache axis input
@@ -195,17 +250,20 @@ public class ControllerPlayer : Controller {
         // Calculate inputed movement (direction and strength)
         inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
     }
-
+    
+    /// <summary>
+    /// Handling raycast to find ground hitting point and updating isGrounded bool via grounding collider
+    /// </summary>
     private void HandleGroundCheck()
     {
         if(false == Physics.Raycast(
             transform.position - (normalizedGravity * (groundingDistance / 2)),
             normalizedGravity,
-            out groundCheckHit,
+            out groundCheckHit, // private field
             groundingDistance * 1.5f,
             groundingMask))
         {
-            groundCheckHit.point = transform.position;
+            groundCheckHit.point = transform.position; // if raycast did't hit, the point is set to transform.position
         }
 
         Collider[] playerStandingColliders =  Physics.OverlapBox(
@@ -219,53 +277,65 @@ public class ControllerPlayer : Controller {
         
     }
 
-    private RaycastHit hit;
-
+    /// <summary>
+    /// Handling directin the player should move (according to physics and other circumstances)
+    /// </summary>
     private void HandleMovementDirection()
     {
-        // In the air, all moving is prohibited
+        /// In the air, all moving is prohibited
         if(IsGrounded == false)
         {
             movementDirection = Vector3.zero;
-            previousPosition = transform.position;
             return;
         }
 
-        Vector3 directionCheckingOffset =
-            inputedMovementDirectionRotated * directionCheckingDistance + 
-            new Vector3(0, maxSteppingHeight, 0);
+        /// On the ground or on a slope, the direction get's calculated via 
+        ///  casting an additional ray some distance ('directionCheckingDistance') away 
+        ///  (in the planned player direction ('inputedMovementDirectionRotated')) and 
+        ///  taking the ray resulting from it and the detected position of the ground below the player ('groundCheckHit')
 
-        //RaycastHit hit;
+        // Offset from the player feet
+        Vector3 directionCheckingOffset = inputedMovementDirectionRotated * directionCheckingDistance;
+        directionCheckingOffset.y += maxSteppingHeight;
+
+        RaycastHit hit;
         if (Physics.Raycast(
             transform.position + directionCheckingOffset, 
             normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
         {
             movementDirection = (hit.point - groundCheckHit.point).normalized;
-            if (movementDirection.y < 0) movementDirection.y = 0;
-            previousPosition = transform.position;
+            if (movementDirection.y < 0) movementDirection.y = 0; // Deleting force downwards to account for edges and bumps
             return;
         }
 
+        /// If both cases descripted above don't occur, the planned input gets passed. (For example if the player is standing on an edge)
+
         movementDirection = inputedMovementDirectionRotated;
-        previousPosition = transform.position;
     }
 
+    /// <summary>
+    /// Handling the jump and the airborne movement if the player is airborne
+    /// </summary>
     private void HandleJump()
     {
         if (IsGrounded)
         {
             if (CTRLHub.inst.JumpDown)
             {
-                Rigid.AddForce(-normalizedGravity * jumpforce, ForceMode.Impulse);
-                actualMovementDirection = movementDirection;
+                Rigid.AddForce(-normalizedGravity * maxJumpforce, ForceMode.Impulse);
+                airebornMovementDirection = movementDirection;
             }
         }
         else
         {
-            Rigid.AddForce(actualMovementDirection * jumpForwardStrength);
+            Rigid.AddForce(airebornMovementDirection * jumpForwardStrength);
+            airebornMovementDirection = Vector3.Lerp(airebornMovementDirection, Vector3.zero, dropMovementForceWeakening * Time.deltaTime);
         }
     }
 
+    /// <summary>
+    /// Handling rolling and updating the isRolling parameter
+    /// </summary>
     private void HandleRolling()
     {
         isRolling = Animator.GetBool("IsRolling");
@@ -273,7 +343,7 @@ public class ControllerPlayer : Controller {
         if (isRolling == true &&
             lastFrameIsRolling == false  )
         {
-            ApplyForceInMovementDirection(rollStrength, ForceMode.Impulse);
+            ApplyForceInMovementDirection(rollingStrength, ForceMode.Impulse);
         }
 
         lastFrameIsRolling = isRolling;
@@ -281,36 +351,51 @@ public class ControllerPlayer : Controller {
 
     protected override void FixedUpdate()
     {
-        HandleMovement(isRolling == false);
+        // Normal walking movement 
+        HandleMovement();
     }
 
-    private void HandleMovement(bool doOrDont)  // Potential fix: making the collider actually bob
+    /// <summary>
+    /// Handling movement. Return if playing is rolling (using the isRolling parameter)
+    /// </summary>
+    private void HandleMovement()  // Potential fix: making the collider actually bob
     {
-        if (doOrDont == false)
+        if (isRolling)
             return;
 
         if (verticalAxis > 0)
         {
             SnapPlayerInCameraDirection();
-            ApplyForceInMovementDirection(forwardSpeed);
+            ApplyForceInMovementDirection(maxForwardSpeed);
         }
         else
         {
             SnapPlayerInCameraDirection();
-            ApplyForceInMovementDirection(backSpeed);
+            ApplyForceInMovementDirection(maxBackSpeed);
         }
     }
 
+    /// <summary>
+    /// Applies AddForce in 'movementDirection' using the given strength and ForceMode,
+    /// according to the inputed movement strength ('GetInputMagnitude()')
+    /// </summary>
     private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
     }
 
+    /// <summary>
+    /// Getting the length/strength of the inputted movement direction,
+    /// and clamps it between -1 and 1 to prevent higher speed while walking sideways
+    /// </summary>
     private float GetInputMagnitude()
     {
         return Mathf.Clamp(inputedMovementDirectionRotated.magnitude, -1, 1);
     }
 
+    /// <summary>
+    /// Snaps player in camera direction
+    /// </summary>
     private void SnapPlayerInCameraDirection()
     {
         cameraMovementController.SaveDirection();
@@ -318,11 +403,11 @@ public class ControllerPlayer : Controller {
         cameraMovementController.RestoreDirection();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(hit.point, 0.05f);
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawWireSphere(hit.point, 0.05f);
 
-        Gizmos.DrawRay(transform.position, movementDirection);
-    }
+    //    Gizmos.DrawRay(transform.position, movementDirection);
+    //}
 }

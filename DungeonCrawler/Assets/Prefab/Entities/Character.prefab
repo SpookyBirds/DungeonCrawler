@@ -3272,7 +3272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1897784793233946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.714, y: 0, z: 30.17}
+  m_LocalPosition: {x: 23.71, y: 7.02, z: -16.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4056654331543688}
@@ -7155,18 +7155,19 @@ MonoBehaviour:
   animator: {fileID: 95000358309102872}
   maxForwardSpeed: 20
   maxBackSpeed: 16.5
+  rollingStrength: 20
+  maxSteppingHeight: 0.5
   maxJumpforce: 10
   jumpForwardStrength: 20
-  maxRollStrength: 20
   groundingMask:
     serializedVersion: 2
     m_Bits: 512
   groundingDistance: 0.15
   directionCheckingDistance: 0.25
-  maxSteppingHeight: 0.5
+  dropMovementForceWeakening: 0.5
+  groundingCollider: {fileID: 65419419202195556}
   animatorOverrideController: {fileID: 22100000, guid: afd309c6aece63448a62729905ef7a10,
     type: 2}
-  groundingCollider: {fileID: 65419419202195556}
 --- !u!114 &114859759838704186
 MonoBehaviour:
   m_ObjectHideFlags: 1
