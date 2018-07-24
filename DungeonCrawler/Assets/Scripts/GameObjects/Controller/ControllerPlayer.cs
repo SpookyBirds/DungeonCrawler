@@ -7,24 +7,21 @@ using UnityEngine;
 [RequireComponent(typeof(EquipmetHolder))]
 public class ControllerPlayer : Controller {
 
-    [SerializeField] private float maxForwardSpeed = 30;
-    [SerializeField] private float maxLeftSpeed    = 30;
-    [SerializeField] private float maxBackSpeed    = 30;
-    [SerializeField] private float maxRightSpeed   = 30;
-    [SerializeField] private float maxJumpforce    = 30;
-    [SerializeField] private float maxRollSpeed    = 600f;
+    [SerializeField] private float maxForwardSpeed = 20f;
+    [SerializeField] private float maxBackSpeed    = 20f;
+    [SerializeField] private float maxJumpforce    = 10f;
+    [SerializeField] private float jumpForwardStrength = 5f;
+    [SerializeField] private float maxRollStrength = 20f;
     [Space]
     [SerializeField] private LayerMask groundingMask;
-    [SerializeField] private float groundingDistance = 0.01f;
-    [SerializeField] private float directionCheckingDistance = 0.1f;
+    [SerializeField] private float groundingDistance = 0.15f;
+    [SerializeField] private float directionCheckingDistance = 0.25f;
     [SerializeField] private float maxSteppingHeight = 0.5f;
 
     private float forwardSpeed;
-    private float leftSpeed   ;
-    private float backSpeed   ;
-    private float rightSpeed  ;
-    private float jumpforce   ;
-    private float rollSpeed   ;
+    private float backSpeed;
+    private float jumpforce;
+    private float rollStrength;
 
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
@@ -63,6 +60,9 @@ public class ControllerPlayer : Controller {
 
     private CameraMovementController cameraMovementController;
 
+    private float verticalAxis;
+    private float horizontalAxis;
+
     private bool isRolling = false;
     private bool lastFrameIsRolling = false;
 
@@ -70,6 +70,8 @@ public class ControllerPlayer : Controller {
     private Vector3 movementDirection;
     private Vector3 previousPosition;
     private RaycastHit groundCheckHit;
+
+    private Vector3 actualMovementDirecion;
 
     protected override void Awake()
     {
@@ -81,11 +83,9 @@ public class ControllerPlayer : Controller {
         EquipmetHolder = GetComponent<EquipmetHolder>();
 
         forwardSpeed = maxForwardSpeed;
-        leftSpeed    = maxLeftSpeed;
         backSpeed    = maxBackSpeed;
-        rightSpeed   = maxRightSpeed;
         jumpforce    = maxJumpforce;
-        rollSpeed    = maxRollSpeed;
+        rollStrength    = maxRollStrength;
 
         normalizedGravity = Physics.gravity.normalized;
     }
@@ -113,11 +113,6 @@ public class ControllerPlayer : Controller {
             AnimatorOverrideController["DEFAULT_Chain_3_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_3_Attack;
         }
         AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
-    }
-
-    public void Jump()
-    {
-        Rigid.AddForce(0, jumpforce, 0);
     }
 
     public void UseLeft(UseType useType, int currentChainLink)
@@ -182,18 +177,20 @@ public class ControllerPlayer : Controller {
 
     protected override void Update()
     {
-        HandlePlannedMovementDirection();
+        HandleInputProcessing();
         HandleGroundCheck();
         HandleMovementDirection();
         HandleJump();
         HandleRolling();
     }
 
-    private void HandlePlannedMovementDirection()
+    private void HandleInputProcessing()
     {
-        float horizontalAxis = CTRLHub.inst.HorizontalAxis;
-        float verticalAxis = CTRLHub.inst.VerticalAxis;
+        // Cache axis input
+        horizontalAxis = CTRLHub.inst.HorizontalAxis;
+        verticalAxis = CTRLHub.inst.VerticalAxis;
 
+        // Calculate inputed movement (direction and strength)
         plannedMovement = new Vector3(horizontalAxis, 0, verticalAxis).normalized;
     }
 
@@ -251,10 +248,17 @@ public class ControllerPlayer : Controller {
 
     private void HandleJump()
     {
-        if (IsGrounded && CTRLHub.inst.JumpDown)
+        if (IsGrounded)
         {
-            Rigid.AddForce(-normalizedGravity * jumpforce);
-            Debug.Log("jumped!");
+            if (CTRLHub.inst.JumpDown)
+            {
+                Rigid.AddForce(-normalizedGravity * jumpforce, ForceMode.Impulse);
+                actualMovementDirecion = movementDirection;
+            }
+        }
+        else
+        {
+            Rigid.AddForce((transform.rotation * actualMovementDirecion) * jumpForwardStrength * plannedMovement.magnitude);
         }
     }
 
@@ -262,23 +266,10 @@ public class ControllerPlayer : Controller {
     {
         isRolling = Animator.GetBool("IsRolling");
 
-        if (lastFrameIsRolling != isRolling)
+        if (isRolling == true &&
+            lastFrameIsRolling == false  )
         {
-            if (isRolling)
-            {
-                forwardSpeed = rollSpeed;
-                backSpeed = rollSpeed;
-                leftSpeed = rollSpeed;
-                rightSpeed = rollSpeed;
-                HandleMovement(true);
-            }
-            else
-            {
-                forwardSpeed = maxForwardSpeed;
-                backSpeed = maxBackSpeed;
-                leftSpeed = maxLeftSpeed;
-                rightSpeed = maxRightSpeed;
-            }
+            ApplyForceInMovementDirection(rollStrength, ForceMode.Impulse);
         }
 
         lastFrameIsRolling = isRolling;
@@ -293,40 +284,22 @@ public class ControllerPlayer : Controller {
     {
         if (doOrDont == false)
             return;
-        
-        if(plannedMovement.magnitude != 0)
-        {
-            SnapPlayerInCameraDirection();
-            Rigid.AddForce((transform.rotation * movementDirection)  * forwardSpeed * plannedMovement.magnitude);
-        }
-
-        /* old ansatz
-         
-        float verticalAxis = CTRLHub.inst.VerticalAxis;
-        float horizontalAxis = CTRLHub.inst.HorizontalAxis;
 
         if (verticalAxis > 0)
         {
             SnapPlayerInCameraDirection();
-            Rigid.AddForce(ForwardDirection * forwardSpeed * verticalAxis);
+            ApplyForceInMovementDirection(forwardSpeed);
         }
-        else if (verticalAxis < 0)
+        else
         {
             SnapPlayerInCameraDirection();
-            Rigid.AddForce(BackDirection * backSpeed * -verticalAxis);
+            ApplyForceInMovementDirection(backSpeed);
         }
+    }
 
-        if (horizontalAxis > 0)
-        {
-            SnapPlayerInCameraDirection();
-            Rigid.AddForce(RightDirection * leftSpeed * horizontalAxis);
-        }
-        else if (horizontalAxis < 0)
-        {
-            SnapPlayerInCameraDirection();
-            Rigid.AddForce(LeftDirection * rightSpeed * -horizontalAxis);
-        }
-        */
+    private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
+    {
+        Rigid.AddForce((transform.rotation * movementDirection) * strength * plannedMovement.magnitude, forceMode);
     }
 
     private void SnapPlayerInCameraDirection()
@@ -336,12 +309,12 @@ public class ControllerPlayer : Controller {
         cameraMovementController.RestoreDirection();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(groundCheckHit.point, movementDirection);
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawRay(groundCheckHit.point, movementDirection);
 
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(transform.position, normalizedGravity * groundingDistance);
-    }
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawRay(transform.position, normalizedGravity * groundingDistance);
+    //}
 }

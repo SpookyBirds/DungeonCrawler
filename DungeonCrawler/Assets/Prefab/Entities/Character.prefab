@@ -7157,7 +7157,7 @@ MonoBehaviour:
   maxLeftSpeed: 20
   maxBackSpeed: 20
   maxRightSpeed: 20
-  maxJumpforce: 400
+  maxJumpforce: 10
   maxRollSpeed: 900
   groundingMask:
     serializedVersion: 2

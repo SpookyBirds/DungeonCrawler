@@ -12459,6 +12459,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 224238524963078888, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224644189099863142, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224860608802763466, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: maxRollSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114858044274239516, guid: 3260dd2b810181a4bb4dec5924042b67,
+        type: 2}
+      propertyPath: jumpForwardStrength
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
   m_IsPrefabParent: 0
