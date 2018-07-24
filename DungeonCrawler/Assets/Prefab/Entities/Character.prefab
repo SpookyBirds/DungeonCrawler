@@ -7154,11 +7154,10 @@ MonoBehaviour:
   hostileEntities: 8
   animator: {fileID: 95000358309102872}
   maxForwardSpeed: 20
-  maxLeftSpeed: 20
   maxBackSpeed: 20
-  maxRightSpeed: 20
   maxJumpforce: 10
-  maxRollSpeed: 900
+  jumpForwardStrength: 20
+  maxRollStrength: 20
   groundingMask:
     serializedVersion: 2
     m_Bits: 512
