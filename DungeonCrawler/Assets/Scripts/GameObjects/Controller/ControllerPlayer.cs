@@ -66,12 +66,23 @@ public class ControllerPlayer : Controller {
     private bool isRolling = false;
     private bool lastFrameIsRolling = false;
 
-    private Vector3 plannedMovement;
+    private Vector3 inputedMovementDirectionRotated;
     private Vector3 movementDirection;
     private Vector3 previousPosition;
     private RaycastHit groundCheckHit;
 
-    private Vector3 actualMovementDirecion;
+    private Vector3 actualMovementDirection;
+    private Vector3 ActualMovementDirection 
+    {
+        get { return actualMovementDirection; }
+        set
+        {
+            actualMovementDirection = value;
+            if (actualMovementDirection.x < 0) actualMovementDirection.x = 0;
+            if (actualMovementDirection.y < 0) actualMovementDirection.y = 0;
+            if (actualMovementDirection.z < 0) actualMovementDirection.z = 0;
+        }
+    }
 
     protected override void Awake()
     {
@@ -85,7 +96,7 @@ public class ControllerPlayer : Controller {
         forwardSpeed = maxForwardSpeed;
         backSpeed    = maxBackSpeed;
         jumpforce    = maxJumpforce;
-        rollStrength    = maxRollStrength;
+        rollStrength = maxRollStrength;
 
         normalizedGravity = Physics.gravity.normalized;
     }
@@ -175,6 +186,8 @@ public class ControllerPlayer : Controller {
         }
     }
 
+
+    
     protected override void Update()
     {
         HandleInputProcessing();
@@ -191,7 +204,7 @@ public class ControllerPlayer : Controller {
         verticalAxis = CTRLHub.inst.VerticalAxis;
 
         // Calculate inputed movement (direction and strength)
-        plannedMovement = new Vector3(horizontalAxis, 0, verticalAxis).normalized;
+        inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
     }
 
     private void HandleGroundCheck()
@@ -208,13 +221,16 @@ public class ControllerPlayer : Controller {
 
         Collider[] playerStandingColliders =  Physics.OverlapBox(
             groundingCollider.transform.position,
-            groundingCollider.size / 2, 
-            transform.rotation, 
+            groundingCollider.size / 2,
+            groundingCollider.transform.rotation, 
             groundingMask, 
             QueryTriggerInteraction.Ignore);
 
         IsGrounded = playerStandingColliders.Length != 0;
+        
     }
+
+    private RaycastHit hit;
 
     private void HandleMovementDirection()
     {
@@ -226,13 +242,11 @@ public class ControllerPlayer : Controller {
             return;
         }
 
-        Vector3 plannedMovementDirection = plannedMovement.normalized;
-
-        Vector3 directionCheckingOffset = 
-            new Vector3(plannedMovementDirection.x, 0, plannedMovementDirection.z) * directionCheckingDistance + 
+        Vector3 directionCheckingOffset =
+            inputedMovementDirectionRotated * directionCheckingDistance + 
             new Vector3(0, maxSteppingHeight, 0);
 
-        RaycastHit hit;
+        //RaycastHit hit;
         if (Physics.Raycast(
             transform.position + directionCheckingOffset, 
             normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
@@ -242,7 +256,7 @@ public class ControllerPlayer : Controller {
             return;
         }
 
-        movementDirection = plannedMovementDirection;
+        movementDirection = inputedMovementDirectionRotated;
         previousPosition = transform.position;
     }
 
@@ -253,12 +267,12 @@ public class ControllerPlayer : Controller {
             if (CTRLHub.inst.JumpDown)
             {
                 Rigid.AddForce(-normalizedGravity * jumpforce, ForceMode.Impulse);
-                actualMovementDirecion = movementDirection;
+                ActualMovementDirection = movementDirection;
             }
         }
         else
         {
-            Rigid.AddForce((transform.rotation * actualMovementDirecion) * jumpForwardStrength * plannedMovement.magnitude);
+            Rigid.AddForce(ActualMovementDirection * jumpForwardStrength * GetInputMagnitude());
         }
     }
 
@@ -280,7 +294,7 @@ public class ControllerPlayer : Controller {
         HandleMovement(isRolling == false);
     }
 
-    private void HandleMovement(bool doOrDont)
+    private void HandleMovement(bool doOrDont)  // Potential fix: making the collider actually bob
     {
         if (doOrDont == false)
             return;
@@ -299,7 +313,12 @@ public class ControllerPlayer : Controller {
 
     private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
-        Rigid.AddForce((transform.rotation * movementDirection) * strength * plannedMovement.magnitude, forceMode);
+        Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
+    }
+
+    private float GetInputMagnitude()
+    {
+        return Mathf.Clamp(inputedMovementDirectionRotated.magnitude, -1, 1);
     }
 
     private void SnapPlayerInCameraDirection()
@@ -309,12 +328,11 @@ public class ControllerPlayer : Controller {
         cameraMovementController.RestoreDirection();
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.magenta;
-    //    Gizmos.DrawRay(groundCheckHit.point, movementDirection);
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(hit.point, 0.05f);
 
-    //    Gizmos.color = Color.blue;
-    //    Gizmos.DrawRay(transform.position, normalizedGravity * groundingDistance);
-    //}
+        Gizmos.DrawRay(transform.position, movementDirection);
+    }
 }
