@@ -72,17 +72,6 @@ public class ControllerPlayer : Controller {
     private RaycastHit groundCheckHit;
 
     private Vector3 actualMovementDirection;
-    private Vector3 ActualMovementDirection 
-    {
-        get { return actualMovementDirection; }
-        set
-        {
-            actualMovementDirection = value;
-            if (actualMovementDirection.x < 0) actualMovementDirection.x = 0;
-            if (actualMovementDirection.y < 0) actualMovementDirection.y = 0;
-            if (actualMovementDirection.z < 0) actualMovementDirection.z = 0;
-        }
-    }
 
     protected override void Awake()
     {
@@ -252,6 +241,7 @@ public class ControllerPlayer : Controller {
             normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
         {
             movementDirection = (hit.point - groundCheckHit.point).normalized;
+            if (movementDirection.y < 0) movementDirection.y = 0;
             previousPosition = transform.position;
             return;
         }
@@ -267,12 +257,12 @@ public class ControllerPlayer : Controller {
             if (CTRLHub.inst.JumpDown)
             {
                 Rigid.AddForce(-normalizedGravity * jumpforce, ForceMode.Impulse);
-                ActualMovementDirection = movementDirection;
+                actualMovementDirection = movementDirection;
             }
         }
         else
         {
-            Rigid.AddForce(ActualMovementDirection * jumpForwardStrength * GetInputMagnitude());
+            Rigid.AddForce(actualMovementDirection * jumpForwardStrength);
         }
     }
 
