@@ -49,8 +49,8 @@ public class NPC_AI_Tank : NPC_AI
 
     public void JumpAttack_Enter()
     {
-        rigid.AddForce(transform.up * jumpForce.y);
-        rigid.AddForce(transform.forward * jumpForce.z);
+        rigid.AddForce(transform.up * jumpForce.y, ForceMode.Impulse);
+        rigid.AddForce(transform.forward * jumpForce.z, ForceMode.Impulse);
     }
 
     private void OnValidate()
