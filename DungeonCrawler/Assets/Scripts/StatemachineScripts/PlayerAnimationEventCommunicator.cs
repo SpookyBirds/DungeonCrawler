@@ -69,11 +69,11 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
     /// </summary>
     public void UseAttack(int currentChainLink)
     {
-        Debug.Log("useAttack " + currentChainLink + "  "+ rightShortSecondChainAttackID + "  "+ animator.GetCurrentAnimatorStateInfo(layer).fullPathHash + "  " + animator.GetCurrentAnimatorStateInfo(layer).shortNameHash);
+        //Debug.Log("useAttack " + currentChainLink + "  "+ rightShortSecondChainAttackID + "  "+ animator.GetCurrentAnimatorStateInfo(layer).fullPathHash + "  " + animator.GetCurrentAnimatorStateInfo(layer).shortNameHash);
         switch (GetCurrentState())                                                              
         {
             case AttackState.Left_long:
-                Debug.Log("left long");
+                //Debug.Log("left long");
                 leftAttackHasStarted.Value = true;
                 controller.UseLeft(UseType.longAttack, currentChainLink);
                 break;
@@ -81,14 +81,14 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
             case AttackState.Left_chain_1:
             case AttackState.Left_chain_2:
             case AttackState.Left_chain_3:
-                Debug.Log("left chain " + currentChainLink);
+                //Debug.Log("left chain " + currentChainLink);
                 leftAttackHasStarted.Value = true;
                 controller.UseLeft(UseType.shortAttack, currentChainLink);
                 break;
 
 
             case AttackState.Right_long:
-                Debug.Log("right long");
+                //Debug.Log("right long");
                 rightAttackHasStarted.Value = true;
                 controller.UseRight(UseType.longAttack, currentChainLink);
                 break;
@@ -96,7 +96,7 @@ public class PlayerAnimationEventCommunicator : MonoBehaviour {
             case AttackState.Right_chain_1:
             case AttackState.Right_chain_2:
             case AttackState.Right_chain_3:
-                Debug.Log("right chain " + currentChainLink);
+                //Debug.Log("right chain " + currentChainLink);
                 rightAttackHasStarted.Value = true;
                 controller.UseRight(UseType.shortAttack, currentChainLink);
                 break;

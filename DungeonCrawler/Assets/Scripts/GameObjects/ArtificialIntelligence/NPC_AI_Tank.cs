@@ -49,7 +49,6 @@ public class NPC_AI_Tank : NPC_AI
 
     public void JumpAttack_Enter()
     {
-        Debug.Log(transform.forward.MultipliedBy(jumpForce));
         rigid.AddForce(transform.up * jumpForce.y);
         rigid.AddForce(transform.forward * jumpForce.z);
     }
