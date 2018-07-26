@@ -123,11 +123,13 @@ public class CameraMovementController : MonoBehaviour
     {
         if(CTRLHub.inst.ScrollValue != 0)
         {
-            DoZoom(CTRLHub.inst.ScrollValue * zoomSpeed);
-
-            if (GetCurrentZoom == playerZoomCache ||
-                GetCurrentZoom < -zoomLimit.x)
+            // Zooms the camera and updates the playerZoomCache only if 
+            //  (1) the camera isn't auto zoomed or 
+            //  (2) the the player wants to zoom in whilst the camera is able to 
+            if (GetCurrentZoom == playerZoomCache ||    //(1)
+                (GetCurrentZoom < -zoomLimit.x && CTRLHub.inst.ScrollValue > 0))   //(2)
             {
+                DoZoom(CTRLHub.inst.ScrollValue * zoomSpeed);
                 playerZoomCache = GetCurrentZoom;
             }
         }
@@ -138,24 +140,23 @@ public class CameraMovementController : MonoBehaviour
     /// </summary>
     private void HandleCameraCollision()
     {
+        // Check roughly to account for huge camera jumps between frames
         CameraToPlayerWallCollisionRaycastingCheck();
 
-        if (CameraVincinityCollider().Length != 0)
+        // Check for collisions in the vincinity of the camera
+        if (CameraVincinityCollider(MainCamera.position).Length != 0)
         {
             DoZoom(collisionZoomSpeed);
         }
-        else
+
+        // Zoom back if nessesary       (zooming back is only needed if it didn't zoom in)
+        else if (GetCurrentZoom != playerZoomCache)
         {
-            if (GetCurrentZoom != playerZoomCache)
+            if (CameraVincinityCollider(
+                MainCamera.position + (MainCamera.position - RotationCenterPoint.position) * collisionZoomSpeed)
+                .Length == 0)
             {
-                Collider[] colliderNearFutureCameraPosition = Physics.OverlapSphere(
-                    MainCamera.position + (MainCamera.position - RotationCenterPoint.position) * collisionZoomSpeed, 
-                    cameraCollisionRadius, 
-                    cameraCollisionLayerMask);
-
-                if(colliderNearFutureCameraPosition.Length == 0)
-                    DoZoom(-collisionZoomSpeed);
-
+                DoZoom(-collisionZoomSpeed);
             }
         }
     }
@@ -163,9 +164,9 @@ public class CameraMovementController : MonoBehaviour
     /// <summary>
     /// Get all colliders spezified in the 'cameraCollisionLayerMask' near the camera
     /// </summary>
-    private Collider[] CameraVincinityCollider()
+    private Collider[] CameraVincinityCollider(Vector3 center)
     {
-        return Physics.OverlapSphere(MainCamera.position, cameraCollisionRadius, cameraCollisionLayerMask);
+        return Physics.OverlapSphere(center, cameraCollisionRadius, cameraCollisionLayerMask);
     }
 
     /// <summary>
@@ -240,6 +241,9 @@ public class CameraMovementController : MonoBehaviour
         return cameraDirection;
     }
 
+    /// <summary>
+    /// Zooms the camera, offsets it in height and enables the crosshair
+    /// </summary>
     public void ToggleCameraAimingPosition(bool doAim)
     {
         if (doAim)
