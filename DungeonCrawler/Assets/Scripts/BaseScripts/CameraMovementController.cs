@@ -44,7 +44,6 @@ public class CameraMovementController : MonoBehaviour
 
     private void Update()
     {
-        
         if (GamePaused)
         {
             Cursor.visible = true;
@@ -80,13 +79,13 @@ public class CameraMovementController : MonoBehaviour
                 CalculateRotationStep("Mouse Y") * (verticalInvertCamera ? -1 : 1), 
                 Space.World);
 
-            PitchRotation.rotation = Quaternion.Euler(
-                CheckClampBounds(
-                    PitchRotation.rotation.eulerAngles.x,
-                    verticalRotationLowerLimit,
-                    verticalRotationUpperLimit),
-                PitchRotation.rotation.eulerAngles.y,
-                0);
+            //PitchRotation.rotation = Quaternion.Euler(
+            //    CheckClampBounds(
+            //        PitchRotation.rotation.eulerAngles.x,
+            //        verticalRotationLowerLimit,
+            //        verticalRotationUpperLimit),
+            //    PitchRotation.rotation.eulerAngles.y,
+            //    0);
         }
     }
 
@@ -99,7 +98,6 @@ public class CameraMovementController : MonoBehaviour
     /// <returns></returns>
     private float CheckClampBounds(float value, float lowerBound, float upperBound)
     {
-
         if (value > 300 || value < lowerBound)      //fixing overflow
             return lowerBound;
 
@@ -147,15 +145,6 @@ public class CameraMovementController : MonoBehaviour
 
         return cameraDirection;
     }
-
-    //private Vector3 SnapPlayerInCameraDirection()
-    //{
-    //    SaveDirection();
-    //    Vector3 lookDirection = transform.position + GetCameraDirection();
-    //    RestoreDirection();
-
-    //    return lookDirection;
-    //}
 
     public void ToggleCameraAimingPosition(bool doAim)
     {
