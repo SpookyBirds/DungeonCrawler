@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33984655356691932}
   - component: {fileID: 23491252511070314}
   - component: {fileID: 64547993731446052}
+  - component: {fileID: 114768049434988586}
   m_Layer: 0
   m_Name: Liquid Bath
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771639189515340}
-  m_LocalRotation: {x: -0.30241194, y: 0.63917685, z: 0.63917696, w: -0.30241182}
-  m_LocalPosition: {x: -0.14867085, y: -0.0297, z: -0.0002}
-  m_LocalScale: {x: 0.9363832, y: 0.6746405, z: 0.93638307}
+  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -39.36, y: 270, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23491252511070314
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -99,3 +100,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ff2d541aed87f15489f757edd76e164d, type: 3}
+--- !u!114 &114768049434988586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771639189515340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
