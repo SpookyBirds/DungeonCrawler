@@ -11,7 +11,7 @@ public class UiManager : MonoBehaviour {
         set
         {
             gamePaused = value;
-            cameraMovementController.GamePaused = GamePaused;
+            cameraMovementController.GamePaused = value;
         }
     }
 

@@ -12,6 +12,8 @@ public class CTRLHub : MonoBehaviour
     public float HorizontalAxis { get { return Input.GetAxis("Horizontal"); } }
     public float VerticalAxis   { get { return Input.GetAxis("Vertical");   } }
 
+    public float ScrollValue { get { return Input.mouseScrollDelta.y; } }
+
     public KeyCode ForwardKeyCode { get; set; }
     public bool ForwardDown { get { return (Input.GetKeyDown(ForwardKeyCode)); } }
     public bool ForwardUp   { get { return (Input.GetKeyUp(ForwardKeyCode));   } }
