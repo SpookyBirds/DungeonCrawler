@@ -480,21 +480,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224860608802763466, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224644189099863142, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224238524963078888, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4730347172918046, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -526,47 +511,6 @@ Prefab:
     - target: {fileID: 4730347172918046, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: cameraCollisionLayerMask.m_Bits
-      value: 1536
-      objectReference: {fileID: 0}
-    - target: {fileID: 114278588158803576, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rightEquipedHoldable
-      value: 
-      objectReference: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
-        type: 2}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: zoomLimit.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: zoomLimit.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: zoomSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: cameraCollisionRadius
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114833862648252176, guid: 3260dd2b810181a4bb4dec5924042b67,
-        type: 2}
-      propertyPath: verticalInvertCamera
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3260dd2b810181a4bb4dec5924042b67, type: 2}
