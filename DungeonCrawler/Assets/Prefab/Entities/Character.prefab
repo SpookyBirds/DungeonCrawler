@@ -4585,7 +4585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEquipedHoldable: {fileID: 1440922566843812, guid: 92ffe0d64deb87046bcc630c726ddf83,
     type: 2}
-  rightEquipedHoldable: {fileID: 1720846641585188, guid: 0e10444b635704a44804596c1ccd545b,
+  rightEquipedHoldable: {fileID: 1710965930060578, guid: 08b056f2d861f0e49aa6553d372c1fc7,
     type: 2}
   helmetArmor: {fileID: 0}
   bodyArmor: {fileID: 0}
@@ -6997,14 +6997,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalInvertCamera: 1
-  rotationSpeed: 8
-  verticalRotationLowerLimit: 0
-  verticalRotationUpperLimit: 60
-  zoomSpeed: 0.1
-  zoomLimit: 10
+  crossHair: {fileID: 114720872936506246}
   aimingCameraTopOffset: 0.5
   aimingCameraZoomOffset: 3
-  crossHair: {fileID: 114720872936506246}
+  rotationSpeed: 8
+  zoomLimit: {x: 1, y: 10}
+  zoomSpeed: 0.5
+  collisionZoomSpeed: 0.5
+  cameraCollisionRadius: 0.75
+  cameraCollisionLayerMask:
+    serializedVersion: 2
+    m_Bits: 1536
 --- !u!114 &114838663620925624
 MonoBehaviour:
   m_ObjectHideFlags: 1
