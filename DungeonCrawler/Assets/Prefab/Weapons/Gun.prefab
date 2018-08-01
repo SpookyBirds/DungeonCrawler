@@ -181,8 +181,8 @@ MonoBehaviour:
     type: 3}
   animationClipShortAttack: {fileID: 7400000, guid: c03833dbc7060624fac608e9220f1c50,
     type: 3}
-  maxReach: 10
-  damagePerHit: 10
+  maxReach: 20
+  damagePerHit: 20
   shotParticle: {fileID: 198009760946760724}
 --- !u!198 &198009760946760724
 ParticleSystem:
