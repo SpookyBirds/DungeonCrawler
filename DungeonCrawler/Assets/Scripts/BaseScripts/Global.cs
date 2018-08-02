@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,12 +7,15 @@ public class Global : MonoBehaviour {
 
     public static Global inst;
 
+    public static string[] tags;
+    public static Dictionary<int, string> numberedTags;
+
     public Transform level;
     public GameObject Player;
     public GameObject EmptyHandFist;
 
-    public static string[] tags;
-    public static Dictionary<int, string> numberedTags;
+    [TagSelector] 
+    public string neutralTag = "Neutral";
 
     private void Awake()
     {
@@ -31,7 +33,8 @@ public class Global : MonoBehaviour {
             "Player",
             "GameController",
             "Friendly_NPC",
-            "Enemy_NPC"
+            "Enemy_NPC",
+            "Neutral"
         };
 #endif
 

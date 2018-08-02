@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Linq;
 
 public class ChainableWeapon : Holdable {
 
@@ -21,7 +20,7 @@ public class ChainableWeapon : Holdable {
 
     public override bool UseLong(Controller controller)
     {
-        return Attack(controller);
+        return Attack(controller);  
     }
 
     private bool Attack(Controller controller)

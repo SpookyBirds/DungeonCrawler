@@ -646,14 +646,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114783315941528104, guid: bca656cad63a6c8449a338207e90f1d7,
         type: 2}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 963638369}
-    - target: {fileID: 114783315941528104, guid: bca656cad63a6c8449a338207e90f1d7,
-        type: 2}
       propertyPath: level
       value: 
       objectReference: {fileID: 1295567700}
+    - target: {fileID: 114783315941528104, guid: bca656cad63a6c8449a338207e90f1d7,
+        type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 963638369}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bca656cad63a6c8449a338207e90f1d7, type: 2}
   m_IsPrefabParent: 0

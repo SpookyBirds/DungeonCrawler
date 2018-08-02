@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Friendly_NPC
   - Enemy_NPC
+  - Neutral
   layers:
   - Default
   - TransparentFX
