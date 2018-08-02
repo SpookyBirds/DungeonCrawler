@@ -9,13 +9,14 @@ public class Global : MonoBehaviour {
 
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
+    public static string NeutralTag { get { return inst.neutralTag; } }
 
+    [SerializeField] [TagSelector] 
+    private string neutralTag = "Neutral";
     public Transform level;
     public GameObject Player;
     public GameObject EmptyHandFist;
 
-    [TagSelector] 
-    public string neutralTag = "Neutral";
 
     private void Awake()
     {
@@ -111,6 +112,11 @@ public static class Extentions
         }
         
         return false;
+    }
+
+    public static bool IsTagNeutral(this Component component)
+    {
+        return component.CompareTag(Global.NeutralTag);
     }
 
     public static Vector3 MultipliedBy(this Vector3 originalFactor, Vector3 secondFactor)

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun : Holdable
 {
@@ -82,7 +79,8 @@ public class Gun : Holdable
         // Evaluate if the hit was an opponent for everyone, save it's distance if it was, save int.MaxValue if not
         for (int index = 0; index < hits.Length; index++)
         {
-            if (hits[index].collider.IsAnyTagEqual(controller.EnemyTypes) == false)
+            if (hits[index].collider.IsAnyTagEqual(controller.EnemyTypes) == false &&
+                     hits[index].collider.IsTagNeutral() == false)
             {
                 distancesToHit[index] = int.MaxValue;
                 continue;

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Linq;
 
 public class ChainableWeapon : Holdable {
 
@@ -33,13 +32,22 @@ public class ChainableWeapon : Holdable {
         //Debug.Log("Start attack "+ colliderInAttackRange.Length);
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
-            if (colliderInAttackRange[index].IsAnyTagEqual(controller.EnemyTypes))
+            if (colliderInAttackRange[ index ].IsAnyTagEqual(controller.EnemyTypes))
             {
-                colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
+                DealDamage(colliderInAttackRange[ index ]);
                 didHit = true;
+            }
+            else if(colliderInAttackRange[index].IsTagNeutral())
+            {
+                DealDamage(colliderInAttackRange[ index ]);
             }
         }
 
         return didHit;
     }
+
+    private void DealDamage(Collider collider)
+    {
+        collider.GetComponent<Entity>().TryToDamage(damagePerHit);
+    }              
 }
