@@ -184,6 +184,7 @@ MonoBehaviour:
   maxReach: 20
   damagePerHit: 20
   shotParticle: {fileID: 198009760946760724}
+  ammunitionLoad: 3
 --- !u!198 &198009760946760724
 ParticleSystem:
   m_ObjectHideFlags: 1

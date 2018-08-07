@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour {
     public virtual void Update()
     {
         // checks Distance between player and Interactable object!
-        distance = Vector3.Distance(Global.inst.Player.transform.position, InteractionTransform.position);
+        distance = Vector3.Distance(Global.inst.player.transform.position, InteractionTransform.position);
 
             if( distance <= radius)
             {
