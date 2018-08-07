@@ -29,6 +29,9 @@ public class Test_character : MonoBehaviour {
         anim.SetBool("attackSword", Input.GetKeyDown(KeyCode.Mouse1));
         anim.SetBool("gunAim", Input.GetKey(KeyCode.Mouse0));
         anim.SetBool("gunShoot", !Input.GetKeyDown(KeyCode.Mouse0));
+        anim.SetBool("shieldAttack", Input.GetKeyDown(KeyCode.Mouse0));
+        //anim.SetBool("shieldBlock", Input.GetKey(KeyCode.Mouse0));
+
 
 
 
