@@ -26,6 +26,11 @@ public class Test_character : MonoBehaviour {
         anim.SetBool("runBackward", verticalInput < 0);
         anim.SetBool("dodgeroll", Input.GetKeyDown(KeyCode.LeftControl));
         anim.SetBool("jump", Input.GetKeyDown(KeyCode.Space));
+        anim.SetBool("attackSword", Input.GetKeyDown(KeyCode.Mouse1));
+        anim.SetBool("gunAim", Input.GetKey(KeyCode.Mouse0));
+        anim.SetBool("gunShoot", !Input.GetKeyDown(KeyCode.Mouse0));
+
+
 
     }
 }

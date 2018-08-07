@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c61e41cfaf3734141bdbabf04141954b
+guid: 6e11b828f8786d448aebb51c168c0f7e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -115,11 +115,11 @@ ModelImporter:
     400106: jnt_toes_L
     400108: jnt_toes_R
     400110: master
-    7400000: Locomotion_Idle
+    7400000: Attack_Gun_Shoot
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -146,17 +146,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Locomotion_Idle
+      name: Attack_Gun_Shoot
       takeName: clip_combatIdle
-      firstFrame: 0
-      lastFrame: 60
+      firstFrame: 4.9
+      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
