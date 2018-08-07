@@ -19,8 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4518252934918482}
-  - component: {fileID: 114937815278940516}
   - component: {fileID: 114783315941528104}
+  - component: {fileID: 114937815278940516}
+  - component: {fileID: 114457772644769668}
   m_Layer: 0
   m_Name: Globals
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114457772644769668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106051076031542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd64f7893f79bf640b2f76d7a1601e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1565550796441414, guid: fbabb66b6b3848e4f85bab96f92a35b1, type: 2}
 --- !u!114 &114783315941528104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,11 +65,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d15d4c2ce2ca409eff22597a60a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  Player: {fileID: 0}
-  EmptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
-    type: 2}
   neutralTag: Neutral
+  level: {fileID: 0}
+  player: {fileID: 0}
+  emptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
+    type: 2}
 --- !u!114 &114937815278940516
 MonoBehaviour:
   m_ObjectHideFlags: 1

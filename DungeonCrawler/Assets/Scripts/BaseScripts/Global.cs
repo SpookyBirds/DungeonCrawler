@@ -14,8 +14,8 @@ public class Global : MonoBehaviour {
     [SerializeField] [TagSelector] 
     private string neutralTag = "Neutral";
     public Transform level;
-    public GameObject Player;
-    public GameObject EmptyHandFist;
+    public GameObject player;
+    public GameObject emptyHandFist;
 
 
     private void Awake()
@@ -159,6 +159,14 @@ public enum EquipmentType
     Legs,
     LeftHand,
     RightHand
+}
+
+public enum Substance
+{
+    none   = 0,
+    green  = 2,
+    red    = 3,
+    silber = 5
 }
 
 
