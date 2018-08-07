@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c924b21771ad3724ea3bebf4496e43ac
+guid: 314d49ed5fc140a42916f5c3b70c2dc0
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,10 +8,10 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Mesh_Platform_connection
+    4300000: Cube
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
