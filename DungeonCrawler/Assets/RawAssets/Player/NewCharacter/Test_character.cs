@@ -24,7 +24,8 @@ public class Test_character : MonoBehaviour {
 
         anim.SetBool("runForward", verticalInput > 0 || horizontalInput != 0 && verticalInput == 0);
         anim.SetBool("runBackward", verticalInput < 0);
-        anim.SetBool("Testbool", Input.GetKeyDown(KeyCode.LeftControl));
+        anim.SetBool("dodgeroll", Input.GetKeyDown(KeyCode.LeftControl));
+        anim.SetBool("jump", Input.GetKeyDown(KeyCode.Space));
 
     }
 }
