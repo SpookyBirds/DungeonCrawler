@@ -7,4 +7,116 @@ AvatarMask:
   m_PrefabInternal: {fileID: 0}
   m_Name: avM_Character_Arm_L
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: master
+    m_Weight: 0
+  - m_Path: master/jnt_root
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_L
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_L/jnt_legLower_L
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_L/jnt_legLower_L/jnt_foot_L
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_L/jnt_legLower_L/jnt_foot_L/jnt_toes_L
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_R
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_R/jnt_legLower_R
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_R/jnt_legLower_R/jnt_foot_R
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_legUpper_R/jnt_legLower_R/jnt_foot_R/jnt_toes_R
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_spine_1
+    m_Weight: 0
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_neck
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_neck/jnt_head
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/holdable_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_1_1_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_1_1_L/jnt_finger_1_2_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_1_1_L/jnt_finger_1_2_L/jnt_finger_1_3_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_2_1_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_2_1_L/jnt_finger_2_2_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_2_1_L/jnt_finger_2_2_L/jnt_finger_2_3_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_3_1_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_3_1_L/jnt_finger_3_2_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_3_1_L/jnt_finger_3_2_L/jnt_finger_3_3_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_4_1_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_4_1_L/jnt_finger_4_2_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_4_1_L/jnt_finger_4_2_L/jnt_finger_4_3_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_5_1_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_5_1_L/jnt_finger_5_2_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_L/jnt_armUpper_L/jnt_armLower_L/jnt_hand_L/jnt_finger_5_1_L/jnt_finger_5_2_L/jnt_finger_5_3_L
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/holdable_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_1_1_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_1_1_R/jnt_finger_1_2_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_1_1_R/jnt_finger_1_2_R/jnt_finger_1_3_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_2_1_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_2_1_R/jnt_finger_2_2_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_2_1_R/jnt_finger_2_2_R/jnt_finger_2_3_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_3_1_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_3_1_R/jnt_finger_3_2_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_3_1_R/jnt_finger_3_2_R/jnt_finger_3_3_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_4_1_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_4_1_R/jnt_finger_4_2_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_4_1_R/jnt_finger_4_2_R/jnt_finger_4_3_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_5_1_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_5_1_R/jnt_finger_5_2_R
+    m_Weight: 1
+  - m_Path: master/jnt_root/jnt_spine_1/jnt_spine_2/jnt_spine_3/jnt_shoulder_R/jnt_armUpper_R/jnt_armLower_R/jnt_hand_R/jnt_finger_5_1_R/jnt_finger_5_2_R/jnt_finger_5_3_R
+    m_Weight: 1
