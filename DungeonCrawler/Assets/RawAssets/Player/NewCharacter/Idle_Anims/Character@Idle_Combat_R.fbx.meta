@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0f0880d1868d5e46ac7329111f99a07
+guid: d54a1221764dd7845929d21adac348fc
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -115,7 +115,7 @@ ModelImporter:
     400106: jnt_toes_L
     400108: jnt_toes_R
     400110: master
-    7400000: Idle_Combat
+    7400000: Idle_Combat_R
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -146,10 +146,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle_Combat
+      name: Idle_Combat_R
       takeName: clip_combatIdle
       firstFrame: 4.9
-      lastFrame: 64
+      lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
