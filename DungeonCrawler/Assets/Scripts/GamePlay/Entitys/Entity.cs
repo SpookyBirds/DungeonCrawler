@@ -59,7 +59,7 @@ public class Entity : InheritanceSimplyfier {
     /// Deal damage to this entity. Returns whether the attack delt damage
     /// </summary>
     /// <param name="damageToDeal">The amount of damage the attack delt this entity. Must be positive</param>
-    public bool TryToDamage(float damageToDeal, Substance attackedSubstance = Substance.none)
+    public bool TryToDamage(float damageToDeal, Substance attackedSubstance = Substance.none_physical)
     {
         SubstanceManager.ReactSubstances(infusedSubstance, attackedSubstance, transform);
 

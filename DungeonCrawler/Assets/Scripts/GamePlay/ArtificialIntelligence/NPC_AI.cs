@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(FieldOfView))]
@@ -8,8 +7,9 @@ using UnityEngine.AI;
 public class NPC_AI : InheritanceSimplyfier
 {
     [SerializeField]
+    protected Substance infusedSubstance;
+    [SerializeField]
     protected float damagePerHit;
-
     [SerializeField]
     private BoxCollider attackCollider;
     [SerializeField] [Space]
@@ -121,7 +121,21 @@ public class NPC_AI : InheritanceSimplyfier
 
         Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
-    } 
+    }
+
+    public void Freeze(float crystalDuration)
+    {
+        NavMeshAgent.isStopped = true;
+        Controller.Animator.speed = 0.000000000000000000000001f;
+
+        Invoke("UnFreeze", crystalDuration);
+    }
+
+    public void UnFreeze()
+    {
+        NavMeshAgent.isStopped = false;
+        Controller.Animator.speed = 1f;
+    }
 
     protected virtual bool CalculateAttackStart()
     {
@@ -130,15 +144,6 @@ public class NPC_AI : InheritanceSimplyfier
 
     public virtual void Attack()
     {
-        Collider[] colliderInAttackRange =
-            Physics.OverlapBox(attackCollider.bounds.center, attackCollider.bounds.extents);
-
-        for (int index = 0; index < colliderInAttackRange.Length; index++)
-        {
-            if (colliderInAttackRange[index].IsAnyTagEqual(Controller.EnemyTypes))
-            {
-                colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
-            }
-        }
+        CombatManager.ColliderAttackBox(attackCollider, damagePerHit, infusedSubstance, Controller.EnemyTypes);      
     }
 }

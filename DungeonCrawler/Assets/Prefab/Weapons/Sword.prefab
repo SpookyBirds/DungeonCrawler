@@ -194,4 +194,5 @@ MonoBehaviour:
     type: 3}
   chain_2_Attack: {fileID: 7400000, guid: 32595de6b15e8c545a91c312aefa4de2, type: 3}
   chain_3_Attack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407, type: 3}
+  attackingSubstance: 3
   damagePerHit: 30

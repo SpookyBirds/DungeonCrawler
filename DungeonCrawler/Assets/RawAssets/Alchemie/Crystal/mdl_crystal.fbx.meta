@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 37a0cc55da696d044802494f6129f7a2
+guid: e1ca60c88f0da7444a760063c3751dba
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: bronze
-    2100002: metal
-    2100004: essence
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: mesh_sword
+    4300000: mesh_crystall
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -67,7 +65,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

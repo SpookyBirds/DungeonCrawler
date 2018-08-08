@@ -24,7 +24,7 @@ public class FieldOfView : MonoBehaviour
 
         for (int index = 0; index < colliderInVisionRange.Length; index++)
         {
-            if (colliderInVisionRange[index].IsAnyTagEqual(enemyTypes))
+            if (colliderInVisionRange[index].IsAnyTag(enemyTypes))
             {
                 opponent = colliderInVisionRange[index].GetComponent<Entity>();
                 return true;
