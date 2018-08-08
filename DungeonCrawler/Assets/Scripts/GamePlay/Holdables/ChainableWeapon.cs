@@ -27,7 +27,7 @@ public class ChainableWeapon : Holdable {
 
     private bool Attack(Controller controller)
     {
-        return CombatManager.ColliderAttack(
+        return CombatManager.ColliderAttackBox(
             influenceCollider, damagePerHit, attackingSubstance, controller.EnemyTypes);
     }           
 }

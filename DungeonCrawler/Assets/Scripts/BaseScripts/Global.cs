@@ -17,7 +17,6 @@ public class Global : MonoBehaviour {
     public GameObject player;
     public GameObject emptyHandFist;
 
-
     private void Awake()
     {
         inst = this;

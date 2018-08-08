@@ -130,15 +130,6 @@ public class NPC_AI : InheritanceSimplyfier
 
     public virtual void Attack()
     {
-        Collider[] colliderInAttackRange =
-            Physics.OverlapBox(attackCollider.bounds.center, attackCollider.bounds.extents);
-
-        for (int index = 0; index < colliderInAttackRange.Length; index++)
-        {
-            if (colliderInAttackRange[index].IsAnyTagEqual(Controller.EnemyTypes))
-            {
-                colliderInAttackRange[index].GetComponent<Entity>().TryToDamage(damagePerHit);
-            }
-        }
+        CombatManager.ColliderAttackBox(attackCollider, damagePerHit, infusedSubstance, Controller.EnemyTypes);      
     }
 }

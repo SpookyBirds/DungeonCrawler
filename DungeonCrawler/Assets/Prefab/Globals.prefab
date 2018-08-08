@@ -53,7 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd64f7893f79bf640b2f76d7a1601e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effected: 14
   explosion: {fileID: 1565550796441414, guid: fbabb66b6b3848e4f85bab96f92a35b1, type: 2}
+  explosionRadius: 5
+  explosionDamage: 25
+  crystal: {fileID: 0}
+  crystalRadius: 0
+  crystalDuration: 0
 --- !u!114 &114783315941528104
 MonoBehaviour:
   m_ObjectHideFlags: 1

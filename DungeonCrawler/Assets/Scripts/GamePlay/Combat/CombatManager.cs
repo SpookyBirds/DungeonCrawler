@@ -2,11 +2,35 @@
 
 public class CombatManager : MonoBehaviour {
 
-    public static bool ColliderAttack(BoxCollider attackingCollider, float damagePerHit, Substance attackingSubstance, int[] enemyTypes)
-    {
-        Collider[] colliderInAttackRange =
-            Physics.OverlapBox(attackingCollider.bounds.center, attackingCollider.bounds.extents);
+    public static bool ColliderAttackBox(BoxCollider attackingCollider, float damagePerHit, Substance attackingSubstance, int[] enemyTypes)
+    {                                                                                             
+        return ApplyDamageToColliderCollection(
+            damagePerHit, 
+            attackingSubstance, 
+            enemyTypes,
+            Physics.OverlapBox(attackingCollider.bounds.center, attackingCollider.bounds.extents));
+    }
 
+    public static bool ColliderAttackSphere(SphereCollider attackingCollider, float damagePerHit, Substance attackingSubstance, int[] enemyTypes)
+    {
+        return ApplyDamageToColliderCollection(
+            damagePerHit, 
+            attackingSubstance, 
+            enemyTypes,
+            Physics.OverlapSphere(attackingCollider.transform.position, attackingCollider.radius));
+    }
+
+    public static bool ColliderAttackSphere(Vector3 center, float radius, float damagePerHit, Substance attackingSubstance, int[] enemyTypes)
+    {                                                  
+        return ApplyDamageToColliderCollection(
+            damagePerHit, 
+            attackingSubstance, 
+            enemyTypes,
+            Physics.OverlapSphere(center, radius));   
+    }
+
+    private static bool ApplyDamageToColliderCollection(float damagePerHit, Substance attackingSubstance, int[] enemyTypes, Collider[] colliderInAttackRange)
+    {
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
             if (colliderInAttackRange[ index ].IsAnyTagEqual(enemyTypes))
