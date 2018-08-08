@@ -10,9 +10,12 @@ public class Global : MonoBehaviour {
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
     public static string NeutralTag { get { return inst.neutralTag; } }
+    public static int[] Npcs { get; private set; }
 
     [SerializeField] [TagSelector] 
     private string neutralTag = "Neutral";
+    [SerializeField] [EnumFlags]
+    private Entities npcs;
     public Transform level;
     public GameObject player;
     public GameObject emptyHandFist;
@@ -50,6 +53,8 @@ public class Global : MonoBehaviour {
                 numberedTags.Add(index, entitiesNames[index]);
         }
         // </Setup the tag dictionary>
+
+        Npcs = GetSelectedEntries(npcs);
     }
 
     /// <summary>
@@ -102,7 +107,7 @@ public static class Extentions
     /// <summary>
     /// Checks if the tag on the current component is equal to any tags corresponding to an provided entities list
     /// </summary>
-    public static bool IsAnyTagEqual(this Component component, int[] entitiesEntries)
+    public static bool IsAnyTag(this Component component, int[] entitiesEntries)
     {
         for (int index = 0; index < entitiesEntries.Length; index++) 
         {

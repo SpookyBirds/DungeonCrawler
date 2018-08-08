@@ -58,8 +58,7 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 25
   crystal: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26, type: 2}
-  crystalRadius: 0
-  crystalDuration: 0
+  crystalDuration: 60
 --- !u!114 &114783315941528104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neutralTag: Neutral
+  npcs: 12
   level: {fileID: 0}
   player: {fileID: 0}
   emptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,

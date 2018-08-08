@@ -33,7 +33,7 @@ public class CombatManager : MonoBehaviour {
     {
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
-            if (colliderInAttackRange[ index ].IsAnyTagEqual(enemyTypes))
+            if (colliderInAttackRange[ index ].IsAnyTag(enemyTypes))
             {
                 colliderInAttackRange[ index ].GetComponent<Entity>().TryToDamage(damagePerHit, attackingSubstance);
                 return true;
@@ -68,7 +68,7 @@ public class CombatManager : MonoBehaviour {
         // Evaluate if the hit was an opponent for everyone, save it's distance if it was, save int.MaxValue if not
         for (int index = 0; index < hits.Length; index++)
         {
-            if (hits[ index ].collider.IsAnyTagEqual(ememyTypes) ||
+            if (hits[ index ].collider.IsAnyTag(ememyTypes) ||
                 hits[ index ].collider.IsTagNeutral())
             {
                 distancesToHit[ index ] = Vector3.Distance(hits[index].transform.position, shotStartingPosition);

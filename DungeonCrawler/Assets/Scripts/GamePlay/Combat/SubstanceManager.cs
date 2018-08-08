@@ -17,8 +17,6 @@ public class SubstanceManager : MonoBehaviour {
     [SerializeField]
     private GameObject crystal;
     [SerializeField]
-    private float crystalRadius;
-    [SerializeField]
     private float crystalDuration;
 
     public int[] Effected { get; protected set; }
@@ -83,7 +81,7 @@ public class SubstanceManager : MonoBehaviour {
 
     private static void Crystal_Green_Red(Transform reactionist)
     {
-        // Particles and collider instanziation
+        // Particles and instanziation
 
         ParticleSystem crystalParticles;
         if (reactionist.CompareTag(Global.NeutralTag)) 
@@ -98,7 +96,15 @@ public class SubstanceManager : MonoBehaviour {
         crystalParticles.Play();
         Destroy(crystalParticles.gameObject, inst.crystalDuration);
 
+        // Freezing
 
+        SphereCollider crystalArea = crystalParticles.GetComponent<SphereCollider>();
+        Collider[] frozenCollider = Physics.OverlapSphere(crystalArea.transform.position, crystalArea.radius);
+
+        for (int index = 0; index < frozenCollider.Length; index++)
+        {
+            if (frozenCollider[ index ].IsAnyTag(Global.Npcs))
+                frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(inst.crystalDuration);
+        }
     }
-
 }

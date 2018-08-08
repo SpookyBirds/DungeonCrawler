@@ -33968,7 +33968,7 @@ Prefab:
     - target: {fileID: 114299041676586884, guid: 0a3740b8873725f478151286ae45c528,
         type: 2}
       propertyPath: infusedSubstance
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a3740b8873725f478151286ae45c528, type: 2}
@@ -34246,6 +34246,11 @@ Prefab:
     - target: {fileID: 4515103787429820, guid: bc22669037630014e9cd9f7c58a1483e, type: 2}
       propertyPath: m_LocalScale.z
       value: 2.99239
+      objectReference: {fileID: 0}
+    - target: {fileID: 114529855400456448, guid: bc22669037630014e9cd9f7c58a1483e,
+        type: 2}
+      propertyPath: infusedSubstance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc22669037630014e9cd9f7c58a1483e, type: 2}

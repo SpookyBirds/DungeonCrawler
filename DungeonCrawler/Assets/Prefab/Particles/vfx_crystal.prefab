@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4922198512921376}
   - component: {fileID: 198371436629990242}
   - component: {fileID: 199496615204844654}
+  - component: {fileID: 135607813117321302}
   m_Layer: 0
   m_Name: vfx_crystal
   m_TagString: Untagged
@@ -35,12 +36,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1277275127605836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &135607813117321302
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277275127605836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.94
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198371436629990242
 ParticleSystem:
   m_ObjectHideFlags: 1
