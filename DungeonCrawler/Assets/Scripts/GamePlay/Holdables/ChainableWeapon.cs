@@ -5,7 +5,10 @@ public class ChainableWeapon : Holdable {
     public AnimationClip chain_2_Attack;
     public AnimationClip chain_3_Attack;
     [Space]
-    public float damagePerHit;
+    [SerializeField]
+    protected Substance attackingSubstance;
+    [SerializeField]
+    protected float damagePerHit;
 
     public float AttackRange { get { return influenceCollider.bounds.extents.z; } }
 
@@ -24,28 +27,7 @@ public class ChainableWeapon : Holdable {
 
     private bool Attack(Controller controller)
     {
-        Collider[] colliderInAttackRange =
-            Physics.OverlapBox(influenceCollider.bounds.center, influenceCollider.bounds.extents);
-
-        //Debug.Log("Start attack "+ colliderInAttackRange.Length);
-        for (int index = 0; index < colliderInAttackRange.Length; index++)
-        {
-            if (colliderInAttackRange[ index ].IsAnyTagEqual(controller.EnemyTypes))
-            {
-                DealDamage(colliderInAttackRange[ index ]);
-                return true;
-            }
-            else if(colliderInAttackRange[index].IsTagNeutral())
-            {
-                DealDamage(colliderInAttackRange[ index ]);
-            }
-        }
-
-        return false;
-    }
-
-    private void DealDamage(Collider collider)
-    {
-        collider.GetComponent<Entity>().TryToDamage(damagePerHit);
-    }              
+        return CombatManager.ColliderAttack(
+            influenceCollider, damagePerHit, attackingSubstance, controller.EnemyTypes);
+    }           
 }
