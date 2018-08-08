@@ -163,7 +163,7 @@ public enum EquipmentType
 
 public enum Substance
 {
-    none   = 0,
+    none_physical = 0,
     green  = 2,
     red    = 3,
     silber = 5

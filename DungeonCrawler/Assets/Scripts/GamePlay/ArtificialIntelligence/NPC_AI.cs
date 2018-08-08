@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(FieldOfView))]
@@ -8,8 +7,9 @@ using UnityEngine.AI;
 public class NPC_AI : InheritanceSimplyfier
 {
     [SerializeField]
+    protected Substance infusedSubstance;
+    [SerializeField]
     protected float damagePerHit;
-
     [SerializeField]
     private BoxCollider attackCollider;
     [SerializeField] [Space]

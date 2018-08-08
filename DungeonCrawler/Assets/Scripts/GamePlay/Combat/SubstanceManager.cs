@@ -16,7 +16,7 @@ public class SubstanceManager : MonoBehaviour {
     {
         if (infusedSubstance == attackedSubstance)
             return;
-
+                 
         int reactionCombination = (int)infusedSubstance * (int)attackedSubstance;
 
         switch (reactionCombination)
@@ -40,13 +40,17 @@ public class SubstanceManager : MonoBehaviour {
 
     private static void Explosion_Red_Silver(Transform reactionLocation)
     {
+        // Particles
+
         ParticleSystem explosionParticles = Instantiate(
             inst.explosion, 
             reactionLocation.position, 
             Quaternion.identity, 
             inst.transform).GetComponent<ParticleSystem>();
         explosionParticles.Play();
-        Destroy(explosionParticles, explosionParticles.main.duration);
+        Destroy(explosionParticles.gameObject, explosionParticles.main.duration);
+
+        // Damage
     }
 
     private static void Smoke_Green_Silver(Transform reactionLocation)
