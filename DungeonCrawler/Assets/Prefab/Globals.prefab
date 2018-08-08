@@ -54,10 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effected: 14
-  explosion: {fileID: 1565550796441414, guid: fbabb66b6b3848e4f85bab96f92a35b1, type: 2}
+  explosion: {fileID: 1420210532776192, guid: d1d15a8dc4a7f6c4f89ed71c4f56b22d, type: 2}
   explosionRadius: 5
   explosionDamage: 25
-  crystal: {fileID: 0}
+  crystal: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26, type: 2}
   crystalRadius: 0
   crystalDuration: 0
 --- !u!114 &114783315941528104
