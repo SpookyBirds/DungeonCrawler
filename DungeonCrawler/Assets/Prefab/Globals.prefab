@@ -58,7 +58,7 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 25
   crystal: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26, type: 2}
-  crystalDuration: 60
+  crystalDuration: 20
 --- !u!114 &114783315941528104
 MonoBehaviour:
   m_ObjectHideFlags: 1
