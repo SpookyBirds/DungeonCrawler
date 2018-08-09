@@ -9,13 +9,14 @@ public class Global : MonoBehaviour {
 
     public static string[] tags;
     public static Dictionary<int, string> numberedTags;
+    public static string PlayerTag { get { return inst.playerTag; } }
     public static string NeutralTag { get { return inst.neutralTag; } }
     public static int[] Npcs { get; private set; }
 
     [SerializeField] [TagSelector] 
     private string neutralTag = "Neutral";
     [SerializeField] [TagSelector]
-    private static string PlayerTag;
+    private string playerTag = "Player";
     [SerializeField] [EnumFlags]
     private Entities npcs;
     public Transform level;

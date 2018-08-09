@@ -53,8 +53,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106051076031542}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.133089, y: 1.2393808, z: 0.2581116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4691076197628422}
@@ -101,7 +101,6 @@ MonoBehaviour:
   explosionRadius: 5
   explosionDamage: 25
   crystal: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26, type: 2}
-  crystalDuration: 20
 --- !u!114 &114569169280332656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neutralTag: Neutral
-  npcs: 12
+  playerTag: Player
+  npcs: 24
   level: {fileID: 0}
   player: {fileID: 0}
   emptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
