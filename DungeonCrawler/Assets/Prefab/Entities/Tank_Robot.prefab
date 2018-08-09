@@ -1401,7 +1401,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161513133926506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 14.441814, y: 1.7660487e-16, z: -7.953577}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4222784198733352}
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f558e830ce37c748b25a0ac9951795c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostileEntities: 4
+  hostileEntities: 12
   animator: {fileID: 95508481325458450}
 --- !u!114 &114203139699653228
 MonoBehaviour:
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 300
-  infusedSubstance: 0
+  infusedSubstance: 2
   healthbar: {fileID: 114203139699653228}
 --- !u!114 &114472327887919894
 MonoBehaviour:
@@ -1885,6 +1885,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionRadius: 28
+  eyes: {fileID: 4623181773147598}
+  obstacleEvadingAngles:
+  - -2
+  - -1
+  - 1
+  - 2
 --- !u!114 &114639038959730048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1911,7 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41615ef06f40b654db7ca0ff185fddd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infusedSubstance: 0
+  infusedSubstance: 3
   damagePerHit: 20
   attackCollider: {fileID: 65566510300016766}
   destinationOvershootDistance: 2

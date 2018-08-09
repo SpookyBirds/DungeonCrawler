@@ -12,7 +12,8 @@ public class NPC_AI : InheritanceSimplyfier
     protected float damagePerHit;
     [SerializeField]
     private BoxCollider attackCollider;
-    [SerializeField] [Space]
+    [Space]
+    [SerializeField] 
     private float destinationOvershootDistance = 2.5f;
 
     protected virtual float AttackRange { get { return attackCollider.bounds.extents.z; } }
