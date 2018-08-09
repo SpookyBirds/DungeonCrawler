@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(EquipmetHolder))]
@@ -77,6 +76,9 @@ public class ControllerPlayer : Controller {
             Animator.SetBool("GroundContact", IsGrounded);
         }
     }
+
+    private bool isFrozen;      
+    public bool IsFrozen { get { return isFrozen; } }
 
     /// <summary>
     /// The direction of the gravity, normalized
@@ -242,8 +244,16 @@ public class ControllerPlayer : Controller {
     private void HandleInputProcessing()
     {
         // Cache axis input
-        horizontalAxis = CTRLHub.inst.HorizontalAxis;
-        verticalAxis = CTRLHub.inst.VerticalAxis;
+        if (IsFrozen)
+        {
+            horizontalAxis = 0;
+            verticalAxis   = 0;
+        }
+        else
+        {
+            horizontalAxis = CTRLHub.inst.HorizontalAxis;
+            verticalAxis   = CTRLHub.inst.VerticalAxis;
+        }
 
         // Calculate inputed movement (direction and strength)
         inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
@@ -302,7 +312,8 @@ public class ControllerPlayer : Controller {
             normalizedGravity, out hit, maxSteppingHeight * 2f, groundingMask))
         {
             movementDirection = (hit.point - groundCheckHit.point).normalized;
-            if (movementDirection.y < 0) movementDirection.y = 0; // Deleting force downwards to account for edges and bumps
+            if (movementDirection.y < 0)
+                movementDirection.y = 0; // Deleting force downwards to account for edges and bumps
             return;
         }
 
@@ -316,7 +327,7 @@ public class ControllerPlayer : Controller {
     /// </summary>
     private void HandleJump()
     {
-        if (IsGrounded)
+        if (IsGrounded && (IsFrozen == false))
         {
             if (CTRLHub.inst.JumpDown)
             {
@@ -339,7 +350,8 @@ public class ControllerPlayer : Controller {
         isRolling = Animator.GetBool("IsRolling");
 
         if (isRolling == true &&
-            lastFrameIsRolling == false  )
+            lastFrameIsRolling == false  &&
+            IsFrozen == false)
         {
             ApplyForceInMovementDirection(rollingStrength, ForceMode.Impulse);
         }
@@ -358,7 +370,7 @@ public class ControllerPlayer : Controller {
     /// </summary>
     private void HandleMovement()  // Potential fix: making the collider actually bob
     {
-        if (isRolling)
+        if (isRolling || IsFrozen)
             return;
 
         if (verticalAxis > 0)
@@ -381,9 +393,22 @@ public class ControllerPlayer : Controller {
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
     }
+
+    /// <summary>
+    /// Halt player movement and inputs
+    /// </summary>
     public void Freeze(float duration)
     {
-        throw new NotImplementedException();
+        isFrozen = true;
+        Invoke("UnFreeze", duration);
+    }
+
+    /// <summary>
+    /// Removes freezed and resumes player movement and inputs
+    /// </summary>
+    public void UnFreeze()
+    {
+        isFrozen = false;
     }
 
     /// <summary>
