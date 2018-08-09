@@ -6927,7 +6927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  infusedSubstance: 0
+  infusedSubstance: 2
   healthDisplay: {fileID: 114956803437162680}
   healthbar: {fileID: 114364504461965886}
 --- !u!114 &114833862648252176
@@ -7081,7 +7081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a66282f550d66469f17a5ad5baaaff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostileEntities: 8
+  hostileEntities: 16
   animator: {fileID: 95000358309102872}
   maxForwardSpeed: 20
   maxBackSpeed: 16.5
