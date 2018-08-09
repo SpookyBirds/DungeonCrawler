@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 314d49ed5fc140a42916f5c3b70c2dc0
+guid: 4f0b4fe9ef6eb424c8f1376247f054ff
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Transport_Rail
   externalObjects: {}
   materials:
     importMaterials: 0
