@@ -19,9 +19,9 @@ TagManager:
   - PostProcessing
   - Ground
   - CameraBlock
+  - Player
   - 
-  - 
-  - 
+  - Default_nonPlayer
   - 
   - 
   - 

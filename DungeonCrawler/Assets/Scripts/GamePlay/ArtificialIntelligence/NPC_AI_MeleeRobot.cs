@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPC_AI_MeleeRobot : NPC_AI {
 
@@ -65,6 +62,13 @@ public class NPC_AI_MeleeRobot : NPC_AI {
 
     public void Run_Attack_Update()
     {
+        if (opponent == null || opponent.Health <= 0)
+        {
+            Debug.Log("Enemy is dead. Start relaxing again");
+            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            return;
+        }
+
         NavMeshAgent.isStopped = false;
 
         if (Controller.Animator.GetInteger("RunAttackState") == (int)RunAttackStates.Stun)

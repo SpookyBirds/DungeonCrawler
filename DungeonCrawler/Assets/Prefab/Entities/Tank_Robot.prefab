@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f558e830ce37c748b25a0ac9951795c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostileEntities: 6
+  hostileEntities: 4
   animator: {fileID: 95508481325458450}
 --- !u!114 &114203139699653228
 MonoBehaviour:
@@ -1855,6 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 300
+  infusedSubstance: 0
   healthbar: {fileID: 114203139699653228}
 --- !u!114 &114472327887919894
 MonoBehaviour:
@@ -1910,6 +1911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41615ef06f40b654db7ca0ff185fddd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infusedSubstance: 0
   damagePerHit: 20
   attackCollider: {fileID: 65566510300016766}
   destinationOvershootDistance: 2

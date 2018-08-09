@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542b29edb034ae24a8ca99753700b1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infusedSubstance: 0
   damagePerHit: 5
   attackCollider: {fileID: 65522762938627508}
   destinationOvershootDistance: 2.5
@@ -914,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 50
+  infusedSubstance: 0
   healthbar: {fileID: 114539194736253626}
 --- !u!114 &114729477912338542
 MonoBehaviour:
@@ -985,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f558e830ce37c748b25a0ac9951795c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostileEntities: 6
+  hostileEntities: 4
   animator: {fileID: 95792904395688876}
 --- !u!136 &136595802460354048
 CapsuleCollider:
