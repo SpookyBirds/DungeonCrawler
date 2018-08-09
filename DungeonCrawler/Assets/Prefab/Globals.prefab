@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd64f7893f79bf640b2f76d7a1601e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effected: 30
+  effected: 28
   explosion: {fileID: 1420210532776192, guid: d1d15a8dc4a7f6c4f89ed71c4f56b22d, type: 2}
   explosionRadius: 5
   explosionDamage: 25
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neutralTag: Neutral
   playerTag: Player
-  npcs: 12
+  npcs: 24
   level: {fileID: 0}
   player: {fileID: 0}
   emptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
