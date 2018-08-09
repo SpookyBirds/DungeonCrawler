@@ -96,11 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd64f7893f79bf640b2f76d7a1601e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effected: 14
+  effected: 30
   explosion: {fileID: 1420210532776192, guid: d1d15a8dc4a7f6c4f89ed71c4f56b22d, type: 2}
   explosionRadius: 5
   explosionDamage: 25
-  crystal: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26, type: 2}
+  crystalNonPlayer: {fileID: 1277275127605836, guid: 939e6e8dc5441d44d8e0dd08f6bd5a26,
+    type: 2}
+  crystalPlayer: {fileID: 1277275127605836, guid: 336f2f4f2b07d074786449bce4309a4c,
+    type: 2}
 --- !u!114 &114569169280332656
 MonoBehaviour:
   m_ObjectHideFlags: 1
