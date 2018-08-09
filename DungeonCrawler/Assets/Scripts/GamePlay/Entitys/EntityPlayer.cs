@@ -32,9 +32,4 @@ public class EntityPlayer : Entity {
         healthDisplay.text = "Health: " + Health;
     }
 
-    protected override void KillEntity()
-    {
-        Destroy(transform.gameObject);
-    }
-
 }
