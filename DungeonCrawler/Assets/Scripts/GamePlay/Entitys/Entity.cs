@@ -98,6 +98,7 @@ public enum Entities
 {
     None,
     Player,
+    Neutral,
     Friendly_NPC,
     Enemy_NPC
 }
