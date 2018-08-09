@@ -58,6 +58,10 @@ public class FieldOfView : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Raycast from the eye to the given opponent. Returns true if the opponent was seen
+    /// </summary>
+    /// <param name="angleFromMiddle">The euler angle by which the raycast is departed</param>
     private bool CanSeeOpponent(Entity opponent, float angleFromMiddle)
     {
         RaycastHit hit;
