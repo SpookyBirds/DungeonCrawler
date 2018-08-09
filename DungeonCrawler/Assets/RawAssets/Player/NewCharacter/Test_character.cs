@@ -32,8 +32,21 @@ public class Test_character : MonoBehaviour {
         anim.SetBool("shieldAttack", Input.GetKeyDown(KeyCode.Mouse0));
         //anim.SetBool("shieldBlock", Input.GetKey(KeyCode.Mouse0));
 
+        if (Input.GetKeyDown(KeyCode.Q))
+            leftHandWeaponSwap();
+    }
 
+    void leftHandWeaponSwap() {
 
+        if (anim.GetBool("shieldEquiped")) {
 
+            anim.SetBool("shieldEquiped", false);
+            anim.SetBool("gunEquiped", true);
+        }
+        else if (anim.GetBool("gunEquiped")) {
+
+            anim.SetBool("gunEquiped", false);
+            anim.SetBool("shieldEquiped", true);
+        }
     }
 }
