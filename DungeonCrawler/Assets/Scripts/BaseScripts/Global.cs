@@ -14,6 +14,8 @@ public class Global : MonoBehaviour {
 
     [SerializeField] [TagSelector] 
     private string neutralTag = "Neutral";
+    [SerializeField] [TagSelector]
+    private static string PlayerTag;
     [SerializeField] [EnumFlags]
     private Entities npcs;
     public Transform level;
