@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23343841712621140}
   - component: {fileID: 65922706125235956}
   - component: {fileID: 114529855400456448}
+  - component: {fileID: 208749555044861822}
   m_Layer: 10
   m_Name: KillableCube
   m_TagString: Neutral
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061306123984746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.950005, y: 1.5, z: -18.28}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.99239, y: 2.99239, z: 2.99239}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,3 +111,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 2
   infusedSubstance: 5
+--- !u!208 &208749555044861822
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061306123984746}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

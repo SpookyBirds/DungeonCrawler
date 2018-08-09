@@ -60,28 +60,26 @@ public class FieldOfView : MonoBehaviour
 
     private bool CanSeeOpponent(Entity opponent, float angleFromMiddle)
     {
-        lastPos = eyes.position;
-        lastDir = Quaternion.Euler(0, angleFromMiddle, 0) * (opponent.transform.position - eyes.position);
-
         RaycastHit hit;
         if (Physics.Raycast(
             eyes.position, 
-            Quaternion.Euler(0, angleFromMiddle, 0) * (opponent.transform.position - eyes.position),
+            Quaternion.Euler(0, angleFromMiddle, 0) * ((opponent.transform.position + new Vector3(0, 1, 0)) - eyes.position),
             out hit, 
             visionRadius))
         {
+            Debug.Log("see me " + hit.transform.name + "  "+ opponent.transform.name + "  "+ hit.transform.Equals(opponent.transform));
             return hit.transform.Equals(opponent.transform);
         }
 
         return false;
     }
 
-    private Vector3 lastPos = Vector3.zero;
-    private Vector3 lastDir = Vector3.zero;
+    //private Vector3 lastPos = Vector3.zero;
+    //private Vector3 lastDir = Vector3.zero;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(lastPos, lastDir);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawRay(lastPos, lastDir);
+    //}
 }

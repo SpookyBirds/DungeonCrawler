@@ -63,7 +63,6 @@ public class Entity : InheritanceSimplyfier {
     {
         SubstanceManager.ReactSubstances(infusedSubstance, attackedSubstance, transform);
 
-
         if (damageToDeal < 0)
             return false;
 
