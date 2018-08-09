@@ -97,7 +97,6 @@ public class Entity : InheritanceSimplyfier {
 public enum Entities
 {
     None,
-    Neutral,
     Player,
     Friendly_NPC,
     Enemy_NPC
