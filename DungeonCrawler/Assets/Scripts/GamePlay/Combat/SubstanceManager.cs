@@ -4,7 +4,7 @@ public class SubstanceManager : MonoBehaviour {
 
     public static SubstanceManager inst;
 
-    [EnumFlags] [SerializeField] [Tooltip("All enemy types in hostility with this one")]
+    [EnumFlags] [SerializeField] [Tooltip("All entities that are affected by the substances")]
     private Entities effected;
     [Space]
     [SerializeField]
@@ -16,8 +16,6 @@ public class SubstanceManager : MonoBehaviour {
     [Space]
     [SerializeField]
     private GameObject crystal;
-    [SerializeField]
-    private float crystalDuration;
 
     public int[] Effected { get; protected set; }
 
@@ -94,7 +92,7 @@ public class SubstanceManager : MonoBehaviour {
             crystalParticles = Instantiate(inst.crystal, reactionist).GetComponent<ParticleSystem>();
         }
         crystalParticles.Play();
-        Destroy(crystalParticles.gameObject, inst.crystalDuration);
+        Destroy(crystalParticles.gameObject, crystalParticles.main.duration);
 
         // Freezing
 
@@ -104,7 +102,9 @@ public class SubstanceManager : MonoBehaviour {
         for (int index = 0; index < frozenCollider.Length; index++)
         {
             if (frozenCollider[ index ].IsAnyTag(Global.Npcs))
-                frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(inst.crystalDuration);
+                frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
+            else if (frozenCollider[ index ].CompareTag(Global.PlayerTag))
+                frozenCollider[ index ].GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
         }
     }
 }

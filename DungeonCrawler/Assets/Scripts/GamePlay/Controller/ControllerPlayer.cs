@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(EquipmetHolder))]
@@ -379,6 +380,10 @@ public class ControllerPlayer : Controller {
     private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
+    }
+    public void Freeze(float duration)
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
