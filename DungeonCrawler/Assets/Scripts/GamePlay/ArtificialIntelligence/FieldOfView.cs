@@ -67,7 +67,6 @@ public class FieldOfView : MonoBehaviour
             out hit, 
             visionRadius))
         {
-            Debug.Log("see me " + hit.transform.name + "  "+ opponent.transform.name + "  "+ hit.transform.Equals(opponent.transform));
             return hit.transform.Equals(opponent.transform);
         }
 
