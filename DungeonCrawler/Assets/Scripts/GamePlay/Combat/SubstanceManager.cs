@@ -15,7 +15,9 @@ public class SubstanceManager : MonoBehaviour {
     private float explosionDamage;
     [Space]
     [SerializeField]
-    private GameObject crystal;
+    private GameObject crystalNonPlayer;
+    [SerializeField]
+    private GameObject crystalPlayer;
 
     public int[] Effected { get; protected set; }
 
@@ -84,12 +86,16 @@ public class SubstanceManager : MonoBehaviour {
         ParticleSystem crystalParticles;
         if (reactionist.CompareTag(Global.NeutralTag)) 
         {
-            crystalParticles = Instantiate( inst.crystal, reactionist.position, Quaternion.identity, inst.transform)
+            crystalParticles = Instantiate( inst.crystalNonPlayer, reactionist.position, Quaternion.identity, inst.transform)
                 .GetComponent<ParticleSystem>();
+        }
+        else if (reactionist.CompareTag(Global.PlayerTag))
+        {
+            crystalParticles = Instantiate(inst.crystalPlayer, reactionist).GetComponent<ParticleSystem>();
         }
         else
         {
-            crystalParticles = Instantiate(inst.crystal, reactionist).GetComponent<ParticleSystem>();
+            crystalParticles = Instantiate(inst.crystalNonPlayer, reactionist).GetComponent<ParticleSystem>();
         }
         crystalParticles.Play();
         Destroy(crystalParticles.gameObject, crystalParticles.main.duration);
