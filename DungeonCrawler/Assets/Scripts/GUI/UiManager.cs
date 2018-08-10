@@ -15,6 +15,17 @@ public class UiManager : MonoBehaviour {
         }
     }
 
+    private bool inventoryUi = false;
+    private bool InventoryUi
+    {
+        get { return inventoryUi; }
+        set
+        {
+            inventoryUi = value;
+            cameraMovementController.InventoryUi = value;
+        }
+    }
+
     public GameObject pauseScreen;
     public GameObject characterScreen;
     public GameObject cameraStop;
@@ -24,35 +35,34 @@ public class UiManager : MonoBehaviour {
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GamePaused == false)
             {
                 GamePaused = true;
-                pauseScreen.SetActive(true);
-                characterScreen.SetActive(true);
-
-                
             }
             else if(GamePaused == true)
             {
                 GamePaused = false;
-                pauseScreen.SetActive(false);
-                characterScreen.SetActive(false);
-
             }
         }
          
-
-        //if (GamePaused == true)
-        //{
-        //    Time.timeScale = 0;
-        //}
-
-        //if (GamePaused == false)
-        //{
-        //    Time.timeScale = 1;
-        //}
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(InventoryUi == false)
+            {
+                InventoryUi = true;
+                pauseScreen.SetActive(true);
+                characterScreen.SetActive(true);
+            }
+            else
+            {
+                InventoryUi = false;
+                pauseScreen.SetActive(false);
+                characterScreen.SetActive(false);
+            }
+        }
+        
 
     }
 }
