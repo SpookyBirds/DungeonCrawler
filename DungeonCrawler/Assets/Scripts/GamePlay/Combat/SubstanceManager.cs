@@ -8,16 +8,27 @@ public class SubstanceManager : MonoBehaviour {
     private Entities effected;
     [Space]
     [SerializeField]
-    private GameObject explosion;
+    private GameObject explosionPrefab;
     [SerializeField]
     private float explosionRadius;
     [SerializeField]
     private float explosionDamage;
+    [SerializeField]
+    private float explosionDuration;
     [Space]
     [SerializeField]
-    private GameObject crystalNonPlayer;
+    private GameObject crystalNonPlayerPrefab;
     [SerializeField]
-    private GameObject crystalPlayer;
+    private float crystalDurationNonPlayer;
+    [SerializeField]
+    private GameObject crystalPlayerPrefab;
+    [SerializeField]
+    private float crystalDurationPlayer;
+    [Space]
+    [SerializeField]
+    private GameObject smokePrefab;
+    [SerializeField]
+    private float smokeDuration;
 
     public int[] Effected { get; protected set; }
 
@@ -58,12 +69,12 @@ public class SubstanceManager : MonoBehaviour {
         // Particles
 
         ParticleSystem explosionParticles = Instantiate(
-            inst.explosion, 
+            inst.explosionPrefab, 
             reactionLocation.position, 
             Quaternion.identity, 
             inst.transform).GetComponent<ParticleSystem>();
         explosionParticles.Play();
-        Destroy(explosionParticles.gameObject, explosionParticles.main.duration);
+        Destroy(explosionParticles.gameObject, inst.explosionDuration);
 
         // Damage
 
@@ -76,7 +87,16 @@ public class SubstanceManager : MonoBehaviour {
     }
 
     private static void Smoke_Green_Silver(Transform reactionLocation)
-    {
+    {             
+        // Particles
+
+        ParticleSystem smokeParticles = Instantiate(
+            inst.smokePrefab,
+            reactionLocation.position,
+            Quaternion.identity,
+            inst.transform).GetComponent<ParticleSystem>();
+        smokeParticles.Play();
+        Destroy(smokeParticles.gameObject, inst.smokeDuration);
     }
 
     private static void Crystal_Green_Red(Transform reactionist)
@@ -86,19 +106,21 @@ public class SubstanceManager : MonoBehaviour {
         ParticleSystem crystalParticles;
         if (reactionist.CompareTag(Global.NeutralTag)) 
         {
-            crystalParticles = Instantiate( inst.crystalNonPlayer, reactionist.position, Quaternion.identity, inst.transform)
+            crystalParticles = Instantiate( inst.crystalNonPlayerPrefab, reactionist.position, Quaternion.identity, inst.transform)
                 .GetComponent<ParticleSystem>();
+            Destroy(crystalParticles.gameObject, inst.crystalDurationNonPlayer);
         }
         else if (reactionist.CompareTag(Global.PlayerTag))
         {
-            crystalParticles = Instantiate(inst.crystalPlayer, reactionist).GetComponent<ParticleSystem>();
+            crystalParticles = Instantiate(inst.crystalPlayerPrefab, reactionist).GetComponent<ParticleSystem>();
+            Destroy(crystalParticles.gameObject, inst.crystalDurationPlayer);
         }
         else
         {
-            crystalParticles = Instantiate(inst.crystalNonPlayer, reactionist).GetComponent<ParticleSystem>();
+            crystalParticles = Instantiate(inst.crystalNonPlayerPrefab, reactionist).GetComponent<ParticleSystem>();
+            Destroy(crystalParticles.gameObject, inst.crystalDurationNonPlayer);
         }
         crystalParticles.Play();
-        Destroy(crystalParticles.gameObject, crystalParticles.main.duration);
 
         // Freezing
 
