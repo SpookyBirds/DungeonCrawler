@@ -1727,6 +1727,8 @@ MonoBehaviour:
   damagePerHit: 15
   attackCollider: {fileID: 65625807571724450}
   destinationOvershootDistance: 2.5
+  timeIntervallToUpdateNavDestinationInSeconds: 1
+  timeIntervallToCheckFieldOfViewInSeconds: 1
   destinationChargeOvershootDistance: 4
   proximityChargeHitDistance: 4
   stunTimeAfterChargeAttack: 1.75
