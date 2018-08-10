@@ -24,17 +24,17 @@ public class Interactable : MonoBehaviour {
         // checks Distance between player and Interactable object!
         distance = Vector3.Distance(Global.inst.player.transform.position, InteractionTransform.position);
 
-            if( distance <= radius)
-            {
+        if (distance <= radius)
+        {
             // if player is in range of an object goes into function
-                OnRange();
-            }
+            OnRange();
+        }
 
-            if(distance >= radius)
-            {
+        if (distance >= radius)
+        {
             // if player is not in rage of an object goes into function
             OutRange();
-            }
+        }
     }
 
     public void OnRange()
