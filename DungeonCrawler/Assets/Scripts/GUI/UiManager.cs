@@ -37,29 +37,36 @@ public class UiManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GamePaused == false)
+            if(InventoryUi == false)
             {
-                GamePaused = true;
-            }
-            else if(GamePaused == true)
-            {
-                GamePaused = false;
+                if (GamePaused == false)
+                {
+                    GamePaused = true;
+                }
+                else if(GamePaused == true)
+                {
+                    GamePaused = false;
+                }
             }
         }
          
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if(InventoryUi == false)
+            if(GamePaused == false)
             {
+
+                if(InventoryUi == false)
+                {
                 InventoryUi = true;
                 pauseScreen.SetActive(true);
                 characterScreen.SetActive(true);
-            }
-            else
-            {
+                }
+                else
+                {
                 InventoryUi = false;
                 pauseScreen.SetActive(false);
                 characterScreen.SetActive(false);
+                }
             }
         }
         
