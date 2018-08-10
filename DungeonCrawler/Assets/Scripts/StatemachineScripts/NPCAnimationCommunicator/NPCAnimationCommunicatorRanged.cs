@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class NPCAnimationCommunicatorRanged : NPCAnimationCommunicator
+﻿public class NPCAnimationCommunicatorRanged : NPCAnimationCommunicator
 {
     private NPC_AI_Ranged ai_ranged;
     public new NPC_AI_Ranged AI
@@ -25,7 +21,8 @@ public class NPCAnimationCommunicatorRanged : NPCAnimationCommunicator
                 break;
 
             case States.Aggro_baseState:
-                fireEnter = AI.Idle_baseState_Enter;
+                fireEnter  = AI.Aggro_baseState_Enter;
+                fireUpdate = AI.Aggro_baseState_Update;
                 break;
 
             case States.Combat_Idle:

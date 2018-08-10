@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPCAnimationCommunicator : StateMachineBehaviour {
 
@@ -33,7 +30,8 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
                 fireEnter  = AI.Idle_baseState_Enter;
                 break;
             case States.Aggro_baseState:
-                fireEnter = AI.Idle_baseState_Enter;
+                fireEnter  = AI.Aggro_baseState_Enter;
+                fireUpdate = AI.Aggro_baseState_Update;
                 break;
             case States.Combat_Idle:
                 fireUpdate = AI.CombatIdle_Update;
@@ -54,14 +52,14 @@ public class NPCAnimationCommunicator : StateMachineBehaviour {
         fireEnter();
     }
 
-    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        fireExit();
-    }
-
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         fireUpdate();
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        fireExit();
     }
 
     public static void PlaceHolder() { }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class NPCAnimationCommunicatorMeleeRobot : NPCAnimationCommunicator {
+﻿public class NPCAnimationCommunicatorMeleeRobot : NPCAnimationCommunicator {
 
     private NPC_AI_MeleeRobot ai_melee;
     public new NPC_AI_MeleeRobot AI
@@ -24,7 +20,8 @@ public class NPCAnimationCommunicatorMeleeRobot : NPCAnimationCommunicator {
                 fireUpdate = AI.Idle_baseState_Update;
                 break;
             case States.Aggro_baseState:
-                fireEnter = AI.Idle_baseState_Enter;
+                fireEnter  = AI.Aggro_baseState_Enter;
+                fireUpdate = AI.Aggro_baseState_Update;
                 break;
             case States.Combat_Idle:
                 fireUpdate = AI.CombatIdle_Update;
