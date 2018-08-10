@@ -37,6 +37,9 @@ public abstract class Controller : InheritanceSimplyfier {
         protected set { enemyTypes = value; }
     }
 
+    private bool isFrozen;
+    public bool IsFrozen { get { return isFrozen; } }
+
     /// Entity facing directions
     public Vector3 ForwardDirection { get { return  transform.forward; } }
     public Vector3 LeftDirection    { get { return -transform.right;   } }
@@ -52,5 +55,21 @@ public abstract class Controller : InheritanceSimplyfier {
             Animator = GetComponentInChildren<Animator>();
     }
 
+    /// <summary>
+    /// Halt player movement and inputs
+    /// </summary>
+    public void Freeze(float duration)
+    {
+        isFrozen = true;
+        Invoke("UnFreeze", duration);
+    }
+
+    /// <summary>
+    /// Removes freezed and resumes player movement and inputs
+    /// </summary>
+    public void UnFreeze()
+    {
+        isFrozen = false;
+    }
 
 }

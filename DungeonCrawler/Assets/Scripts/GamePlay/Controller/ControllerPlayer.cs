@@ -77,16 +77,13 @@ public class ControllerPlayer : Controller {
         }
     }
 
-    private bool isFrozen;      
-    public bool IsFrozen { get { return isFrozen; } }
-
     /// <summary>
     /// The direction of the gravity, normalized
     /// </summary>
     private Vector3 normalizedGravity;
 
     /// <summary>
-    /// The controller responsible for moving the controller
+    /// The controller responsible for moving the camera
     /// </summary>
     private CameraMovementController cameraMovementController;
 
@@ -138,6 +135,7 @@ public class ControllerPlayer : Controller {
         EquipmetHolder = GetComponent<EquipmetHolder>();
         
         normalizedGravity = Physics.gravity.normalized;
+        
     }
 
     protected override void Start()  //TODO: Replace hardcoded string values
@@ -327,9 +325,10 @@ public class ControllerPlayer : Controller {
     /// </summary>
     private void HandleJump()
     {
-        if (IsGrounded && (IsFrozen == false))
+        if (IsGrounded)
         {
-            if (CTRLHub.inst.JumpDown)
+            if (CTRLHub.inst.JumpDown &&
+                IsFrozen == false)
             {
                 Rigid.AddForce(-normalizedGravity * maxJumpforce, ForceMode.Impulse);
                 airebornMovementDirection = movementDirection;
@@ -392,23 +391,6 @@ public class ControllerPlayer : Controller {
     private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
-    }
-
-    /// <summary>
-    /// Halt player movement and inputs
-    /// </summary>
-    public void Freeze(float duration)
-    {
-        isFrozen = true;
-        Invoke("UnFreeze", duration);
-    }
-
-    /// <summary>
-    /// Removes freezed and resumes player movement and inputs
-    /// </summary>
-    public void UnFreeze()
-    {
-        isFrozen = false;
     }
 
     /// <summary>

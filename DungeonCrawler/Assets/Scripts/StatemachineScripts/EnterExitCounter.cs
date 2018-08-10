@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackAbilityHandler : StateMachineBehaviour {
+public class EnterExitCounter : StateMachineBehaviour {
 
     [SerializeField]
     private string parameterName;
