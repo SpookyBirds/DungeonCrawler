@@ -55,6 +55,17 @@ public class CameraMovementController : MonoBehaviour
         }
     }
 
+    private bool inventoryUi;
+    public bool InventoryUi
+    {
+        get { return inventoryUi; }
+        set
+        {
+            inventoryUi = value;
+            HandleCursor(value);
+        }
+    }
+
     private float GetCurrentZoom { get { return MainCamera.localPosition.z; } }
 
 
@@ -95,10 +106,20 @@ public class CameraMovementController : MonoBehaviour
     {
         if (GamePaused == false)
         {
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Time.timeScale = 0f;
+        }
+        
+        if(GamePaused == false && InventoryUi == false)
+        {
             HandleCameraRotations();
             HandlePlayerDrivenZooming();
             HandleCameraCollision();
         }
+       
     }
 
     /// <summary>
