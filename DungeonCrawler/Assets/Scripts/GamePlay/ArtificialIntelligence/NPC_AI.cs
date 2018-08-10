@@ -16,6 +16,12 @@ public class NPC_AI : InheritanceSimplyfier
     [SerializeField] 
     private float destinationOvershootDistance = 2.5f;
 
+    [Space]
+    [SerializeField]
+    private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
+    [SerializeField]
+    private float timeIntervallToCheckFieldOfViewInSeconds = 1f;
+
     protected virtual float AttackRange { get { return attackCollider.bounds.extents.z; } }
     protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
     public Controller Controller { get; private set; }
@@ -23,7 +29,8 @@ public class NPC_AI : InheritanceSimplyfier
     protected NavMeshAgent NavMeshAgent { get; private set; }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
-    private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
+
+    private float elapsedTimeSinceLastFieldOfViewCheck = 0f;
 
     protected Entity opponent;
 
@@ -42,23 +49,48 @@ public class NPC_AI : InheritanceSimplyfier
             communicator.AI = this;
     }
 
-    public void Idle_baseState_Update()
-    {
-        if (FieldOfView.FindEnemy(Controller.EnemyTypes, out opponent))    //search for enemies
-        {
-            transform.LookAt(opponent.transform);
-            Controller.Animator.SetTrigger("AggroBaseStateSwitch");
-        }
-    }
-
     public void Idle_baseState_Enter()
     {
         Controller.Animator.ResetTrigger("IdleBaseStateSwitch");
     }
 
+    public void Idle_baseState_Update()
+    {
+        TryFindingAnOpponent();
+    }
+
+    private bool TryFindingAnOpponent()
+    {
+        if (FieldOfView.FindEnemy(Controller.EnemyTypes, out opponent))    //search for enemies
+        {
+            transform.LookAt(opponent.transform);
+            SwitchToAggroBaseState();
+            return true;
+        }
+        return false;
+    }
+
     public void Aggro_baseState_Enter()
     {
+        Debug.Log("heyyyyy!!");
         Controller.Animator.ResetTrigger("AggroBaseStateSwitch");
+    }
+
+    public void Aggro_baseState_Update()
+    {
+        Debug.Log("gufsaaödsuocmshlnjgbdsvDC");
+
+        elapsedTimeSinceLastFieldOfViewCheck += Time.deltaTime;
+        if (elapsedTimeSinceLastFieldOfViewCheck >= timeIntervallToCheckFieldOfViewInSeconds)
+        {
+            elapsedTimeSinceLastFieldOfViewCheck -= timeIntervallToCheckFieldOfViewInSeconds;
+
+            Debug.Log("search " + TryFindingAnOpponent());
+            if (false == TryFindingAnOpponent())
+            {
+                SwitchToIdleBaseState();
+            }
+        }
     }
 
     public void CombatIdle_Update()
@@ -67,13 +99,22 @@ public class NPC_AI : InheritanceSimplyfier
         if (opponent == null || opponent.Health <= 0)
         {
             Debug.Log("Enemy is dead. Start relaxing again");
-            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            SwitchToIdleBaseState();
             return;
         }
 
         RunOrAttack();
     }
 
+    public void SwitchToIdleBaseState()
+    {
+        Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+    }
+
+    private void SwitchToAggroBaseState()
+    {
+        Controller.Animator.SetTrigger("AggroBaseStateSwitch");
+    }
 
     public void Run_Start()
     {
@@ -94,7 +135,8 @@ public class NPC_AI : InheritanceSimplyfier
                 return;
             }
 
-            NavMeshAgent.SetDestination(opponent.transform.position + ((opponent.transform.position - transform.position).normalized * destinationOvershootDistance));
+            NavMeshAgent.SetDestination(
+                opponent.transform.position + ((opponent.transform.position - transform.position).normalized * destinationOvershootDistance));
         }
 
         RunOrAttack();

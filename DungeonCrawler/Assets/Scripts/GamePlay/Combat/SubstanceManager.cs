@@ -38,7 +38,7 @@ public class SubstanceManager : MonoBehaviour {
         Effected = Global.GetSelectedEntries(effected);
     }
 
-    public static void ReactSubstances(Substance infusedSubstance, Substance attackedSubstance, Transform reactionLocation)
+    public static void ReactSubstances(Substance infusedSubstance, Substance attackedSubstance, Transform reactionist)
     {
         if (infusedSubstance == attackedSubstance)
             return;
@@ -51,26 +51,26 @@ public class SubstanceManager : MonoBehaviour {
             default: return;
 
             case 6: // green(2) and red(3)
-                Crystal_Green_Red(reactionLocation);
+                Crystal_Green_Red(reactionist);
                 break;
 
             case 10: // green(2) and silber(5)
-                Smoke_Green_Silver(reactionLocation);
+                Smoke_Green_Silver(reactionist);
                 break;
 
             case 15: // red(3) and silver(5)
-                Explosion_Red_Silver(reactionLocation);
+                Explosion_Red_Silver(reactionist);
                 break;
         }
     }
 
-    private static void Explosion_Red_Silver(Transform reactionLocation)
+    private static void Explosion_Red_Silver(Transform reactionist)
     {
         // Particles
 
         ParticleSystem explosionParticles = Instantiate(
             inst.explosionPrefab, 
-            reactionLocation.position, 
+            reactionist.position, 
             Quaternion.identity, 
             inst.transform).GetComponent<ParticleSystem>();
         explosionParticles.Play();
@@ -79,24 +79,27 @@ public class SubstanceManager : MonoBehaviour {
         // Damage
 
         CombatManager.ColliderAttackSphere(
-            reactionLocation.position, 
+            reactionist.position, 
             inst.explosionRadius, 
             inst.explosionDamage, 
             Substance.none_physical, 
             inst.Effected);
     }
 
-    private static void Smoke_Green_Silver(Transform reactionLocation)
+    private static void Smoke_Green_Silver(Transform reactionist)
     {             
         // Particles
 
         ParticleSystem smokeParticles = Instantiate(
             inst.smokePrefab,
-            reactionLocation.position,
+            reactionist.position,
             Quaternion.identity,
             inst.transform).GetComponent<ParticleSystem>();
         smokeParticles.Play();
         Destroy(smokeParticles.gameObject, inst.smokeDuration);
+
+        if (reactionist.IsAnyTag(Global.Npcs))
+            reactionist.GetComponent<NPC_AI>().SwitchToIdleBaseState();
     }
 
     private static void Crystal_Green_Red(Transform reactionist)

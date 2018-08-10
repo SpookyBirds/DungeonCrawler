@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class NPCAnimationCommunicatorTank : NPCAnimationCommunicator
+﻿public class NPCAnimationCommunicatorTank : NPCAnimationCommunicator
 {
     private NPC_AI_Tank ai_tank;
     public new NPC_AI_Tank AI
@@ -26,7 +21,8 @@ public class NPCAnimationCommunicatorTank : NPCAnimationCommunicator
                 break;
 
             case States.Aggro_baseState:
-                fireEnter = AI.Idle_baseState_Enter;
+                fireEnter = AI.Aggro_baseState_Enter;
+                fireUpdate = AI.Aggro_baseState_Update;
                 break;
 
             case States.Combat_Idle:
