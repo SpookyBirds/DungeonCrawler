@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b22ffcb35019cf43a82d93d35a432d3
+guid: efe76b3a0146c094a8f07bcb91a79e6c
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -115,7 +115,7 @@ ModelImporter:
     400106: jnt_toes_L
     400108: jnt_toes_R
     400110: master
-    7400000: clip_combatIdle
+    7400000: Attack_Gun_R_Shoot
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -144,7 +144,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack_Gun_R_Shoot
+      takeName: clip_combatIdle
+      firstFrame: 4.9
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

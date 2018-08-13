@@ -140,9 +140,19 @@ public class Test_character : Controller {
 
         Animator.SetBool("jump", CTRLHub.inst.Jump);
         Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
-        Animator.SetBool("attackSword", CTRLHub.inst.RightAttackDown);
-        Animator.SetBool("gunAim", CTRLHub.inst.LeftAttack);
-        Animator.SetBool("gunShoot", CTRLHub.inst.LeftAttackUp);
+        if (!Animator.GetBool("weaponSwap"))
+        {
+            Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
+            Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
+            Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
+
+            Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
+            Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
+            Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
+        }
+        
+        
+        
         Animator.SetBool("shieldAttack", CTRLHub.inst.LeftAttackDown);
         //Animator.SetBool("shieldBlock", Input.GetKey(KeyCode.Mouse0));
     }
