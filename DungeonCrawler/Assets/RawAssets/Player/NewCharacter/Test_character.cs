@@ -150,11 +150,6 @@ public class Test_character : Controller {
             Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
             Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
         }
-        
-        
-        
-        Animator.SetBool("shieldAttack", CTRLHub.inst.LeftAttackDown);
-        //Animator.SetBool("shieldBlock", Input.GetKey(KeyCode.Mouse0));
     }
 
     /// <summary>
