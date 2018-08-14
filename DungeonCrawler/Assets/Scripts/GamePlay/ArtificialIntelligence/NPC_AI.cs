@@ -72,20 +72,16 @@ public class NPC_AI : InheritanceSimplyfier
 
     public void Aggro_baseState_Enter()
     {
-        Debug.Log("heyyyyy!!");
         Controller.Animator.ResetTrigger("AggroBaseStateSwitch");
     }
 
     public void Aggro_baseState_Update()
     {
-        Debug.Log("gufsaaödsuocmshlnjgbdsvDC");
-
         elapsedTimeSinceLastFieldOfViewCheck += Time.deltaTime;
         if (elapsedTimeSinceLastFieldOfViewCheck >= timeIntervallToCheckFieldOfViewInSeconds)
         {
             elapsedTimeSinceLastFieldOfViewCheck -= timeIntervallToCheckFieldOfViewInSeconds;
 
-            Debug.Log("search " + TryFindingAnOpponent());
             if (false == TryFindingAnOpponent())
             {
                 SwitchToIdleBaseState();

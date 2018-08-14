@@ -115,27 +115,45 @@ public class SubstanceManager : MonoBehaviour {
         }
         else if (reactionist.CompareTag(Global.PlayerTag))
         {
-            crystalParticles = Instantiate(inst.crystalPlayerPrefab, reactionist).GetComponent<ParticleSystem>();
+            crystalParticles = Instantiate(inst.crystalNonPlayerPrefab, inst.transform).GetComponent<ParticleSystem>();
+            TransformSync transformSync = crystalParticles.gameObject.AddComponent<TransformSync>() as TransformSync;
+            transformSync.SyncTransform = reactionist;
+
+            Physics.IgnoreCollision(reactionist.GetComponent<Collider>(), crystalParticles.GetComponent<Collider>());
+            reactionist.GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
+
             Destroy(crystalParticles.gameObject, inst.crystalDurationPlayer);
         }
         else
         {
-            crystalParticles = Instantiate(inst.crystalNonPlayerPrefab, reactionist).GetComponent<ParticleSystem>();
+            crystalParticles = Instantiate(inst.crystalNonPlayerPrefab, inst.transform).GetComponent<ParticleSystem>();
+            TransformSync transformSync = crystalParticles.gameObject.AddComponent<TransformSync>() as TransformSync;
+            transformSync.SyncTransform = reactionist;                                                       
+
+            Physics.IgnoreCollision(reactionist.GetComponent<Collider>(), crystalParticles.GetComponent<Collider>());
+            reactionist.GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
+
             Destroy(crystalParticles.gameObject, inst.crystalDurationNonPlayer);
         }
         crystalParticles.Play();
 
         // Freezing
 
-        SphereCollider crystalArea = crystalParticles.GetComponent<SphereCollider>();
+        SphereCollider crystalArea = crystalParticles.GetComponent<SphereCollider>();                                                                                                           
         Collider[] frozenCollider = Physics.OverlapSphere(crystalArea.transform.position, crystalArea.radius);
+
 
         for (int index = 0; index < frozenCollider.Length; index++)
         {
+            Debug.Log(frozenCollider[ index ].name);
+
             if (frozenCollider[ index ].IsAnyTag(Global.Npcs))
                 frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
             else if (frozenCollider[ index ].CompareTag(Global.PlayerTag))
+            {
                 frozenCollider[ index ].GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
+                Debug.Log("player freeze -1");
+            }
         }
     }
 }

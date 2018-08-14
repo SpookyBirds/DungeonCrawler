@@ -23,7 +23,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
     {
         if (opponent == null)
         {
-            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            SwitchToIdleBaseState();
             return;
         }
 
@@ -45,8 +45,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
     {
         if (opponent == null || opponent.Health <= 0)
         {
-            Debug.Log("Enemy is dead. Start relaxing again");
-            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            SwitchToIdleBaseState();
             return;
         }
 
@@ -64,8 +63,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
     {
         if (opponent == null || opponent.Health <= 0)
         {
-            Debug.Log("Enemy is dead. Start relaxing again");
-            Controller.Animator.SetTrigger("IdleBaseStateSwitch");
+            SwitchToIdleBaseState();
             return;
         }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Entity))]
 public abstract class Controller : InheritanceSimplyfier {
@@ -62,6 +60,7 @@ public abstract class Controller : InheritanceSimplyfier {
     {
         isFrozen = true;
         Invoke("UnFreeze", duration);
+        Debug.Log("Player frozen!");
     }
 
     /// <summary>
