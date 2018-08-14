@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31d8d728dbd562549812356eb64d005d
+guid: 02b52b7ec9173b746b41b1740223a28e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -115,7 +115,7 @@ ModelImporter:
     400106: jnt_toes_L
     400108: jnt_toes_R
     400110: master
-    7400000: Hand_L_Gun
+    7400000: Attack_Shield_L_Block_Hold
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -146,10 +146,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Hand_L_Gun
+      name: Attack_Shield_L_Block_Hold
       takeName: clip_combatIdle
       firstFrame: 4.9
-      lastFrame: 15
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
