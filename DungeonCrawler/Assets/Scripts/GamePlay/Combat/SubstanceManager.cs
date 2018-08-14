@@ -119,14 +119,14 @@ public class SubstanceManager : MonoBehaviour {
             transformSync.SyncTransform = reactionist;                                                       
             Physics.IgnoreCollision(reactionist.GetComponent<Collider>(), crystalParticles.GetComponent<Collider>());
 
+            reactionist.GetComponent<Controller>().Freeze(crystalParticles.main.duration);
+
             if (reactionist.CompareTag(Global.PlayerTag))
             {
-                reactionist.GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
                 Destroy(crystalParticles.gameObject, inst.crystalDurationPlayer);
             }
             else
             {
-                reactionist.GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
                 Destroy(crystalParticles.gameObject, inst.crystalDurationNonPlayer);
             }
         }
@@ -139,10 +139,7 @@ public class SubstanceManager : MonoBehaviour {
 
         for (int index = 0; index < frozenCollider.Length; index++)
         {
-            if (frozenCollider[ index ].IsAnyTag(Global.Npcs))
-                frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
-            else if (frozenCollider[ index ].CompareTag(Global.PlayerTag))
-                frozenCollider[ index ].GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
+            reactionist.GetComponent<Controller>().Freeze(crystalParticles.main.duration);
         }
     }
 }
