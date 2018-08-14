@@ -139,15 +139,10 @@ public class SubstanceManager : MonoBehaviour {
 
         for (int index = 0; index < frozenCollider.Length; index++)
         {
-            Debug.Log(frozenCollider[ index ].name);
-
             if (frozenCollider[ index ].IsAnyTag(Global.Npcs))
                 frozenCollider[ index ].GetComponent<NPC_AI>().Freeze(crystalParticles.main.duration);
             else if (frozenCollider[ index ].CompareTag(Global.PlayerTag))
-            {
                 frozenCollider[ index ].GetComponent<ControllerPlayer>().Freeze(crystalParticles.main.duration);
-                Debug.Log("player freeze -1");
-            }
         }
     }
 }
