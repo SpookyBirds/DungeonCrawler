@@ -5,43 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Cylinder
     100002: //RootNode
-    100004: OuterCircle4
-    100006: OuterCircle4.001
-    100008: OuterCircle4.002
-    100010: OuterCircle4.003
-    100012: OuterCircle4.004
-    100014: OuterCircle4.005
+    100004: OuterCircle4.003
     400000: Cylinder
     400002: //RootNode
-    400004: OuterCircle4
-    400006: OuterCircle4.001
-    400008: OuterCircle4.002
-    400010: OuterCircle4.003
-    400012: OuterCircle4.004
-    400014: OuterCircle4.005
-    2100000: No Name
-    2100002: Material.001
+    400004: OuterCircle4.003
+    2100000: Material.005
+    2100002: No Name
     2300000: Cylinder
-    2300002: OuterCircle4
-    2300004: OuterCircle4.001
-    2300006: OuterCircle4.002
-    2300008: OuterCircle4.003
-    2300010: OuterCircle4.004
-    2300012: OuterCircle4.005
+    2300002: OuterCircle4.003
     3300000: Cylinder
-    3300002: OuterCircle4
-    3300004: OuterCircle4.001
-    3300006: OuterCircle4.002
-    3300008: OuterCircle4.003
-    3300010: OuterCircle4.004
-    3300012: OuterCircle4.005
-    4300000: OuterCircle4.005
+    3300002: OuterCircle4.003
+    4300000: Cylinder
     4300002: OuterCircle4.003
-    4300004: OuterCircle4.002
-    4300006: OuterCircle4.001
-    4300008: OuterCircle4.004
-    4300010: OuterCircle4
-    4300012: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 0
