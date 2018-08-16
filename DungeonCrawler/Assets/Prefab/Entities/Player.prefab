@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 114415123993995522}
   - component: {fileID: 65621716649090170}
   - component: {fileID: 54577780776016558}
+  - component: {fileID: 114787649722571960}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1330,7 +1331,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192974156011144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4272673211968248}
@@ -2039,6 +2040,27 @@ MonoBehaviour:
   directionCheckingDistance: 0.25
   dropMovementForceWeakening: 0.5
   groundingCollider: {fileID: 65965062549277648}
+--- !u!114 &114787649722571960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192974156011144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d85f6ffeace99478c44067ead2a3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 1980403197781350, guid: 12a13f84b85b60642bdb320ca186513b,
+    type: 2}
+  gunPrefab: {fileID: 1971520336755670, guid: 2b88a852f05534445a19fde80e4d3be9, type: 2}
+  shieldPrefab: {fileID: 1376821266540166, guid: fb90bf2cc408b7043beaa19c6d3c9d11,
+    type: 2}
+  leftHoldableTransform: {fileID: 4326118141098724}
+  rightHoldableTransform: {fileID: 4368808264683800}
+  LeftHoldableNumber: 2
+  RightHoldableNumber: 1
+  animator: {fileID: 95819497606401932}
 --- !u!137 &137847845665858520
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

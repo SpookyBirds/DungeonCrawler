@@ -37,8 +37,6 @@ public class Test_character : Controller {
         "The higher this value the faster the speed drops")]
     private float dropMovementForceWeakening = 0.5f;
 
-    public UiManager manager;
-
     [SerializeField] [Tooltip("The collider used to check if the player touches the ground " +
         "(the collider is not actually used, only its values. " +
         "Make sure the center stays at the center of the transform, " +
@@ -135,7 +133,6 @@ public class Test_character : Controller {
 
     protected override void Update ()
     {
-        manager.Update();
         HandleInputProcessing();
         HandleGroundCheck();
         HandleMovementDirection();

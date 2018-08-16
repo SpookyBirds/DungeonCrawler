@@ -3,7 +3,16 @@ guid: e0d85f6ffeace99478c44067ead2a3a9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - swordPrefab: {fileID: 1980403197781350, guid: 12a13f84b85b60642bdb320ca186513b,
+      type: 2}
+  - gunPrefab: {fileID: 1971520336755670, guid: 2b88a852f05534445a19fde80e4d3be9,
+      type: 2}
+  - shieldPrefab: {fileID: 1376821266540166, guid: fb90bf2cc408b7043beaa19c6d3c9d11,
+      type: 2}
+  - leftHoldableTransform: {instanceID: 0}
+  - rightHoldableTransform: {instanceID: 0}
+  - animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
