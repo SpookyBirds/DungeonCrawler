@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f25a36c0ced4804fa4939bb1b417876
+guid: ea34b3e82224d4c46beb5c475978dc23
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -115,7 +115,7 @@ ModelImporter:
     400106: jnt_toes_L
     400108: jnt_toes_R
     400110: master
-    7400000: Attack_Shield_L_Distributer_R
+    7400000: clip_combatIdle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -144,35 +144,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Attack_Shield_L_Distributer_R
-      takeName: clip_combatIdle
-      firstFrame: 0
-      lastFrame: 5
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
