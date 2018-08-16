@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Entity))]
 public abstract class Controller : InheritanceSimplyfier {
@@ -38,7 +36,11 @@ public abstract class Controller : InheritanceSimplyfier {
     }
 
     private bool isFrozen;
-    public bool IsFrozen { get { return isFrozen; } }
+    public bool IsFrozen
+    {
+        get { return isFrozen; }
+        protected set { isFrozen = value; }
+    }
 
     /// Entity facing directions
     public Vector3 ForwardDirection { get { return  transform.forward; } }
@@ -58,18 +60,22 @@ public abstract class Controller : InheritanceSimplyfier {
     /// <summary>
     /// Halt player movement and inputs
     /// </summary>
-    public void Freeze(float duration)
+    public virtual void Freeze(float duration)
     {
-        isFrozen = true;
+        Animator.speed = 0.000000000000000000000001f;
+
+        IsFrozen = true;
         Invoke("UnFreeze", duration);
     }
 
     /// <summary>
     /// Removes freezed and resumes player movement and inputs
     /// </summary>
-    public void UnFreeze()
+    public virtual void UnFreeze()
     {
-        isFrozen = false;
+        Animator.speed = 1f;
+
+        IsFrozen = false;
     }
 
 }

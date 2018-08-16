@@ -177,3 +177,11 @@ public enum Substance
 }
 
 
+public enum SyncMode
+{
+    DontSync,
+    CurrentToOther,
+    OtherToCurrent
+}
+
+

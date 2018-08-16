@@ -5,7 +5,7 @@ using UnityEngine;
 public class UiManager : MonoBehaviour {
 
     private bool gamePaused = false;
-    private bool GamePaused
+    public bool GamePaused
     {
         get { return gamePaused; }
         set

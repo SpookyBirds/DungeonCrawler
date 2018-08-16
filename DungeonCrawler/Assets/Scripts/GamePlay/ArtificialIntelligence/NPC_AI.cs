@@ -26,7 +26,7 @@ public class NPC_AI : InheritanceSimplyfier
     protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
     public Controller Controller { get; private set; }
     private FieldOfView FieldOfView { get; set; }
-    protected NavMeshAgent NavMeshAgent { get; private set; }
+    public NavMeshAgent NavMeshAgent { get; private set; }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
 
@@ -72,20 +72,16 @@ public class NPC_AI : InheritanceSimplyfier
 
     public void Aggro_baseState_Enter()
     {
-        Debug.Log("heyyyyy!!");
         Controller.Animator.ResetTrigger("AggroBaseStateSwitch");
     }
 
     public void Aggro_baseState_Update()
     {
-        Debug.Log("gufsaaödsuocmshlnjgbdsvDC");
-
         elapsedTimeSinceLastFieldOfViewCheck += Time.deltaTime;
         if (elapsedTimeSinceLastFieldOfViewCheck >= timeIntervallToCheckFieldOfViewInSeconds)
         {
             elapsedTimeSinceLastFieldOfViewCheck -= timeIntervallToCheckFieldOfViewInSeconds;
 
-            Debug.Log("search " + TryFindingAnOpponent());
             if (false == TryFindingAnOpponent())
             {
                 SwitchToIdleBaseState();
@@ -164,21 +160,7 @@ public class NPC_AI : InheritanceSimplyfier
 
         Controller.Animator.SetBool("Run", !opponentIsInAttackRange);
         Controller.Animator.SetBool("Attack", opponentIsInAttackRange);
-    }
-
-    public void Freeze(float crystalDuration)
-    {
-        NavMeshAgent.isStopped = true;
-        Controller.Animator.speed = 0.000000000000000000000001f;
-
-        Invoke("UnFreeze", crystalDuration);
-    }
-
-    public void UnFreeze()
-    {
-        NavMeshAgent.isStopped = false;
-        Controller.Animator.speed = 1f;
-    }
+    }            
 
     protected virtual bool CalculateAttackStart()
     {
