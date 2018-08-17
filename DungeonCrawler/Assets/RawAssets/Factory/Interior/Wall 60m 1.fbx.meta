@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba04c09049fc63f4c9e810a323dba80d
+guid: fc37b4066baea144799bf8c44c1db6d3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -11,7 +11,7 @@ ModelImporter:
     4300000: Cube
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
