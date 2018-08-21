@@ -33,6 +33,7 @@ public class Smoke : MonoBehaviour {
     public void RemoveAfterTime(float smokeDuration)
     {
         Invoke("Remove", smokeDuration);
+        Debug.Log("invoked!");
     }
 
     private void Remove()
