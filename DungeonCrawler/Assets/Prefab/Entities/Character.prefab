@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4684546667408168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224263942174667154}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 222387102901697334}
   - component: {fileID: 114936616944147680}
   - component: {fileID: 114120396564217420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224224159141155822}
   - component: {fileID: 114416004774048046}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 224468499146004526}
   - component: {fileID: 222121313779485266}
   - component: {fileID: 114706981931311216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 224957718992064304}
   - component: {fileID: 222918047261231286}
   - component: {fileID: 114495402628531020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 222312220126197148}
   - component: {fileID: 114616627802630622}
   - component: {fileID: 114952736347451976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 224462279088602266}
   - component: {fileID: 222738816009025796}
   - component: {fileID: 114530414750480366}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 222965662737374160}
   - component: {fileID: 114449073662357910}
   - component: {fileID: 114090168707063914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 222370061640765646}
   - component: {fileID: 114525942474942070}
   - component: {fileID: 114765598955765592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 224469382550201594}
   - component: {fileID: 222286535309168970}
   - component: {fileID: 114021139416949650}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224977650997770740}
   - component: {fileID: 114377408510434980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4428624854409236}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224683385735850020}
   - component: {fileID: 114614918769126142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 222931295067375074}
   - component: {fileID: 114943766895384750}
   - component: {fileID: 114998144332951980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 224349350823486910}
   - component: {fileID: 222324868854460874}
   - component: {fileID: 114770781187922642}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 224529701496697994}
   - component: {fileID: 222779047200630976}
   - component: {fileID: 114801446308049192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 224987916728905094}
   - component: {fileID: 222646341131370374}
   - component: {fileID: 114054781313744138}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 222376945868400666}
   - component: {fileID: 114579005477346504}
   - component: {fileID: 114701087782921756}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4826941539532150}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 224348147153698464}
   - component: {fileID: 222605145551383938}
   - component: {fileID: 114603093230720118}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 222085025904249376}
   - component: {fileID: 114319184438518610}
   - component: {fileID: 114505449440894458}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224540957948783130}
   - component: {fileID: 114248224480488598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4202357140724366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_upperLeg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 4471162605002270}
   - component: {fileID: 114357090187528986}
   - component: {fileID: 114997376066396094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4966452186427268}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 222353841644661704}
   - component: {fileID: 114329407585158542}
   - component: {fileID: 114691926486292894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4471559688196764}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4166982735065508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4892545162131056}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BodyArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224532017523338808}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: AbsorptionValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4790304361777260}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LegArmorPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224192641491056910}
   - component: {fileID: 114193599296424746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224890929388770816}
   - component: {fileID: 114266180694321552}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EquipmentSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 224433737629091542}
   - component: {fileID: 222524481703562132}
   - component: {fileID: 114110745216876858}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4779973847257926}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_shoulder_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4748656726997572}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4662501952527202}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_toes_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 222262240438007476}
   - component: {fileID: 114623883570891862}
   - component: {fileID: 114694112538931764}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4980576306029912}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_shoulder_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657739074392000}
   - component: {fileID: 137759307865959756}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: mesh_character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 224684102898561078}
   - component: {fileID: 222572849241865338}
   - component: {fileID: 114703257931026436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 222949408605355144}
   - component: {fileID: 114381185425151114}
   - component: {fileID: 114948836924279476}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4289468232048022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224119029762515402}
   - component: {fileID: 114653404655585730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EquipmentSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 224849746316770474}
   - component: {fileID: 222564478168571806}
   - component: {fileID: 114656617875619272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4313375897737590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_lowerArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4056654331543688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4046977668867492}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_lowerLeg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +816,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4365539796375002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224368064734823784}
   - component: {fileID: 114838663620925624}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566409606607436}
   - component: {fileID: 65419419202195556}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224652796677373590}
   - component: {fileID: 114726551948734250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873751078108618}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 222345504618136466}
   - component: {fileID: 114399872301403106}
   - component: {fileID: 114944222742543950}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventoryBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 222725585721971924}
   - component: {fileID: 114975486290080644}
   - component: {fileID: 114179516878859078}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224365150471403734}
   - component: {fileID: 222866517320982908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventoryPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 222864605371194396}
   - component: {fileID: 114618804678104364}
   - component: {fileID: 114843476407090076}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4983655054036604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_upperArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4883600082868400}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_upperLeg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4621333433802692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,7 +1009,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4775185002047548}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 222438363867521754}
   - component: {fileID: 114701023150173290}
   - component: {fileID: 114659986868928716}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 114972804767800252}
   - component: {fileID: 114932536408429702}
   - component: {fileID: 114740936406416608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventoryCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 224545980702946726}
   - component: {fileID: 222346624187416784}
   - component: {fileID: 114024780183644394}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 224374349986252382}
   - component: {fileID: 222575935382453878}
   - component: {fileID: 114348834444518438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 222123944947527206}
   - component: {fileID: 114398573448787312}
   - component: {fileID: 114367577000458380}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4598318262652120}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 222882374835875674}
   - component: {fileID: 114354473986984048}
   - component: {fileID: 114192871309219584}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4216053448652864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CameraRotationCenterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 222023087296083616}
   - component: {fileID: 114656027341632822}
   - component: {fileID: 114151433414453032}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 224567655237116076}
   - component: {fileID: 222280950599854724}
   - component: {fileID: 114286214771781172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 222998505950678730}
   - component: {fileID: 114601392233715002}
   - component: {fileID: 114927788928144372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 222262542843758340}
   - component: {fileID: 114654387349827826}
   - component: {fileID: 114149719262825662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1232,13 +1232,30 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4277078981179810}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_upperArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1528756895043540
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224126835091615378}
+  - component: {fileID: 222591484525750476}
+  - component: {fileID: 114307108492778446}
+  m_Layer: 11
+  m_Name: BlindingOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1529093403054164
 GameObject:
   m_ObjectHideFlags: 1
@@ -1250,7 +1267,7 @@ GameObject:
   - component: {fileID: 222859490806210998}
   - component: {fileID: 114416924084690734}
   - component: {fileID: 114628598646384442}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,7 +1282,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4729096206669534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1299,7 @@ GameObject:
   - component: {fileID: 224904365624215172}
   - component: {fileID: 222794874335412342}
   - component: {fileID: 114335240242356864}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1299,7 +1316,7 @@ GameObject:
   - component: {fileID: 224136251591922612}
   - component: {fileID: 222877555541530334}
   - component: {fileID: 114364504461965886}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224596901866267442}
   - component: {fileID: 114865613963783038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,7 +1350,7 @@ GameObject:
   - component: {fileID: 222945931661442820}
   - component: {fileID: 114170560826290462}
   - component: {fileID: 114191877440199324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1367,7 @@ GameObject:
   - component: {fileID: 224241865123515640}
   - component: {fileID: 222313721426436312}
   - component: {fileID: 114486264811263610}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1385,7 @@ GameObject:
   - component: {fileID: 222933146165098266}
   - component: {fileID: 114773780912659308}
   - component: {fileID: 114046618626612608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1383,7 +1400,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4325389444108480}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1415,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4162668362085020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1430,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4100388197341842}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224163027822227222}
   - component: {fileID: 114436363478167872}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1445,7 +1462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224785175198748390}
   - component: {fileID: 114620361866053364}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EquipmentSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1477,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4293558331458480}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CameraRotationPitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1492,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4984803530902690}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1510,7 @@ GameObject:
   - component: {fileID: 222264022540583564}
   - component: {fileID: 114566165272481220}
   - component: {fileID: 114492897773525312}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224456248751071122}
   - component: {fileID: 114210161186178088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EquipmentSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1541,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4826417781284958}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1539,7 +1556,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4896943440551512}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1557,7 +1574,7 @@ GameObject:
   - component: {fileID: 222079557338471756}
   - component: {fileID: 114017692668952928}
   - component: {fileID: 114339720757667686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,7 +1589,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4748389575478864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1604,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4769880393416098}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1621,7 @@ GameObject:
   - component: {fileID: 224956837458118484}
   - component: {fileID: 222921015906099430}
   - component: {fileID: 114480095818297420}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: AbsorptionBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1636,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4488224345610894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_lowerLeg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1651,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4472673984288100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1666,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4915063936109950}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BodyArmorPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1666,7 +1683,7 @@ GameObject:
   - component: {fileID: 224198413413879350}
   - component: {fileID: 222627159030627540}
   - component: {fileID: 114238373972400278}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,7 +1699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224178184927551544}
   - component: {fileID: 114494347735093776}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1700,7 +1717,7 @@ GameObject:
   - component: {fileID: 222581397347922432}
   - component: {fileID: 114791848979734894}
   - component: {fileID: 114656613611408346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1718,7 +1735,7 @@ GameObject:
   - component: {fileID: 222512951422950636}
   - component: {fileID: 114762539946429044}
   - component: {fileID: 114815567135002780}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224529073905337568}
   - component: {fileID: 114511754809714368}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EquipmentSlot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,7 +1766,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4816228170960996}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1764,7 +1781,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4243326908737474}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +1796,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4149532844026544}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1813,7 @@ GameObject:
   - component: {fileID: 224856756359009168}
   - component: {fileID: 222489413552187998}
   - component: {fileID: 114775280800366004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1814,7 +1831,7 @@ GameObject:
   - component: {fileID: 222117743258424796}
   - component: {fileID: 114348764214257328}
   - component: {fileID: 114154550707381986}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,7 +1849,7 @@ GameObject:
   - component: {fileID: 222747034004983384}
   - component: {fileID: 114368830309056100}
   - component: {fileID: 114515427728189326}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1867,7 @@ GameObject:
   - component: {fileID: 20017674654151874}
   - component: {fileID: 81125205012868072}
   - component: {fileID: 114488224673309696}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1865,7 +1882,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4988340181794190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1899,7 @@ GameObject:
   - component: {fileID: 224365027084479074}
   - component: {fileID: 222362562831028454}
   - component: {fileID: 114859759838704186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1897,7 +1914,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4129606498503954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_toes_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1912,7 +1929,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4329186438226776}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LegArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1944,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4394928848878488}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,7 +1959,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4998623336641316}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holdable_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1957,7 +1974,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4624855119126888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,7 +1992,7 @@ GameObject:
   - component: {fileID: 222880971567227582}
   - component: {fileID: 114269114425202488}
   - component: {fileID: 114310057683080142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1990,7 +2007,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4112191197277868}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: holdable_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2005,7 +2022,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4356898012357020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2023,7 +2040,7 @@ GameObject:
   - component: {fileID: 222897555321731230}
   - component: {fileID: 114295818101793168}
   - component: {fileID: 114932476321610120}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2040,7 +2057,7 @@ GameObject:
   - component: {fileID: 224397909592300080}
   - component: {fileID: 222461131265232778}
   - component: {fileID: 114039136326282438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2055,7 +2072,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4671279549295142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2073,7 +2090,7 @@ GameObject:
   - component: {fileID: 222936163352132074}
   - component: {fileID: 114751523436143636}
   - component: {fileID: 114962705843053820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,7 +2105,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4098325682245036}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ToolPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2106,7 +2123,7 @@ GameObject:
   - component: {fileID: 222157128786683434}
   - component: {fileID: 114755878054769282}
   - component: {fileID: 114451372429060650}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2121,7 +2138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4330137828174682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4564676353414360}
   - component: {fileID: 114833862648252176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CameraRotatorYaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2155,7 +2172,7 @@ GameObject:
   - component: {fileID: 223584627472527252}
   - component: {fileID: 114556842715415408}
   - component: {fileID: 114262104118490938}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: equpmentCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2190,7 @@ GameObject:
   - component: {fileID: 222580497362181426}
   - component: {fileID: 114332344095949474}
   - component: {fileID: 114880274871011244}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2188,7 +2205,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4308738148407894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_lowerArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2206,7 +2223,7 @@ GameObject:
   - component: {fileID: 222687273428823074}
   - component: {fileID: 114753999548551552}
   - component: {fileID: 114608950116094456}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2223,7 +2240,7 @@ GameObject:
   - component: {fileID: 224653278052775248}
   - component: {fileID: 222678132765256424}
   - component: {fileID: 114567427381130634}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,7 +2265,7 @@ GameObject:
   - component: {fileID: 114858044274239516}
   - component: {fileID: 114912356483611194}
   - component: {fileID: 114727891688417596}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2264,7 +2281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224945205728442238}
   - component: {fileID: 114562455735789182}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2279,7 +2296,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4514126240636230}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2296,7 +2313,7 @@ GameObject:
   - component: {fileID: 224496691706340886}
   - component: {fileID: 222439327361958022}
   - component: {fileID: 114366606392355058}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: EquipmentBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2330,7 @@ GameObject:
   - component: {fileID: 224796711977108788}
   - component: {fileID: 222464118944063858}
   - component: {fileID: 114720872936506246}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2330,7 +2347,7 @@ GameObject:
   - component: {fileID: 224129652687868774}
   - component: {fileID: 222939431163899030}
   - component: {fileID: 114956803437162680}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: NumericalIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2346,7 +2363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224306506245496572}
   - component: {fileID: 114898867223760524}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: InventorySlot (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2361,7 +2378,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4550059005494814}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK_arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2379,7 +2396,7 @@ GameObject:
   - component: {fileID: 223600982091016952}
   - component: {fileID: 114084159655404798}
   - component: {fileID: 114237972121397134}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: PlayerGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2394,7 +2411,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4886335712820782}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_indexFinger_1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2409,7 +2426,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224163649674540794}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Equpmnt/Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2443,7 @@ GameObject:
   - component: {fileID: 224870497497424030}
   - component: {fileID: 222712144153195390}
   - component: {fileID: 114470073712478428}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2441,7 +2458,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4758325524913984}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2456,7 +2473,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4894863896927818}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,7 +2488,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224037581782691398}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Eqipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2488,7 +2505,7 @@ GameObject:
   - component: {fileID: 224351037651325782}
   - component: {fileID: 222798695937151702}
   - component: {fileID: 114528581204081052}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2503,7 +2520,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4891758124630118}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HelmetPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2518,7 +2535,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4799119769747706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_ringFinger_3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2533,7 +2550,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4617028546934486}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_thumb_1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2548,7 +2565,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4418378156908324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_pinkyFinger_1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2563,7 +2580,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4475691984929888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: IK_arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2578,7 +2595,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4415381153229252}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: jnt_middleFinger_3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2596,7 +2613,7 @@ GameObject:
   - component: {fileID: 222364378385885702}
   - component: {fileID: 114197269366377652}
   - component: {fileID: 114841043897431806}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4614,6 +4631,33 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &114307108492778446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528756895043540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 9977198fff68bac46a14880c088a8111, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6953,6 +6997,7 @@ MonoBehaviour:
   cameraCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 1536
+  blindingOverlay: {fileID: 114307108492778446}
 --- !u!114 &114838663620925624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8056,6 +8101,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1698241462949454}
+--- !u!222 &222591484525750476
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528756895043540}
 --- !u!222 &222605145551383938
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -8367,6 +8418,24 @@ RectTransform:
   m_AnchoredPosition: {x: -7.5, y: -4}
   m_SizeDelta: {x: 15, y: 14.999999}
   m_Pivot: {x: 0.49999997, y: 0.50000024}
+--- !u!224 &224126835091615378
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528756895043540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 30.575733, y: 30.575771, z: 30.575771}
+  m_Children: []
+  m_Father: {fileID: 224860608802763466}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224129652687868774
 RectTransform:
   m_ObjectHideFlags: 1
@@ -8667,7 +8736,7 @@ RectTransform:
   - {fileID: 224136251591922612}
   - {fileID: 224129652687868774}
   m_Father: {fileID: 224860608802763466}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9193,7 +9262,7 @@ RectTransform:
   - {fileID: 224987916728905094}
   - {fileID: 224956837458118484}
   m_Father: {fileID: 224860608802763466}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9624,7 +9693,7 @@ RectTransform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 224860608802763466}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9695,6 +9764,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 224126835091615378}
   - {fileID: 224263942174667154}
   - {fileID: 224532017523338808}
   - {fileID: 224796711977108788}

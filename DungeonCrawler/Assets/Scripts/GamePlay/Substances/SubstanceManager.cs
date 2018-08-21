@@ -2,6 +2,9 @@
 
 public class SubstanceManager : MonoBehaviour {
 
+    /// <summary>
+    /// Substance manager singleton instance
+    /// </summary>
     public static SubstanceManager inst;
 
     [EnumFlags] [SerializeField] [Tooltip("All entities that are affected by the substances")]
@@ -96,7 +99,7 @@ public class SubstanceManager : MonoBehaviour {
             Quaternion.identity,
             inst.transform).GetComponent<ParticleSystem>();
         smokeParticles.Play();
-        Destroy(smokeParticles.gameObject, inst.smokeDuration);
+        smokeParticles.transform.GetComponentInChildren<Smoke>().RemoveAfterTime(inst.smokeDuration);
 
         if (reactionist.IsAnyTag(Global.Npcs))
             reactionist.GetComponent<NPC_AI>().SwitchToIdleBaseState();

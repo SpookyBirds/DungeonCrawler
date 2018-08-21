@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UiManager : MonoBehaviour {
 
@@ -30,10 +28,11 @@ public class UiManager : MonoBehaviour {
     public GameObject characterScreen;
     public GameObject cameraStop;
 
-    public CameraMovementController cameraMovementController;
+    public CameraController cameraMovementController;
 
     public void Update()
     {
+        return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

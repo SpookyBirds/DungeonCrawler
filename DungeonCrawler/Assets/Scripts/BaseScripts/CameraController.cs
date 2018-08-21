@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraMovementController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private bool  verticalInvertCamera = true;
@@ -40,9 +37,13 @@ public class CameraMovementController : MonoBehaviour
     [SerializeField]
     private LayerMask cameraCollisionLayerMask;
 
+    [SerializeField]
+    private Image blindingOverlay;
+
     public Transform PitchRotation { get; private set; }
     public Transform MainCamera { get; private set; } 
     public Transform RotationCenterPoint { get; private set; }
+
 
     private bool gamePaused;
     public bool GamePaused
@@ -279,6 +280,17 @@ public class CameraMovementController : MonoBehaviour
             MainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
             crossHair.gameObject.SetActive(false);
         }
+    }
+
+
+    public void DoBlind()
+    {
+        blindingOverlay.gameObject.SetActive(true);
+    }
+
+    public void UndoBlind()
+    {
+        blindingOverlay.gameObject.SetActive(false);
     }
 }
 

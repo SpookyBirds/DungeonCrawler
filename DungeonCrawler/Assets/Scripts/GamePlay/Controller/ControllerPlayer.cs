@@ -85,7 +85,7 @@ public class ControllerPlayer : Controller {
     /// <summary>
     /// The controller responsible for moving the camera
     /// </summary>
-    private CameraMovementController cameraMovementController;
+    private CameraController cameraMovementController;
 
     /// <summary>
     /// Cache of the vertical input axis. Gets updated every frame (see 'Update()')
@@ -129,7 +129,7 @@ public class ControllerPlayer : Controller {
     {
         base.Awake();
 
-        cameraMovementController = GetComponentInChildren<CameraMovementController>();
+        cameraMovementController = GetComponentInChildren<CameraController>();
 
         Rigid = GetComponent<Rigidbody>();
         EquipmetHolder = GetComponent<EquipmetHolder>();
@@ -410,6 +410,16 @@ public class ControllerPlayer : Controller {
         cameraMovementController.SaveDirection();
         transform.LookAt(transform.position + cameraMovementController.GetStraightCameraDirection());
         cameraMovementController.RestoreDirection();
+    }
+
+    protected override void ApplyBlindEffect()
+    {
+        cameraMovementController.DoBlind();
+    }
+
+    protected override void RemoveBlindEffect()
+    {
+        cameraMovementController.UndoBlind();
     }
 
     //private void OnDrawGizmos()

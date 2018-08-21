@@ -64,7 +64,7 @@ public class Test_character : Controller {
     /// <summary>
     /// The controller responsible for moving the camera
     /// </summary>
-    private CameraMovementController cameraMovementController;
+    private CameraController cameraMovementController;
 
     /// <summary>
     /// Cache of the vertical input axis. Gets updated every frame (see 'Update()')
@@ -126,7 +126,7 @@ public class Test_character : Controller {
         base.Awake();
 
         Rigid = GetComponent<Rigidbody>();
-        cameraMovementController = GetComponentInChildren<CameraMovementController>();
+        cameraMovementController = GetComponentInChildren<CameraController>();
         normalizedGravity = Physics.gravity.normalized;
     }
 

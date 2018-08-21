@@ -5,5 +5,5 @@ using UnityEngine;
 public class PointerSupplier : MonoBehaviour {
 
     public Transform character;
-    public CameraMovementController cameraMovementController;
+    public CameraController cameraMovementController;
 }

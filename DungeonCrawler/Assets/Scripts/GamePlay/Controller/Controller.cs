@@ -5,6 +5,7 @@ public abstract class Controller : InheritanceSimplyfier {
 
     [EnumFlags] [SerializeField] [Tooltip("All enemy types in hostility with this one")]
     private Entities hostileEntities;
+
     public Entities HostileEntities
     {
         get { return hostileEntities; }
@@ -42,6 +43,24 @@ public abstract class Controller : InheritanceSimplyfier {
         protected set { isFrozen = value; }
     }
 
+    private int blindingCounter;
+    public bool IsBlind { get { return blindingCounter >= 0; } }
+    public int BlindingCounter
+    {
+        get { return blindingCounter; }
+        set
+        {
+            blindingCounter = value;
+
+            if (blindingCounter == 0)
+                RemoveBlindEffect();
+            else if (blindingCounter > 0)
+                ApplyBlindEffect();
+            else
+                BlindingCounter = 0;
+        }
+    }
+
     /// Entity facing directions
     public Vector3 ForwardDirection { get { return  transform.forward; } }
     public Vector3 LeftDirection    { get { return -transform.right;   } }
@@ -62,7 +81,7 @@ public abstract class Controller : InheritanceSimplyfier {
     /// </summary>
     public virtual void Freeze(float duration)
     {
-        Animator.speed = 0.000000000000000000000001f;
+        Animator.speed = 0.000000000000000001f;
 
         IsFrozen = true;
         Invoke("UnFreeze", duration);
@@ -78,4 +97,29 @@ public abstract class Controller : InheritanceSimplyfier {
         IsFrozen = false;
     }
 
+    /// <summary>
+    /// Used if entity is getting blinded. Increases an internal counter, which will apply the blinding effect if neccessary
+    /// </summary>
+    public void Blind()
+    {
+        BlindingCounter++;
+    }
+
+    /// <summary>
+    /// Used if entity stops getting blinded. Decreases an internal counter, which will remove the blinding effect if neccessary
+    /// </summary>
+    public void UnBlind()
+    {
+        BlindingCounter--;
+    }
+
+    /// <summary>
+    /// Applies the blinding effect. Don't call outside of the blindingCounter setter.
+    /// </summary>
+    protected virtual void ApplyBlindEffect() { }
+
+    /// <summary>
+    /// Removes the blinding effect. Don't call outside of the blindingCounter setter.
+    /// </summary>
+    protected virtual void RemoveBlindEffect() { }
 }
