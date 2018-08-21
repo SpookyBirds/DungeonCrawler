@@ -696,6 +696,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1192974156011144, guid: dfb9364d06f1da541a12b9ef041d50df,
     type: 2}
   m_PrefabInternal: {fileID: 937412837}
+--- !u!114 &780831889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 780831888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5e1ba472d18fd4e8d84a25a59e65e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1001
+  infusedSubstance: 0
+  healthDisplay: {fileID: 1536054783}
+  healthbar: {fileID: 462615282}
 --- !u!4 &780831893 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4427787476821406, guid: dfb9364d06f1da541a12b9ef041d50df,
