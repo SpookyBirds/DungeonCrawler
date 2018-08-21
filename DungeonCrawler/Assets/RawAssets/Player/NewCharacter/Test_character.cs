@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Test_character : Controller {
 
@@ -55,17 +56,19 @@ public class Test_character : Controller {
         }
     }
 
+    /// <summary>
+    /// The controller responsible for moving the camera
+    /// </summary>
+    private CameraMovementController CameraMovementController { get; set; }
+
     public Rigidbody Rigid { get; protected set; }
+
+    private HoldablesHandler HoldablesHandler { get; set; }
 
     /// <summary>
     /// The direction of the gravity, normalized
     /// </summary>
     private Vector3 normalizedGravity;
-
-    /// <summary>
-    /// The controller responsible for moving the camera
-    /// </summary>
-    private CameraMovementController cameraMovementController;
 
     /// <summary>
     /// Cache of the vertical input axis. Gets updated every frame (see 'Update()')
@@ -127,34 +130,58 @@ public class Test_character : Controller {
         base.Awake();
 
         Rigid = GetComponent<Rigidbody>();
-        cameraMovementController = GetComponentInChildren<CameraMovementController>();
+        CameraMovementController = GetComponentInChildren<CameraMovementController>();
+        HoldablesHandler = GetComponent<HoldablesHandler>();
         normalizedGravity = Physics.gravity.normalized;
     }
 
     protected override void Update ()
     {
         HandleInputProcessing();
+        HandleAttacks();
         HandleGroundCheck();
         HandleMovementDirection();
         HandleJump();
         HandleRolling();
+    }
 
-        Animator.SetBool("jump", CTRLHub.inst.Jump);
-        Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
-        if (!Animator.GetBool("weaponSwap"))
+    private void HandleAttacks()
+    {
+        if (Animator.GetBool("initializeAttackLeft"))
         {
-            Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
-            Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
-            Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
+            switch((HoldableType)Animator.GetInteger("itemHandLeft"))
+            {
+                default: return;
 
-            Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
-            Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
-            Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
+                case HoldableType.sword:
+                    HoldablesHandler.LeftEquiped.UseShort(this);
+                    break;
+
+                case HoldableType.gun:
+                    HoldablesHandler.LeftEquiped.UseShort(this);
+                    return;
+            }
+        }
+
+        if (Animator.GetBool("initializeAttackRight"))
+        {
+            switch ((HoldableType)Animator.GetInteger("itemHandRight"))
+            {
+                default: return;
+
+                case HoldableType.sword:
+                    HoldablesHandler.RightEquiped.UseShort(this);
+                    break;
+
+                case HoldableType.gun:
+                    HoldablesHandler.RightEquiped.UseShort(this);
+                    return;
+            }
         }
     }
 
     /// <summary>
-    /// Handling the caching of the input axis and the calculating of the planned movement
+    /// Handling the caching of the input axis, the calculating of the planned movement and setting the mecanim animator parameter 
     /// </summary>
     private void HandleInputProcessing()
     {
@@ -172,6 +199,21 @@ public class Test_character : Controller {
 
         // Calculate inputed movement (direction and strength)
         inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
+
+        /// Mecanim animator parameter setting
+
+        Animator.SetBool("jump", CTRLHub.inst.Jump);
+        Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
+        if (!Animator.GetBool("weaponSwap"))
+        {
+            Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
+            Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
+            Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
+
+            Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
+            Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
+            Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
+        }
     }
 
     /// <summary>
@@ -331,8 +373,8 @@ public class Test_character : Controller {
     /// </summary>
     private void SnapPlayerInCameraDirection()
     {
-        cameraMovementController.SaveDirection();
-        transform.LookAt(transform.position + cameraMovementController.GetStraightCameraDirection());
-        cameraMovementController.RestoreDirection();
+        CameraMovementController.SaveDirection();
+        transform.LookAt(transform.position + CameraMovementController.GetStraightCameraDirection());
+        CameraMovementController.RestoreDirection();
     }
 }

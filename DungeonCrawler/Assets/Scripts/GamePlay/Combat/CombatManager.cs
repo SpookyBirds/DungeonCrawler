@@ -53,7 +53,7 @@ public class CombatManager : MonoBehaviour {
         float maxReach, 
         float damage, 
         Substance ammunitionLoad,
-        int[] ememyTypes) 
+        int[] enemyTypes) 
     {
         // Get all collider in shoot distance
         RaycastHit[] hits = Physics.RaycastAll( shotStartingPosition, direction, maxReach);
@@ -68,7 +68,7 @@ public class CombatManager : MonoBehaviour {
         // Evaluate if the hit was an opponent for everyone, save it's distance if it was, save int.MaxValue if not
         for (int index = 0; index < hits.Length; index++)
         {
-            if (hits[ index ].collider.IsAnyTag(ememyTypes) ||
+            if (hits[ index ].collider.IsAnyTag(enemyTypes) ||
                 hits[ index ].collider.IsTagNeutral())
             {
                 distancesToHit[ index ] = Vector3.Distance(hits[index].transform.position, shotStartingPosition);
