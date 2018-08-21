@@ -1,25 +1,17 @@
 fileFormatVersion: 2
-guid: 21fb4b46a4143ef4aab1985c933c4d3e
+guid: 05ccd0e6569e192499d6dea6d5ced501
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: //RootNode
-    100004: OuterCircle4.003
-    400000: Cylinder
-    400002: //RootNode
-    400004: OuterCircle4.003
-    2100000: Material.005
-    2100002: No Name
-    2300000: Cylinder
-    2300002: OuterCircle4.003
-    3300000: Cylinder
-    3300002: OuterCircle4.003
-    4300000: Cylinder
-    4300002: OuterCircle4.003
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Door
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
