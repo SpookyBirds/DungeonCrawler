@@ -24,35 +24,33 @@ public class HoldablesHandler : MonoBehaviour {
     [Space]
 
     [SerializeField] [Tooltip("Number of the left Holdable in the enum")]
-    private int LeftHoldableNumber  = 2;
+    private HoldableType LeftHoldableType  = HoldableType.gun;
 
     [SerializeField] [Tooltip("Number of the right Holdable in the enum")]
-    private int RightHoldableNumber = 1;
+    private HoldableType RightHoldableType = HoldableType.sword;
 
     [Space]
 
     [SerializeField] [Tooltip("Drag Player Armature in here")]
     private Animator animator;
+    [SerializeField]
+    private Transform toolSnapingPoint;
 
-
-    private GameObject LeftHoldable;
-    private GameObject RightHoldable;
+    public Holdable LeftEquiped  { get; private set; }
+    public Holdable RightEquiped { get; private set; }
     
-    private GameObject holdablePrefab;
-
     void Awake ()
     {
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
-        animator.SetInteger("itemHandRight", RightHoldableNumber);
-        animator.SetInteger("itemHandLeft", LeftHoldableNumber);
-
-        InstantiateHoldable(LeftHoldable, LeftHoldableNumber, leftHoldableTransform);
-        InstantiateHoldable(RightHoldable, RightHoldableNumber, rightHoldableTransform);
+        animator.SetInteger("itemHandRight", (int)RightHoldableType);
+        animator.SetInteger("itemHandLeft",  (int)LeftHoldableType);
+        InstantiateLeftHoldable();
+        InstantialeRightHoldable();
     }
-	
-	void Update ()
+
+    void Update ()
     {
         SwapHoldable();
         animator.SetBool("weaponSwap", CTRLHub.inst.SwapHoldable);
@@ -64,61 +62,80 @@ public class HoldablesHandler : MonoBehaviour {
         {
             if (CTRLHub.inst.LeftAttackDown)
             {
-                LeftHoldableNumber = animator.GetInteger("itemHandLeft");
-                LeftHoldableNumber++;
+                LeftHoldableType = (HoldableType)animator.GetInteger("itemHandLeft");
+                LeftHoldableType++;
 
-                if (LeftHoldableNumber == System.Enum.GetValues(typeof(Holdable)).Length)
-                    LeftHoldableNumber = 0;
+                if ((int)LeftHoldableType == System.Enum.GetValues(typeof(HoldableType)).Length)
+                    LeftHoldableType = 0;
 
-                animator.SetInteger("itemHandLeft", LeftHoldableNumber);
+                animator.SetInteger("itemHandLeft", (int)LeftHoldableType);
 
-                if (leftHoldableTransform.childCount > 0)
-                {
-                    Destroy(leftHoldableTransform.GetChild(0).gameObject);
-                }
-                InstantiateHoldable(LeftHoldable, LeftHoldableNumber, leftHoldableTransform);
-                
+                Destroy(LeftEquiped.model.gameObject);
+                Destroy(LeftEquiped.gameObject);
+
+                InstantiateLeftHoldable();
+
             }
             else if (CTRLHub.inst.RightAttackDown)
             {
-                RightHoldableNumber = animator.GetInteger("itemHandRight");
-                RightHoldableNumber++;
+                RightHoldableType = (HoldableType)animator.GetInteger("itemHandRight");
+                RightHoldableType++;
                 
-                if (RightHoldableNumber == System.Enum.GetValues(typeof(Holdable)).Length)
-                    RightHoldableNumber = 0;
+                if ((int)RightHoldableType == System.Enum.GetValues(typeof(HoldableType)).Length)
+                    RightHoldableType = 0;
 
-                animator.SetInteger("itemHandRight", RightHoldableNumber);
+                animator.SetInteger("itemHandRight", (int)RightHoldableType);
 
-                if (rightHoldableTransform.childCount > 0)
-                {
-                    Destroy(rightHoldableTransform.GetChild(0).gameObject);
-                }
-                
-                InstantiateHoldable(RightHoldable, RightHoldableNumber, rightHoldableTransform);
+                Destroy(RightEquiped.model.gameObject);
+                Destroy(RightEquiped.gameObject);
+
+                InstantialeRightHoldable();
             }
         }  
     }
 
-    private void InstantiateHoldable(GameObject Holdable, int holdableNumber, Transform holdableTransform)
+
+    private void InstantialeRightHoldable()
     {
-        switch (holdableNumber)
+        RightEquiped = InstantiateHoldable(RightHoldableType, rightHoldableTransform);
+        RightEquiped.model.parent = rightHoldableTransform;
+    }
+
+    private void InstantiateLeftHoldable()
+    {
+        LeftEquiped = InstantiateHoldable(LeftHoldableType, leftHoldableTransform);
+        LeftEquiped.model.parent = leftHoldableTransform;
+    }
+
+    private Holdable InstantiateHoldable(HoldableType holdableType, Transform holdableTransform)
+    {
+        switch (holdableType)
         {
-            case 0: 
-                return;
-            case 1: holdablePrefab = swordPrefab; Holdable = Instantiate(holdablePrefab, holdableTransform.position, holdableTransform.rotation, holdableTransform);
-                return;
-            case 2: holdablePrefab = gunPrefab; Holdable = Instantiate(holdablePrefab, holdableTransform.position, holdableTransform.rotation, holdableTransform);
-                return;
-            case 3: holdablePrefab = shieldPrefab; Holdable = Instantiate(holdablePrefab, holdableTransform.position, holdableTransform.rotation, holdableTransform);
-                return;
+            case HoldableType.sword:
+                return InstantiateHoldableAndExtractScript( swordPrefab, holdableTransform);
+
+            case HoldableType.gun:
+                return InstantiateHoldableAndExtractScript( gunPrefab,   holdableTransform);
+
+            case HoldableType.shield:
+                return InstantiateHoldableAndExtractScript(shieldPrefab, holdableTransform);
+
+            default:
+                return InstantiateHoldableAndExtractScript(Global.inst.emptyHandFist, holdableTransform);
         }   
     }
 
-    public enum Holdable
+    private Holdable InstantiateHoldableAndExtractScript(GameObject weaponPrefab, Transform holdableTransform)
     {
-        none   = 0,
-        sword  = 1,
-        gun    = 2,
-        shield = 3,
+        return Instantiate( weaponPrefab, holdableTransform.position, holdableTransform.rotation, (toolSnapingPoint ?? transform))
+            .GetComponent<Holdable>();
     }
+}
+
+public enum HoldableType
+{
+    none = 0,
+    sword = 1,
+    gun = 2,
+    shield = 3,
 }

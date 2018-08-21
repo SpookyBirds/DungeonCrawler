@@ -5,6 +5,7 @@ using UnityEngine;
 public class MecanimBoolSetter : StateMachineBehaviour {
 
     [SerializeField] private string parameterNameOfBool;
+    [SerializeField] private bool   exitDeactivate = true;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
@@ -13,6 +14,7 @@ public class MecanimBoolSetter : StateMachineBehaviour {
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        animator.SetBool(parameterNameOfBool, false);
+        if(exitDeactivate)
+            animator.SetBool(parameterNameOfBool, false);
     }
 }
