@@ -13,6 +13,9 @@ public class Interactable : MonoBehaviour {
 
     public bool Interacted = false;
 
+    [SerializeField] [Tooltip("just for debugging")]
+    private bool displayCollider;
+
     public virtual void Interact()
     {
         //Debug.Log("Interacted with" + transform);
@@ -44,7 +47,6 @@ public class Interactable : MonoBehaviour {
             if(inRange && !Interacted)
             {
                 Interact();
-                Debug.Log("Interact!");
                 Interacted = true;
             }
     }
@@ -56,15 +58,22 @@ public class Interactable : MonoBehaviour {
         Interacted = false;
     }
 
+
+    
     private void OnDrawGizmosSelected()
     {
-        // shows gizmo in the editor for the pickup range
-        if (InteractionTransform == null)
+        if (displayCollider)
+        {   // shows gizmo in the editor for the pickup range
+            if (InteractionTransform == null)
             InteractionTransform = transform;
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(InteractionTransform.position, radius);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(InteractionTransform.position, radius);
+        }
     }
+
+
+    
 
 
 }

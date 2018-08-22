@@ -9,6 +9,10 @@ public class EntityPlayer : Entity {
     public Text healthDisplay;
     public Image healthbar;
 
+    public int greenSubstanceAmount;
+    public int redSubstanceAmount;
+    public int silverSubstanceAmount;
+
     public override float Health
     {
         get { return base.Health; }
