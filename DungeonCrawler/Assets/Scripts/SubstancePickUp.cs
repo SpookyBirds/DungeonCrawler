@@ -21,14 +21,14 @@ public class SubstancePickUp : MonoBehaviour {
     {
         if (other.CompareTag(Global.PlayerTag))
         {
-            FillPlayerSubstanceStorage(other);
-            Destroy(gameObject);
+            if (other.GetComponent<UISubstanceManager>().TryGainingSubstance(substance, restortionValue))
+                Destroy(gameObject);
         }
     }
 
     private void FillPlayerSubstanceStorage(Collider playerCollider)
     {
-        playerCollider.GetComponent<UISubstanceManager>().TryGainingSubstance(substance, restortionValue);
+        
     }
 
     private void OpticRotation()

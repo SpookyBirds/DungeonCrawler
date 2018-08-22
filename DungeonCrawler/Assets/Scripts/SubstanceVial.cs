@@ -18,6 +18,8 @@ public class SubstanceVial : MonoBehaviour {
         private set
         {
             currentAmount = Mathf.Clamp(value, 0, fillCapacity);
+            if (currentAmount == 0)
+                currentSubstance = Substance.none_physical;
             UpdateFillAmountDisplay();
         }
     }
@@ -28,11 +30,17 @@ public class SubstanceVial : MonoBehaviour {
     {
         get { return currentSubstance; }
 
-        private set
+        set
         {
             currentSubstance = value;
             UpdateSubstanceDisplay();
         }
+    }
+
+    private void Awake()
+    {
+        UpdateSubstanceDisplay();
+        UpdateFillAmountDisplay();
     }
 
     private void UpdateSubstanceDisplay()
@@ -42,7 +50,7 @@ public class SubstanceVial : MonoBehaviour {
 
     private void UpdateFillAmountDisplay()
     {
-        substanceBar.fillAmount = currentAmount / fillCapacity;
+        substanceBar.fillAmount = currentAmount / (float)fillCapacity;
     }
 
     public int TryToGainAmount(int amount)
@@ -56,7 +64,6 @@ public class SubstanceVial : MonoBehaviour {
             CurrentAmount = fillCapacity;
             return amount - (CurrentAmount - currentAmountBeforeAdding);
         }
-
 
         int finalFill = CurrentAmount += amount;
 

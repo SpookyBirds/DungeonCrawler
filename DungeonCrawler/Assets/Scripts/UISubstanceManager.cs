@@ -37,7 +37,7 @@ public class UISubstanceManager : MonoBehaviour {
     /// </summary>
     public bool TryUsingOrGainingSubstance(Substance substanceToUse, int amount)
     {
-        if (amount >= 0)
+        if (amount <= 0)
             return false;
 
         for (int index = 0; index < amountOfActiveVials; index++)
@@ -53,12 +53,14 @@ public class UISubstanceManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Tries to add given amount of given substance from it's vials. Returns true if the required amount was removed
+    /// Tries to add given amount of given substance from it's vials. Returns true if any amount was removed
     /// </summary>
     public bool TryGainingSubstance(Substance substanceToGain, int amount)
     {
-        if (amount >= 0)
+        if (amount <= 0)
             return false;
+
+        int startingAmount = amount;
 
         for (int index = 0; index < amountOfActiveVials; index++)
         {
@@ -69,7 +71,17 @@ public class UISubstanceManager : MonoBehaviour {
             }
         }
 
-        return false;
+        for (int index = 0; index < amountOfActiveVials; index++)
+        {
+            if (substanceVials[ index ].CurrentSubstance.Equals(Substance.none_physical))
+            {
+                substanceVials[ index ].CurrentSubstance = substanceToGain;
+                if ((amount = substanceVials[ index ].TryToGainAmount(amount)) == 0)
+                    return true;
+            }
+        }
+
+        return startingAmount != amount;
     }
 
     /// <summary>
