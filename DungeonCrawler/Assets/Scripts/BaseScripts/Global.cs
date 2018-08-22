@@ -179,7 +179,7 @@ public enum Substance
     none_physical = 0,
     green  = 2,
     red    = 3,
-    silber = 5
+    silver = 5
 }
 
 
