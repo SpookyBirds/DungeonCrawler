@@ -57,6 +57,7 @@ public class UISubstanceManager : MonoBehaviour {
     /// </summary>
     public bool TryGainingSubstance(Substance substanceToGain, int amount)
     {
+        Debug.Log("cTA: " + GetCurrentTotalAmount(substanceToGain));
         if (amount <= 0)
             return false;
 
@@ -81,6 +82,7 @@ public class UISubstanceManager : MonoBehaviour {
             }
         }
 
+        Debug.Log("sV" + startingAmount + ",   am " + amount);
         return startingAmount != amount;
     }
 

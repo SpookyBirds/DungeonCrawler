@@ -74,13 +74,6 @@ public class SubstanceVial : MonoBehaviour {
         if (amount <= 0)
             return 0;
 
-        int currentAmountBeforeAdding = CurrentAmount;
-        if((CurrentAmount += amount) > fillCapacity)
-        {
-            CurrentAmount = fillCapacity;
-            return amount - (CurrentAmount - currentAmountBeforeAdding);
-        }
-
         int finalFill = CurrentAmount += amount;
 
         if (finalFill <= fillCapacity)
@@ -107,6 +100,13 @@ public class SubstanceVial : MonoBehaviour {
         return -remainingAmount;
     }
 
-
+    /*
+        int currentAmountBeforeAdding = CurrentAmount;
+        if((CurrentAmount += amount) > fillCapacity)
+        {
+            CurrentAmount = fillCapacity;
+            return amount - (CurrentAmount - currentAmountBeforeAdding);
+        } 
+     */
 
 }
