@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class UISubstanceManager : MonoBehaviour {
 
@@ -15,7 +12,7 @@ public class UISubstanceManager : MonoBehaviour {
     private int silverSubstanceAmount = 100;
 
     [SerializeField]
-    private [] number;
+    private SubstanceVial[] number;
 
  
 }
