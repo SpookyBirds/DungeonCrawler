@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 54802989109495822}
   - component: {fileID: 65464410515999010}
   - component: {fileID: 135457263314658106}
+  - component: {fileID: 114263640524106644}
   m_Layer: 0
   m_Name: 'SilverCapsule '
   m_TagString: Untagged
@@ -112,8 +113,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1784965217672938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.382, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.91, y: 0.382, z: -1.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4918026199378694}
@@ -242,6 +243,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114263640524106644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1784965217672938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!114 &114633012331582326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,9 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76da8bab3e192c40a136f82b731c688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opticRotationAmount: 80
   restortionValue: 20
   substance: 5
+  opticRotationAmount: 80
 --- !u!135 &135457263314658106
 SphereCollider:
   m_ObjectHideFlags: 1

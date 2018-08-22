@@ -174,6 +174,7 @@ MonoBehaviour:
   InteractionTransform: {fileID: 4535515111246910}
   distance: 0
   Interacted: 0
+  displayCollider: 0
   Item: {fileID: 11400000, guid: 9fc65580845b4da4a9df58fe6815782e, type: 2}
 --- !u!114 &114450006661653460
 MonoBehaviour:
@@ -196,5 +197,5 @@ MonoBehaviour:
     type: 3}
   chain_2_Attack: {fileID: 7400000, guid: 32595de6b15e8c545a91c312aefa4de2, type: 3}
   chain_3_Attack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407, type: 3}
-  attackingSubstance: 3
+  attackingSubstance: 5
   damagePerHit: 30

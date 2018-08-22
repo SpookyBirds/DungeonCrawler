@@ -58,7 +58,7 @@ public class SubstanceVial : MonoBehaviour {
             case Substance.red:
                 substanceBar.material = Global.inst.SubstanceMaterial_Red;
                 break;
-            case Substance.silber:
+            case Substance.silver:
                 substanceBar.material = Global.inst.SubstanceMaterial_Silver;
                 break;
         }
