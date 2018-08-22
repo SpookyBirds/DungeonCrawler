@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SubstanceVial : MonoBehaviour {
@@ -20,7 +17,7 @@ public class SubstanceVial : MonoBehaviour {
 
         private set
         {
-            currentAmount = value;
+            currentAmount = Mathf.Clamp(value, 0, fillCapacity);
             UpdateFillAmountDisplay();
         }
     }
@@ -48,7 +45,7 @@ public class SubstanceVial : MonoBehaviour {
         substanceBar.fillAmount = currentAmount / fillCapacity;
     }
 
-    public int AddAmount(int amount)
+    public int TryToGainAmount(int amount)
     {
         if (amount <= 0)
             return 0;
@@ -60,16 +57,33 @@ public class SubstanceVial : MonoBehaviour {
             return amount - (CurrentAmount - currentAmountBeforeAdding);
         }
 
-        return 0;
+
+        int finalFill = CurrentAmount += amount;
+
+        if (finalFill <= fillCapacity)
+            return 0;
+
+        return finalFill - fillCapacity;
     }
 
-    public bool RemoveAmount(int amount)
+    /// <summary>
+    /// Tries to remove given amount from itself. Returns leftover if amount was more than available
+    /// </summary>
+    public int TryToRemoveAmount(int amount)
     {
         if (amount <= 0)
-            return false;
+            return 0;
 
-        return false;
+        int remainingAmount = CurrentAmount -= amount;
+
+        if (remainingAmount >= 0)
+        {
+            return 0;
+        }
+
+        return -remainingAmount;
     }
+
 
 
 }

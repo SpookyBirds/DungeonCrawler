@@ -6,7 +6,7 @@ public class NPC_AI_MeleeRobot : NPC_AI {
     [SerializeField] private float proximityChargeHitDistance = 4f;
     [SerializeField] private float stunTimeAfterChargeAttack = 4;
     [SerializeField] private float minDistanceToRunAttack = 10;
-    [SerializeField] [Tooltip("How much faster is the Robot supposed to be whilst the run attack")]
+    [SerializeField] [Tooltip("How much faster is the Robot supposed to be whilst run attacking")]
     private float speedIncreaseToRunAttack = 5;
 
     private Vector3 chargePosition;

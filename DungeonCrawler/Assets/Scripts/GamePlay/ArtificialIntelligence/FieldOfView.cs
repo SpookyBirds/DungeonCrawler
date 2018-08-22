@@ -69,8 +69,6 @@ public class FieldOfView : MonoBehaviour
     /// <param name="angleFromMiddle">The euler angle by which the raycast is departed</param>
     private bool CanSeeOpponent(Entity opponent, float angleFromMiddle)
     {
-        Debug.Log("what=");
-
         RaycastHit hit;
         if (Physics.Raycast(
             eyes.position, 
@@ -94,12 +92,9 @@ public class FieldOfView : MonoBehaviour
         visionRadius = standartVisionRadius;
     }
 
-    //private Vector3 lastPos = Vector3.zero;
-    //private Vector3 lastDir = Vector3.zero;
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.magenta;
-    //    Gizmos.DrawRay(lastPos, lastDir);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, visionRadius);
+    }
 }
