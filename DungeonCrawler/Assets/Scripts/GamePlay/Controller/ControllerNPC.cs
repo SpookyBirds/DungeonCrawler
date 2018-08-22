@@ -30,5 +30,16 @@ public class ControllerNPC : Controller {
         base.UnFreeze();
 
         NPC_AI.NavMeshAgent.isStopped = false;
-    }        
+    }
+
+    protected override void ApplyBlindEffect()
+    {
+        NPC_AI.FieldOfView.ApplyBlind();
+        NPC_AI.SwitchToIdleBaseState();
+    }
+
+    protected override void RemoveBlindEffect()
+    {
+        NPC_AI.FieldOfView.RemoveBlind();
+    }
 }

@@ -22,14 +22,13 @@ public class NPC_AI : InheritanceSimplyfier
     [SerializeField]
     private float timeIntervallToCheckFieldOfViewInSeconds = 1f;
 
+    public Controller Controller { get; private set; }
+    public FieldOfView FieldOfView { get; private set; }
+    public NavMeshAgent NavMeshAgent { get; private set; }
     protected virtual float AttackRange { get { return attackCollider.bounds.extents.z; } }
     protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
-    public Controller Controller { get; private set; }
-    private FieldOfView FieldOfView { get; set; }
-    public NavMeshAgent NavMeshAgent { get; private set; }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
-
     private float elapsedTimeSinceLastFieldOfViewCheck = 0f;
 
     protected Entity opponent;
@@ -67,6 +66,7 @@ public class NPC_AI : InheritanceSimplyfier
             SwitchToAggroBaseState();
             return true;
         }
+
         return false;
     }
 

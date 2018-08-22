@@ -3,17 +3,22 @@
 public class FieldOfView : MonoBehaviour
 {
     [SerializeField]
-    private float visionRadius;
+    private float standartVisionRadius = 10f;
+    [SerializeField]
+    private float blindedVisionRadius = 1f;
     [SerializeField]
     private Transform eyes;
     [SerializeField]
     private float[] obstacleEvadingAngles = { -2f, -1f, 1f, 2f };
 
     private NPC_AI aI;
+    private float visionRadius;
 
     private void Awake()
     {
         aI = GetComponent<NPC_AI>();
+
+        visionRadius = standartVisionRadius;
     }
 
     /// <summary>
@@ -64,6 +69,8 @@ public class FieldOfView : MonoBehaviour
     /// <param name="angleFromMiddle">The euler angle by which the raycast is departed</param>
     private bool CanSeeOpponent(Entity opponent, float angleFromMiddle)
     {
+        Debug.Log("what=");
+
         RaycastHit hit;
         if (Physics.Raycast(
             eyes.position, 
@@ -75,6 +82,16 @@ public class FieldOfView : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ApplyBlind()
+    {
+        visionRadius = blindedVisionRadius;
+    }
+
+    public void RemoveBlind()
+    {
+        visionRadius = standartVisionRadius;
     }
 
     //private Vector3 lastPos = Vector3.zero;
