@@ -23,6 +23,12 @@ public class Global : MonoBehaviour {
     public GameObject player;
     public GameObject emptyHandFist;
 
+    [Space]
+    public Material SubstanceMaterial_Default;
+    public Material SubstanceMaterial_Red;
+    public Material SubstanceMaterial_Green;
+    public Material SubstanceMaterial_Silver;
+
     private void Awake()
     {
         inst = this;
@@ -173,7 +179,7 @@ public enum Substance
     none_physical = 0,
     green  = 2,
     red    = 3,
-    silber = 5
+    silver = 5
 }
 
 

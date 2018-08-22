@@ -143,6 +143,12 @@ MonoBehaviour:
   player: {fileID: 0}
   emptyHandFist: {fileID: 1496475433398278, guid: 1a83a5af73b4c9b458ba18ddb539b6b8,
     type: 2}
+  SubstanceMaterial_Red: {fileID: 2100000, guid: bc3d4ffcd9eb09c4f91482f945bc4f93,
+    type: 2}
+  SubstanceMaterial_Green: {fileID: 2100000, guid: bcc80db302e9bd04c96d3d00edd023ea,
+    type: 2}
+  SubstanceMaterial_Silver: {fileID: 2100000, guid: 6123d9454414d5f42a20597180afd9b8,
+    type: 2}
 --- !u!114 &114833836451718828
 MonoBehaviour:
   m_ObjectHideFlags: 1
