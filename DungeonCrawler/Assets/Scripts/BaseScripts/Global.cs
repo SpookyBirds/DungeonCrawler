@@ -71,7 +71,6 @@ public class Global : MonoBehaviour {
     /// </summary>
     /// <typeparam name="TEnum">Has to be an enum</typeparam>
     /// <param name="selection">The enum instance using the "[EnumFlags]"</param>
-    /// <returns></returns>
     public static int[] GetSelectedEntries<TEnum>(TEnum selection) where TEnum : struct
     {
         if (!typeof(TEnum).IsEnum)

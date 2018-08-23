@@ -36,9 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4881697590298574}
-  - component: {fileID: 114171699347388380}
+  - component: {fileID: 114823620465413820}
+  - component: {fileID: 114281339569252242}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Gun_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +145,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745808976296812}
   m_Mesh: {fileID: 4300000, guid: 555bfd713f7901d4da7c8cb34a5630b1, type: 3}
---- !u!114 &114171699347388380
+--- !u!114 &114281339569252242
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -152,14 +153,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1710965930060578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7400f9d0cb20cd4d8340d3ae50d0181, type: 3}
+  m_Script: {fileID: 11500000, guid: 5da75073d52403646b4030c9f1e80ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  inRange: 0
+  InteractionTransform: {fileID: 4881697590298574}
+  distance: 0
+  Interacted: 0
+  displayCollider: 0
+  Item: {fileID: 11400000, guid: 844ac9b55d33fe148bc7beba7953b961, type: 2}
+--- !u!114 &114823620465413820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710965930060578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9702da93debca54a811490846f46ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   influenceCollider: {fileID: 0}
   model: {fileID: 4346948822257532}
-  maxReach: 10
-  damagePerHit: 10
+  transformationRotation: {x: 0, y: 0, z: 0}
+  transformationPosition: {x: 0, y: 0, z: 0}
+  animationClipLongAttack: {fileID: 7400000, guid: 9df9a2f3ebfacbb4da036182a4d01b2a,
+    type: 3}
+  animationClipShortAttack: {fileID: 7400000, guid: c03833dbc7060624fac608e9220f1c50,
+    type: 3}
+  maxReach: 20
+  damagePerHit: 20
   shotParticle: {fileID: 198009760946760724}
+  ammunitionLoad: 5
 --- !u!198 &198009760946760724
 ParticleSystem:
   m_ObjectHideFlags: 1

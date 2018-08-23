@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fist : Holdable
+public class Fist_old : Holdable_old
 {
     public override bool UseLong(Controller controller)
     {

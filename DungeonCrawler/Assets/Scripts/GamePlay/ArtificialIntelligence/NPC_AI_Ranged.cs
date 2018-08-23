@@ -97,19 +97,10 @@ public class NPC_AI_Ranged : NPC_AI {
 
     private void OnDrawGizmos()
     {
-        if (!showDebugRay)
-            return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(aimRotationPoint.position, aimRotationPoint.forward * AttackRange);
-    }
-
-    private enum ShootAttackStates
-    {
-        None,
-        Step,
-        Aim,
-        Charge,
-        Shoot,
+        if (showDebugRay)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawRay(aimRotationPoint.position, aimRotationPoint.forward * AttackRange);
+        }
     }
 }

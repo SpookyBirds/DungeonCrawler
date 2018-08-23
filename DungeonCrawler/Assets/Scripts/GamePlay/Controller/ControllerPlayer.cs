@@ -144,7 +144,7 @@ public class ControllerPlayer : Controller {
     {
         Animator.runtimeAnimatorController = AnimatorOverrideController;
 
-        bool isLeftChainable = EquipmetHolder.LeftHand is ChainableWeapon;
+        bool isLeftChainable = EquipmetHolder.LeftHand is ChainableWeapon_old;
         Animator.SetBool("IsLeftChainable", isLeftChainable);
         AnimatorOverrideController["DEFAULT_Chain_1_LeftUse_short" ] = EquipmetHolder.LeftHand.animationClipShortAttack;
         if (isLeftChainable)
@@ -154,13 +154,13 @@ public class ControllerPlayer : Controller {
         }
         AnimatorOverrideController["DEFAULT_LeftUse_long"  ] = EquipmetHolder.LeftHand.animationClipLongAttack;
 
-        bool isRightChainable = EquipmetHolder.RightHand is ChainableWeapon;
+        bool isRightChainable = EquipmetHolder.RightHand is ChainableWeapon_old;
         Animator.SetBool("IsRightChainable", isRightChainable);
         AnimatorOverrideController["DEFAULT_Chain_1_RightUse_short"] = EquipmetHolder.RightHand.animationClipShortAttack;
         if (isRightChainable)
         {
-            AnimatorOverrideController["DEFAULT_Chain_2_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_2_Attack;
-            AnimatorOverrideController["DEFAULT_Chain_3_RightUse_short"] = ((ChainableWeapon)EquipmetHolder.RightHand).chain_3_Attack;
+            AnimatorOverrideController["DEFAULT_Chain_2_RightUse_short"] = ((ChainableWeapon_old)EquipmetHolder.RightHand).chain_2_Attack;
+            AnimatorOverrideController["DEFAULT_Chain_3_RightUse_short"] = ((ChainableWeapon_old)EquipmetHolder.RightHand).chain_3_Attack;
         }
         AnimatorOverrideController["DEFAULT_RightUse_long" ] = EquipmetHolder.RightHand.animationClipLongAttack;
     }

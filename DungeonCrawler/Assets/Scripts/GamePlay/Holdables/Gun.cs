@@ -7,24 +7,10 @@ public class Gun : Holdable
     private float maxReach = 10;
     [SerializeField]
     private float damagePerHit = 10;
+    [SerializeField]
+    private ParticleSystem shotParticle;
 
     private PointerSupplier pointerSupplier;
-    public ParticleSystem shotParticle;
-
-    [SerializeField]
-    private Substance ammunitionLoad = Substance.none_physical;
-    
-    // Secures that only one shot is fired
-    private bool isAiming = false;
-    private bool IsAiming
-    {
-        get { return isAiming; }
-        set
-        {
-            isAiming = value;
-            StartAim(value);
-        }
-    }
 
     protected override void Awake()
     {
@@ -33,50 +19,32 @@ public class Gun : Holdable
         pointerSupplier = Camera.main.GetComponent<PointerSupplier>();
     }
 
-    public override bool UseLong(Controller controller)
+    public bool ShootFromHip(Substance substance, int[] enemyTypes)
     {
-        IsAiming = true;
-        return false;
-    }
-
-    public override void UpdateUse(Controller controller, bool quit)
-    {
-        if (quit)
-        {
-            if (IsAiming)
-            {
-                IsAiming = false;
-                CombatManager.Shoot(
-                    pointerSupplier.cameraMovementController.RotationCenterPoint.position,  
-                    Camera.main.ScreenPointToRay(Input.mousePosition).direction,
-                    maxReach,
-                    damagePerHit,
-                    ammunitionLoad,
-                    controller.EnemyTypes
-                );
-            }
-        }
-    }
-
-    public override bool UseShort(Controller controller)
-    {
+        ShotingParticles();
         return CombatManager.Shoot(
-            model.position, 
+            model.position,
             pointerSupplier.character.forward,
             maxReach,
             damagePerHit,
-            ammunitionLoad,
-            controller.EnemyTypes);
+            substance,
+            enemyTypes);
     }
 
-    private void StartAim(bool doAim)
+    public bool ShootAiming(Substance substance, int[] enemyTypes)
     {
-        pointerSupplier.cameraMovementController.ToggleCameraAimingPosition(doAim);
+        ShotingParticles();
+        return CombatManager.Shoot(
+                    pointerSupplier.cameraMovementController.RotationCenterPoint.position,
+                    Camera.main.ScreenPointToRay(Input.mousePosition).direction,
+                    maxReach,
+                    damagePerHit,
+                    substance,
+                    enemyTypes);
     }
 
     void ShotingParticles()
     {
-        //Starts spawning the particles when the player shoots
         shotParticle.Play();
     }
 
