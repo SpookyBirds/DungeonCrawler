@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ChainableWeapon : Holdable {
+public class ChainableWeapon_old : Holdable_old {
 
     public AnimationClip chain_2_Attack;
     public AnimationClip chain_3_Attack;

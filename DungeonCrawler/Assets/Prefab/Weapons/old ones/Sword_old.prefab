@@ -52,9 +52,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535515111246910}
-  - component: {fileID: 114462017316098546}
+  - component: {fileID: 114450006661653460}
+  - component: {fileID: 114236405140908448}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: Sword_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +158,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114462017316098546
+--- !u!114 &114236405140908448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -165,9 +166,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1720846641585188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536c412feaea97948a9f189e20886a9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5da75073d52403646b4030c9f1e80ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  inRange: 0
+  InteractionTransform: {fileID: 4535515111246910}
+  distance: 0
+  Interacted: 0
+  displayCollider: 0
+  Item: {fileID: 11400000, guid: 9fc65580845b4da4a9df58fe6815782e, type: 2}
+--- !u!114 &114450006661653460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720846641585188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003d1be121041ba4486c518645826048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   influenceCollider: {fileID: 65287539765380968}
   model: {fileID: 4761832807512490}
-  damagePerHit: 20
+  transformationRotation: {x: 0, y: 0, z: 0}
+  transformationPosition: {x: 0, y: 0, z: 0}
+  animationClipLongAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
+    type: 3}
+  animationClipShortAttack: {fileID: 7400000, guid: 1f25b8312b1fa2b4daa2e824011db551,
+    type: 3}
+  chain_2_Attack: {fileID: 7400000, guid: 32595de6b15e8c545a91c312aefa4de2, type: 3}
+  chain_3_Attack: {fileID: 7400000, guid: 6b85b55549b666a42a22a63c06c1c407, type: 3}
+  attackingSubstance: 5
+  damagePerHit: 30

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Test_character : Controller {
 
@@ -122,6 +123,14 @@ public class Test_character : Controller {
     /// </summary>
     private Vector3 airebornMovementDirection;
 
+    /// <summary>
+    /// Whether or not the player was aiming the last frame
+    /// </summary>
+    private bool wasAimingLastFrame;
+
+    public Substance leftHandSubstance;
+    public Substance rightHandSubstance;
+
     #endregion fields
 
     protected override void Awake()
@@ -137,6 +146,7 @@ public class Test_character : Controller {
     protected override void Update ()
     {
         HandleInputProcessing();
+        HandleAiming();
         HandleAttacks();
         HandleGroundCheck();
         HandleMovementDirection();
@@ -148,35 +158,59 @@ public class Test_character : Controller {
     {
         if (Animator.GetBool("initializeAttackLeft"))
         {
-            switch((HoldableType)Animator.GetInteger("itemHandLeft"))
+            Animator.SetBool("initializeAttackLeft", false);
+
+            switch ((HoldableType)Animator.GetInteger("itemHandLeft"))
             {
                 default: return;
 
                 case HoldableType.sword:
-                    HoldablesHandler.LeftEquiped.UseShort(this);
+                    (HoldablesHandler.LeftEquiped as Sword).Attack(leftHandSubstance, EnemyTypes);
                     break;
 
                 case HoldableType.gun:
-                    HoldablesHandler.LeftEquiped.UseShort(this);
+                    (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(leftHandSubstance, EnemyTypes);
                     return;
             }
         }
 
         if (Animator.GetBool("initializeAttackRight"))
         {
+            Animator.SetBool("initializeAttackRight", false);
+
             switch ((HoldableType)Animator.GetInteger("itemHandRight"))
             {
                 default: return;
 
                 case HoldableType.sword:
-                    HoldablesHandler.RightEquiped.UseShort(this);
+                    (HoldablesHandler.RightEquiped as Sword).Attack(rightHandSubstance, EnemyTypes);
                     break;
 
                 case HoldableType.gun:
-                    HoldablesHandler.RightEquiped.UseShort(this);
+                    (HoldablesHandler.RightEquiped as Gun).ShootFromHip(rightHandSubstance, EnemyTypes);
                     return;
             }
         }
+    }
+
+    private void HandleAiming()
+    {
+        bool isAiming = Animator.GetInteger("isAiming") != 0;
+
+        if(isAiming != wasAimingLastFrame)
+        {
+            ToggleAim(isAiming);
+        }
+
+        wasAimingLastFrame = isAiming;
+    }
+
+    /// <summary>
+    /// Toggle aiming. Pass true to activate and false to deactivate
+    /// </summary>
+    private void ToggleAim(bool toggle)
+    {
+        CameraController.ToggleCameraAimingPosition(toggle);
     }
 
     /// <summary>

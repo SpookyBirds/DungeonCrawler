@@ -99,12 +99,14 @@ public class HoldablesHandler : MonoBehaviour {
     {
         RightEquiped = InstantiateHoldable(RightHoldableType, rightHoldableTransform);
         RightEquiped.model.parent = rightHoldableTransform;
+        RightEquiped.model.rotation = rightHoldableTransform.rotation;
     }
 
     private void InstantiateLeftHoldable()
     {
         LeftEquiped = InstantiateHoldable(LeftHoldableType, leftHoldableTransform);
         LeftEquiped.model.parent = leftHoldableTransform;
+        LeftEquiped.model.rotation = leftHoldableTransform.rotation;
     }
 
     private Holdable InstantiateHoldable(HoldableType holdableType, Transform holdableTransform)
@@ -127,7 +129,7 @@ public class HoldablesHandler : MonoBehaviour {
 
     private Holdable InstantiateHoldableAndExtractScript(GameObject weaponPrefab, Transform holdableTransform)
     {
-        return Instantiate( weaponPrefab, holdableTransform.position, holdableTransform.rotation, (toolSnapingPoint ?? transform))
+        return Instantiate( weaponPrefab, holdableTransform.position, Quaternion.identity, (toolSnapingPoint ?? transform))
             .GetComponent<Holdable>();
     }
 }
