@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 65504742178293162}
   - component: {fileID: 135853197804442176}
   - component: {fileID: 114621768316263336}
+  - component: {fileID: 114159012325590202}
   m_Layer: 0
   m_Name: 'RedCapsule '
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643857744157706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9400005, y: 0.382, z: 0.56999993}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206127363169588}
@@ -243,6 +244,20 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114159012325590202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643857744157706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2a14178327e9c43b4c5b3ac260705d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xRotationAmount: 0
+  yRotationAmount: 50
+  zRotationAmount: 0
 --- !u!114 &114344152354563176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restortionValue: 20
   substance: 3
-  opticRotationAmount: 80
 --- !u!114 &114621768316263336
 MonoBehaviour:
   m_ObjectHideFlags: 1

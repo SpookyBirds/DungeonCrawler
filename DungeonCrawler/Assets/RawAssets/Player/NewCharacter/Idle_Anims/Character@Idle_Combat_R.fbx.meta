@@ -149,7 +149,7 @@ ModelImporter:
       name: Idle_Combat_R
       takeName: clip_combatIdle
       firstFrame: 4.9
-      lastFrame: 65
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

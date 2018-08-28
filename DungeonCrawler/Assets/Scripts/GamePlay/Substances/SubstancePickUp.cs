@@ -10,13 +10,6 @@ public class SubstancePickUp : MonoBehaviour {
     [SerializeField] [Tooltip("Substance this Vial will restore")]
     private Substance substance;
 
-    [SerializeField] [Tooltip("Optic rotation")]
-    private int opticRotationAmount;
-
-    void Update () {
-        OpticRotation();
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Global.PlayerTag))
@@ -24,15 +17,5 @@ public class SubstancePickUp : MonoBehaviour {
             if (other.GetComponent<UISubstanceManager>().TryGainingSubstance(substance, restortionValue))
                 Destroy(gameObject);
         }
-    }
-
-    private void FillPlayerSubstanceStorage(Collider playerCollider)
-    {
-        
-    }
-
-    private void OpticRotation()
-    {
-        transform.Rotate(0, opticRotationAmount * Time.deltaTime, 0);
     }
 }
