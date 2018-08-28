@@ -98,14 +98,14 @@ public class HoldablesHandler : MonoBehaviour {
     private void InstantialeRightHoldable()
     {
         RightEquiped = InstantiateHoldable(RightHoldableType, rightHoldableTransform);
-        RightEquiped.model.parent = rightHoldableTransform;
+        RightEquiped.model.parent   = rightHoldableTransform;
         RightEquiped.model.rotation = rightHoldableTransform.rotation;
     }
 
     private void InstantiateLeftHoldable()
     {
         LeftEquiped = InstantiateHoldable(LeftHoldableType, leftHoldableTransform);
-        LeftEquiped.model.parent = leftHoldableTransform;
+        LeftEquiped.model.parent   = leftHoldableTransform;
         LeftEquiped.model.rotation = leftHoldableTransform.rotation;
     }
 

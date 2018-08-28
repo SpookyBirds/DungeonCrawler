@@ -65,6 +65,8 @@ public class Test_character : Controller {
 
     private HoldablesHandler HoldablesHandler { get; set; }
 
+    private PlayerSubstanceManager UISubstanceManager { get; set; }
+
     /// <summary>
     /// The direction of the gravity, normalized
     /// </summary>
@@ -138,9 +140,10 @@ public class Test_character : Controller {
         base.Awake();
 
         Rigid = GetComponent<Rigidbody>();
-        CameraController  = GetComponentInChildren<CameraController>();
-        HoldablesHandler  = GetComponent<HoldablesHandler>();
-        normalizedGravity = Physics.gravity.normalized;
+        CameraController   = GetComponentInChildren<CameraController>();
+        HoldablesHandler   = GetComponent<HoldablesHandler>();
+        UISubstanceManager = GetComponent<PlayerSubstanceManager>();
+        normalizedGravity  = Physics.gravity.normalized;
     }
 
     protected override void Update ()

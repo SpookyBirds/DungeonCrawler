@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 
-public class UISubstanceManager : MonoBehaviour {
+public class PlayerSubstanceManager : MonoBehaviour {
 
     [SerializeField] [Tooltip("Amount of active vials, first x vials are taken from the following array")]
     private int amountOfActiveVials = 3;
 
     [SerializeField] [Tooltip("All possible substance vials, active and unactive")]
     private SubstanceVial[] substanceVials;
+
+    [SerializeField]
+    private Substance leftHandSubstance;
+
+    [SerializeField]
+    private Substance rightHandSubstance;
 
     private void Awake()
     {
@@ -17,8 +23,6 @@ public class UISubstanceManager : MonoBehaviour {
     /// <summary>
     /// Returns the total amount of the given substance available in all active vials
     /// </summary>
-    /// <param name="substance"></param>
-    /// <returns></returns>
     public int GetCurrentTotalAmount(Substance substance)
     {
         int currentAmount = 0;
@@ -97,7 +101,4 @@ public class UISubstanceManager : MonoBehaviour {
         substanceVials[ amountOfActiveVials].gameObject.SetActive(true);
         amountOfActiveVials++;
     }
-
-
- 
 }

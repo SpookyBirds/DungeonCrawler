@@ -137,7 +137,8 @@ public class SubstanceManager : MonoBehaviour {
 
         // Freezing
 
-        SphereCollider crystalArea = crystalParticles.GetComponent<SphereCollider>();                                                                                                           
+        SphereCollider crystalArea = crystalParticles.GetComponent<SphereCollider>();                                                                                       
+
         Collider[] frozenCollider = Physics.OverlapSphere(crystalArea.transform.position, crystalArea.radius);
 
         for (int index = 0; index < frozenCollider.Length; index++)

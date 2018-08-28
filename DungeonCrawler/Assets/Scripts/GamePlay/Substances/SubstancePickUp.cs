@@ -14,7 +14,7 @@ public class SubstancePickUp : MonoBehaviour {
     {
         if (other.CompareTag(Global.PlayerTag))
         {
-            if (other.GetComponent<UISubstanceManager>().TryGainingSubstance(substance, restortionValue))
+            if (other.GetComponent<PlayerSubstanceManager>().TryGainingSubstance(substance, restortionValue))
                 Destroy(gameObject);
         }
     }
