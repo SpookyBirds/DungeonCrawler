@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HoldablesHandler : MonoBehaviour {
 
-    [SerializeField] [Tooltip("Holdble 1 in enum. (0 = none)")]
+    [SerializeField] [Tooltip("Holdble 1 in enum - sword. (0 = none)")]
     private GameObject swordPrefab;
 
-    [SerializeField] [Tooltip("Holdble 2 in enum")]
+    [SerializeField] [Tooltip("Holdble 2 in enum - gun")]
     private GameObject gunPrefab;
 
-    [SerializeField] [Tooltip("Holdble 3 in enum")]
+    [SerializeField] [Tooltip("Holdble 3 in enum - shield")]
     private GameObject shieldPrefab;
 
     [Space]
@@ -33,6 +33,7 @@ public class HoldablesHandler : MonoBehaviour {
 
     [SerializeField] [Tooltip("Drag Player Armature in here")]
     private Animator animator;
+
     [SerializeField]
     private Transform toolSnapingPoint;
 
@@ -45,8 +46,9 @@ public class HoldablesHandler : MonoBehaviour {
             animator = GetComponentInChildren<Animator>();
 
         animator.SetInteger("itemHandRight", (int)RightHoldableType);
-        animator.SetInteger("itemHandLeft",  (int)LeftHoldableType);
         InstantiateLeftHoldable();
+
+        animator.SetInteger("itemHandLeft",  (int)LeftHoldableType);
         InstantialeRightHoldable();
     }
 
@@ -99,6 +101,7 @@ public class HoldablesHandler : MonoBehaviour {
     {
         RightEquiped = InstantiateHoldable(RightHoldableType, rightHoldableTransform);
         RightEquiped.model.parent   = rightHoldableTransform;
+        RightEquiped.model.position = rightHoldableTransform.position;
         RightEquiped.model.rotation = rightHoldableTransform.rotation;
     }
 
@@ -106,6 +109,7 @@ public class HoldablesHandler : MonoBehaviour {
     {
         LeftEquiped = InstantiateHoldable(LeftHoldableType, leftHoldableTransform);
         LeftEquiped.model.parent   = leftHoldableTransform;
+        LeftEquiped.model.position = leftHoldableTransform.position;
         LeftEquiped.model.rotation = leftHoldableTransform.rotation;
     }
 
@@ -120,16 +124,16 @@ public class HoldablesHandler : MonoBehaviour {
                 return InstantiateHoldableAndExtractScript( gunPrefab,   holdableTransform);
 
             case HoldableType.shield:
-                return InstantiateHoldableAndExtractScript(shieldPrefab, holdableTransform);
+                return InstantiateHoldableAndExtractScript( shieldPrefab, holdableTransform);
 
             default:
-                return InstantiateHoldableAndExtractScript(Global.inst.emptyHandFist, holdableTransform);
+                return InstantiateHoldableAndExtractScript( Global.inst.emptyHandFist, holdableTransform);
         }   
     }
 
     private Holdable InstantiateHoldableAndExtractScript(GameObject weaponPrefab, Transform holdableTransform)
     {
-        return Instantiate( weaponPrefab, holdableTransform.position, Quaternion.identity, (toolSnapingPoint ?? transform))
+        return Instantiate( weaponPrefab, (toolSnapingPoint ?? transform))
             .GetComponent<Holdable>();
     }
 }

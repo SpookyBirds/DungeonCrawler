@@ -619,6 +619,33 @@ Prefab:
       propertyPath: crossHair
       value: 
       objectReference: {fileID: 304775545}
+    - target: {fileID: 114617009461413156, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: leftHandSubstance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617009461413156, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: rightHandSubstance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114787649722571960, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: swordPrefab
+      value: 
+      objectReference: {fileID: 1720846641585188, guid: 417b9590541a95e4ab1dcc00f39d0938,
+        type: 2}
+    - target: {fileID: 114787649722571960, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: gunPrefab
+      value: 
+      objectReference: {fileID: 1710965930060578, guid: 2d22400af3de3994c8beeb415fbdbaf3,
+        type: 2}
+    - target: {fileID: 114787649722571960, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: LeftHoldableType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfb9364d06f1da541a12b9ef041d50df, type: 2}
   m_IsPrefabParent: 0

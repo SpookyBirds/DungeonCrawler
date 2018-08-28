@@ -10,9 +10,18 @@ public class PlayerSubstanceManager : MonoBehaviour {
 
     [SerializeField]
     private Substance leftHandSubstance;
+    public Substance LeftHandSubstance {
+        get { return leftHandSubstance; }
+        private set { leftHandSubstance = value; }
+    }
 
     [SerializeField]
     private Substance rightHandSubstance;
+    public Substance RightHandSubstance
+    {
+        get { return rightHandSubstance; }
+        private set { rightHandSubstance = value; }
+    }
 
     private void Awake()
     {
@@ -39,7 +48,7 @@ public class PlayerSubstanceManager : MonoBehaviour {
     /// <summary>
     /// Tries to subtract given amount of given substance from it's vials. Returns true if the required amount was removed
     /// </summary>
-    public bool TryUsingOrGainingSubstance(Substance substanceToUse, int amount)
+    public bool TryUsingSubstance(Substance substanceToUse, int amount)
     {
         if (amount <= 0)
             return false;

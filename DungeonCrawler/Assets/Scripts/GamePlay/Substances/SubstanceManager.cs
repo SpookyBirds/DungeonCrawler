@@ -143,7 +143,8 @@ public class SubstanceManager : MonoBehaviour {
 
         for (int index = 0; index < frozenCollider.Length; index++)
         {
-            reactionist.GetComponent<Controller>().Freeze(crystalParticles.main.duration);
+            if (reactionist.IsAnyTag(inst.Effected))
+                reactionist.GetComponent<Controller>().Freeze(crystalParticles.main.duration);
         }
     }
 }

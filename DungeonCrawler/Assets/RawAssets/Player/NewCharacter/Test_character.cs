@@ -56,6 +56,8 @@ public class Test_character : Controller {
         }
     }
 
+    public bool IsWeaponInfused { get; private set; }
+
     /// <summary>
     /// The controller responsible for moving the camera
     /// </summary>
@@ -65,7 +67,7 @@ public class Test_character : Controller {
 
     private HoldablesHandler HoldablesHandler { get; set; }
 
-    private PlayerSubstanceManager UISubstanceManager { get; set; }
+    private PlayerSubstanceManager PlayerSubstanceManager { get; set; }
 
     /// <summary>
     /// The direction of the gravity, normalized
@@ -130,9 +132,6 @@ public class Test_character : Controller {
     /// </summary>
     private bool wasAimingLastFrame;
 
-    public Substance leftHandSubstance;
-    public Substance rightHandSubstance;
-
     #endregion fields
 
     protected override void Awake()
@@ -142,7 +141,7 @@ public class Test_character : Controller {
         Rigid = GetComponent<Rigidbody>();
         CameraController   = GetComponentInChildren<CameraController>();
         HoldablesHandler   = GetComponent<HoldablesHandler>();
-        UISubstanceManager = GetComponent<PlayerSubstanceManager>();
+        PlayerSubstanceManager = GetComponent<PlayerSubstanceManager>();
         normalizedGravity  = Physics.gravity.normalized;
     }
 
@@ -168,11 +167,11 @@ public class Test_character : Controller {
                 default: return;
 
                 case HoldableType.sword:
-                    (HoldablesHandler.LeftEquiped as Sword).Attack(leftHandSubstance, EnemyTypes);
+                    (HoldablesHandler.LeftEquiped as Sword).Attack(PlayerSubstanceManager, PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
                     break;
 
                 case HoldableType.gun:
-                    (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(leftHandSubstance, EnemyTypes);
+                    (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
                     return;
             }
         }
@@ -186,11 +185,11 @@ public class Test_character : Controller {
                 default: return;
 
                 case HoldableType.sword:
-                    (HoldablesHandler.RightEquiped as Sword).Attack(rightHandSubstance, EnemyTypes);
+                    (HoldablesHandler.RightEquiped as Sword).Attack(PlayerSubstanceManager, PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
                     break;
 
                 case HoldableType.gun:
-                    (HoldablesHandler.RightEquiped as Gun).ShootFromHip(rightHandSubstance, EnemyTypes);
+                    (HoldablesHandler.RightEquiped as Gun).ShootFromHip(PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
                     return;
             }
         }
@@ -221,6 +220,10 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleInputProcessing()
     {
+        // Toggle weapon infusion
+        if (CTRLHub.inst.ToggleSubstanceInfusionDown)
+            IsWeaponInfused = !IsWeaponInfused;
+
         // Cache axis input
         if (IsFrozen)
         {
@@ -238,16 +241,16 @@ public class Test_character : Controller {
 
         /// Mecanim animator parameter setting
 
-        Animator.SetBool("jump", CTRLHub.inst.Jump);
+        Animator.SetBool("jump",      CTRLHub.inst.Jump);
         Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
         if (!Animator.GetBool("weaponSwap"))
         {
-            Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
-            Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
+            Animator.SetBool("attackRight",        CTRLHub.inst.RightAttackDown);
+            Animator.SetBool("attackRightHold",    CTRLHub.inst.RightAttack);
             Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
 
-            Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
-            Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
+            Animator.SetBool("attackLeft",        CTRLHub.inst.LeftAttackDown);
+            Animator.SetBool("attackLeftHold",    CTRLHub.inst.LeftAttack);
             Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
         }
     }

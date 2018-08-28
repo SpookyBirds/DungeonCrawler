@@ -33,14 +33,11 @@ public class CombatManager : MonoBehaviour {
     {
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
-            if (colliderInAttackRange[ index ].IsAnyTag(enemyTypes))
+            if (colliderInAttackRange[ index ].IsAnyTag(enemyTypes) ||
+                colliderInAttackRange[ index ].IsTagNeutral())
             {
                 colliderInAttackRange[ index ].GetComponent<Entity>().TryToDamage(damagePerHit, attackingSubstance);
                 return true;
-            }
-            else if (colliderInAttackRange[ index ].IsTagNeutral())
-            {
-                colliderInAttackRange[ index ].GetComponent<Entity>().TryToDamage(damagePerHit, attackingSubstance);
             }
         }
 

@@ -10,6 +10,27 @@ public class Entity : InheritanceSimplyfier {
 
     [SerializeField]
     private Substance infusedSubstance;
+    public Substance UseInfusedSubstance
+    {
+        get
+        {
+            Substance temp = infusedSubstance;
+            infusedSubstance = Substance.none_physical;
+            return temp;
+        }
+
+        set
+        {
+            if (infusedSubstance != Substance.none_physical)
+            {
+                Debug.LogWarning(name + "'s substance was set while it was still wet. Reaction was triggered.");
+                SubstanceManager.ReactSubstances(UseInfusedSubstance, value, transform);
+                return;
+            }
+
+            infusedSubstance = value;
+        }
+    }
 
     private float health;
 
@@ -61,7 +82,10 @@ public class Entity : InheritanceSimplyfier {
     /// <param name="damageToDeal">The amount of damage the attack delt this entity. Must be positive</param>
     public bool TryToDamage(float damageToDeal, Substance attackedSubstance = Substance.none_physical)
     {
-        SubstanceManager.ReactSubstances(infusedSubstance, attackedSubstance, transform);
+        if (infusedSubstance == Substance.none_physical)
+            infusedSubstance = attackedSubstance;
+        else
+            SubstanceManager.ReactSubstances(UseInfusedSubstance, attackedSubstance, transform);
 
         if (damageToDeal < 0)
             return false;
