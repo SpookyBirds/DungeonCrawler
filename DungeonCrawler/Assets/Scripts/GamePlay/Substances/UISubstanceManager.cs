@@ -8,6 +8,12 @@ public class UISubstanceManager : MonoBehaviour {
     [SerializeField] [Tooltip("All possible substance vials, active and unactive")]
     private SubstanceVial[] substanceVials;
 
+    [SerializeField]
+    private Substance leftHandSubstance;
+
+    [SerializeField]
+    private Substance rightHandSubstance;
+
     private void Awake()
     {
         for (int index = 0; index < substanceVials.Length; index++)
@@ -17,8 +23,6 @@ public class UISubstanceManager : MonoBehaviour {
     /// <summary>
     /// Returns the total amount of the given substance available in all active vials
     /// </summary>
-    /// <param name="substance"></param>
-    /// <returns></returns>
     public int GetCurrentTotalAmount(Substance substance)
     {
         int currentAmount = 0;
@@ -97,7 +101,4 @@ public class UISubstanceManager : MonoBehaviour {
         substanceVials[ amountOfActiveVials].gameObject.SetActive(true);
         amountOfActiveVials++;
     }
-
-
- 
 }
