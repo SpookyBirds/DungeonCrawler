@@ -65,7 +65,7 @@ public class Test_character : Controller {
 
     private HoldablesHandler HoldablesHandler { get; set; }
 
-    private UISubstanceManager UISubstanceManager { get; set; }
+    private PlayerSubstanceManager UISubstanceManager { get; set; }
 
     /// <summary>
     /// The direction of the gravity, normalized
@@ -142,7 +142,7 @@ public class Test_character : Controller {
         Rigid = GetComponent<Rigidbody>();
         CameraController   = GetComponentInChildren<CameraController>();
         HoldablesHandler   = GetComponent<HoldablesHandler>();
-        UISubstanceManager = GetComponent<UISubstanceManager>();
+        UISubstanceManager = GetComponent<PlayerSubstanceManager>();
         normalizedGravity  = Physics.gravity.normalized;
     }
 

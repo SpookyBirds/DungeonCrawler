@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UISubstanceManager : MonoBehaviour {
+public class PlayerSubstanceManager : MonoBehaviour {
 
     [SerializeField] [Tooltip("Amount of active vials, first x vials are taken from the following array")]
     private int amountOfActiveVials = 3;
