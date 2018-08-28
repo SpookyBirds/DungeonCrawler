@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 23999904744638558}
   - component: {fileID: 64710903274259574}
   m_Layer: 9
-  m_Name: mdl_substancePlatform
+  m_Name: SubstancePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925567027236186}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -175.5, y: 91.9, z: -17.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4872644901905738}
