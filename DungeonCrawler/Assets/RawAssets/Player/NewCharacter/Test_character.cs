@@ -91,6 +91,8 @@ public class Test_character : Controller {
 
     private PlayerSubstanceManager PlayerSubstanceManager { get; set; }
 
+    private SubstanceSelector SubstanceSelector { get; set; }
+
     /// <summary>
     /// The direction of the gravity, normalized
     /// </summary>
@@ -160,16 +162,19 @@ public class Test_character : Controller {
     {
         base.Awake();
 
-        Rigid = GetComponent<Rigidbody>();
-        CameraController   = GetComponentInChildren<CameraController>();
-        HoldablesHandler   = GetComponent<HoldablesHandler>();
+        Rigid                  = GetComponent<Rigidbody>();
+        CameraController       = GetComponentInChildren<CameraController>(true);
+        HoldablesHandler       = GetComponent<HoldablesHandler>();
         PlayerSubstanceManager = GetComponent<PlayerSubstanceManager>();
-        normalizedGravity  = Physics.gravity.normalized;
+        SubstanceSelector      = GetComponentInChildren<SubstanceSelector>(true);
+
+        normalizedGravity      = Physics.gravity.normalized;
     }
 
     protected override void Update ()
     {
         HandleInputProcessing();
+        HandleSubstanceToggle();
         HandleAiming();
         HandleAttacks();
         HandleGroundCheck();
@@ -178,6 +183,79 @@ public class Test_character : Controller {
         HandleRolling();
     }
 
+    /// <summary>
+    /// Handling the caching of the input axis, the calculating of the planned movement and setting the mecanim animator parameter 
+    /// </summary>
+    private void HandleInputProcessing()
+    {
+        // Cache axis input
+        if (IsFrozen)
+        {
+            horizontalAxis = 0;
+            verticalAxis = 0;
+        }
+        else
+        {
+            horizontalAxis = CTRLHub.inst.HorizontalAxis;
+            verticalAxis = CTRLHub.inst.VerticalAxis;
+        }
+
+        // Calculate inputed movement (direction and strength)
+        inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
+
+        /// Mecanim animator parameter setting
+
+        if (CTRLHub.inst.SubstanceKey)
+        {
+            // Toggle weapon infusion
+
+            if (CTRLHub.inst.LeftAttackDown)
+                IsLeftWeaponInfused = !IsLeftWeaponInfused;
+            if (CTRLHub.inst.RightAttackDown)
+                IsRightWeaponInfused = !IsRightWeaponInfused;
+        }
+        else
+        {
+            if (!Animator.GetBool("weaponSwap"))
+            {
+                Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
+                Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
+                Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
+
+                Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
+                Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
+                Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
+            }
+        }
+        Animator.SetBool("jump",      CTRLHub.inst.Jump);
+        Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
+    }
+
+    /// <summary>
+    /// Toggle the display and the used substance itself
+    /// </summary>
+    private void HandleSubstanceToggle()
+    {
+        SubstanceSelector.SubstanceSelectorParts.SetActive(CTRLHub.inst.SubstanceKey);
+
+        if (CTRLHub.inst.SubstanceKey)
+        {
+            if (CTRLHub.inst.ScrollValue < 0)
+                SubstanceSelector.ScrollUp();
+            else if (CTRLHub.inst.ScrollValue > 0)
+                SubstanceSelector.ScrollDown();
+        
+            if (Input.GetKeyDown(KeyCode.E))
+                PlayerSubstanceManager.RightHandSubstance = SubstanceSelector.CurrentSelected;
+        
+            if (Input.GetKeyDown(KeyCode.Q))
+                PlayerSubstanceManager.LeftHandSubstance  = SubstanceSelector.CurrentSelected;
+        }
+    }
+
+    /// <summary>
+    /// Pass the attack command to the weapons
+    /// </summary>
     private void HandleAttacks()
     {
         if (Animator.GetBool("initializeAttackLeft"))
@@ -217,6 +295,9 @@ public class Test_character : Controller {
         }
     }
 
+    /// <summary>
+    /// Toggle aiming and setting wasAimingLastFrame
+    /// </summary>
     private void HandleAiming()
     {
         bool isAiming = Animator.GetInteger("isAiming") != 0;
@@ -235,54 +316,6 @@ public class Test_character : Controller {
     private void ToggleAim(bool toggle)
     {
         CameraController.ToggleCameraAimingPosition(toggle);
-    }
-
-    /// <summary>
-    /// Handling the caching of the input axis, the calculating of the planned movement and setting the mecanim animator parameter 
-    /// </summary>
-    private void HandleInputProcessing()
-    {
-        // Cache axis input
-        if (IsFrozen)
-        {
-            horizontalAxis = 0;
-            verticalAxis = 0;
-        }
-        else
-        {
-            horizontalAxis = CTRLHub.inst.HorizontalAxis;
-            verticalAxis = CTRLHub.inst.VerticalAxis;
-        }
-
-        // Calculate inputed movement (direction and strength)
-        inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
-
-        /// Mecanim animator parameter setting
-
-        if (CTRLHub.inst.ToggleSubstanceInfusion)
-        {
-            // Toggle weapon infusion
-
-            if (CTRLHub.inst.LeftAttackDown)
-                IsLeftWeaponInfused = !IsLeftWeaponInfused;
-            if (CTRLHub.inst.RightAttackDown)
-                IsRightWeaponInfused = !IsRightWeaponInfused;
-        }
-        else
-        {
-            if (!Animator.GetBool("weaponSwap"))
-            {
-                Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
-                Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
-                Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
-
-                Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
-                Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
-                Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
-            }
-        }
-        Animator.SetBool("jump",      CTRLHub.inst.Jump);
-        Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
     }
 
     /// <summary>

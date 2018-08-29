@@ -143,7 +143,8 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private void HandlePlayerDrivenZooming()
     {
-        if(CTRLHub.inst.ScrollValue != 0)
+        if (CTRLHub.inst.ScrollValue  != 0     && 
+            CTRLHub.inst.SubstanceKey == false   )
         {
             // Zooms the camera and updates the playerZoomCache only if 
             //  (1) the camera isn't auto zoomed or 

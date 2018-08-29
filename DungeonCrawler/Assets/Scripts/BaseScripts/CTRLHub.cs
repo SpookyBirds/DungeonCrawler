@@ -48,9 +48,9 @@ public class CTRLHub : MonoBehaviour
     public bool SwapHoldable     { get { return (Input.GetKey(SwapHoldableKeyCode));     } }
 
     public KeyCode SubstanceKeyKeyCode { get; set; }
-    public bool ToggleSubstanceInfusionDown { get { return (Input.GetKeyDown(SubstanceKeyKeyCode)); } }
-    public bool ToggleSubstanceInfusionUp   { get { return (Input.GetKeyUp(SubstanceKeyKeyCode));   } }
-    public bool ToggleSubstanceInfusion     { get { return (Input.GetKey(SubstanceKeyKeyCode));     } }
+    public bool SubstanceKeyDown { get { return (Input.GetKeyDown(SubstanceKeyKeyCode)); } }
+    public bool SubstanceKeyUp   { get { return (Input.GetKeyUp(SubstanceKeyKeyCode));   } }
+    public bool SubstanceKey     { get { return (Input.GetKey(SubstanceKeyKeyCode));     } }
 
     public KeyCode InteractionKeyCode { get; set; }
     public bool InteractionDown {  get { return (Input.GetKeyDown(InteractionKeyCode)); } }
@@ -101,7 +101,7 @@ public class CTRLHub : MonoBehaviour
         BackwardKeyCode     = ParseKeyCode( "backwardKey",  "S"          );
         JumpKeyCode         = ParseKeyCode( "jumpKey",      "Space"      );
         RollKeyCode         = ParseKeyCode( "rollKey",      "LeftControl");
-        SwapHoldableKeyCode = ParseKeyCode( "SwapHoldable", "E"          );
+        SwapHoldableKeyCode = ParseKeyCode( "SwapHoldable", "X"          );
         SubstanceKeyKeyCode = ParseKeyCode( "SubstanceKey", "LeftShift"  );
         InteractionKeyCode  = ParseKeyCode( "Interaction",  "F"          );
         LeftAttackKeyCode   = ParseKeyCode( "Fire1",        "Mouse0"     );

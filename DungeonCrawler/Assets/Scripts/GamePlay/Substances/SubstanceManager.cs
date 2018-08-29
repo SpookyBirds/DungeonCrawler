@@ -75,7 +75,8 @@ public class SubstanceManager : MonoBehaviour {
             inst.explosionPrefab, 
             reactionist.position, 
             Quaternion.identity, 
-            inst.transform).GetComponent<ParticleSystem>();
+            inst.transform)
+                .GetComponent<ParticleSystem>();
         explosionParticles.Play();
         Destroy(explosionParticles.gameObject, inst.explosionDuration);
 
@@ -97,7 +98,8 @@ public class SubstanceManager : MonoBehaviour {
             inst.smokePrefab,
             reactionist.position,
             Quaternion.identity,
-            inst.transform).GetComponent<ParticleSystem>();
+            inst.transform)
+                .GetComponent<ParticleSystem>();
         smokeParticles.Play();
         smokeParticles.transform.GetComponentInChildren<Smoke>().RemoveAfterTime(inst.smokeDuration);
 

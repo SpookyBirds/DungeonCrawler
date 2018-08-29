@@ -100,13 +100,11 @@ public class SubstanceVial : MonoBehaviour {
         return -remainingAmount;
     }
 
-    /*
-        int currentAmountBeforeAdding = CurrentAmount;
-        if((CurrentAmount += amount) > fillCapacity)
-        {
-            CurrentAmount = fillCapacity;
-            return amount - (CurrentAmount - currentAmountBeforeAdding);
-        } 
-     */
+    private void OnValidate()
+    {
+        if (currentAmount > fillCapacity)
+            fillCapacity = currentAmount;
+    }
+
 
 }

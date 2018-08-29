@@ -8,20 +8,9 @@ public class PlayerSubstanceManager : MonoBehaviour {
     [SerializeField] [Tooltip("All possible substance vials, active and unactive")]
     private SubstanceVial[] substanceVials;
 
-    [SerializeField]
-    private Substance leftHandSubstance;
-    public Substance LeftHandSubstance {
-        get { return leftHandSubstance; }
-        private set { leftHandSubstance = value; }
-    }
+    public Substance LeftHandSubstance { get; set; }
 
-    [SerializeField]
-    private Substance rightHandSubstance;
-    public Substance RightHandSubstance
-    {
-        get { return rightHandSubstance; }
-        private set { rightHandSubstance = value; }
-    }
+    public Substance RightHandSubstance { get; set; }
 
     private void Awake()
     {
@@ -94,7 +83,6 @@ public class PlayerSubstanceManager : MonoBehaviour {
             }
         }
 
-        Debug.Log("sV" + startingAmount + ",   am " + amount);
         return startingAmount != amount;
     }
 
