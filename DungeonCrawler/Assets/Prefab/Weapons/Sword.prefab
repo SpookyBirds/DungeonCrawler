@@ -170,5 +170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   influenceCollider: {fileID: 65287539765380968}
   model: {fileID: 4761832807512490}
+  particleSystem_Silver: {fileID: 198935044804276902, guid: f3971b96e281476428250e2045e8d681,
+    type: 2}
+  particleSystem_Green: {fileID: 198314724601502482, guid: 80d4e302cd63d97469655d619ec3968c,
+    type: 2}
+  particleSystem_Red: {fileID: 198969557263958228, guid: e37f47069567d8647b0d2d32c9e166f4,
+    type: 2}
   damagePerHit: 20
   substanceConsumtionAmount: 10
