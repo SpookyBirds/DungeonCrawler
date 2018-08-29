@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 300
-  infusedSubstance: 2
+  infusedSubstance: 0
   healthbar: {fileID: 114203139699653228}
 --- !u!114 &114472327887919894
 MonoBehaviour:
@@ -1884,7 +1884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0374ecacd4dbc6408ab061ddfafcaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 28
+  standartVisionRadius: 10
+  blindedVisionRadius: 1
   eyes: {fileID: 4623181773147598}
   obstacleEvadingAngles:
   - -2
@@ -1921,6 +1922,8 @@ MonoBehaviour:
   damagePerHit: 20
   attackCollider: {fileID: 65566510300016766}
   destinationOvershootDistance: 2
+  timeIntervallToUpdateNavDestinationInSeconds: 1
+  timeIntervallToCheckFieldOfViewInSeconds: 1
   minAndMaxDistanceToJumpAttack: {x: 7.5, y: 12.5}
   jumpForce: {x: 0, y: 75, z: 70}
 --- !u!114 &114743266675558278

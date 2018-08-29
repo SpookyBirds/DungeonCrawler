@@ -26,31 +26,79 @@ public abstract class Holdable : InheritanceSimplyfier
     {
         if (influenceCollider == null)
             influenceCollider = GetComponentInChildren<BoxCollider>();
+
+        //particleSystem_Silver.Stop();
+        particleSystem_Silver.gameObject.SetActive(false);
+        //particleSystem_Green.Stop();
+        particleSystem_Green.gameObject.SetActive(false);
+        //particleSystem_Red.Stop();
+        particleSystem_Red.gameObject.SetActive(false);
     }
 
     public void ToggleInfusion(Substance substance, bool toggle)
     {
         isInfused = toggle;
 
-        particleSystem_Silver.Stop();
-        particleSystem_Green.Stop();
-        particleSystem_Red.Stop();
-
-        if (toggle == false)
-            return;
-
         switch (substance)
         {
             default: return;
-            case Substance.green:
-                particleSystem_Green.Play();
-                break;
-            case Substance.red:
-                particleSystem_Red.Play();
-                break;
+
             case Substance.silver:
-                particleSystem_Silver.Play();
+                particleSystem_Silver.gameObject.SetActive(toggle);
+                particleSystem_Green.gameObject.SetActive(false);
+                particleSystem_Red.gameObject.SetActive(false);
+                break;
+
+            case Substance.green:
+                particleSystem_Silver.gameObject.SetActive(false);
+                particleSystem_Green.gameObject.SetActive(toggle);
+                particleSystem_Red.gameObject.SetActive(false);
+                break;
+
+            case Substance.red:
+                particleSystem_Silver.gameObject.SetActive(false);
+                particleSystem_Green.gameObject.SetActive(false);
+                particleSystem_Red.gameObject.SetActive(toggle);
                 break;
         }
     }
+
+
+    //    switch (substance)
+    //    {
+    //        default: return;
+
+    //        case Substance.green:
+    //            ToggleCurrentSubstance(  particleSystem_Green, toggle);
+    //            DeactivateParticleSystem(particleSystem_Red   );
+    //            DeactivateParticleSystem(particleSystem_Silver);
+    //            break;
+
+    //        case Substance.red:
+    //            ToggleCurrentSubstance(  particleSystem_Red, toggle);
+    //            DeactivateParticleSystem(particleSystem_Green );
+    //            DeactivateParticleSystem(particleSystem_Silver);
+    //            break;
+
+    //        case Substance.silver:
+    //            ToggleCurrentSubstance(  particleSystem_Silver, toggle);
+    //            DeactivateParticleSystem(particleSystem_Green );
+    //            DeactivateParticleSystem(particleSystem_Red   );
+    //            break;
+    //    }
+    //}
+
+    //private void ToggleCurrentSubstance(ParticleSystem particleSystem, bool toggle)
+    //{
+    //    if (toggle)
+    //        particleSystem.Play();
+    //    else
+    //        DeactivateParticleSystem(particleSystem);
+    //}
+
+    //private void DeactivateParticleSystem(ParticleSystem particleSystem)
+    //{
+    //    particleSystem.Stop();
+    //    particleSystem.Clear();
+    //}
 }
