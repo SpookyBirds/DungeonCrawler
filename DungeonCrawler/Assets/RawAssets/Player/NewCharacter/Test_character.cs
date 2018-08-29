@@ -186,7 +186,7 @@ public class Test_character : Controller {
 
                 case HoldableType.sword:
                     (HoldablesHandler.RightEquiped as Sword).Attack(PlayerSubstanceManager, PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
-                    break;
+                    return;
 
                 case HoldableType.gun:
                     (HoldablesHandler.RightEquiped as Gun).ShootFromHip(PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
@@ -222,7 +222,10 @@ public class Test_character : Controller {
     {
         // Toggle weapon infusion
         if (CTRLHub.inst.ToggleSubstanceInfusionDown)
+        {
             IsWeaponInfused = !IsWeaponInfused;
+            Debug.Log("switched isWeaponInfused from " + !IsWeaponInfused + " to " + IsWeaponInfused);
+        }
 
         // Cache axis input
         if (IsFrozen)
