@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 114787649722571960}
   - component: {fileID: 114470265430291090}
   - component: {fileID: 114617009461413156}
+  - component: {fileID: 114572795801378396}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -1552,7 +1553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1964957020945640
 GameObject:
   m_ObjectHideFlags: 1
@@ -1913,7 +1914,7 @@ Transform:
   m_Children:
   - {fileID: 4933851444855274}
   m_Father: {fileID: 4427787476821406}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4383772595054716
 Transform:
@@ -1949,13 +1950,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192974156011144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74, y: 0, z: 0}
+  m_LocalPosition: {x: 9.491211, y: 152.5, z: -252.27753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4272673211968248}
   - {fileID: 4545248529666472}
-  - {fileID: 4380801111077986}
   - {fileID: 224699709907045054}
+  - {fileID: 4380801111077986}
   - {fileID: 4551214883828718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2623,7 +2624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.042052325, g: 0.5943396, b: 0.055972405, a: 1}
+  m_Color: {r: 0.049928807, g: 0.550149, b: 0.6226415, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2676,7 +2677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403b3b9d8814a7640bf0762a255edd52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  character: {fileID: 4427787476821406}
   cameraMovementController: {fileID: 114187377415543352}
 --- !u!114 &114078106541280242
 MonoBehaviour:
@@ -2786,7 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalInvertCamera: 1
-  crossHair: {fileID: 0}
+  crossHair: {fileID: 114219528293364136}
   aimingCameraTopOffset: 0.5
   aimingCameraZoomOffset: 3
   rotationSpeed: 8
@@ -2983,8 +2984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileEntities: 16
   animator: {fileID: 95819497606401932}
-  forwardSpeed: 30
-  backwardSpeed: 24
+  forwardSpeed: 60
+  backwardSpeed: 45
   rollingStrength: 20
   maxSteppingHeight: 0.5
   jumpForce: 10
@@ -2996,8 +2997,6 @@ MonoBehaviour:
   directionCheckingDistance: 0.25
   dropMovementForceWeakening: 0.5
   groundingCollider: {fileID: 65965062549277648}
-  leftHandSubstance: 0
-  rightHandSubstance: 0
 --- !u!114 &114424388591816590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3190,6 +3189,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114572795801378396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192974156011144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763e7d603927ccc40996be6b943b8ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GUI: {fileID: 1959176440324630}
 --- !u!114 &114575260520481570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3290,6 +3301,8 @@ MonoBehaviour:
   - {fileID: 114898090517664274}
   - {fileID: 114453255084879168}
   - {fileID: 114396554851385160}
+  leftHandSubstance: 0
+  rightHandSubstance: 0
 --- !u!114 &114662367910447230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4405,7 +4418,7 @@ RectTransform:
   - {fileID: 224506086839081606}
   - {fileID: 224485628695774858}
   m_Father: {fileID: 4427787476821406}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
