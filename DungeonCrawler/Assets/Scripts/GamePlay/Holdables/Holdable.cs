@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public abstract class Holdable : InheritanceSimplyfier
 
     public Vector3 AttackColliderPosition { get { return influenceCollider.transform.position; } }
 
+    protected bool isInfused;
+
     /// <summary>
     /// If no attackCollider is supplied, the script will search the it's gameObject as well as children (in ths order) for an attackCollider"
     /// </summary>
@@ -17,5 +20,10 @@ public abstract class Holdable : InheritanceSimplyfier
     {
         if (influenceCollider == null)
             influenceCollider = GetComponentInChildren<BoxCollider>();
+    }
+
+    public void ToggleInfusion(bool toggle)
+    {
+        isInfused = toggle;
     }
 }

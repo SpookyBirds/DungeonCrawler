@@ -56,7 +56,18 @@ public class Test_character : Controller {
         }
     }
 
-    public bool IsWeaponInfused { get; private set; }
+    private bool isLeftWeaponInfused;
+    public bool IsLeftWeaponInfused
+    {
+        get { return isLeftWeaponInfused; }
+        private set
+        {
+            isLeftWeaponInfused = value;
+            HoldablesHandler.LeftEquiped.ToggleInfusion(value);
+        }
+    }
+    private bool isRightWeaponInfused;
+    public bool IsRightWeaponInfused { get; private set; }
 
     /// <summary>
     /// The controller responsible for moving the camera
@@ -220,13 +231,6 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleInputProcessing()
     {
-        // Toggle weapon infusion
-        if (CTRLHub.inst.ToggleSubstanceInfusionDown)
-        {
-            IsWeaponInfused = !IsWeaponInfused;
-            Debug.Log("switched isWeaponInfused from " + !IsWeaponInfused + " to " + IsWeaponInfused);
-        }
-
         // Cache axis input
         if (IsFrozen)
         {
@@ -244,18 +248,30 @@ public class Test_character : Controller {
 
         /// Mecanim animator parameter setting
 
+        if (CTRLHub.inst.ToggleSubstanceInfusion)
+        {
+            // Toggle weapon infusion
+
+            if (CTRLHub.inst.LeftAttackDown)
+                IsLeftWeaponInfused = !IsLeftWeaponInfused;
+            if (CTRLHub.inst.RightAttackDown)
+                IsRightWeaponInfused = !IsRightWeaponInfused;
+        }
+        else
+        {
+            if (!Animator.GetBool("weaponSwap"))
+            {
+                Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
+                Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
+                Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
+
+                Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
+                Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
+                Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
+            }
+        }
         Animator.SetBool("jump",      CTRLHub.inst.Jump);
         Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
-        if (!Animator.GetBool("weaponSwap"))
-        {
-            Animator.SetBool("attackRight",        CTRLHub.inst.RightAttackDown);
-            Animator.SetBool("attackRightHold",    CTRLHub.inst.RightAttack);
-            Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
-
-            Animator.SetBool("attackLeft",        CTRLHub.inst.LeftAttackDown);
-            Animator.SetBool("attackLeftHold",    CTRLHub.inst.LeftAttack);
-            Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
-        }
     }
 
     /// <summary>

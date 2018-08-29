@@ -77,16 +77,16 @@ public class NPC_AI : InheritanceSimplyfier
 
     public void Aggro_baseState_Update()
     {
-        elapsedTimeSinceLastFieldOfViewCheck += Time.deltaTime;
-        if (elapsedTimeSinceLastFieldOfViewCheck >= timeIntervallToCheckFieldOfViewInSeconds)
-        {
-            elapsedTimeSinceLastFieldOfViewCheck -= timeIntervallToCheckFieldOfViewInSeconds;
+        //elapsedTimeSinceLastFieldOfViewCheck += Time.deltaTime;
+        //if (elapsedTimeSinceLastFieldOfViewCheck >= timeIntervallToCheckFieldOfViewInSeconds)
+        //{
+        //    elapsedTimeSinceLastFieldOfViewCheck -= timeIntervallToCheckFieldOfViewInSeconds;
 
-            if (false == TryFindingAnOpponent())
-            {
-                SwitchToIdleBaseState();
-            }
-        }
+        //    if (false == TryFindingAnOpponent())
+        //    {
+        //        SwitchToIdleBaseState();
+        //    }
+        //}
     }
 
     public void CombatIdle_Update()
