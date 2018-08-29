@@ -181,6 +181,7 @@ public class Test_character : Controller {
         HandleMovementDirection();
         HandleJump();
         HandleRolling();
+        HandleAttackMovementForce();
     }
 
     /// <summary>
@@ -449,6 +450,15 @@ public class Test_character : Controller {
                 ApplyForceInMovementDirection(forwardSpeed);
             else
                 ApplyForceInMovementDirection(backwardSpeed);
+        }
+    }
+
+    private void HandleAttackMovementForce()
+    {
+        if(Animator.GetFloat("attackMovementForce")>0)
+        {
+            Rigid.AddForce(transform.forward * Animator.GetFloat("attackMovementForce") * GetInputMagnitude(), ForceMode.Force);
+            Animator.SetFloat("attackMovementForce", 0); 
         }
     }
 

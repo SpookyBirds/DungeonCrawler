@@ -149,7 +149,7 @@ ModelImporter:
       name: Attack_Gun_L_Shoot
       takeName: clip_combatIdle
       firstFrame: 4.9
-      lastFrame: 11
+      lastFrame: 5
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
