@@ -9,8 +9,6 @@ public class Sword : Holdable
     [SerializeField]
     private int substanceConsumtionAmount = 10;
 
-    public bool IsInfused { get; set; }
-
     public float AttackRange { get { return influenceCollider.bounds.extents.z; } }
 
     public bool Attack( PlayerSubstanceManager playerSubstanceManager, Substance substance, int[] enemyTypes)
