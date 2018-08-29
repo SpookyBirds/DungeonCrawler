@@ -163,8 +163,8 @@ MonoBehaviour:
     type: 2}
   particleSystem_Red: {fileID: 198969557263958228, guid: e37f47069567d8647b0d2d32c9e166f4,
     type: 2}
-  maxReach: 10
-  damagePerHit: 10
+  maxReach: 25
+  damagePerHit: 30
   shotParticle: {fileID: 198009760946760724}
 --- !u!198 &198009760946760724
 ParticleSystem:

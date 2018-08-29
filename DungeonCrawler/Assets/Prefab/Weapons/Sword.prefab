@@ -266,7 +266,7 @@ MonoBehaviour:
   particleSystem_Silver: {fileID: 198248978020352456}
   particleSystem_Green: {fileID: 198285749514757002}
   particleSystem_Red: {fileID: 198600129572901534}
-  damagePerHit: 100
+  damagePerHit: 35
   substanceConsumtionAmount: 10
 --- !u!198 &198248978020352456
 ParticleSystem:
