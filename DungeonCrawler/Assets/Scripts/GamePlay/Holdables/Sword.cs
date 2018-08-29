@@ -19,7 +19,7 @@ public class Sword : Holdable
     private Substance UseSubstance( PlayerSubstanceManager playerSubstanceManager, Substance substance)
     {
         // if the sword is infused and the player has enough substance left of the required type, the attack will use the substance
-        if (IsInfused && (playerSubstanceManager.TryUsingSubstance(substance, substanceConsumtionAmount) == false))
+        if (isInfused && (playerSubstanceManager.TryUsingSubstance(substance, substanceConsumtionAmount) == false))
             return substance;
         else
             return Substance.none_physical;

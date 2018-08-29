@@ -60,14 +60,25 @@ public class Test_character : Controller {
     public bool IsLeftWeaponInfused
     {
         get { return isLeftWeaponInfused; }
+
         private set
         {
             isLeftWeaponInfused = value;
-            HoldablesHandler.LeftEquiped.ToggleInfusion(value);
+            HoldablesHandler.LeftEquiped.ToggleInfusion( PlayerSubstanceManager.LeftHandSubstance, value);
         }
     }
+
     private bool isRightWeaponInfused;
-    public bool IsRightWeaponInfused { get; private set; }
+    public bool IsRightWeaponInfused
+    {
+        get { return isRightWeaponInfused; }
+
+        private set
+        {
+            isRightWeaponInfused = value;
+            HoldablesHandler.RightEquiped.ToggleInfusion( PlayerSubstanceManager.RightHandSubstance, value);
+        }
+    }
 
     /// <summary>
     /// The controller responsible for moving the camera
