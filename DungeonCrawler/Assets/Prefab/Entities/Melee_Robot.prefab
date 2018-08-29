@@ -1745,7 +1745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0374ecacd4dbc6408ab061ddfafcaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRadius: 30
+  standartVisionRadius: 10
+  blindedVisionRadius: 1
   eyes: {fileID: 4891985623977524}
   obstacleEvadingAngles:
   - -2
@@ -1786,7 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  infusedSubstance: 5
+  infusedSubstance: 0
   healthbar: {fileID: 114256590746716676}
 --- !u!114 &114706678424430384
 MonoBehaviour:
