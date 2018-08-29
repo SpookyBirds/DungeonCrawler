@@ -84,7 +84,7 @@ public class Entity : InheritanceSimplyfier {
     {
         if (infusedSubstance == Substance.none_physical)
             infusedSubstance = attackedSubstance;
-        else
+        else if(infusedSubstance != attackedSubstance)  // if the substances are the same, nothing has to be done
             SubstanceManager.ReactSubstances(UseInfusedSubstance, attackedSubstance, transform);
 
         if (damageToDeal < 0)

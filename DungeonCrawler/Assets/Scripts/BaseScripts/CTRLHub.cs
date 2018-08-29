@@ -47,10 +47,10 @@ public class CTRLHub : MonoBehaviour
     public bool SwapHoldableUp   { get { return (Input.GetKeyUp(SwapHoldableKeyCode));   } }
     public bool SwapHoldable     { get { return (Input.GetKey(SwapHoldableKeyCode));     } }
 
-    public KeyCode ToggleSubstanceInfusionKeyCode { get; set; }
-    public bool ToggleSubstanceInfusionDown { get { return (Input.GetKeyDown(ToggleSubstanceInfusionKeyCode)); } }
-    public bool ToggleSubstanceInfusionUp   { get { return (Input.GetKeyUp(ToggleSubstanceInfusionKeyCode));   } }
-    public bool ToggleSubstanceInfusion     { get { return (Input.GetKey(ToggleSubstanceInfusionKeyCode));     } }
+    public KeyCode SubstanceKeyKeyCode { get; set; }
+    public bool ToggleSubstanceInfusionDown { get { return (Input.GetKeyDown(SubstanceKeyKeyCode)); } }
+    public bool ToggleSubstanceInfusionUp   { get { return (Input.GetKeyUp(SubstanceKeyKeyCode));   } }
+    public bool ToggleSubstanceInfusion     { get { return (Input.GetKey(SubstanceKeyKeyCode));     } }
 
     public KeyCode InteractionKeyCode { get; set; }
     public bool InteractionDown {  get { return (Input.GetKeyDown(InteractionKeyCode)); } }
@@ -95,17 +95,22 @@ public class CTRLHub : MonoBehaviour
         RightFireLong   = false;
         RightFireHold   = false;
          
-        ForwardKeyCode                 = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "forwardKey",                 "W"          ));
-        LeftKeyCode                    = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "leftKey",                    "A"          ));
-        RightKeyCode                   = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "rightKey",                   "D"          ));
-        BackwardKeyCode                = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "backwardKey",                "S"          ));
-        JumpKeyCode                    = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "jumpKey",                    "Space"      ));
-        RollKeyCode                    = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "rollKey",                    "LeftControl"));
-        SwapHoldableKeyCode            = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "SwapHoldable",               "E"          ));
-        ToggleSubstanceInfusionKeyCode = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "ToggleSubstanceInfusionKey", "LeftShift"  ));
-        InteractionKeyCode             = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "Interaction",                "F"          ));
-        LeftAttackKeyCode              = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "Fire1",                      "Mouse0"     ));
-        RightAttackKeyCode             = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString( "Fire2",                      "Mouse1"     ));
+        ForwardKeyCode      = ParseKeyCode( "forwardKey",   "W"          );
+        LeftKeyCode         = ParseKeyCode( "leftKey",      "A"          );
+        RightKeyCode        = ParseKeyCode( "rightKey",     "D"          );
+        BackwardKeyCode     = ParseKeyCode( "backwardKey",  "S"          );
+        JumpKeyCode         = ParseKeyCode( "jumpKey",      "Space"      );
+        RollKeyCode         = ParseKeyCode( "rollKey",      "LeftControl");
+        SwapHoldableKeyCode = ParseKeyCode( "SwapHoldable", "E"          );
+        SubstanceKeyKeyCode = ParseKeyCode( "SubstanceKey", "LeftShift"  );
+        InteractionKeyCode  = ParseKeyCode( "Interaction",  "F"          );
+        LeftAttackKeyCode   = ParseKeyCode( "Fire1",        "Mouse0"     );
+        RightAttackKeyCode  = ParseKeyCode( "Fire2",        "Mouse1"     );
+    }
+
+    private KeyCode ParseKeyCode(string internalName, string keyCodeName)
+    {
+        return (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(internalName, keyCodeName));
     }
 
     private void Update()

@@ -6971,7 +6971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  infusedSubstance: 2
+  infusedSubstance: 0
   healthDisplay: {fileID: 114956803437162680}
   healthbar: {fileID: 114364504461965886}
 --- !u!114 &114833862648252176
