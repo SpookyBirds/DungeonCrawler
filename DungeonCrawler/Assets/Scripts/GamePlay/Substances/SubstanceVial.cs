@@ -39,7 +39,7 @@ public class SubstanceVial : MonoBehaviour {
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         UpdateFillAmountDisplay();
         UpdateSubstanceDisplay();
