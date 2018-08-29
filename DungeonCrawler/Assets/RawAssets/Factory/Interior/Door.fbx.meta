@@ -1,17 +1,29 @@
 fileFormatVersion: 2
-guid: 1a59cc502df2f68488bcebe325aa41e2
+guid: ed214e6609e0fbd47883cb601a7cec3a
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Door
+    100004: mesh_Door.L
+    100006: mesh_Door.R
     400000: //RootNode
-    2100000: checkerpattern
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: mesh_gridFloor
+    400002: Door
+    400004: mesh_Door.L
+    400006: mesh_Door.R
+    2100000: No Name
+    2300000: Door
+    2300002: mesh_Door.L
+    2300004: mesh_Door.R
+    3300000: Door
+    3300002: mesh_Door.L
+    3300004: mesh_Door.R
+    4300000: mesh_Door.L
+    4300002: mesh_Door.R
+    4300004: Door
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
