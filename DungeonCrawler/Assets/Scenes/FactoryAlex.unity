@@ -697,6 +697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ce49276ec2d9249b6c53f5897bce48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 216916816}
+  gravityMultiplier: 500
+  gravityOverTimeMultiplier: 50
 --- !u!4 &136262736 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4427787476821406, guid: dfb9364d06f1da541a12b9ef041d50df,
@@ -811,6 +814,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4465676656640908, guid: 94e5073d231758940bd8615fc4d818dd,
     type: 2}
   m_PrefabInternal: {fileID: 260895344}
+--- !u!95 &216916816 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95819497606401932, guid: dfb9364d06f1da541a12b9ef041d50df,
+    type: 2}
+  m_PrefabInternal: {fileID: 706315301}
 --- !u!1001 &221874865
 Prefab:
   m_ObjectHideFlags: 0
@@ -3011,6 +3019,16 @@ Prefab:
         type: 2}
       propertyPath: m_Drag
       value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415123993995522, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415123993995522, guid: dfb9364d06f1da541a12b9ef041d50df,
+        type: 2}
+      propertyPath: jumpForwardStrength
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfb9364d06f1da541a12b9ef041d50df, type: 2}
