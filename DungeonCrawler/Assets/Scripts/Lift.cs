@@ -14,6 +14,9 @@ public class Lift : MonoBehaviour {
     private Transform destinationPosition;
 
     [SerializeField]
+    private Transform gameLogic;
+
+    [SerializeField]
     private float speed;
 
     void Start()
@@ -29,14 +32,35 @@ public class Lift : MonoBehaviour {
     private void SwitchDestination()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
             destinationPosition = position_1;
+        }
+           
         if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
             destinationPosition = position_2;
+        }
     }
 
     private void MoveLift()
     {
         if (transform.position != destinationPosition.position)
+        {
             transform.position = transform.position + (destinationPosition.position - transform.position) * speed * Time.deltaTime;
+                  
+        }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag(Global.PlayerTag))
+            other.transform.parent = transform;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(Global.PlayerTag))
+            other.transform.parent = gameLogic;
+    }
+
 }
