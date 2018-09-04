@@ -24,6 +24,12 @@ public class Test_character : Controller {
     [SerializeField] [Tooltip("The amount the character moves in the jump direction while jumping")]
     private float jumpForwardStrength = 20f;
 
+    [SerializeField] [Tooltip("The Time before the gun can be used again")]
+    private float gunCooldown = 1f;
+
+    [SerializeField] [Tooltip("Time player takes to exit aiming after shooting")]
+    private float gunAimTimeOut = 5f;
+
     [SerializeField] [Tooltip("All layers the player gets grounded on")]
     private LayerMask groundingMask;
 
@@ -272,7 +278,11 @@ public class Test_character : Controller {
                     break;
 
                 case HoldableType.gun:
-                    (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
+                    {
+                        (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
+                        Animator.SetFloat("gunCooldownLeft",gunCooldown);
+                        Animator.SetFloat("gunWaitingForShoot", gunAimTimeOut);
+                    }
                     return;
             }
         }
@@ -309,6 +319,15 @@ public class Test_character : Controller {
         }
 
         wasAimingLastFrame = isAiming;
+
+        if (Animator.GetFloat("gunCooldownLeft") > 0)
+            Animator.SetFloat("gunCooldownLeft",Animator.GetFloat("gunCooldownLeft") -1 * Time.deltaTime);
+
+        if (isAiming & (Animator.GetBool("attackLeftHold") || Animator.GetBool("attackRightHold")))
+            Animator.SetFloat("gunWaitingForShoot", gunAimTimeOut);
+
+        if (Animator.GetFloat("gunWaitingForShoot") > 0)
+            Animator.SetFloat("gunWaitingForShoot", Animator.GetFloat("gunWaitingForShoot") - 1 * Time.deltaTime);
     }
 
     /// <summary>

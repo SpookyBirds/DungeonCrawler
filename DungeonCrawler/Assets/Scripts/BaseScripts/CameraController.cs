@@ -271,14 +271,16 @@ public class CameraController : MonoBehaviour
     {
         if (doAim)
         {
-            MainCamera.localPosition += new Vector3(0, 0, aimingCameraZoomOffset);
-            RotationCenterPoint.localPosition += new Vector3(0, aimingCameraTopOffset, 0);
+            //aiming zoom disabled because it felt bad when shooting fast
+
+            //MainCamera.localPosition += new Vector3(0, 0, aimingCameraZoomOffset);
+            //RotationCenterPoint.localPosition += new Vector3(0, aimingCameraTopOffset, 0);
             crossHair.gameObject.SetActive(true);
         }
         else
         {
-            RotationCenterPoint.localPosition -= new Vector3(0, aimingCameraTopOffset, 0);
-            MainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
+            //RotationCenterPoint.localPosition -= new Vector3(0, aimingCameraTopOffset, 0);
+            //MainCamera.localPosition -= new Vector3(0, 0, aimingCameraZoomOffset);
             crossHair.gameObject.SetActive(false);
         }
     }
