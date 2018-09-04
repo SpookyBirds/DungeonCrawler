@@ -1787,6 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  animator: {fileID: 95640815502265694}
   infusedSubstance: 0
   healthbar: {fileID: 114256590746716676}
 --- !u!114 &114706678424430384

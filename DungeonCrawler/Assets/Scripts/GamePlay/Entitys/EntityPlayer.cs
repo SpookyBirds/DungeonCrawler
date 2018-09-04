@@ -6,8 +6,14 @@ using UnityEngine.UI;
 
 public class EntityPlayer : Entity {
 
-    public Text healthDisplay;
-    public Image healthbar;
+    [SerializeField]
+    private Text healthDisplay;
+
+    [SerializeField]
+    private Image healthbar;
+
+    [SerializeField]
+    private int maxHealth = 100;
 
     public override float Health
     {
@@ -18,6 +24,13 @@ public class EntityPlayer : Entity {
             base.Health = value;
             UpdateHealthDisplay();
         }
+    }
+
+    public void RestoreHealth(int amount)
+    {
+        Health += amount;
+        if (Health > maxHealth)
+            Health = maxHealth;
     }
 
     protected override void Awake()
@@ -34,7 +47,7 @@ public class EntityPlayer : Entity {
 
     protected override void KillEntity()
     {
-        Destroy(transform.gameObject);
+        animator.SetBool("Death", true);
     }
 
 }

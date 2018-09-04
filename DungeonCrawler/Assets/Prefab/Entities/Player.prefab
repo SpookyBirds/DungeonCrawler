@@ -1206,7 +1206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1687533187025376
 GameObject:
   m_ObjectHideFlags: 1
@@ -1653,7 +1653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1964957020945640
 GameObject:
   m_ObjectHideFlags: 1
@@ -2065,7 +2065,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192974156011144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 51.2, y: 152.5, z: -279}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4272673211968248}
@@ -2833,8 +2833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   substanceBar: {fileID: 114113753391703450}
-  fillCapacity: 10000000
-  currentAmount: 10000000
+  fillCapacity: 100
+  currentAmount: 50
   currentSubstance: 2
 --- !u!114 &114113753391703450
 MonoBehaviour:
@@ -3222,9 +3222,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  animator: {fileID: 95819497606401932}
   infusedSubstance: 0
   healthDisplay: {fileID: 114344870817449148}
   healthbar: {fileID: 114752037656807132}
+  maxHealth: 100
 --- !u!114 &114472728221719310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3520,12 +3522,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfActiveVials: 3
   substanceVials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 114078106541280242}
+  - {fileID: 114789273291206470}
+  - {fileID: 114910466786281436}
+  - {fileID: 114898090517664274}
+  - {fileID: 114453255084879168}
+  - {fileID: 114396554851385160}
 --- !u!114 &114662367910447230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3614,8 +3616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   substanceBar: {fileID: 114864209783220004}
-  fillCapacity: 100000
-  currentAmount: 100000
+  fillCapacity: 100
+  currentAmount: 50
   currentSubstance: 3
 --- !u!114 &114803269759470518
 MonoBehaviour:
@@ -3766,8 +3768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   substanceBar: {fileID: 114868372299608316}
-  fillCapacity: 10000
-  currentAmount: 10000
+  fillCapacity: 100
+  currentAmount: 50
   currentSubstance: 5
 --- !u!114 &114924749159359506
 MonoBehaviour:

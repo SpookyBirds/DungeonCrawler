@@ -9,6 +9,9 @@ public class Entity : InheritanceSimplyfier {
     public float startingHealth;
 
     [SerializeField]
+    protected Animator animator;
+
+    [SerializeField]
     private Substance infusedSubstance;
     public Substance UseInfusedSubstance
     {
