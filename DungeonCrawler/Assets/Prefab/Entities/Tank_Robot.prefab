@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 114650688836970696}
   - component: {fileID: 114299041676586884}
   - component: {fileID: 114478766277010068}
+  - component: {fileID: 114858110709640590}
   m_Layer: 0
   m_Name: Tank_Robot
   m_TagString: Enemy_NPC
@@ -1402,7 +1403,7 @@ Transform:
   m_GameObject: {fileID: 1161513133926506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.20000015, y: 0.2, z: 0.20000015}
   m_Children:
   - {fileID: 4222784198733352}
   - {fileID: 4359343053363368}
@@ -1857,6 +1858,7 @@ MonoBehaviour:
   startingHealth: 300
   animator: {fileID: 95508481325458450}
   infusedSubstance: 0
+  GUI: {fileID: 1538551130017756}
   healthbar: {fileID: 114203139699653228}
 --- !u!114 &114472327887919894
 MonoBehaviour:
@@ -1970,6 +1972,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfc10ee278ad05479b952001276ee76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114858110709640590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161513133926506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12f551ffb53e554a8aba0dd37531a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95508481325458450}
+  dropChance: 100
+  drops:
+  - {fileID: 1912552924845596, guid: af6b78a4c82121c419be14999d17f9dc, type: 2}
+  - {fileID: 1643857744157706, guid: 8bebec87908f3e543b58a3de1342e7ef, type: 2}
+  - {fileID: 1784965217672938, guid: 03b504154f029ba469bb13280b5d45c6, type: 2}
+  dropTransform: {fileID: 4672072424159466}
 --- !u!137 &137080067889453208
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

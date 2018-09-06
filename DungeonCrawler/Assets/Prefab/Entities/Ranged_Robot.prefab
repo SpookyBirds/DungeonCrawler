@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 114144867403096026}
   - component: {fileID: 114695824914711312}
   - component: {fileID: 114814104261923042}
+  - component: {fileID: 114556493987362034}
   m_Layer: 0
   m_Name: Ranged_Robot
   m_TagString: Enemy_NPC
@@ -514,8 +515,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583429925631730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7742278, z: -0, w: 0.63290703}
+  m_LocalPosition: {x: 1.9051676, y: -0.69999695, z: 4.9456177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4043487857019010}
@@ -905,6 +906,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114556493987362034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1583429925631730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12f551ffb53e554a8aba0dd37531a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95792904395688876}
+  dropChance: 50
+  drops:
+  - {fileID: 1912552924845596, guid: af6b78a4c82121c419be14999d17f9dc, type: 2}
+  - {fileID: 1643857744157706, guid: 8bebec87908f3e543b58a3de1342e7ef, type: 2}
+  - {fileID: 1784965217672938, guid: 03b504154f029ba469bb13280b5d45c6, type: 2}
+  dropTransform: {fileID: 4261867611991542}
+  dropParent: {fileID: 0}
 --- !u!114 &114695824914711312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -919,6 +939,7 @@ MonoBehaviour:
   startingHealth: 50
   animator: {fileID: 95792904395688876}
   infusedSubstance: 0
+  GUI: {fileID: 1532803307234644}
   healthbar: {fileID: 114539194736253626}
 --- !u!114 &114729477912338542
 MonoBehaviour:

@@ -64,7 +64,7 @@ public class Entity : InheritanceSimplyfier {
 
     protected virtual void KillEntity()
     {
-        Destroy(transform.gameObject);
+        animator.SetBool("Death", true);
     }
 
     /// <summary>

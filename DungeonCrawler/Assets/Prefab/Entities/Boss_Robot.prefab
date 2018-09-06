@@ -1886,6 +1886,7 @@ MonoBehaviour:
   startingHealth: 3000
   animator: {fileID: 95074071773719834}
   infusedSubstance: 0
+  GUI: {fileID: 1091819218634004}
   healthbar: {fileID: 114750596618416352}
 --- !u!114 &114975200391992570
 MonoBehaviour:

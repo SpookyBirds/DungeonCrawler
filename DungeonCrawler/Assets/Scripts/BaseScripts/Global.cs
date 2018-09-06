@@ -21,6 +21,7 @@ public class Global : MonoBehaviour {
     private Entities npcs;
     public Transform level;
     public GameObject player;
+    public GameObject Drops;
     public GameObject emptyHandFist;
 
     [Space]

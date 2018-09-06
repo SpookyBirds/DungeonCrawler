@@ -1,6 +1,13 @@
 ﻿using UnityEngine.UI;
+using UnityEngine;
 
 public class EntityHealthbar : Entity {
+
+    //[SerializeField] [Tooltip("Main Collider will be disabled as soon as hp hit 0, not after the death animation finishes")]
+    //private Collider mainCollider;
+
+    [SerializeField] [Tooltip("GUI will be disabled as soon as hp hit 0, not after the death animation finishes")]
+    private GameObject GUI;
 
     public Image healthbar;
 
@@ -21,6 +28,19 @@ public class EntityHealthbar : Entity {
         UpdateHealthbar();
     }
 
+    protected override void Update()
+    {
+        if (animator.GetBool("Death"))
+        {
+            //mainCollider.enabled = false;
+            GUI.SetActive(false);
+        }
+
+        if (animator.GetBool("Remove"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void UpdateHealthbar()
     {

@@ -45,9 +45,8 @@ public class EntityPlayer : Entity {
         healthDisplay.text = "Health: " + Health;
     }
 
-    protected override void KillEntity()
-    {
-        animator.SetBool("Death", true);
-    }
-
+    //protected override void KillEntity()
+    //{
+    //    animator.SetBool("Death", true);
+    //}
 }
