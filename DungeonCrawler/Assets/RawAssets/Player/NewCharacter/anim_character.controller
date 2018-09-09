@@ -303,6 +303,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterNameOfBool: initializeAttackLeft
   exitDeactivate: 0
+--- !u!114 &114167988831841012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114185740441388102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfFloat: attackMovementForce
-  value: 2500
+  value: 20
 --- !u!114 &114277552874223858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfFloat: attackMovementForce
-  value: 1000
+  value: 20
 --- !u!114 &114313562758000284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,7 +379,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfFloat: attackMovementForce
-  value: 2500
+  value: 20
+--- !u!114 &114316629548724860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114318291360170366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,7 +405,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterName: isAiming
+--- !u!114 &114353580565950280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114382778319515164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
+--- !u!114 &114396954027634820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -417,6 +469,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterName: isAiming
+--- !u!114 &114483582270121012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114486266572134172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,7 +520,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfFloat: attackMovementForce
-  value: 2500
+  value: 30
+--- !u!114 &114665488518812412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114672896920250726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,6 +660,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterName: isRunning
+--- !u!114 &114859242748182724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
+--- !u!114 &114871112977384500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
 --- !u!114 &114899568265896038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -594,6 +698,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterNameOfBool: initializeAttackRight
+  exitDeactivate: 0
+--- !u!114 &114927169241348596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
+  exitDeactivate: 0
+--- !u!114 &114973269352511698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
   exitDeactivate: 0
 --- !u!114 &114976364325586718
 MonoBehaviour:
@@ -619,6 +749,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameterNameOfBool: initializeAttackLeft
+  exitDeactivate: 0
+--- !u!114 &114988219246207008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deab548aee726347b55eb5e737474b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterNameOfBool: CameraSnap
   exitDeactivate: 0
 --- !u!206 &206201088047637172
 BlendTree:
@@ -1077,9 +1220,9 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.12837924
-  m_TransitionOffset: 0
-  m_ExitTime: 0.14285728
-  m_HasExitTime: 0
+  m_TransitionOffset: 0.056187034
+  m_ExitTime: 0.61643314
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1105,7 +1248,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.109007806
   m_TransitionOffset: 0
-  m_ExitTime: 0.8256624
+  m_ExitTime: 0.4257868
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1527,9 +1670,9 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.1428572
-  m_HasExitTime: 0
+  m_TransitionOffset: 0.0541044
+  m_ExitTime: 0.5988794
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -2915,6 +3058,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: groundContact
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Death
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102607692693730610}
   m_Solo: 0
@@ -3760,6 +3906,30 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &1101739102313769482
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: Death
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102036158314882396}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.78571427
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &1101743009242931052
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -4208,10 +4378,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.098636426
-  m_TransitionOffset: 0
-  m_ExitTime: 0.1428572
-  m_HasExitTime: 0
+  m_TransitionDuration: 0.09863645
+  m_TransitionOffset: 0.06010123
+  m_ExitTime: 0.64942414
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -4529,10 +4699,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.13900003
-  m_TransitionOffset: 0
-  m_ExitTime: 0.14285725
-  m_HasExitTime: 0
+  m_TransitionDuration: 0.13900004
+  m_TransitionOffset: 0.06789266
+  m_ExitTime: 0.7150948
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -4826,6 +4996,7 @@ AnimatorState:
   - {fileID: 1101111692276114692}
   m_StateMachineBehaviours:
   - {fileID: 114112971451355254}
+  - {fileID: 114396954027634820}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5073,6 +5244,7 @@ AnimatorState:
   - {fileID: 1101442353999534192}
   m_StateMachineBehaviours:
   - {fileID: 114067597222771822}
+  - {fileID: 114988219246207008}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5454,6 +5626,7 @@ AnimatorState:
   - {fileID: 1101661524228579430}
   m_StateMachineBehaviours:
   - {fileID: 114657486240469676}
+  - {fileID: 114316629548724860}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5481,6 +5654,7 @@ AnimatorState:
   - {fileID: 1101106094062184390}
   m_StateMachineBehaviours:
   - {fileID: 114899568265896038}
+  - {fileID: 114859242748182724}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5680,7 +5854,8 @@ AnimatorState:
   - {fileID: 1101681955544881676}
   - {fileID: 1101909531376867374}
   - {fileID: 1101096683699703396}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114167988831841012}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5712,6 +5887,7 @@ AnimatorState:
   - {fileID: 1101873243989487748}
   m_StateMachineBehaviours:
   - {fileID: 114121416446734994}
+  - {fileID: 114483582270121012}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5742,7 +5918,8 @@ AnimatorState:
   - {fileID: 1101469409332866910}
   - {fileID: 1101045729098966476}
   - {fileID: 1101326581246121012}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114973269352511698}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -5980,6 +6157,7 @@ AnimatorState:
   - {fileID: 1101768929229038978}
   m_StateMachineBehaviours:
   - {fileID: 114306746941194850}
+  - {fileID: 114927169241348596}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -6034,6 +6212,7 @@ AnimatorState:
   - {fileID: 1101255798162268614}
   m_StateMachineBehaviours:
   - {fileID: 114313562758000284}
+  - {fileID: 114353580565950280}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -6142,6 +6321,7 @@ AnimatorState:
   - {fileID: 1101313698793338088}
   m_StateMachineBehaviours:
   - {fileID: 114213461257999556}
+  - {fileID: 114871112977384500}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -6200,7 +6380,8 @@ AnimatorState:
   - {fileID: 1101453516257539612}
   - {fileID: 1101845270620011406}
   - {fileID: 1101422328783998170}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114665488518812412}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -6277,7 +6458,8 @@ AnimatorState:
   m_Name: Death
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: 1101739102313769482}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -7366,7 +7548,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102765318072315480}
-    m_Position: {x: 864, y: 144, z: 0}
+    m_Position: {x: 864, y: 120, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 1107506217827601092}
@@ -7383,7 +7565,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 888, y: 48, z: 0}
+  m_AnyStatePosition: {x: 864, y: -12, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 48, y: -24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

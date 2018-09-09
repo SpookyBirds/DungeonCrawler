@@ -71,13 +71,20 @@ public class Entity : InheritanceSimplyfier {
     /// Deal damage to this entity. Returns remaining health
     /// </summary>
     /// <param name="demageDelt">The amount of damage the attack delt this entity. Must be positive</param>
-    public float Damage(float damageDelt)
-    {
-        if (damageDelt < 0)
-            return Health;
+    /// 
 
-        return (Health -= damageDelt);
-    }
+    //Sebi du hund, wenn du die funktion ersetzt dann lösch sie oder schreib n comment, aber lass sie nich einfach stehn als würde sie benutzt
+
+    //public float Damage(float damageDelt)
+    //{
+    //    if (damageDelt < 0)
+    //        return Health;
+
+    //    if (damageDelt >= Health)
+    //        return Health = 0;
+
+    //    return (Health -= damageDelt);
+    //}
 
     /// <summary>
     /// Deal damage to this entity. Returns whether the attack delt damage
@@ -93,6 +100,8 @@ public class Entity : InheritanceSimplyfier {
         if (damageToDeal < 0)
             return false;
 
+        
+
         float remainingDamageToDeal = damageToDeal;
 
         for (int index = 0; index < interruptActions.Count; index++)
@@ -103,7 +112,13 @@ public class Entity : InheritanceSimplyfier {
                 return false;
         }
 
-        Health -= damageToDeal;
+        if (remainingDamageToDeal >= Health)
+        {
+            Health = 0;
+            remainingDamageToDeal = 0;
+        }
+
+        Health -= remainingDamageToDeal;
         return true;
     }
     

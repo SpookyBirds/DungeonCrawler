@@ -44,29 +44,6 @@ public class CameraController : MonoBehaviour
     public Transform MainCamera { get; private set; } 
     public Transform RotationCenterPoint { get; private set; }
 
-
-    private bool gamePaused;
-    public bool GamePaused
-    {
-        get { return gamePaused; }
-        set
-        {
-            gamePaused = value;
-            HandleCursor(value);
-        }
-    }
-
-    private bool inventoryUi;
-    public bool InventoryUi
-    {
-        get { return inventoryUi; }
-        set
-        {
-            inventoryUi = value;
-            HandleCursor(value);
-        }
-    }
-
     private float GetCurrentZoom { get { return MainCamera.localPosition.z; } }
 
 
@@ -75,28 +52,12 @@ public class CameraController : MonoBehaviour
     private Vector3 forwardPoint;
     private Vector3 initialCameraPosition;
 
-    private static void HandleCursor(bool value)
-    {
-        if (value)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
     private void Awake()
     {
         PitchRotation = transform.GetChild(0);
         MainCamera = PitchRotation.GetChild(0);
         RotationCenterPoint = transform.parent;
         initialCameraPosition = MainCamera.localPosition;
-
-        Cursor.lockState = CursorLockMode.Locked;
 
         crossHair.gameObject.SetActive(false);
 
@@ -105,22 +66,9 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (GamePaused == false)
-        {
-            Time.timeScale = 1f;
-        }
-        else
-        {
-            Time.timeScale = 0f;
-        }
-        
-        if(GamePaused == false && InventoryUi == false)
-        {
-            HandleCameraRotations();
-            HandlePlayerDrivenZooming();
-            HandleCameraCollision();
-        }
-       
+        HandleCameraRotations();
+        HandlePlayerDrivenZooming();
+        HandleCameraCollision();
     }
 
     /// <summary>

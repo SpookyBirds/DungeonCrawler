@@ -461,7 +461,7 @@ public class Test_character : Controller {
     {
         isRunning = Animator.GetInteger("isRunning");
 
-        if (isRunning > 0)
+        if (isRunning > 0||Animator.GetBool("isRolling"))
         {
             SnapPlayerInCameraDirection();
 
@@ -476,16 +476,18 @@ public class Test_character : Controller {
     {
         if(Animator.GetFloat("attackMovementForce")>0)
         {
-            Rigid.AddForce(transform.forward * Animator.GetFloat("attackMovementForce") * GetInputMagnitude(), ForceMode.Force);
+            Rigid.AddForce(movementDirection * Animator.GetFloat("attackMovementForce") * GetInputMagnitude(), ForceMode.Impulse);
             Animator.SetFloat("attackMovementForce", 0); 
         }
+        if (Animator.GetBool("CameraSnap"))
+            SnapPlayerInCameraDirection();
     }
 
-    /// <summary>
-    /// Applies AddForce in 'movementDirection' using the given strength and ForceMode,
-    /// according to the inputed movement strength ('GetInputMagnitude()')
-    /// </summary>
-    private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
+/// <summary>
+/// Applies AddForce in 'movementDirection' using the given strength and ForceMode,
+/// according to the inputed movement strength ('GetInputMagnitude()')
+/// </summary>
+private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
     }

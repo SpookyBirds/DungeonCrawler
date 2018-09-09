@@ -9,6 +9,8 @@ public class EntityHealthbar : Entity {
     [SerializeField] [Tooltip("GUI will be disabled as soon as hp hit 0, not after the death animation finishes")]
     private GameObject GUI;
 
+    private Collider mainCollider;
+
     public Image healthbar;
 
     public override float Health
@@ -26,13 +28,14 @@ public class EntityHealthbar : Entity {
     {
         base.Awake();
         UpdateHealthbar();
+        mainCollider = GetComponent<Collider>();
     }
 
     protected override void Update()
     {
         if (animator.GetBool("Death"))
         {
-            //mainCollider.enabled = false;
+            mainCollider.enabled = false;
             GUI.SetActive(false);
         }
 

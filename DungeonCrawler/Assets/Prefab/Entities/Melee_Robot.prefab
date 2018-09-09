@@ -1176,9 +1176,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699566941890646}
-  m_LocalRotation: {x: -0, y: 0.6902964, z: -0, w: 0.7235267}
-  m_LocalPosition: {x: 4.405183, y: -0.69999695, z: 1.7434998}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5000001, y: 1.5, z: 1.5000001}
   m_Children:
   - {fileID: 4697511789080232}
   - {fileID: 4326376382208738}
@@ -1595,12 +1595,12 @@ Rigidbody:
   m_GameObject: {fileID: 1699566941890646}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2.5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65625807571724450
 BoxCollider:
@@ -1731,7 +1731,6 @@ MonoBehaviour:
   - {fileID: 1643857744157706, guid: 8bebec87908f3e543b58a3de1342e7ef, type: 2}
   - {fileID: 1784965217672938, guid: 03b504154f029ba469bb13280b5d45c6, type: 2}
   dropTransform: {fileID: 4436007808715782}
-  dropParent: {fileID: 0}
 --- !u!114 &114307397458467648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1765,7 +1764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0374ecacd4dbc6408ab061ddfafcaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standartVisionRadius: 10
+  standartVisionRadius: 30
   blindedVisionRadius: 1
   eyes: {fileID: 4891985623977524}
   obstacleEvadingAngles:
