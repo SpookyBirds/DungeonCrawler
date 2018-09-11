@@ -40,7 +40,7 @@ public class CTRLHub : MonoBehaviour
     public bool Jump     { get { return (Input.GetKey(JumpKeyCode));     } }
 
     public KeyCode RollKeyCode { get; set; }
-    public bool Roll { get { return Input.GetKeyDown(KeyCode.LeftControl); } }
+    public bool Roll { get { return Input.GetKeyDown(RollKeyCode); } }
 
     public KeyCode SwapHoldableKeyCode { get; set; }
     public bool SwapHoldableDown { get { return (Input.GetKeyDown(SwapHoldableKeyCode)); } }

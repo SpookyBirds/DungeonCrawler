@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Test_character : Controller {
+public class PlayerLocomotion : MonoBehaviour {
 
     #region fields
 
@@ -24,12 +24,6 @@ public class Test_character : Controller {
     [SerializeField] [Tooltip("The amount the character moves in the jump direction while jumping")]
     private float jumpForwardStrength = 20f;
 
-    [SerializeField] [Tooltip("The Time before the gun can be used again")]
-    private float gunCooldown = 1f;
-
-    [SerializeField] [Tooltip("Time player takes to exit aiming after shooting")]
-    private float gunAimTimeOut = 5f;
-
     [SerializeField] [Tooltip("All layers the player gets grounded on")]
     private LayerMask groundingMask;
 
@@ -50,7 +44,6 @@ public class Test_character : Controller {
         "and its dimentions are only manipulated via its size, not the transforms scale)")]
     private BoxCollider groundingCollider;
 
-
     private bool isGrounded;
     public bool IsGrounded
     {
@@ -58,31 +51,7 @@ public class Test_character : Controller {
         set
         {
             isGrounded = value;
-            Animator.SetBool("groundContact", IsGrounded);
-        }
-    }
-
-    private bool isLeftWeaponInfused;
-    public bool IsLeftWeaponInfused
-    {
-        get { return isLeftWeaponInfused; }
-
-        private set
-        {
-            isLeftWeaponInfused = value;
-            HoldablesHandler.LeftEquiped.ToggleInfusion( PlayerSubstanceManager.LeftHandSubstance, value);
-        }
-    }
-
-    private bool isRightWeaponInfused;
-    public bool IsRightWeaponInfused
-    {
-        get { return isRightWeaponInfused; }
-
-        private set
-        {
-            isRightWeaponInfused = value;
-            HoldablesHandler.RightEquiped.ToggleInfusion( PlayerSubstanceManager.RightHandSubstance, value);
+            animator.SetBool("groundContact", IsGrounded);
         }
     }
 
@@ -93,11 +62,7 @@ public class Test_character : Controller {
 
     public Rigidbody Rigid { get; protected set; }
 
-    private HoldablesHandler HoldablesHandler { get; set; }
-
-    private PlayerSubstanceManager PlayerSubstanceManager { get; set; }
-
-    private SubstanceSelector SubstanceSelector { get; set; }
+    private Animator animator;
 
     /// <summary>
     /// The direction of the gravity, normalized
@@ -157,37 +122,23 @@ public class Test_character : Controller {
     /// </summary>
     private Vector3 airebornMovementDirection;
 
-    /// <summary>
-    /// Whether or not the player was aiming the last frame
-    /// </summary>
-    private bool wasAimingLastFrame;
-
     #endregion fields
 
-    protected override void Awake()
+     void Awake()
     {
-        base.Awake();
-
+        animator = GetComponentInChildren<Animator>();
         Rigid                  = GetComponent<Rigidbody>();
         CameraController       = GetComponentInChildren<CameraController>(true);
-        HoldablesHandler       = GetComponent<HoldablesHandler>();
-        PlayerSubstanceManager = GetComponent<PlayerSubstanceManager>();
-        SubstanceSelector      = GetComponentInChildren<SubstanceSelector>(true);
-
         normalizedGravity      = Physics.gravity.normalized;
     }
 
-    protected override void Update ()
+    void Update ()
     {
         HandleInputProcessing();
-        HandleSubstanceToggle();
-        HandleAiming();
-        HandleAttacks();
         HandleGroundCheck();
         HandleMovementDirection();
         HandleJump();
         HandleRolling();
-        HandleAttackMovementForce();
     }
 
     /// <summary>
@@ -196,7 +147,7 @@ public class Test_character : Controller {
     private void HandleInputProcessing()
     {
         // Cache axis input
-        if (IsFrozen)
+        if (animator.GetBool("isFrozen"))
         {
             horizontalAxis = 0;
             verticalAxis = 0;
@@ -210,133 +161,11 @@ public class Test_character : Controller {
         // Calculate inputed movement (direction and strength)
         inputedMovementDirectionRotated = transform.rotation * new Vector3(horizontalAxis, 0, verticalAxis);
 
-        /// Mecanim animator parameter setting
-
-        if (CTRLHub.inst.SubstanceKey)
-        {
-            // Toggle weapon infusion
-
-            if (CTRLHub.inst.LeftAttackDown)
-                IsLeftWeaponInfused = !IsLeftWeaponInfused;
-            if (CTRLHub.inst.RightAttackDown)
-                IsRightWeaponInfused = !IsRightWeaponInfused;
-        }
-        else
-        {
-            if (!Animator.GetBool("weaponSwap"))
-            {
-                Animator.SetBool("attackRight", CTRLHub.inst.RightAttackDown);
-                Animator.SetBool("attackRightHold", CTRLHub.inst.RightAttack);
-                Animator.SetBool("attackRightRelease", CTRLHub.inst.RightAttackUp);
-
-                Animator.SetBool("attackLeft", CTRLHub.inst.LeftAttackDown);
-                Animator.SetBool("attackLeftHold", CTRLHub.inst.LeftAttack);
-                Animator.SetBool("attackLeftRelease", CTRLHub.inst.LeftAttackUp);
-            }
-        }
-        Animator.SetBool("jump",      CTRLHub.inst.Jump);
-        Animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
+        animator.SetBool("jump",      CTRLHub.inst.JumpDown);
+        animator.SetBool("dodgeroll", CTRLHub.inst.Roll);
     }
 
-    /// <summary>
-    /// Toggle the display and the used substance itself
-    /// </summary>
-    private void HandleSubstanceToggle()
-    {
-        SubstanceSelector.SubstanceSelectorParts.SetActive(CTRLHub.inst.SubstanceKey);
 
-        if (CTRLHub.inst.SubstanceKey)
-        {
-            if (CTRLHub.inst.ScrollValue < 0)
-                SubstanceSelector.ScrollUp();
-            else if (CTRLHub.inst.ScrollValue > 0)
-                SubstanceSelector.ScrollDown();
-        
-            if (Input.GetKeyDown(KeyCode.E))
-                PlayerSubstanceManager.RightHandSubstance = SubstanceSelector.CurrentSelected;
-        
-            if (Input.GetKeyDown(KeyCode.Q))
-                PlayerSubstanceManager.LeftHandSubstance  = SubstanceSelector.CurrentSelected;
-        }
-    }
-
-    /// <summary>
-    /// Pass the attack command to the weapons
-    /// </summary>
-    private void HandleAttacks()
-    {
-        if (Animator.GetBool("initializeAttackLeft"))
-        {
-            Animator.SetBool("initializeAttackLeft", false);
-
-            switch ((HoldableType)Animator.GetInteger("itemHandLeft"))
-            {
-                default: return;
-
-                case HoldableType.sword:
-                    (HoldablesHandler.LeftEquiped as Sword).Attack(PlayerSubstanceManager, PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
-                    break;
-
-                case HoldableType.gun:
-                    {
-                        (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
-                        Animator.SetFloat("gunCooldownLeft",gunCooldown);
-                        Animator.SetFloat("gunWaitingForShoot", gunAimTimeOut);
-                    }
-                    return;
-            }
-        }
-
-        if (Animator.GetBool("initializeAttackRight"))
-        {
-            Animator.SetBool("initializeAttackRight", false);
-
-            switch ((HoldableType)Animator.GetInteger("itemHandRight"))
-            {
-                default: return;
-
-                case HoldableType.sword:
-                    (HoldablesHandler.RightEquiped as Sword).Attack(PlayerSubstanceManager, PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
-                    return;
-
-                case HoldableType.gun:
-                    (HoldablesHandler.RightEquiped as Gun).ShootFromHip(PlayerSubstanceManager.RightHandSubstance, EnemyTypes);
-                    return;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Toggle aiming and setting wasAimingLastFrame
-    /// </summary>
-    private void HandleAiming()
-    {
-        bool isAiming = Animator.GetInteger("isAiming") != 0;
-
-        if(isAiming != wasAimingLastFrame)
-        {
-            ToggleAim(isAiming);
-        }
-
-        wasAimingLastFrame = isAiming;
-
-        if (Animator.GetFloat("gunCooldownLeft") > 0)
-            Animator.SetFloat("gunCooldownLeft",Animator.GetFloat("gunCooldownLeft") -1 * Time.deltaTime);
-
-        if (isAiming & (Animator.GetBool("attackLeftHold") || Animator.GetBool("attackRightHold")))
-            Animator.SetFloat("gunWaitingForShoot", gunAimTimeOut);
-
-        if (Animator.GetFloat("gunWaitingForShoot") > 0)
-            Animator.SetFloat("gunWaitingForShoot", Animator.GetFloat("gunWaitingForShoot") - 1 * Time.deltaTime);
-    }
-
-    /// <summary>
-    /// Toggle aiming. Pass true to activate and false to deactivate
-    /// </summary>
-    private void ToggleAim(bool toggle)
-    {
-        CameraController.ToggleCameraAimingPosition(toggle);
-    }
 
     /// <summary>
     /// Handling raycast to find ground hitting point and updating isGrounded bool via grounding collider
@@ -369,6 +198,8 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleMovementDirection()
     {
+        if (animator.GetBool("cameraSnap"))
+            SnapPlayerInCameraDirection();
         /// In the air, all moving is prohibited
         if (IsGrounded == false)
         {
@@ -377,12 +208,12 @@ public class Test_character : Controller {
         } 
 
         //Used for BlendTrees in Locomotion(Run,Roll)
-        Animator.SetFloat("verticalInput", CTRLHub.inst.VerticalAxis);
-        Animator.SetFloat("horizontalInput", CTRLHub.inst.HorizontalAxis);
+        animator.SetFloat("verticalInput", CTRLHub.inst.VerticalAxis);
+        animator.SetFloat("horizontalInput", CTRLHub.inst.HorizontalAxis);
 
         //When to run For or Backwards. Forwards includes Sidewards
-        Animator.SetBool("runForward", CTRLHub.inst.VerticalAxis > 0 || CTRLHub.inst.HorizontalAxis != 0 && CTRLHub.inst.VerticalAxis == 0);
-        Animator.SetBool("runBackward", CTRLHub.inst.VerticalAxis < 0);
+        animator.SetBool("runForward", CTRLHub.inst.VerticalAxis > 0 || CTRLHub.inst.HorizontalAxis != 0 && CTRLHub.inst.VerticalAxis == 0);
+        animator.SetBool("runBackward", CTRLHub.inst.VerticalAxis < 0);
 
         /// On the ground or on a slope, the direction get's calculated via 
         ///  casting an additional ray some distance ('directionCheckingDistance') away 
@@ -414,12 +245,11 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleJump()
     {
-        isJumping = Animator.GetBool("isJumping");
+        isJumping = animator.GetBool("isJumping");
 
         if (IsGrounded)
         {
-            if ((isJumping && lastFrameIsJumping == false) && 
-                IsFrozen == false)
+            if ((isJumping && lastFrameIsJumping == false) && animator.GetBool("isFrozen") == false)
             {
                 Rigid.AddForce(-normalizedGravity * jumpForce, ForceMode.Impulse);
                 airebornMovementDirection = movementDirection;
@@ -437,10 +267,9 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleRolling()
     {
-        isRolling = Animator.GetBool("isRolling");
+        isRolling = animator.GetBool("isRolling");
 
-        if ((isRolling && lastFrameIsRolling == false) &&
-            IsFrozen == false)
+        if ((isRolling && lastFrameIsRolling == false) && animator.GetBool("isFrozen") == false)
         {
             ApplyForceInMovementDirection(rollingStrength, ForceMode.Impulse);
         }
@@ -448,7 +277,7 @@ public class Test_character : Controller {
         lastFrameIsRolling = isRolling;
     }
 
-    protected override void FixedUpdate()
+    void FixedUpdate()
     {
         // Normal walking movement 
         HandleMovement();
@@ -459,9 +288,9 @@ public class Test_character : Controller {
     /// </summary>
     private void HandleMovement()
     {
-        isRunning = Animator.GetInteger("isRunning");
+        isRunning = animator.GetInteger("isRunning");
 
-        if (isRunning > 0||Animator.GetBool("isRolling"))
+        if (isRunning > 0||animator.GetBool("isRolling"))
         {
             SnapPlayerInCameraDirection();
 
@@ -470,17 +299,6 @@ public class Test_character : Controller {
             else
                 ApplyForceInMovementDirection(backwardSpeed);
         }
-    }
-
-    private void HandleAttackMovementForce()
-    {
-        if(Animator.GetFloat("attackMovementForce")>0)
-        {
-            Rigid.AddForce(movementDirection * Animator.GetFloat("attackMovementForce") * GetInputMagnitude(), ForceMode.Impulse);
-            Animator.SetFloat("attackMovementForce", 0); 
-        }
-        if (Animator.GetBool("CameraSnap"))
-            SnapPlayerInCameraDirection();
     }
 
 /// <summary>

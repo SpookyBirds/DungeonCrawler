@@ -399,15 +399,16 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4427787476821406}
+  - component: {fileID: 114271608408654858}
   - component: {fileID: 114415123993995522}
+  - component: {fileID: 114617009461413156}
+  - component: {fileID: 114781797227019308}
   - component: {fileID: 65621716649090170}
   - component: {fileID: 54577780776016558}
   - component: {fileID: 114787649722571960}
   - component: {fileID: 114470265430291090}
-  - component: {fileID: 114617009461413156}
   - component: {fileID: 114572795801378396}
   - component: {fileID: 114961677698986806}
-  - component: {fileID: 114781797227019308}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -3294,6 +3295,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114271608408654858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192974156011144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037637dd36e4f6a42822616c44759509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostileEntities: 16
+  animator: {fileID: 95819497606401932}
+  gunCooldown: 0.3
+  gunAimTimeOut: 5
 --- !u!114 &114322388192202108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3477,16 +3493,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef93a6b9564f6f419b9f9276c6ece09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostileEntities: 16
-  animator: {fileID: 95819497606401932}
   forwardSpeed: 45
   backwardSpeed: 30
   rollingStrength: 20
   maxSteppingHeight: 2
   jumpForce: 10
   jumpForwardStrength: 100
-  gunCooldown: 0.3
-  gunAimTimeOut: 5
   groundingMask:
     serializedVersion: 2
     m_Bits: 512
