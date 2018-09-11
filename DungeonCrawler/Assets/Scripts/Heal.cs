@@ -14,7 +14,7 @@ public class Heal : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag(Global.PlayerTag) && CTRLHub.inst.InteractionDown && !consumed)
+        if(other.CompareTag(Global.PlayerTag) && !consumed)
         {
             other.GetComponent<EntityPlayer>().RestoreHealth(healAmount);
             consumed = true;

@@ -7,8 +7,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     private List<GameObject> enemyList;
  
-    private bool cleared = false;
-    public bool Cleared{ get; private set; }
+    public bool cleared = false;
 
     void Update()
     {
