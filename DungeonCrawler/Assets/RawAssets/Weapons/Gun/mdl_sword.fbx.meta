@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 268ba0014ffa0984f81af7dfe29e9efb
+guid: abe18f70653fd7e42945302c99c3169e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: mat_outer
-    2100002: mat_essence
+    2100000: mat_outerBronce
+    2100002: mat_metal
+    2100004: mat_essence
     2300000: //RootNode
     3300000: //RootNode
-    4300000: mesh_gun
+    4300000: mesh_sword
   externalObjects: {}
   materials:
     importMaterials: 0

@@ -266,6 +266,12 @@ MonoBehaviour:
   particleSystem_Silver: {fileID: 198248978020352456}
   particleSystem_Green: {fileID: 198285749514757002}
   particleSystem_Red: {fileID: 198600129572901534}
+  mat_emptySubstance: {fileID: 2100000, guid: fc943b2c15c4d794da37c0cd775d6e71, type: 2}
+  mat_silverSubstance: {fileID: 2100000, guid: c9acb8985ffbaac41ba8706b0f8aa2fc, type: 2}
+  mat_greenSubstance: {fileID: 2100000, guid: 6f12aca3b1cff2045b1f12b58d65a4f5, type: 2}
+  mat_redSubstance: {fileID: 2100000, guid: 1e7cc4bf8466234449318c835f7df487, type: 2}
+  meshRenderer: {fileID: 23063562061302090}
+  substanceMaterialNumber: 2
   damagePerHit: 35
   substanceConsumtionAmount: 10
 --- !u!198 &198248978020352456

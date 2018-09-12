@@ -25,6 +25,8 @@ public abstract class Holdable : InheritanceSimplyfier
     [SerializeField]
     private Material mat_redSubstance;
 
+    private Material[] materials;
+
     [SerializeField]
     private MeshRenderer meshRenderer;
 
@@ -49,6 +51,8 @@ public abstract class Holdable : InheritanceSimplyfier
         particleSystem_Green.gameObject.SetActive(false);
         //particleSystem_Red.Stop();
         particleSystem_Red.gameObject.SetActive(false);
+
+        materials = meshRenderer.materials;
     }
 
     public void ToggleInfusion(Substance substance, bool toggle)
@@ -64,14 +68,14 @@ public abstract class Holdable : InheritanceSimplyfier
                 particleSystem_Green.gameObject.SetActive(false);
                 particleSystem_Red.gameObject.SetActive(false);
 
-                meshRenderer.materials[substanceMaterialNumber] = mat_silverSubstance;
+                materials[substanceMaterialNumber] = mat_silverSubstance;
                 break;
 
             case Substance.green:
                 particleSystem_Silver.gameObject.SetActive(false);
                 particleSystem_Green.gameObject.SetActive(toggle);
                 particleSystem_Red.gameObject.SetActive(false);
-                meshRenderer.materials[substanceMaterialNumber] = mat_greenSubstance;
+                materials[substanceMaterialNumber] = mat_greenSubstance;
 
                 break;
 
@@ -79,10 +83,11 @@ public abstract class Holdable : InheritanceSimplyfier
                 particleSystem_Silver.gameObject.SetActive(false);
                 particleSystem_Green.gameObject.SetActive(false);
                 particleSystem_Red.gameObject.SetActive(toggle);
-                meshRenderer.materials[substanceMaterialNumber] = mat_redSubstance;
+                materials[substanceMaterialNumber] = mat_redSubstance;
 
                 break;
         }
+        meshRenderer.materials = materials;
     }
 
 
