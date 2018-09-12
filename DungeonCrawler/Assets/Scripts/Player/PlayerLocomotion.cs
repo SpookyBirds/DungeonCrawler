@@ -290,7 +290,7 @@ public class PlayerLocomotion : MonoBehaviour {
     {
         isRunning = animator.GetInteger("isRunning");
 
-        if (isRunning > 0||animator.GetBool("isRolling"))
+        if (isRunning > 0||animator.GetBool("isRolling")||animator.GetBool("isAiming"))
         {
             SnapPlayerInCameraDirection();
 
