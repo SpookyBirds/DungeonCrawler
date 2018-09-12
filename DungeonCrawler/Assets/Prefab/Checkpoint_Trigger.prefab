@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4495705883905004}
   - component: {fileID: 65870102814759342}
+  - component: {fileID: 114022306489074932}
+  - component: {fileID: 114596710594677400}
   m_Layer: 0
   m_Name: Checkpoint_Trigger
   m_TagString: Untagged
@@ -41,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4384501257012234
 Transform:
   m_ObjectHideFlags: 1
@@ -81,3 +83,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 4, z: 20}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &114022306489074932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085329517138008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea4196003281ce42a11e2683f65ddc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 1234162143537480}
+--- !u!114 &114596710594677400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085329517138008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff

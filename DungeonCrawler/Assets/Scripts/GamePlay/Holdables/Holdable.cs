@@ -16,6 +16,21 @@ public abstract class Holdable : InheritanceSimplyfier
     [SerializeField]
     private ParticleSystem particleSystem_Red;
 
+    [SerializeField]
+    private Material mat_emptySubstance;
+    [SerializeField]
+    private Material mat_silverSubstance;
+    [SerializeField]
+    private Material mat_greenSubstance;
+    [SerializeField]
+    private Material mat_redSubstance;
+
+    [SerializeField]
+    private MeshRenderer meshRenderer;
+
+    [SerializeField] [Tooltip("In the meshRenderer the number of the substanceMaterial")]
+    private int substanceMaterialNumber;
+
     protected bool isInfused;
     public Vector3 AttackColliderPosition { get { return influenceCollider.transform.position; } }
 
@@ -26,6 +41,7 @@ public abstract class Holdable : InheritanceSimplyfier
     {
         if (influenceCollider == null)
             influenceCollider = GetComponentInChildren<BoxCollider>();
+
 
         //particleSystem_Silver.Stop();
         particleSystem_Silver.gameObject.SetActive(false);
@@ -47,18 +63,24 @@ public abstract class Holdable : InheritanceSimplyfier
                 particleSystem_Silver.gameObject.SetActive(toggle);
                 particleSystem_Green.gameObject.SetActive(false);
                 particleSystem_Red.gameObject.SetActive(false);
+
+                meshRenderer.materials[substanceMaterialNumber] = mat_silverSubstance;
                 break;
 
             case Substance.green:
                 particleSystem_Silver.gameObject.SetActive(false);
                 particleSystem_Green.gameObject.SetActive(toggle);
                 particleSystem_Red.gameObject.SetActive(false);
+                meshRenderer.materials[substanceMaterialNumber] = mat_greenSubstance;
+
                 break;
 
             case Substance.red:
                 particleSystem_Silver.gameObject.SetActive(false);
                 particleSystem_Green.gameObject.SetActive(false);
                 particleSystem_Red.gameObject.SetActive(toggle);
+                meshRenderer.materials[substanceMaterialNumber] = mat_redSubstance;
+
                 break;
         }
     }
