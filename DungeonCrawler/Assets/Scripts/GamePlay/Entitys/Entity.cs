@@ -13,6 +13,11 @@ public class Entity : InheritanceSimplyfier {
 
     [SerializeField]
     private Substance infusedSubstance;
+    public Substance InfusedSubstance
+    {
+        get { return infusedSubstance; }
+        protected set { infusedSubstance = value; }
+    }
     public Substance UseInfusedSubstance
     {
         get

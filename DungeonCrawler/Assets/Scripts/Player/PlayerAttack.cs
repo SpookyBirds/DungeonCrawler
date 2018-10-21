@@ -163,7 +163,7 @@ public class PlayerAttack : Controller {
 
                 case HoldableType.gun:
                     {
-                        (HoldablesHandler.LeftEquiped as Gun).ShootFromHip(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
+                        (HoldablesHandler.LeftEquiped as Gun).ShootAiming(PlayerSubstanceManager.LeftHandSubstance, EnemyTypes);
                         Animator.SetFloat("gunCooldownLeft", gunCooldown);
                         Animator.SetFloat("gunWaitingForShoot", gunAimTimeOut);
                     }

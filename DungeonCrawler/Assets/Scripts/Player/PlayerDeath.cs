@@ -40,6 +40,4 @@ public class PlayerDeath : MonoBehaviour {
         subLevelManager.GetComponent<SubLevelManager>().resetSubLevel();
         transform.position= subLevelManager.GetComponent<SubLevelManager>().currentSpawnPoint;
     }
-
-
 }

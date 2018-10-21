@@ -66,6 +66,11 @@ public class CTRLHub : MonoBehaviour
     public bool RightAttackUp   { get { return (Input.GetKeyUp(RightAttackKeyCode));   } }
     public bool RightAttack     { get { return (Input.GetKey(RightAttackKeyCode));     } }
 
+    public KeyCode PauseKeyCode { get; set; }
+    public bool PauseDown { get { return (Input.GetKeyDown(PauseKeyCode)); } }
+    public bool PauseUp { get { return (Input.GetKeyUp(PauseKeyCode)); } }
+    public bool Pause { get { return (Input.GetKey(PauseKeyCode)); } }
+
     public bool LeftFireNormal  { get; private set; }
     public bool LeftFireLong    { get; private set; }
     public bool LeftFireHold    { get; private set; }
@@ -106,8 +111,8 @@ public class CTRLHub : MonoBehaviour
         InteractionKeyCode  = ParseKeyCode( "Interaction",  "F"          );
         LeftAttackKeyCode   = ParseKeyCode( "Fire1",        "Mouse0"     );
         RightAttackKeyCode  = ParseKeyCode( "Fire2",        "Mouse1"     );
+        PauseKeyCode        = ParseKeyCode( "pauseKey",     "Escape"     );
     }
-
     private KeyCode ParseKeyCode(string internalName, string keyCodeName)
     {
         return (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(internalName, keyCodeName));

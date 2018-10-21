@@ -21,7 +21,7 @@ public class CombatManager : MonoBehaviour {
     }
 
     public static bool ColliderAttackSphere(Vector3 center, float radius, float damagePerHit, Substance attackingSubstance, int[] enemyTypes)
-    {                                                  
+    {                                  
         return ApplyDamageToColliderCollection(
             damagePerHit, 
             attackingSubstance, 
