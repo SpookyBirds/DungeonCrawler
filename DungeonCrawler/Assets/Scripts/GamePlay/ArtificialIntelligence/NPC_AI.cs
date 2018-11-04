@@ -94,7 +94,7 @@ public class NPC_AI : InheritanceSimplyfier
         /// Check if the enemy is already dead
         if (opponent == null || opponent.Health <= 0)
         {
-            Debug.Log("Enemy is dead. Start relaxing again");
+            //Debug.Log("Enemy is dead. Start relaxing again");
             SwitchToIdleBaseState();
             return;
         }

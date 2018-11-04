@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Lift : MonoBehaviour {
 
+    public bool active;
+
     [SerializeField]
     private Transform position_1;
 
@@ -24,30 +26,33 @@ public class Lift : MonoBehaviour {
         destinationPosition= position_1;
     }
 
-	void Update () {
-        SwitchDestination();
-        MoveLift();
+	void Update ()
+    {
+        if(active)
+        {
+            MoveLift();
+        }
 	}
 
     private void SwitchDestination()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
+        if (destinationPosition==position_2)
             destinationPosition = position_1;
-        }
-           
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
+        else
             destinationPosition = position_2;
-        }
     }
 
     private void MoveLift()
     {
         if (transform.position != destinationPosition.position)
         {
-            transform.position = transform.position + (destinationPosition.position - transform.position) * speed * Time.deltaTime;
-                  
+            transform.position = transform.position + (destinationPosition.position - transform.position) * speed * Time.deltaTime;      
+        }
+        else
+        {
+            active = false;
+            Debug.Log("destination reached");
+            SwitchDestination();
         }
     }
 

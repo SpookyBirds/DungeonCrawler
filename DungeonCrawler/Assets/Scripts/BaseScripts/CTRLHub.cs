@@ -54,7 +54,8 @@ public class CTRLHub : MonoBehaviour
 
     public KeyCode InteractionKeyCode { get; set; }
     public bool InteractionDown {  get { return (Input.GetKeyDown(InteractionKeyCode)); } }
-    public bool InteractionUp   { get { return (Input.GetKeyDown(InteractionKeyCode));  } }
+    public bool InteractionUp   { get { return (Input.GetKeyUp(InteractionKeyCode));    } }
+    public bool Interaction     { get { return (Input.GetKey(InteractionKeyCode));      } }
 
     public KeyCode LeftAttackKeyCode { get; set; }
     public bool LeftAttackDown { get { return (Input.GetKeyDown(LeftAttackKeyCode)); } }
