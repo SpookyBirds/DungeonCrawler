@@ -22,6 +22,7 @@ public class Global : MonoBehaviour {
     public Transform level;
     public GameObject player;
     public GameObject Drops;
+    public GameObject GameLogic;
     public GameObject emptyHandFist;
 
     [Space]

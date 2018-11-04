@@ -8,7 +8,8 @@ public class InteractionConsole : MonoBehaviour {
     [SerializeField]
     private GameObject script;
 
-    private int test;
+
+
 
     void OnTriggerStay(Collider other)
     {
@@ -23,6 +24,6 @@ public class InteractionConsole : MonoBehaviour {
 
     private void Activate()
     {
-        script.GetComponent<Lift>().active = true;
+        script.GetComponent<FollowCurve>().active = true;
     }
 }

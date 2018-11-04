@@ -13,22 +13,28 @@ public class QuadraticCurve : MonoBehaviour {
     [SerializeField]
     private Transform point3;
 
-    private Vector3[] positions;
+    [HideInInspector]
+    public Vector3[] positions;
 
-    [SerializeField]
-    private int numberOfPositions = 50;
+    public int numberOfPositions = 50;
 
-    [SerializeField]
-    private GameObject followingObject;
+    //[SerializeField]
+    //private GameObject followingObject;
 
-    [SerializeField]
-    private float speedOfFollowingObject;
+    //[SerializeField]
+    //private float speedOfFollowingObject;
 
-    private float counter;
+    //private float counter;
 
-    private int currentPosition;
+    //private int currentPosition;
 
-    private bool forwardDirection = true;
+    //private bool forwardDirection = true;
+
+
+    //alternative
+    //private int startPosition = 0;
+    //private int endPosition;
+    //public bool active;
 
     private LineRenderer lineRenderer;
 
@@ -39,6 +45,8 @@ public class QuadraticCurve : MonoBehaviour {
     {
         positions = new Vector3[numberOfPositions];
 
+        //endPosition = numberOfPositions-1;
+
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = numberOfPositions;
         DrawCurve();
@@ -47,10 +55,10 @@ public class QuadraticCurve : MonoBehaviour {
     void Update()
     {
         if(updateCurveToRuntime)
-        {
             DrawCurve();
-        }
-        FollowCurve();
+
+        //if (active)
+            //MoveObjectAlongCurve();
     }
 
     private void DrawCurve()
@@ -65,11 +73,11 @@ public class QuadraticCurve : MonoBehaviour {
 
     }
 
-    private void FollowCurve()
+    /*private void MoveObjectAlongCurve()
     {
         counter += speedOfFollowingObject * Time.deltaTime;
 
-        if(counter>=1)
+        if (counter >= 1)
         {
             counter = 0;
             if (forwardDirection)
@@ -77,13 +85,18 @@ public class QuadraticCurve : MonoBehaviour {
             else
                 currentPosition--;
 
-            if (currentPosition == numberOfPositions-1)
+            if (currentPosition == endPosition)
+            {
+                active = false;
                 forwardDirection = false;
-
-            if (currentPosition == 0)
+            }
+            if(currentPosition == startPosition)
+            {
                 forwardDirection = true;
+                active = false;
+            }
         }
 
         followingObject.transform.position = positions[currentPosition];
-    }
+    }*/
 }

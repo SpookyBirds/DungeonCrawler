@@ -11,7 +11,7 @@ public class MaterialChanger : MonoBehaviour {
     [SerializeField] [Tooltip("In the meshRenderer the number of the substanceMaterial")]
     private int substanceMaterialNumber;
 
-    [SerializeField]
+    [SerializeField][Tooltip("0 = physical; 1 = green; 2 = red; 3 = silver")]
     private Material[] myMaterials;
 
     private Material[] meshRendererMaterials;
