@@ -72,6 +72,14 @@ public class CTRLHub : MonoBehaviour
     public bool PauseUp { get { return (Input.GetKeyUp(PauseKeyCode)); } }
     public bool Pause { get { return (Input.GetKey(PauseKeyCode)); } }
 
+    //Cheatcode section
+    public KeyCode SkipSublevelKeyCode { get; set; }
+    public bool SkipSublevelDown { get { return (Input.GetKeyDown(SkipSublevelKeyCode)); } }
+    public bool SkipSublevelUp { get { return (Input.GetKeyUp(SkipSublevelKeyCode)); } }
+    public bool SkipSublevel { get { return (Input.GetKey(SkipSublevelKeyCode)); } }
+
+
+
     public bool LeftFireNormal  { get; private set; }
     public bool LeftFireLong    { get; private set; }
     public bool LeftFireHold    { get; private set; }
@@ -101,18 +109,21 @@ public class CTRLHub : MonoBehaviour
         RightFireLong   = false;
         RightFireHold   = false;
          
-        ForwardKeyCode      = ParseKeyCode( "forwardKey",   "W"          );
-        LeftKeyCode         = ParseKeyCode( "leftKey",      "A"          );
-        RightKeyCode        = ParseKeyCode( "rightKey",     "D"          );
-        BackwardKeyCode     = ParseKeyCode( "backwardKey",  "S"          );
-        JumpKeyCode         = ParseKeyCode( "jumpKey",      "Space"      );
-        RollKeyCode         = ParseKeyCode( "rollKey",      "LeftControl");
-        SwapHoldableKeyCode = ParseKeyCode( "SwapHoldable", "X"          );
-        SubstanceKeyKeyCode = ParseKeyCode( "SubstanceKey", "LeftShift"  );
-        InteractionKeyCode  = ParseKeyCode( "Interaction",  "F"          );
-        LeftAttackKeyCode   = ParseKeyCode( "Fire1",        "Mouse0"     );
-        RightAttackKeyCode  = ParseKeyCode( "Fire2",        "Mouse1"     );
-        PauseKeyCode        = ParseKeyCode( "pauseKey",     "Escape"     );
+        ForwardKeyCode      = ParseKeyCode( "forwardKey",     "W"          );
+        LeftKeyCode         = ParseKeyCode( "leftKey",        "A"          );
+        RightKeyCode        = ParseKeyCode( "rightKey",       "D"          );
+        BackwardKeyCode     = ParseKeyCode( "backwardKey",    "S"          );
+        JumpKeyCode         = ParseKeyCode( "jumpKey",        "Space"      );
+        RollKeyCode         = ParseKeyCode( "rollKey",        "LeftControl");
+        SwapHoldableKeyCode = ParseKeyCode( "SwapHoldable",   "X"          );
+        SubstanceKeyKeyCode = ParseKeyCode( "SubstanceKey",   "LeftShift"  );
+        InteractionKeyCode  = ParseKeyCode( "Interaction",    "F"          );
+        LeftAttackKeyCode   = ParseKeyCode( "Fire1",          "Mouse0"     );
+        RightAttackKeyCode  = ParseKeyCode( "Fire2",          "Mouse1"     );
+        PauseKeyCode        = ParseKeyCode( "pauseKey",       "Escape"     );
+
+        //cheatcode section
+        SkipSublevelKeyCode = ParseKeyCode( "skipSubevelKey", "RightArrow"  );
     }
     private KeyCode ParseKeyCode(string internalName, string keyCodeName)
     {

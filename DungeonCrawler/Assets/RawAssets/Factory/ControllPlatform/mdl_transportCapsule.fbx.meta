@@ -1,32 +1,20 @@
 fileFormatVersion: 2
-guid: c38dfade69c3ea245ba3bd6d3aa6b0b0
+guid: abfc58128822a06408b32d44720aa0a0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: mdl_door_left
-    100002: mdl_door_rigth
-    100004: //RootNode
-    100006: mdl_scrapTransporter_inner
-    400000: mdl_door_left
-    400002: mdl_door_rigth
-    400004: //RootNode
-    400006: mdl_scrapTransporter_inner
-    2100000: icon
-    2100002: metal
-    2100004: substance_mat
-    2100006: scrap
-    2300000: mdl_door_left
-    2300002: mdl_door_rigth
-    2300004: //RootNode
-    2300006: mdl_scrapTransporter_inner
-    3300000: mdl_door_left
-    3300002: mdl_door_rigth
-    3300004: //RootNode
-    3300006: mdl_scrapTransporter_inner
-    4300000: mdl_scrapTransporter
-    4300002: mdl_scrapTransporter_inner
-    4300004: mdl_door_rigth
-    4300006: mdl_door_left
+    100000: //RootNode
+    100002: mesh_door
+    400000: //RootNode
+    400002: mesh_door
+    2100000: metal
+    2100002: Glas
+    2300000: //RootNode
+    2300002: mesh_door
+    3300000: //RootNode
+    3300002: mesh_door
+    4300000: mesh_transportCapsule
+    4300002: mesh_door
     7400000: Scene
     9500000: //RootNode
   externalObjects: {}

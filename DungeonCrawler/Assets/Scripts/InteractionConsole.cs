@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class InteractionConsole : MonoBehaviour {
 
-
     [SerializeField]
     private GameObject script;
 
-
-
-
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(Global.PlayerTag))
+        if (other.CompareTag(Global.PlayerTag)&CTRLHub.inst.InteractionDown)
         {
-            if (CTRLHub.inst.InteractionDown)
-            {
                 Activate();
-            }
         }
     }
 

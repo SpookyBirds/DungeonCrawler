@@ -97,7 +97,6 @@ public class Entity : InheritanceSimplyfier {
     /// <param name="damageToDeal">The amount of damage the attack delt this entity. Must be positive</param>
     public bool TryToDamage(float damageToDeal, Substance attackedSubstance = Substance.none_physical)
     {
-        Debug.Log("auch");
         if (infusedSubstance == Substance.none_physical)
             infusedSubstance = attackedSubstance;
         else if(infusedSubstance != attackedSubstance)  // if the substances are the same, nothing has to be done

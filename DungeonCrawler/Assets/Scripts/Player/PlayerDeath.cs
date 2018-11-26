@@ -37,7 +37,7 @@ public class PlayerDeath : MonoBehaviour {
 
         GetComponent<EntityPlayer>().RestoreHealth(respawnHealth);
 
-        subLevelManager.GetComponent<SubLevelManager>().resetSubLevel();
+        subLevelManager.GetComponent<SubLevelManager>().ResetSubLevel();
         transform.position= subLevelManager.GetComponent<SubLevelManager>().currentSpawnPoint;
     }
 }

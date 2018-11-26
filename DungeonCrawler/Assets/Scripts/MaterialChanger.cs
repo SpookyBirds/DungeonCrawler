@@ -16,9 +16,17 @@ public class MaterialChanger : MonoBehaviour {
 
     private Material[] meshRendererMaterials;
 
+    [SerializeField]
+    private bool lookInParentForEntity;
+
 	void Start () {
 
-        substance = GetComponent<Entity>().InfusedSubstance;
+        if(lookInParentForEntity)
+            substance = gameObject.GetComponentInParent<Entity>().InfusedSubstance;
+        else
+            substance = GetComponent<Entity>().InfusedSubstance;
+
+
         meshRenderer = GetComponent<MeshRenderer>();
         meshRendererMaterials = meshRenderer.materials;
 

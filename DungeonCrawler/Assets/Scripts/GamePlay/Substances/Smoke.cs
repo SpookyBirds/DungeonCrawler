@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Smoke : MonoBehaviour {
 
+    // toFix: if enemy dies inside the smoke, he is is still in the list. gives error when the list tries to remove him from the list and he is already destroyed
     private List<Controller> blindedOnes;
 
     private void Awake()

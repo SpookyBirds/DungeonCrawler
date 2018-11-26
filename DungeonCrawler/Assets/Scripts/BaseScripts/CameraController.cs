@@ -10,11 +10,11 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Image crossHair;
 
-    [SerializeField]
-    private float aimingCameraTopOffset = 0.5f;
+    //[SerializeField]
+    //private float aimingCameraTopOffset = 0.5f;
 
-    [SerializeField]
-    private float aimingCameraZoomOffset = 3f;
+    //[SerializeField]
+    //private float aimingCameraZoomOffset = 3f;
 
     [Space]
     [SerializeField]
@@ -50,14 +50,12 @@ public class CameraController : MonoBehaviour
     private float playerZoomCache;
 
     private Vector3 forwardPoint;
-    private Vector3 initialCameraPosition;
 
     private void Awake()
     {
         PitchRotation = transform.GetChild(0);
         MainCamera = PitchRotation.GetChild(0);
         RotationCenterPoint = transform.parent;
-        initialCameraPosition = MainCamera.localPosition;
 
         crossHair.gameObject.SetActive(false);
 

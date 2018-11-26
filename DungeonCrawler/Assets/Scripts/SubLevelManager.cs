@@ -46,10 +46,13 @@ public class SubLevelManager : MonoBehaviour {
     void Update()
     {
         if(nextCheckpoint.transform.GetChild(0).gameObject.activeSelf && !currendCheckpointTriggerd)
-            activateNextSublevel();
+            ActivateNextSublevel();
+
+        if (Global.inst.cheatingEnabled)
+            SkipLevel();
     }
 
-    private void activateNextSublevel()
+    private void ActivateNextSublevel()
     {
         currentSubLevel++;
         currentSpawnPoint = checkpoints[currentSubLevel].transform.GetChild(0).transform.position;
@@ -62,7 +65,7 @@ public class SubLevelManager : MonoBehaviour {
         }
     }
 
-    public void resetSubLevel()
+    public void ResetSubLevel()
     {
         Destroy(subLevelInstance[currentSubLevel]);
         subLevelInstance[currentSubLevel] = Instantiate(subLevelPrefabs[currentSubLevel],subLevelHolder);
@@ -70,5 +73,15 @@ public class SubLevelManager : MonoBehaviour {
 
         for(int number= Global.inst.Drops.transform.childCount; number > 0; number--)
             Destroy(Global.inst.Drops.transform.GetChild(number-1).gameObject);
+    }
+
+    private void SkipLevel()
+    {
+        if (CTRLHub.inst.SkipSublevelDown)
+        {
+            ActivateNextSublevel();
+            Global.inst.player.transform.position = currentSpawnPoint;
+        }
+
     }
 }

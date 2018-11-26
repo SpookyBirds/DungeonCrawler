@@ -16,8 +16,6 @@ public class FollowCurve : MonoBehaviour {
 
     private int currentPositionNumber;
 
-    private int startPositionNumber;
-
     private int endPositionNumber;
 
     private bool forwardDirection = true;
@@ -48,7 +46,7 @@ public class FollowCurve : MonoBehaviour {
                     active = false;
                     forwardDirection = false;
                 }
-                if (currentPositionNumber == startPositionNumber)
+                if (currentPositionNumber == 0)
                 {
                     forwardDirection = true;
                     active = false;

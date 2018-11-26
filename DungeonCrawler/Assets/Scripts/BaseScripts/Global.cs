@@ -24,6 +24,7 @@ public class Global : MonoBehaviour {
     public GameObject Drops;
     public GameObject GameLogic;
     public GameObject emptyHandFist;
+    public bool cheatingEnabled = true;
 
     [Space]
     public Material SubstanceMaterial_Default;
