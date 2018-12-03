@@ -31,17 +31,18 @@ public class CombatManager : MonoBehaviour {
 
     private static bool ApplyDamageToColliderCollection(float damagePerHit, Substance attackingSubstance, int[] enemyTypes, Collider[] colliderInAttackRange)
     {
+        bool didHit = false;
         for (int index = 0; index < colliderInAttackRange.Length; index++)
         {
             if (colliderInAttackRange[ index ].IsAnyTag(enemyTypes) ||
                 colliderInAttackRange[ index ].IsTagNeutral())
             {
                 colliderInAttackRange[ index ].GetComponent<Entity>().TryToDamage(damagePerHit, attackingSubstance);
-                return true;
+                didHit = true;
             }
         }
 
-        return false;
+        return didHit;
     }
 
     public static bool Shoot(

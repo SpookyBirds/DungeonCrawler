@@ -11,6 +11,9 @@ public class ScrapTransporter : MonoBehaviour {
     private GameObject particelSystem;
 
     [SerializeField]
+    private GameObject scrapCollider;
+
+    [SerializeField]
     private GameObject scripti;
 
     private Animator animator;
@@ -31,5 +34,6 @@ public class ScrapTransporter : MonoBehaviour {
     {
         Destroy(inner);
         particelSystem.SetActive(true);
+        scrapCollider.SetActive(true);
     }
 }
