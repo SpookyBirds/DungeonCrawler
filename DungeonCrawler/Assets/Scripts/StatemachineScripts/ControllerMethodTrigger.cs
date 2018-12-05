@@ -11,7 +11,7 @@ public class PlayerControllerMethodTrigger : StateMachineBehaviour {
     private MethodFire fireEnter;
     private MethodFire fireUpdate;
 
-    private bool attackStarted = false;
+    //private bool attackStarted = false;
 
     private void Awake()
     {

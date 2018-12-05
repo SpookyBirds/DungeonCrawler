@@ -9,6 +9,7 @@ public class SubstanceManager : MonoBehaviour {
 
     [EnumFlags] [SerializeField] [Tooltip("All entities that are affected by the substances")]
     private Entities effected;
+
     [Space]
     [SerializeField]
     private GameObject explosionPrefab;
@@ -18,6 +19,9 @@ public class SubstanceManager : MonoBehaviour {
     private float explosionDamage;
     [SerializeField]
     private float explosionDuration;
+    [SerializeField]
+    private SphereCollider explosionRadius2;
+
     [Space]
     [SerializeField]
     private GameObject crystalNonPlayerPrefab;
@@ -84,7 +88,7 @@ public class SubstanceManager : MonoBehaviour {
 
         CombatManager.ColliderAttackSphere(
             reactionist.position, 
-            inst.explosionRadius, 
+            inst.explosionRadius2.radius, 
             inst.explosionDamage, 
             Substance.none_physical, 
             inst.Effected);

@@ -11,12 +11,12 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private float[] obstacleEvadingAngles = { -2f, -1f, 1f, 2f };
 
-    private NPC_AI aI;
+    //private NPC_AI aI;
     private float visionRadius;
 
     private void Awake()
     {
-        aI = GetComponent<NPC_AI>();
+        //aI = GetComponent<NPC_AI>();
 
         visionRadius = standartVisionRadius;
     }

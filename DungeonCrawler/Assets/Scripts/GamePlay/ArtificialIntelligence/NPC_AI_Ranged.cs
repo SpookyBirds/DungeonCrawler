@@ -14,13 +14,13 @@ public class NPC_AI_Ranged : NPC_AI {
 
     private bool isAttacking = false;
     private Vector3 lockedPosition;
-    private Quaternion initialAimRotationPointRotation;
+    //private Quaternion initialAimRotationPointRotation;
 
     protected override void Awake()
     {
         base.Awake();
         lockedPosition = transform.position;
-        initialAimRotationPointRotation = transform.rotation;
+        //initialAimRotationPointRotation = transform.rotation;
     }
 
     protected override void InitializeCommunicator()

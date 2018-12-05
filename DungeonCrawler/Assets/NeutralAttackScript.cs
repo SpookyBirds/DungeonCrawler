@@ -26,7 +26,5 @@ public class NeutralAttackScript : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         CombatManager.ColliderAttackBox(damageCollider, damageToDeal, substance, enemyTypes);
-
     }
-
 }

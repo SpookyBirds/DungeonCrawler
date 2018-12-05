@@ -46,6 +46,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1432307899034152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4352605297141400}
+  - component: {fileID: 54973428632397346}
+  - component: {fileID: 65610874028410910}
+  - component: {fileID: 114688339175559084}
+  m_Layer: 0
+  m_Name: ScrapCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1569644383856120
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +195,19 @@ Transform:
   m_Father: {fileID: 4385607911265050}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4352605297141400
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432307899034152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4385607911265050}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4385607911265050
 Transform:
   m_ObjectHideFlags: 1
@@ -191,6 +222,7 @@ Transform:
   - {fileID: 4274271300203914}
   - {fileID: 4506017158341998}
   - {fileID: 4400380265452416}
+  - {fileID: 4352605297141400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -405,6 +437,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797128651529688}
   m_Mesh: {fileID: 4300000, guid: c38dfade69c3ea245ba3bd6d3aa6b0b0, type: 3}
+--- !u!54 &54973428632397346
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432307899034152}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65610874028410910
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432307899034152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65900799282745708
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -499,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inner: {fileID: 1005718688367052}
   particelSystem: {fileID: 1633533139638060}
+  scrapCollider: {fileID: 1432307899034152}
   scripti: {fileID: 1707312700501626}
 --- !u!114 &114528292050355568
 MonoBehaviour:
@@ -518,6 +578,21 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1e7cc4bf8466234449318c835f7df487, type: 2}
   - {fileID: 2100000, guid: c9acb8985ffbaac41ba8706b0f8aa2fc, type: 2}
   lookInParentForEntity: 1
+--- !u!114 &114688339175559084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432307899034152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06b66a929bd14c45b50334713c94e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCollider: {fileID: 65610874028410910}
+  damageToDeal: 20
+  substance: 2
+  hostileEntities: 30
 --- !u!114 &114847733722321452
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scripti : MonoBehaviour {
+public class ParticleMaterialChanger : MonoBehaviour {
 
-    private ParticleSystemRenderer ps;
+    private ParticleSystemRenderer PsRenderer;
 
     private int number;
 
@@ -17,7 +17,7 @@ public class scripti : MonoBehaviour {
     public Substance substance;
 
 	void Start () {
-        ps = GetComponent<ParticleSystemRenderer>();
+        PsRenderer = GetComponent<ParticleSystemRenderer>();
         
 
         switch (substance)
@@ -35,6 +35,6 @@ public class scripti : MonoBehaviour {
                 number = 3;
                 break;
         }
-        ps.material = materials[number];
+        PsRenderer.material = materials[number];
 	}
 }

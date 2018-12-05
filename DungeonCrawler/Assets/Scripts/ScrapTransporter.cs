@@ -21,7 +21,7 @@ public class ScrapTransporter : MonoBehaviour {
     void Start()
     {
         animator = GetComponent<Animator>();
-        scripti.GetComponent<scripti>().substance = GetComponent<Entity>().InfusedSubstance;
+        scripti.GetComponent<ParticleMaterialChanger>().substance = GetComponent<Entity>().InfusedSubstance;
 
     }
 

@@ -19,8 +19,9 @@ public class NPC_AI : InheritanceSimplyfier
     [Space]
     [SerializeField]
     private float timeIntervallToUpdateNavDestinationInSeconds = 1f;
-    [SerializeField]
-    private float timeIntervallToCheckFieldOfViewInSeconds = 1f;
+
+    //[SerializeField]
+    //private float timeIntervallToCheckFieldOfViewInSeconds = 1f;
 
     public Controller Controller { get; private set; }
     public FieldOfView FieldOfView { get; private set; }
@@ -29,7 +30,7 @@ public class NPC_AI : InheritanceSimplyfier
     protected Vector3 AttackCenter { get { return attackCollider.transform.position; } }
 
     private float elapsedTimeSinceLastNavUpdate = 0f;
-    private float elapsedTimeSinceLastFieldOfViewCheck = 0f;
+    //private float elapsedTimeSinceLastFieldOfViewCheck = 0f;
 
     protected Entity opponent;
 
