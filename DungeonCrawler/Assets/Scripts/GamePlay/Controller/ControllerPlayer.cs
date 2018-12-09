@@ -46,7 +46,6 @@ public class ControllerPlayer : Controller {
     [SerializeField] [Tooltip("The override controller used to dynamically assign the weapon animations")]
     private AnimatorOverrideController animatorOverrideController;
 
-    UiManager manager;
 
     /// <summary>
     /// The OverrideController used to dynamically assign the attack animations
