@@ -124,12 +124,12 @@ public class PlayerLocomotion : MonoBehaviour {
 
     #endregion fields
 
-     void Awake()
+    void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
-        Rigid                  = GetComponent<Rigidbody>();
-        CameraController       = GetComponentInChildren<CameraController>(true);
-        normalizedGravity      = Physics.gravity.normalized;
+        animator            = GetComponentInChildren<Animator>();
+        Rigid               = GetComponent<Rigidbody>();
+        CameraController    = GetComponentInChildren<CameraController>(true);
+        normalizedGravity   = Physics.gravity.normalized;
     }
 
     void Update ()
@@ -301,11 +301,11 @@ public class PlayerLocomotion : MonoBehaviour {
         }
     }
 
-/// <summary>
-/// Applies AddForce in 'movementDirection' using the given strength and ForceMode,
-/// according to the inputed movement strength ('GetInputMagnitude()')
-/// </summary>
-private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
+    /// <summary>
+    /// Applies AddForce in 'movementDirection' using the given strength and ForceMode,
+    /// according to the inputed movement strength ('GetInputMagnitude()')
+    /// </summary>
+    private void ApplyForceInMovementDirection(float strength, ForceMode forceMode = ForceMode.Force)
     {
         Rigid.AddForce(movementDirection * strength * GetInputMagnitude(), forceMode);
     }
